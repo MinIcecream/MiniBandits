@@ -8,11 +8,13 @@ public class EnemyTestAI : MonoBehaviour
     Health health;
     bool hasDied = false;
     GameObject player;
+    public int bulletDeathTimer = 2;
 
     void Awake()
     {
         health = GetComponent<Health>();
         StartCoroutine(FireTimer()); 
+        
     }
     void Update()
     {
@@ -35,13 +37,19 @@ public class EnemyTestAI : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         while (true)
         {
+            yield return new WaitForSeconds(1f);
             if (player == null)
             {
                 break;
             }
+            //makes projectile
             var newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
+            //shoots projectile at player position
             newProjectile.GetComponent<TESTPlayerProjectile>().SetDir(((Vector2)(player.transform.position - transform.position)).normalized);
-            yield return new WaitForSeconds(1f);
+            //destroys projectile after certain time
+            Destroy(newProjectile,bulletDeathTimer);
+            //waits 1 second before shooting another
+            
         }
     }
 }
