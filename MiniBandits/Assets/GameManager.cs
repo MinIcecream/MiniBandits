@@ -52,6 +52,10 @@ public class GameManager : MonoBehaviour
         {
             Invoke("LoadMenu", 1f);
         }
+        if (SceneManager.GetActiveScene().name == "Menu")
+        {
+            Destroy(gameObject);
+        }
 
         if (GameObject.FindWithTag("Enemy") == null)
         {
