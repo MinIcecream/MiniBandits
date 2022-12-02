@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
 
     Vector2 lastPosition = Vector2.zero;
 
+    bool walkingToRoom=false;
+
     void Awake()
     {
         health = GetComponent<Health>();
@@ -24,6 +26,34 @@ public class PlayerMovement : MonoBehaviour
         {
             return;
         }
+
+        //CHECKING IF PLAYTER DIED 
+        if (health.GetHealth() <= 0)
+        {
+            Death();
+            hasDied = true;
+        }
+        //END CHECKING IF PLOAYRWE DEID
+
+
+        //CHECK IF MOVING. IF SO, PLAY ANIMATION
+        if ((Vector2)transform.position == lastPosition)
+        {
+            GetComponent<Animation>().enabled = false;
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(Vector3.zero), 90 * Time.deltaTime);
+        }
+        else
+        {
+            GetComponent<Animation>().enabled = true;
+        }
+
+        if (walkingToRoom)
+        {
+            transform.position = (Vector2)transform.position+ new Vector2(0,1) * Time.deltaTime * speed;
+            return;
+        }
+         
+
 
         //CAPTURING INPUT
         lastPosition = transform.position;
@@ -40,27 +70,10 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Attack();
-        }
-
-        if ((Vector2)transform.position == lastPosition)
-        {
-            GetComponent<Animation>().enabled = false;
-            transform.rotation = Quaternion.RotateTowards(transform.rotation,Quaternion.Euler(Vector3.zero),90*Time.deltaTime);
-        }
-        else
-        { 
-            GetComponent<Animation>().enabled = true;
-        }
+        } 
         //END CAPTUING INPUT
 
-
-        //CHECKING IF PLAYTER DIED 
-        if (health.GetHealth() <= 0)
-        {
-            Death();
-            hasDied = true;
-        }
-        //END CHECKING IF PLOAYRWE DEID
+         
     }
 
     void Death()
@@ -72,4 +85,12 @@ public class PlayerMovement : MonoBehaviour
         var newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
         newProjectile.GetComponent<TESTPlayerProjectile>().SetDir(((Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position)).normalized);
     } 
+    public void WalkToRoom()
+    {
+        walkingToRoom = true;
+    }
+    public void ReachedRoom()
+    {
+        walkingToRoom = false;
+    }
 }

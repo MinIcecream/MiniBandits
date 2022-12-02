@@ -24,5 +24,9 @@ public class TESTPlayerProjectile : MonoBehaviour
         {
             coll.gameObject.GetComponent<Health>().DealDamage(damage);
         }
+        if (coll.gameObject.tag == "Wall")
+        { 
+            Destroy(gameObject);
+        }
     }
 }

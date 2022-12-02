@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Enemy
   - SceneSpawnPoint
+  - Wall
+  - CameraAnchor
+  - CameraParent
+  - LevelManager
   layers:
   - Default
   - TransparentFX

@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public RectTransform fader;
+    public GameObject closedWall, openedWall;
     /*
         void Start()
         { 
@@ -51,16 +52,8 @@ public class GameManager : MonoBehaviour
         if (GameObject.FindWithTag("Player") == null)
         {
             Invoke("LoadMenu", 1f);
-        }
-        if (SceneManager.GetActiveScene().name == "Menu")
-        {
-            Destroy(gameObject);
-        }
-
-        if (GameObject.FindWithTag("Enemy") == null)
-        {
-            SceneManager.LoadScene("Level2", LoadSceneMode.Additive);
-        }
+        } 
+         
     }
     void LoadMenu()
     {
