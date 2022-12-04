@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class PlayerMovement : MonoBehaviour
-{
+{ 
+    public LayerMask mask;
     public float speed;
     public GameObject projectile;
 
@@ -18,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     Vector2 lastPosition = Vector2.zero;
 
     bool walkingToRoom=false;
+
+    public float dashMagnitude;
 
     void Awake()
     {
@@ -66,21 +69,50 @@ public class PlayerMovement : MonoBehaviour
         }
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0f);
 
-        if (move.magnitude > 1)
+        Vector3 walkSpeed = move;
+        if (walkSpeed.magnitude > 1)
         {
-            move = move.normalized;
+            walkSpeed = walkSpeed.normalized;
         }
-        move *= Time.deltaTime;
-        transform.position += move * speed;
+        walkSpeed *= Time.deltaTime;
+        transform.position += walkSpeed * speed;
 
+        //DASH
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Vector2 dashDirection = move.normalized;
+            Vector2 dashDistance = (Vector2)move.normalized * dashMagnitude; 
+ 
+            transform.position = hitPoint(dashDirection, dashMagnitude);
+        }
+
+        //IF MOUSE NOT OVER UI, ATTACK ON CLICK
         if (EventSystem.current.IsPointerOverGameObject()) return;
         if (Input.GetMouseButtonDown(0))
         {
             Attack();
         } 
-        //END CAPTUING INPUT
+        //END CAPTUING INPUT 
+    }
 
-         
+    public Vector2 hitPoint(Vector2 dir, float distance)
+    { 
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, distance, mask);
+
+        //Debug.Log("DIRECTIONS: " + dir + " DISTANCE: " + distance);
+        //If you hit something: return the point where you hit
+        if (hit.collider != null)
+        {
+            Debug.Log(hit.point);
+            return hit.point;
+        }
+
+        //Otherwise, just return the original dash end position
+        else
+        {
+            Debug.Log(dir * distance);
+            return dir * distance + (Vector2)transform.position;
+        } 
     }
 
     void Death()
