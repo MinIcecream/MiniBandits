@@ -1,15 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerMovement : MonoBehaviour
 {
     public float speed;
     public GameObject projectile;
 
+    public bool canMove=true;
 
     Health health;
     bool hasDied = false;
+
+    public bool inCombat = false;
 
     Vector2 lastPosition = Vector2.zero;
 
@@ -51,13 +55,15 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.position = (Vector2)transform.position+ new Vector2(0,1) * Time.deltaTime * speed;
             return;
-        }
-         
-
+        } 
 
         //CAPTURING INPUT
         lastPosition = transform.position;
 
+        if (!canMove)
+        {
+            return;
+        }
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0f);
 
         if (move.magnitude > 1)
@@ -65,8 +71,9 @@ public class PlayerMovement : MonoBehaviour
             move = move.normalized;
         }
         move *= Time.deltaTime;
-        transform.position += move * speed; 
+        transform.position += move * speed;
 
+        if (EventSystem.current.IsPointerOverGameObject()) return;
         if (Input.GetMouseButtonDown(0))
         {
             Attack();

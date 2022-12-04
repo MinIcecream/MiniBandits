@@ -9,23 +9,18 @@ public class LevelManager : MonoBehaviour
 
     List<GameObject> enemies = new List<GameObject>();
      
-    bool levelComplete = false;
+    public bool levelComplete = false;
+    public bool levelStarted = false;
 
     public GameObject openUpperWall, closedUpperWall, closedLowerWall,openLowerWall;
      
 
     void Start()
-    {
+    { 
         Vector2 spawnPt = GameObject.FindWithTag("SceneSpawnPoint").transform.position;
-        level.transform.position = spawnPt;
-        GameObject.FindWithTag("SceneSpawnPoint").transform.position = new Vector2(spawnPt.x, spawnPt.y);
+        level.transform.position = spawnPt; 
 
-        GameObject.FindWithTag("SceneSpawnPoint").transform.position = new Vector2(spawnPt.x, spawnPt.y + 12);
-
-        foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
-        {
-            enemies.Add(enemy);
-        }
+        GameObject.FindWithTag("SceneSpawnPoint").transform.position = new Vector2(spawnPt.x, spawnPt.y + 12); 
     } 
 
     void Update()
@@ -34,16 +29,25 @@ public class LevelManager : MonoBehaviour
         {
             return;
         }
-        foreach(GameObject enemy in enemies)
-        {
-            if (enemy != null)
+        if (levelStarted)
+        { 
+            foreach (GameObject enemy in enemies)
             {
-                return;
+                if (enemy != null)
+                {
+                    return;
+                }
             }
-        }
-        levelComplete = true;
+            GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().inCombat = false;
+            levelComplete = true;
 
-        StartCoroutine(LoadNextLevel());
+
+            //SPAWN A WEAPON AFRTRE YOU BEAT IT
+            var item=Instantiate(Resources.Load<GameObject>("ItemInteractable"), (Vector2)transform.position, Quaternion.identity);
+            item.GetComponent<ItemInteractable>().UpdateItem(ItemManager.weaponList[Random.Range(0, 4)]); ;
+
+            StartCoroutine(LoadNextLevel());
+        } 
     }
     IEnumerator LoadNextLevel()
     {
@@ -54,8 +58,19 @@ public class LevelManager : MonoBehaviour
         openUpperWall.SetActive(true);  
     } 
     public void SealEntrances()
-    { 
+    {
+        GameObject.FindWithTag("Inventory").GetComponent<PlayerInventory>().HideUI();
         closedLowerWall.SetActive(true);
-        openLowerWall.SetActive(false); 
+        openLowerWall.SetActive(false);
+        SpawnEnemies();
+        levelStarted = true;
+    }
+    void SpawnEnemies()
+    {
+        foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
+        {
+            enemies.Add(enemy);
+        }
+        GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().inCombat = true;
     }
 }
