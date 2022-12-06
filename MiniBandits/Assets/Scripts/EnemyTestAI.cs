@@ -2,36 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyTestAI : MonoBehaviour
+public class EnemyTestAI : EnemyAI
 {
-    public GameObject projectile;
-    Health health;
-    bool hasDied = false;
-    GameObject player;
+    public GameObject projectile; 
     public int bulletDeathTimer = 2;
 
-    void Awake()
-    {
-        health = GetComponent<Health>();
-        StartCoroutine(FireTimer()); 
-        
-    }
-    void Update()
-    {
-        if (hasDied)
-        {
-            return;
-        }
-        if (health.GetHealth() <= 0)
-        {
-            Death();
-            hasDied = true;
-        }
-    }
-    void Death()
-    {
-        Destroy(gameObject);
-    }
+    public override void Awake()
+    { 
+        StartCoroutine(FireTimer());  
+    }  
     IEnumerator FireTimer()
     {
         player = GameObject.FindWithTag("Player");
