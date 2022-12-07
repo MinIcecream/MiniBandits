@@ -17,10 +17,13 @@ public class BoarAI : EnemyAI
     IEnumerator AttackTimer()
     {
         yield return new WaitForSeconds(chargeCooldown);
-        chargeDir = player.transform.position - transform.position;
-        chargeDir = chargeDir.normalized;
-        GetComponent<FacePlayer>().enabled = false;
-        charging = true;
+        if (player != null)
+        {
+            chargeDir = player.transform.position - transform.position;
+            chargeDir = chargeDir.normalized;
+            GetComponent<FacePlayer>().enabled = false;
+            charging = true;
+        } 
     }
 
     public override void Update()
