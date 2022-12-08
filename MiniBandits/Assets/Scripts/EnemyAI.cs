@@ -8,6 +8,11 @@ public class EnemyAI : MonoBehaviour
     public bool hasDied = false;
     public GameObject player;
 
+    public virtual void StartLevel()
+    {
+
+    }
+
     public virtual void Awake()
     {
         health = GetComponent<Health>(); 

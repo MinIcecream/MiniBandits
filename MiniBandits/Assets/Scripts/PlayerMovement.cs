@@ -78,8 +78,9 @@ public class PlayerMovement : MonoBehaviour
         transform.position += walkSpeed * speed;
 
         //DASH
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && GetComponent<PlayerStamina>().GetStamina()>0)
         {
+            GetComponent<PlayerStamina>().UseStamina(1);
             Vector2 dashDirection = move.normalized;
             Vector2 dashDistance = (Vector2)move.normalized * dashMagnitude; 
  
@@ -102,15 +103,13 @@ public class PlayerMovement : MonoBehaviour
         //Debug.Log("DIRECTIONS: " + dir + " DISTANCE: " + distance);
         //If you hit something: return the point where you hit
         if (hit.collider != null)
-        {
-            Debug.Log(hit.point);
+        { 
             return hit.point;
         }
 
         //Otherwise, just return the original dash end position
         else
-        {
-            Debug.Log(dir * distance);
+        { 
             return dir * distance + (Vector2)transform.position;
         } 
     }

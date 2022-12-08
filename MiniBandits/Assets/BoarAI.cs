@@ -10,10 +10,10 @@ public class BoarAI : EnemyAI
     public float chargeSpeed;
     public float chargeCooldown;
 
-    public override void Awake()
-    {
+    public override void StartLevel()
+    { 
         StartCoroutine(AttackTimer());
-    }
+    } 
     IEnumerator AttackTimer()
     {
         yield return new WaitForSeconds(chargeCooldown);

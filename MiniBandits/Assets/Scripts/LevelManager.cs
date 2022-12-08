@@ -70,6 +70,7 @@ public class LevelManager : MonoBehaviour
         foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
         {
             enemies.Add(enemy);
+            enemy.GetComponent<EnemyAI>().StartLevel();
         }
         GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().inCombat = true;
     }

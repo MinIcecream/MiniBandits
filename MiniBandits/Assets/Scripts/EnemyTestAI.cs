@@ -6,11 +6,11 @@ public class EnemyTestAI : EnemyAI
 {
     public GameObject projectile; 
     public int bulletDeathTimer = 2;
-
-    public override void Awake()
-    { 
-        StartCoroutine(FireTimer());  
-    }  
+     
+    public override void StartLevel()
+    {
+        StartCoroutine(FireTimer());
+    }
     IEnumerator FireTimer()
     {
         player = GameObject.FindWithTag("Player");
