@@ -5,6 +5,9 @@ using System;
 
 public class PlayerInventory : MonoBehaviour
 {
+    public delegate void UpdateInventory();
+    public static event UpdateInventory OnInventoryUpdate;
+
     public GameObject UIPanel;
 
     public string[] inventoryItems= new string[5];
@@ -82,6 +85,10 @@ public class PlayerInventory : MonoBehaviour
         for(int i=0; i<inventoryItems.Length;i++)
         {
             slots[i].UpdateItem(inventoryItems[i]);
+        }
+        if (OnInventoryUpdate != null)
+        {
+            OnInventoryUpdate();
         }
     }
 

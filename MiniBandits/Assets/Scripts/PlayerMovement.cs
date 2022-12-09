@@ -6,8 +6,7 @@ using UnityEngine.EventSystems;
 public class PlayerMovement : MonoBehaviour
 { 
     public LayerMask mask;
-    public float speed;
-    public GameObject projectile;
+    public float speed; 
 
     public bool canMove=true;
 
@@ -31,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (hasDied)
         {
+            canMove = false;
             return;
         }
 
@@ -56,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (walkingToRoom)
         {
+            canMove = false;
             transform.position = (Vector2)transform.position+ new Vector2(0,1) * Time.deltaTime * speed;
             return;
         } 
@@ -86,13 +87,8 @@ public class PlayerMovement : MonoBehaviour
  
             transform.position = hitPoint(dashDirection, dashMagnitude);
         }
-
-        //IF MOUSE NOT OVER UI, ATTACK ON CLICK
-        if (EventSystem.current.IsPointerOverGameObject()) return;
-        if (Input.GetMouseButtonDown(0))
-        {
-            Attack();
-        } 
+         
+ 
         //END CAPTUING INPUT 
     }
 
@@ -117,11 +113,6 @@ public class PlayerMovement : MonoBehaviour
     void Death()
     {
         Destroy(gameObject);
-    }
-    void Attack()
-    {
-        var newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
-        newProjectile.GetComponent<TESTPlayerProjectile>().SetDir(((Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position)).normalized);
     } 
     public void WalkToRoom()
     {

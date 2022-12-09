@@ -54,3 +54,6 @@ TagManager:
   - name: Player
     uniqueID: 723825137
     locked: 0
+  - name: PlayerWeapon
+    uniqueID: 1648826359
+    locked: 0
