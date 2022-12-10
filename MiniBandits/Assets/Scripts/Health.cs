@@ -11,7 +11,10 @@ public class Health : MonoBehaviour
     {
         health = maxHealth;
     }
-
+    public void SetHealth(int h)
+    {
+        health = h;
+    }
     public virtual void DealDamage(int damage)
     {
         health -= damage;
