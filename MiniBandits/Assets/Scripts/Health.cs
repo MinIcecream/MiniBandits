@@ -7,7 +7,7 @@ public class Health : MonoBehaviour
     private int health;
     public int maxHealth;
 
-    void Start()
+    public virtual void Start()
     {
         health = maxHealth;
     }
@@ -24,4 +24,8 @@ public class Health : MonoBehaviour
     {
         return maxHealth;
     }
+    public void SetMaxHealth(int h)
+    {
+        maxHealth = h;
+    } 
 }

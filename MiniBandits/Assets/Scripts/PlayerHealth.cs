@@ -5,6 +5,18 @@ using EZCameraShake;
 
 public class PlayerHealth : Health
 {
+    public Player player;
+
+    public override void Start()
+    {
+        player = GetComponent<Player>();
+        maxHealth =  player.GetHealth();
+        base.Start();
+    }
+    void Update()
+    {
+        maxHealth = player.GetHealth();
+    }
     public override void DealDamage(int damage)
     {
         CameraShaker.Instance.ShakeOnce(4f, 4f, .1f, .1f);
