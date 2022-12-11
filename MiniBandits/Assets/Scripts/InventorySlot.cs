@@ -8,6 +8,16 @@ public class InventorySlot : MonoBehaviour
     public Image image;
     public string item;
 
+    public enum slotType
+    {
+        basic,
+        helmet,
+        chestplate,
+        legs,
+        weapon
+    }
+    public slotType acceptedItems;
+
     public string GetItem()
     {
         return item;
