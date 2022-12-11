@@ -9,27 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e94125e7eca2854ca86ab5ac4f42624, type: 3}
-  m_Name: TestHelmet
+  m_Script: {fileID: 11500000, guid: f215491fd243cc743a384acfd3d73e7e, type: 3}
+  m_Name: BigSword
   m_EditorClassIdentifier: 
-  id: 0
+  id: 1
   name: BigSword
   sprite: {fileID: 21300000, guid: cf725d4e99a70da42af79ced08f2e153, type: 3}
   rarity: 0
   type: 0
   tier: 0
-  stats:
-  - statName: Lifesteal
-    value: 0
-  - statName: Defense
-    value: 0
-  - statName: Speed
-    value: 0
+  weaponStats:
   - statName: Damage
     value: 0
-  - statName: Health
-    value: 0
-  - statName: Crit
-    value: 0
-  - statName: Luck
+  - statName: AttackSpeed
     value: 0
