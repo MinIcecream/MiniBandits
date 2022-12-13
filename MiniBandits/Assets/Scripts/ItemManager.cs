@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class ItemManager : MonoBehaviour
 {
-    public static List<string> weaponList = new List<string>(); 
+    public static Item item;
+    /*
+    public static List<Item> weaponList = new List<Item>(); 
 
     void Awake()
     {
@@ -13,5 +15,5 @@ public class ItemManager : MonoBehaviour
         weaponList.Add("DiamondSword");
         weaponList.Add("NormalSword");
         weaponList.Add("SerratedSword"); 
-    }
+    }*/
 }

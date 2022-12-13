@@ -5,7 +5,7 @@ using UnityEngine;
 public class ItemInteractable : MonoBehaviour
 {
     public GameObject popup;
-    public string item; 
+    public Item item; 
 
     InventorySlot selectedSlot;
 
@@ -49,7 +49,7 @@ public class ItemInteractable : MonoBehaviour
      
     public void Replace(InventorySlot slot)
     {
-        string itemToReplace = slot.GetItem();
+        Item itemToReplace = slot.GetItem();
         GameObject.FindWithTag("Inventory").GetComponent<PlayerInventory>().AddItemToInventory(item, slot);
         item = itemToReplace;
 
@@ -59,7 +59,7 @@ public class ItemInteractable : MonoBehaviour
 
     public void UpdateItem()
     {
-        if (item != "")
+        if (item != null)
         {
             GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("WeaponPortraits/" + item);
         }
@@ -69,11 +69,11 @@ public class ItemInteractable : MonoBehaviour
         }
     }
 
-    public void UpdateItem(string newItem)
+    public void UpdateItem(Item newItem)
     {
         item = newItem;
 
-        if (item != "")
+        if (item != null)
         {
             GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("WeaponPortraits/" + item);
         }

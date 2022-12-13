@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class BaseWeapon : MonoBehaviour
+public class WeaponTemplate : MonoBehaviour
 {
     public float attackCooldown;
 
@@ -15,9 +15,12 @@ public class BaseWeapon : MonoBehaviour
 
     public string weaponName;
 
+    public Weapon weapon; 
+
     void Awake()
     {
-        player = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
+        player = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>(); 
+        GetComponent<SpriteRenderer>().sprite = weapon.sprite;
     }
     void Update()
     {

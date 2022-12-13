@@ -1736,7 +1736,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8121160717422346259, guid: e26eefc123d4fba418a8af5edde0da3d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8121160717422346261, guid: e26eefc123d4fba418a8af5edde0da3d, type: 3}
       propertyPath: m_Sprite
@@ -1920,8 +1920,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 478374098}
-  item: 
-  acceptedItems: 0
+  item: {fileID: 0}
+  acceptedItems: 5
 --- !u!114 &750119007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2088,7 +2088,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 1663610666}
-  item: 
+  item: {fileID: 0}
   acceptedItems: 3
 --- !u!114 &891459208
 MonoBehaviour:
@@ -2828,8 +2828,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 979309707}
-  item: 
-  acceptedItems: 4
+  item: {fileID: 0}
+  acceptedItems: 0
 --- !u!114 &1168071669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3120,7 +3120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 344987857}
-  item: 
+  item: {fileID: 0}
   acceptedItems: 2
 --- !u!114 &1300571948
 MonoBehaviour:
@@ -3428,17 +3428,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UIPanel: {fileID: 1737844249}
   inventoryItems:
-  - bow
-  - 
-  - 
-  - 
-  - 
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  activeHelmet: {fileID: 11400000, guid: 59ebdd9e406e09a4588dcfc512b7f88d, type: 2}
+  activeChestplate: {fileID: 0}
+  activePants: {fileID: 0}
+  activeWeapon: {fileID: 11400000, guid: d62a732ab68c8144f9a59b61987ca75c, type: 2}
   slots:
-  - {fileID: 1168071668}
   - {fileID: 750119006}
   - {fileID: 1983161147}
   - {fileID: 1862758325}
   - {fileID: 1519958632}
+  helmetSlot: {fileID: 1954289358}
+  chestplateSlot: {fileID: 1300571947}
+  pantsSlot: {fileID: 891459207}
+  weaponSlot: {fileID: 1168071668}
   buttons:
   - {fileID: 329934530}
   - {fileID: 364208584}
@@ -3521,8 +3527,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 2024775035}
-  item: 
-  acceptedItems: 0
+  item: {fileID: 0}
+  acceptedItems: 5
 --- !u!114 &1519958633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4815,8 +4821,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 1899051375}
-  item: 
-  acceptedItems: 0
+  item: {fileID: 0}
+  acceptedItems: 5
 --- !u!114 &1862758326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5251,7 +5257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 1823606437}
-  item: 
+  item: {fileID: 0}
   acceptedItems: 1
 --- !u!114 &1954289359
 MonoBehaviour:
@@ -5323,8 +5329,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 1928639554}
-  item: 
-  acceptedItems: 0
+  item: {fileID: 0}
+  acceptedItems: 5
 --- !u!114 &1983161148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5855,7 +5861,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2372033379933495111, guid: f021d76954126b543a1a165b3596713f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5791364619530835827, guid: f021d76954126b543a1a165b3596713f, type: 3}
       propertyPath: m_RootOrder

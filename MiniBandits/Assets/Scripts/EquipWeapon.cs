@@ -24,21 +24,32 @@ public class EquipWeapon : MonoBehaviour
 
     void UpdateWeapon()
     { 
-        string weapon = inven.GetActiveWeapon();
-        //IF NO ACTIVRE WEAPON:
+        Item weapon = inven.GetActiveWeapon();
+
+        //IF NO WEAPON EQUIPPED:
+        if (!weapon)
+        {
+            Debug.Log("NO WEAPON EQUIPPEED");
+            Destroy(activeWeapon);
+            return;
+        }
+        //IF ACTIVRE WEAPON IS EQUIPPED:
         if (activeWeapon)
         { 
-            //IF THAT WEAPON ALREADY EQUIPPED: RETURN
-            if (activeWeapon.GetComponent<BaseWeapon>().weaponName == weapon)
+            //IF THAT SAME WEAPON ALREADY EQUIPPED: RETURN
+            if (activeWeapon.GetComponent<WeaponTemplate>().weaponName == weapon.name)
             {
                 return;
             }
+
+            //IF A DIFFERENT WEAPON IS EQUIPOPPED, DESTROY IT.
             Destroy(activeWeapon);
 
         }
-        //TIME TO UPDATE THE WEAPON!  
 
-        var weaponPrefab = Resources.Load<GameObject>("WeaponPrefabs/" + weapon);
+        //OTHERWISE:
+        //TIME TO UPDATE THE WEAPON!  
+        var weaponPrefab = Resources.Load<GameObject>("WeaponPrefabs/" + weapon.name);
 
         if (weaponPrefab == null)
         {
@@ -49,7 +60,7 @@ public class EquipWeapon : MonoBehaviour
         activeWeapon = Instantiate(weaponPrefab, spawnPt.position, Quaternion.identity);
    
         //If the weapon was successfully equiped: 
-        activeWeapon.transform.SetParent(this.gameObject.transform);
+        activeWeapon.transform.SetParent(this.gameObject.transform); 
    
     }
 }

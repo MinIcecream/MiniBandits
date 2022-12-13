@@ -15,9 +15,10 @@ public class Item : ScriptableObject
     {
         weapon,
         helmet,
-        chesplate,
+        chestplate,
         pants,
-        potion
+        potion,
+        basic
     }
     public enum itemRarity
     {

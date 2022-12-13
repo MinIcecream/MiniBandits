@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5311302903575278931}
   - component: {fileID: 5311302903575278932}
-  - component: {fileID: 5311302903575278933}
   - component: {fileID: 5311302903575278934}
   m_Layer: 6
   m_Name: Bow
@@ -86,18 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5311302903575278933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5311302903575278930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29faef01c82d3454581ea907807a5b62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5311302903575278934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,3 +101,5 @@ MonoBehaviour:
   player: {fileID: 0}
   projectile: {fileID: 7777877402851561955, guid: 22a21803513a7f14581e27e62b5996c7, type: 3}
   weaponName: 
+  weapon: {fileID: 11400000, guid: d62a732ab68c8144f9a59b61987ca75c, type: 2}
+  sprite: {fileID: 21300000, guid: b0126b7551b6e0444b46718c2f25426c, type: 3}

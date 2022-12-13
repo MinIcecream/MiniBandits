@@ -24,8 +24,10 @@ public class ClickAndDragItem : MonoBehaviour, IPointerExitHandler, IPointerEnte
 
     void Update()
     { 
-        if (parent.GetItem() != "")
+        //IF THERE IS AN ITEM IN THIS SLOT:
+        if (parent.GetItem() != null)
         {
+            //START DRAGGIN IT.
             if (mouseHoveringOver && Input.GetMouseButtonDown(0))
             {
                 beingDragged = true;
@@ -33,19 +35,28 @@ public class ClickAndDragItem : MonoBehaviour, IPointerExitHandler, IPointerEnte
             }
         } 
           
+        //IF YOU WERE DRAGGING SOMETING AND LET GO:
         if (Input.GetMouseButtonUp(0) && beingDragged)
         {
             GameObject slot = IsPointerOverUIElement("InventorySlot");
+            //IF YOU"RE OVER A SLOT:
             if (slot != null)
-            {   
-                string itemName = parent.GetItem();
-                string otherSlotItemName = slot.GetComponent<InventorySlot>().GetItem();
+            {
+                var compatibleType = slot.GetComponent<InventorySlot>().acceptedItems;
+                //CHECKING IF SLOT IS COMPATIBLE..l.
+                if (compatibleType == parent.GetItem().type || compatibleType == Item.itemType.basic)
+                { 
+                    Item item = parent.GetItem();
+                    Item otherSlotItem = slot.GetComponent<InventorySlot>().GetItem();
 
-                inventory.AddItemToInventory(otherSlotItemName, parent);
-                inventory.AddItemToInventory(itemName, slot.GetComponent<InventorySlot>());
+                    inventory.AddItemToInventory(otherSlotItem, parent);
+                    inventory.AddItemToInventory(item, slot.GetComponent<InventorySlot>());
 
+                }
                 transform.localPosition = Vector2.zero;
             }
+
+            //OTHERWISE, JUST DON't DO ANYHTING
             else
             { 
                 transform.localPosition = Vector2.zero;

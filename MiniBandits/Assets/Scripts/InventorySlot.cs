@@ -6,19 +6,11 @@ using UnityEngine.UI;
 public class InventorySlot : MonoBehaviour
 {
     public Image image;
-    public string item;
+    public Item item;
+     
+    public Item.itemType acceptedItems;
 
-    public enum slotType
-    {
-        basic,
-        helmet,
-        chestplate,
-        legs,
-        weapon
-    }
-    public slotType acceptedItems;
-
-    public string GetItem()
+    public Item GetItem()
     {
         return item;
     }
@@ -29,21 +21,21 @@ public class InventorySlot : MonoBehaviour
     }
     public void AddIcon()
     {
-        if (item != "")
-        {
-            image.overrideSprite = Resources.Load<Sprite>("WeaponPortraits/" + item);
+        if (item != null)
+        { 
+             image.overrideSprite = item.sprite; 
         }
         else
         {
             image.overrideSprite = null;
         }
     }
-    public void UpdateItem(string itemName)
+    public void UpdateItem(Item newItem)
     {
-        item = itemName;
-        if (item != "")
-        { 
-            image.overrideSprite = Resources.Load<Sprite>("WeaponPortraits/" + item);
+        item = newItem;
+        if (item != null)
+        {
+            image.overrideSprite = item.sprite;
         }
         else
         {
