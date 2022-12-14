@@ -119,9 +119,9 @@ TextureImporter:
       name: Armor_Head
       rect:
         serializedVersion: 2
-        x: 0
+        x: 5
         y: 10
-        width: 16
+        width: 8
         height: 6
       alignment: 1
       pivot: {x: 0, y: 1}
@@ -144,9 +144,9 @@ TextureImporter:
       name: Armor_Torso
       rect:
         serializedVersion: 2
-        x: 0
+        x: 3
         y: 4
-        width: 16
+        width: 12
         height: 6
       alignment: 1
       pivot: {x: 0, y: 1}
@@ -165,12 +165,12 @@ TextureImporter:
       name: Armor_Legs
       rect:
         serializedVersion: 2
-        x: 0
+        x: 5
         y: 0
-        width: 16
+        width: 8
         height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

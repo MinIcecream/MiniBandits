@@ -23,7 +23,8 @@ public class InventorySlot : MonoBehaviour
     {
         if (item != null)
         { 
-             image.overrideSprite = item.sprite; 
+            image.overrideSprite = item.sprite;
+            image.preserveAspect = true ;
         }
         else
         {
@@ -34,8 +35,9 @@ public class InventorySlot : MonoBehaviour
     {
         item = newItem;
         if (item != null)
-        {
+        { 
             image.overrideSprite = item.sprite;
+            image.preserveAspect=true;
         }
         else
         {
