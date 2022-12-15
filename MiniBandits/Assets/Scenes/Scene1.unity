@@ -2779,7 +2779,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1097601392}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.155, z: 0}
+  m_LocalPosition: {x: 0, y: -0.122, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3478,9 +3478,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inven: {fileID: 0}
   spawnPt: {fileID: 0}
+  head: {fileID: 1100395298, guid: db9f4d288d6b8a94f98e5487e7518b1c, type: 3}
+  body: {fileID: 438433835, guid: db9f4d288d6b8a94f98e5487e7518b1c, type: 3}
+  legs: {fileID: -981184239, guid: db9f4d288d6b8a94f98e5487e7518b1c, type: 3}
   helmetSprite: {fileID: 1373356934}
   chestplateSprite: {fileID: 2109849848}
   pantsSprite: {fileID: 1097601394}
+  helmetScript: {fileID: 0}
+  chestplateScript: {fileID: 0}
+  pantsScript: {fileID: 0}
 --- !u!1 &1373356932
 GameObject:
   m_ObjectHideFlags: 0
@@ -3506,7 +3512,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1373356932}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.276, z: 0}
+  m_LocalPosition: {x: 0, y: 0.213, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3601,8 +3607,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   activeHelmet: {fileID: 11400000, guid: 59ebdd9e406e09a4588dcfc512b7f88d, type: 2}
-  activeChestplate: {fileID: 0}
-  activePants: {fileID: 0}
+  activeChestplate: {fileID: 11400000, guid: cf7c0d5dcb9124b43bacedda0c90e83e, type: 2}
+  activePants: {fileID: 11400000, guid: 16a69c302c484494f82714500f1a06ee, type: 2}
   activeWeapon: {fileID: 11400000, guid: d62a732ab68c8144f9a59b61987ca75c, type: 2}
   slots:
   - {fileID: 750119006}

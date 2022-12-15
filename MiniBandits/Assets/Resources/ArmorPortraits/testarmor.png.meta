@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: db9f4d288d6b8a94f98e5487e7518b1c
+guid: ae8018df65b7946439edc78eae60e505
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_0
+      name: testarmor_0
       rect:
         serializedVersion: 2
         x: 3
-        y: 8
+        y: 25
         width: 9
-        height: 6
+        height: 5
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,18 +130,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72b4c651cd353a249842693d8e54e3ad
-      internalID: 1100395298
+      spriteID: e50465c0b6c19a44cab19705e429d6e7
+      internalID: 2106125167
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_1
+      name: testarmor_1
       rect:
         serializedVersion: 2
         x: 3
-        y: 6
+        y: 23
         width: 9
         height: 2
       alignment: 0
@@ -151,18 +151,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f2533e9cd5f7f6644b642af21cd5e8f1
-      internalID: 438433835
+      spriteID: d24d5228a9cfc3a47a037fbcbe2ce1b0
+      internalID: -437049541
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_2
+      name: testarmor_2
       rect:
         serializedVersion: 2
         x: 5
-        y: 4
+        y: 21
         width: 5
         height: 2
       alignment: 0
@@ -172,8 +172,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d90bd324b4503f84f902843f08ee406f
-      internalID: -981184239
+      spriteID: 7def0a7f20c76a84c8823a6565c30526
+      internalID: 448761683
       vertices: []
       indices: 
       edges: []
@@ -189,9 +189,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Player_2: -981184239
-      Player_1: 438433835
-      Player_0: 1100395298
+      testarmor_1: -437049541
+      testarmor_0: 2106125167
+      testarmor_2: 448761683
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

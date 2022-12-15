@@ -4,9 +4,7 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Armor", menuName = "Item/Armor")]
 public class Armor : Item
-{
-    public ArmorTemplate script;
-
+{ 
     public Stat[] statsModified =
     {
         new Stat("Lifesteal",0),
@@ -16,6 +14,6 @@ public class Armor : Item
         new Stat("Health",0),
         new Stat("Crit",0),
         new Stat("Luck",0),
-    };
+    }; 
 }
 
