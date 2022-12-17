@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
+    public new string name;
     public Health health;
     public bool hasDied = false;
     public GameObject player;

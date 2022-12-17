@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2854709988607463067}
   - component: {fileID: 6515935963533753517}
   m_Layer: 7
-  m_Name: Plant Enemy
+  m_Name: Plant
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -122,6 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f113509aa4783ea4cae493744e566267, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: Plant
   health: {fileID: 0}
   hasDied: 0
   player: {fileID: 0}

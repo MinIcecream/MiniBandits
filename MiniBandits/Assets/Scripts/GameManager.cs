@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public static int floor;
+    public static int room;
+
     public RectTransform fader;
     public GameObject closedWall, openedWall;
     /*
@@ -52,11 +55,20 @@ public class GameManager : MonoBehaviour
         if (GameObject.FindWithTag("Player") == null)
         {
             Invoke("LoadMenu", 1f);
-        } 
-         
+        }
+
+        if (room >= 10)
+        {
+            Debug.Log("Floor Completed!");
+        }
     }
     void LoadMenu()
     {
         SceneManager.LoadScene("Menu");
+    }
+
+    public static void CompleteRoom()
+    {
+        room++;
     }
 }

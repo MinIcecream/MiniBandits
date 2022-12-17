@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 6515935963533753517}
   - component: {fileID: 5081436252995025873}
   m_Layer: 7
-  m_Name: Boar Enemy
+  m_Name: Boar
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -247,6 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f90742d29c2d10146b4b6ca9df0363c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: Boar
   health: {fileID: 0}
   hasDied: 0
   player: {fileID: 0}

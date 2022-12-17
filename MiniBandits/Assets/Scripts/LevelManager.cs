@@ -7,6 +7,8 @@ public class LevelManager : MonoBehaviour
 {
     public GameObject level;
 
+    public Room room;
+
     List<GameObject> enemies = new List<GameObject>();
      
     public bool levelComplete = false;
@@ -55,7 +57,9 @@ public class LevelManager : MonoBehaviour
  
         SceneManager.LoadScene("Level2", LoadSceneMode.Additive);
         closedUpperWall.SetActive(false);
-        openUpperWall.SetActive(true);  
+        openUpperWall.SetActive(true);
+
+        GameManager.CompleteRoom();
     } 
     public void SealEntrances()
     {
@@ -67,11 +71,12 @@ public class LevelManager : MonoBehaviour
     }
     void SpawnEnemies()
     {
-        foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
+        foreach(Room.enemy enemy in room.enemies)
         {
-            enemies.Add(enemy);
-            enemy.GetComponent<EnemyAI>().StartLevel();
-        }
+            var newEnemy=Instantiate(Resources.Load<GameObject>("EnemyPrefabs/" + enemy.name), new Vector2(transform.position.x+enemy.pos.x, transform.position.y + enemy.pos.y), Quaternion.identity);
+            enemies.Add(newEnemy);
+            newEnemy.GetComponent<EnemyAI>().StartLevel();
+        } 
         GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().inCombat = true;
     }
 }
