@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyWhenNotInGame : MonoBehaviour
+public class PersistBetweenFloors : MonoBehaviour
 {
-    public static DestroyWhenNotInGame instance;
+    public static PersistBetweenFloors instance;
 
     void Awake()
     {

@@ -31,33 +31,18 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSecondsRealtime(1f);
             Time.timeScale = 1f;
         }
-*/
-    public static GameManager instance;
-
-    void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        DontDestroyOnLoad(gameObject);
-
-    }
+*/ 
     void Update()
     {
         //IF PLAYER DIED, LOAD MENU
         if (GameObject.FindWithTag("Player") == null)
         {
             Invoke("LoadMenu", 1f);
+            room = 0;
+            floor = 0;
         }
 
-        if (room >= 10)
+        if (room >= 2)
         {
             room = 0;
             floor++;
