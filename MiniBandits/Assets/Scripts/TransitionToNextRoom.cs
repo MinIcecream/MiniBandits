@@ -8,6 +8,8 @@ public class TransitionToNextRoom : MonoBehaviour
     {
         if (coll.gameObject.tag == "Player")
         {
+
+            GameManager.CompleteRoom();
             GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().WalkToRoom();
              
  

@@ -57,9 +57,7 @@ public class LevelManager : MonoBehaviour
  
         SceneManager.LoadScene("Level2", LoadSceneMode.Additive);
         closedUpperWall.SetActive(false);
-        openUpperWall.SetActive(true);
-
-        GameManager.CompleteRoom();
+        openUpperWall.SetActive(true); 
     } 
     public void SealEntrances()
     {

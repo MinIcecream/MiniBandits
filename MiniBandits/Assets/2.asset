@@ -15,7 +15,3 @@ MonoBehaviour:
   enemies:
   - pos: {x: 4.58543, y: 0.93715715}
     name: Boar
-  - pos: {x: -3.8901792, y: 0.8761816}
-    name: Boar
-  - pos: {x: 4.158604, y: -1.867764}
-    name: Plant

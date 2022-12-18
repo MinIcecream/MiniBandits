@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public static int floor;
-    public static int room;
+    public static int floor=0;
+    public static int room=0;
 
     public RectTransform fader;
     public GameObject closedWall, openedWall;
@@ -59,6 +59,10 @@ public class GameManager : MonoBehaviour
 
         if (room >= 10)
         {
+            room = 0;
+            floor++;
+            
+            SceneManager.LoadScene("Level2");
             Debug.Log("Floor Completed!");
         }
     }
