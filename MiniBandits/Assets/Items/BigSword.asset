@@ -18,8 +18,5 @@ MonoBehaviour:
   rarity: 0
   type: 0
   tier: 0
-  weaponStats:
-  - statName: Damage
-    value: 0
-  - statName: AttackSpeed
-    value: 0
+  damage: 50
+  attackSpeed: 1

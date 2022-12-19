@@ -4,23 +4,31 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class WeaponTemplate : MonoBehaviour
-{
-    public float attackCooldown;
-
+{   
     float currentAttackCooldown;
 
     public PlayerMovement player;
 
     public GameObject projectile;
 
+    public Weapon weapon;
+    //Automatically initialized from weapon scriptable object
+
+    [HideInInspector]
     public string weaponName;
+    [HideInInspector]
+    public float attackCooldown;
+    [HideInInspector]
+    public int damage;
 
-    public Weapon weapon; 
-
-    void Awake()
+    public virtual void Awake()
     {
         player = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>(); 
         GetComponent<SpriteRenderer>().sprite = weapon.sprite;
+         
+        attackCooldown = 1f / weapon.attackSpeed;
+        weaponName = weapon.name;
+        damage = weapon.damage;
     }
     void Update()
     {
@@ -46,5 +54,13 @@ public class WeaponTemplate : MonoBehaviour
     public virtual void Attack()
     {
         Debug.Log("Attacking!");
+    }
+    public int GetDamage()
+    {
+        return damage;
+    }
+    public string GetName()
+    {
+        return weaponName;
     }
 }

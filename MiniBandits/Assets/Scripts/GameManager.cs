@@ -42,11 +42,12 @@ public class GameManager : MonoBehaviour
             floor = 0;
         }
 
-        if (room >= 2)
+        if (room >= 10)
         {
             room = 0;
             floor++;
-            
+
+            GameObject.FindWithTag("SceneSpawnPoint").transform.position = Vector2.zero;
             SceneManager.LoadScene("Level2");
             Debug.Log("Floor Completed!");
         }

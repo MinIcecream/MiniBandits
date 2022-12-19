@@ -35,9 +35,12 @@ public class UpdateArmorSprite : MonoBehaviour
          
 
         if (helmet)
-        {  
-            helmetSprite.sprite = helmet.sprite;  
-            helmetScript = (ArmorTemplate)gameObject.AddComponent(Type.GetType(helmet.name));
+        {   
+            if (Type.GetType(helmet.name) != null)
+            {
+                helmetScript = (ArmorTemplate)gameObject.AddComponent(Type.GetType(helmet.name));
+            }
+            helmetSprite.sprite = helmet.sprite;
         }
         else
         {
@@ -46,7 +49,10 @@ public class UpdateArmorSprite : MonoBehaviour
         }
         if (chestplate)
         {
-            chestplateScript = (ArmorTemplate)gameObject.AddComponent(Type.GetType(chestplate.name));
+            if (Type.GetType(chestplate.name) != null)
+            { 
+                chestplateScript = (ArmorTemplate)gameObject.AddComponent(Type.GetType(chestplate.name));
+            } 
             chestplateSprite.sprite = chestplate.sprite;
         }
         else
@@ -56,7 +62,10 @@ public class UpdateArmorSprite : MonoBehaviour
         }
         if (pants)
         {
-            pantsScript = (ArmorTemplate)gameObject.AddComponent(Type.GetType(pants.name));
+            if (Type.GetType(pants.name)!=null)
+            {
+                pantsScript = (ArmorTemplate)gameObject.AddComponent(Type.GetType(pants.name));
+            } 
             pantsSprite.sprite = pants.sprite;
         }
         else

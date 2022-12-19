@@ -37,7 +37,7 @@ public class EquipWeapon : MonoBehaviour
         if (activeWeapon)
         { 
             //IF THAT SAME WEAPON ALREADY EQUIPPED: RETURN
-            if (activeWeapon.GetComponent<WeaponTemplate>().weaponName == weapon.name)
+            if (activeWeapon.GetComponent<WeaponTemplate>().GetName() == weapon.name)
             {
                 return;
             }
