@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BloodyMachete : WeaponTemplate
+public class BigSword : WeaponTemplate
 {
     new Collider2D collider;
 
@@ -13,6 +13,7 @@ public class BloodyMachete : WeaponTemplate
     }
     public override void Attack()
     {
+        GetComponent<ParticleSystem>().Play();
         transform.localRotation = Quaternion.Euler(0, 0, -90);
         collider.enabled = true;
         StartCoroutine(DisableCollider());
