@@ -18,18 +18,10 @@ MonoBehaviour:
   rarity: 0
   type: 2
   tier: 0
-  statsModified:
-  - statName: Lifesteal
-    value: 0
-  - statName: Defense
-    value: 0
-  - statName: Speed
-    value: 0
-  - statName: Damage
-    value: 0
-  - statName: Health
-    value: 0
-  - statName: Crit
-    value: 0
-  - statName: Luck
-    value: 0
+  lifeSteal: 0
+  defense: 100
+  speed: 0
+  strength: 0
+  health: 0
+  crit: 0
+  luck: 0

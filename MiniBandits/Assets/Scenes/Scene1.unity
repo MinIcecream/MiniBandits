@@ -3616,10 +3616,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f86a98aac2b0e144924c10fdae616bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseLifeSteal: 0
+  baseDefense: 0
+  baseSpeed: 0
+  baseStrength: 0
+  baseHealth: 120
+  baseCrit: 0
+  baseLuck: 0
+  lifeSteal: 0
+  defense: 0
+  speed: 0
+  strength: 0
   health: 100
-  damage: 0
   crit: 0
   luck: 0
+  inven: {fileID: 0}
 --- !u!114 &1321346934
 MonoBehaviour:
   m_ObjectHideFlags: 0
