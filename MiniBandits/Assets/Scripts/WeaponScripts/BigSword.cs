@@ -20,17 +20,18 @@ public class BigSword : WeaponTemplate
     }
 
     IEnumerator DisableCollider()
-    { 
-        yield return new WaitForSeconds(0.5f);
-        GetComponent<ParticleSystem>().Stop();
+    {
+        yield return new WaitForSeconds(0.1f);
         collider.enabled = false;
+        yield return new WaitForSeconds(0.4f);
+        GetComponent<ParticleSystem>().Stop(); 
         transform.localRotation = Quaternion.Euler(0, 0, 0);
     }
     void OnTriggerEnter2D(Collider2D coll)
     {
         if (coll.gameObject.tag == "Enemy")
         {
-            coll.gameObject.GetComponent<Health>().DealDamage(damage);
+            coll.gameObject.GetComponent<IDamageable>().Damage(damage);
         }
     }
 }

@@ -83,10 +83,10 @@ GameObject:
   - component: {fileID: 8121160717422346263}
   - component: {fileID: 8121160717422346261}
   - component: {fileID: 8121160717422346260}
-  - component: {fileID: 8121160717422346266}
   - component: {fileID: 2854709988607463067}
   - component: {fileID: 6515935963533753517}
   - component: {fileID: 5081436252995025873}
+  - component: {fileID: -1004932836470710507}
   m_Layer: 7
   m_Name: Boar
   m_TagString: Enemy
@@ -183,19 +183,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8121160717422346266
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8121160717422346259}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0655789362dda3442991f78e6372952d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
 --- !u!114 &2854709988607463067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,3 +242,16 @@ MonoBehaviour:
   charging: 0
   chargeSpeed: 10
   chargeCooldown: 2
+--- !u!114 &-1004932836470710507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8121160717422346259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ad1ef3c63ac15b4a86bfb0f512f8bc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100

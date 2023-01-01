@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoarAI : EnemyAI
+public class BoarAI : EnemyAI, IDamageable
 {
     public bool ranIntoWall = false;
     public bool charging = false;

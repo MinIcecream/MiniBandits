@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using EZCameraShake;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour, IDamageable
 { 
     public LayerMask mask;
     public float speed; 
@@ -121,5 +122,20 @@ public class PlayerMovement : MonoBehaviour
     public void ReachedRoom()
     {
         walkingToRoom = false;
+    } 
+
+    public void Damage(int damage)
+    {
+        CameraShaker.Instance.ShakeOnce(4f, 4f, .1f, .1f);
+        GetComponent<PlayerHealth>().DealDamage(damage);
+        StartCoroutine(DamageAnimation());
+    }
+    IEnumerator DamageAnimation()
+    {
+        transform.localScale = new Vector2(2.2f, 2.2f);
+
+        yield return new WaitForSeconds(0.1f);
+
+        transform.localScale = new Vector2(2f, 2f);
     }
 }

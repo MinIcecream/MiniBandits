@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyTestAI : EnemyAI
+public class PlantAI : EnemyAI, IDamageable
 {
     public GameObject projectile; 
     public int bulletDeathTimer = 2;

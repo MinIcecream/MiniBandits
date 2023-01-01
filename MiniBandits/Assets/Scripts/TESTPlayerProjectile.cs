@@ -22,7 +22,7 @@ public class TESTPlayerProjectile : MonoBehaviour
     {
         if (coll.gameObject.GetComponent<Health>() != null)
         {
-            coll.gameObject.GetComponent<Health>().DealDamage(damage);
+            coll.gameObject.GetComponent<IDamageable>().Damage(damage);
         }
         if (coll.gameObject.tag == "Wall")
         { 

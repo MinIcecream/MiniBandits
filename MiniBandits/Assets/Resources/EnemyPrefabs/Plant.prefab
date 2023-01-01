@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 8121160717422346263}
   - component: {fileID: 8121160717422346261}
   - component: {fileID: 8121160717422346260}
-  - component: {fileID: 8121160717422346264}
-  - component: {fileID: 8121160717422346266}
+  - component: {fileID: 313929175159108716}
   - component: {fileID: 2854709988607463067}
   - component: {fileID: 6515935963533753517}
+  - component: {fileID: 4705478325364151942}
   m_Layer: 7
   m_Name: Plant
   m_TagString: Enemy
@@ -110,7 +110,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8121160717422346264
+--- !u!114 &313929175159108716
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -128,19 +128,6 @@ MonoBehaviour:
   player: {fileID: 0}
   projectile: {fileID: 7777877402851561955, guid: d5074f1885365744aa1bee885fac76a5, type: 3}
   bulletDeathTimer: 2
---- !u!114 &8121160717422346266
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8121160717422346259}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0655789362dda3442991f78e6372952d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
 --- !u!114 &2854709988607463067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,3 +167,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6392311, y: 0.8239449}
   m_EdgeRadius: 0
+--- !u!114 &4705478325364151942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8121160717422346259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ad1ef3c63ac15b4a86bfb0f512f8bc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100

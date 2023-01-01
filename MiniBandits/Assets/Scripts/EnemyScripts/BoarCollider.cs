@@ -9,7 +9,7 @@ public class BoarCollider : MonoBehaviour
     {
         if (coll.gameObject.tag == "Player")
         { 
-            coll.gameObject.GetComponent<Health>().DealDamage(damage);
+            coll.gameObject.GetComponent<IDamageable>().Damage(damage);
         }
     }
 }
