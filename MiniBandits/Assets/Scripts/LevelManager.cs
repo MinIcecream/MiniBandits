@@ -45,8 +45,12 @@ public class LevelManager : MonoBehaviour
 
 
             //SPAWN A WEAPON AFRTRE YOU BEAT IT
+            Item newitem = ItemManager.GetRandomItem();
+
             var item=Instantiate(Resources.Load<GameObject>("ItemInteractable"), (Vector2)transform.position, Quaternion.identity);
-            item.GetComponent<ItemInteractable>().UpdateItem(ItemManager.item); 
+  
+            item.GetComponent<ItemInteractable>().UpdateItem(newitem);
+            Debug.Log(newitem);
 
             StartCoroutine(LoadNextLevel());
         } 

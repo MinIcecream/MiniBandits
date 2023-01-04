@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ItemManager : MonoBehaviour
-{
-    public static Item item;
-    /*
-    public static List<Item> weaponList = new List<Item>(); 
+{ 
+    public static List<Item> itemList = new List<Item>(); 
 
     void Awake()
     {
-        weaponList.Add("BigSword");
-        weaponList.Add("BloodyMachete");
-        weaponList.Add("DiamondSword");
-        weaponList.Add("NormalSword");
-        weaponList.Add("SerratedSword"); 
-    }*/
+        foreach (Item item in Resources.LoadAll<Item>("Items"))
+        {
+            itemList.Add(item); 
+        }
+    }
+    public static Item GetRandomItem()
+    {
+        return itemList[Random.Range(0, itemList.Count - 1)];
+    }
 }

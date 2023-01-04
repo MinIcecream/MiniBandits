@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class ItemInteractable : MonoBehaviour
 {
@@ -10,10 +11,14 @@ public class ItemInteractable : MonoBehaviour
     InventorySlot selectedSlot;
 
     void Awake()
+    { 
+        StartCoroutine("SetInitialSprite");
+    }
+    IEnumerator SetInitialSprite()
     {
+        yield return new WaitForSeconds(0.01f);
         UpdateItem();
     }
-
     void OnTriggerEnter2D(Collider2D coll)
     {
         popup.SetActive(true);
@@ -58,13 +63,23 @@ public class ItemInteractable : MonoBehaviour
     }
 
     public void UpdateItem()
-    {
+    { 
         if (item != null)
-        {
-            GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("WeaponPortraits/" + item);
+        { 
+            if (item.type == Item.itemType.helmet|| item.type == Item.itemType.chestplate|| item.type == Item.itemType.pants)
+            {
+                Sprite[] armorIconsAtlas = Resources.LoadAll<Sprite>("ArmorPortraits");
+                // Get specific sprite
+                Sprite armorSprite = armorIconsAtlas.Single(s => s.name == item.name);
+                GetComponent<SpriteRenderer>().sprite = armorSprite;
+            }
+            else if(item.type == Item.itemType.weapon)
+            { 
+                GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("WeaponPortraits/" + item.name);
+            } 
         }
         else
-        {
+        { 
             Destroy(gameObject);
         }
     }
@@ -72,13 +87,23 @@ public class ItemInteractable : MonoBehaviour
     public void UpdateItem(Item newItem)
     {
         item = newItem;
-
+         
         if (item != null)
         {
-            GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("WeaponPortraits/" + item);
+            if (item.type == Item.itemType.helmet || item.type == Item.itemType.chestplate || item.type == Item.itemType.pants)
+            {
+                Sprite[] armorIconsAtlas = Resources.LoadAll<Sprite>("ArmorPortraits");
+                // Get specific sprite
+                Sprite armorSprite = armorIconsAtlas.Single(s => s.name == item.name);
+                GetComponent<SpriteRenderer>().sprite = armorSprite;
+            }
+            else if (item.type == Item.itemType.weapon)
+            {
+                GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("WeaponPortraits/" + item.name);
+            }
         }
         else
-        {
+        { 
             Destroy(gameObject);
         }
     }

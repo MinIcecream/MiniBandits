@@ -116,7 +116,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: testarmor_0
+      name: TestHelmet
       rect:
         serializedVersion: 2
         x: 3
@@ -137,7 +137,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: testarmor_1
+      name: TestChestplate
       rect:
         serializedVersion: 2
         x: 3
@@ -158,7 +158,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: testarmor_2
+      name: TestPants
       rect:
         serializedVersion: 2
         x: 5
@@ -189,9 +189,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      testarmor_1: -437049541
-      testarmor_0: 2106125167
-      testarmor_2: 448761683
+      TestHelmet: 2106125167
+      TestPants: 448761683
+      TestChestplate: -437049541
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
