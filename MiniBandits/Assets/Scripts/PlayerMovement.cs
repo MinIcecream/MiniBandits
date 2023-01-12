@@ -17,9 +17,7 @@ public class PlayerMovement : MonoBehaviour, IDamageable
     public bool inCombat = false;
 
     Vector2 lastPosition = Vector2.zero;
-
-    bool walkingToRoom=false;
-
+     
     public float dashMagnitude;
 
     void Awake()
@@ -54,13 +52,7 @@ public class PlayerMovement : MonoBehaviour, IDamageable
         {
             GetComponent<Animation>().enabled = true;
         }
-
-        if (walkingToRoom)
-        {
-            canMove = false;
-            transform.position = (Vector2)transform.position+ new Vector2(0,1) * Time.deltaTime * speed;
-            return;
-        } 
+ 
 
         //CAPTURING INPUT
         lastPosition = transform.position;
@@ -114,16 +106,7 @@ public class PlayerMovement : MonoBehaviour, IDamageable
     void Death()
     {
         Destroy(gameObject);
-    } 
-    public void WalkToRoom()
-    {
-        walkingToRoom = true;
-    }
-    public void ReachedRoom()
-    {
-        walkingToRoom = false;
-    } 
-
+    }  
     public void Damage(int damage)
     {
         CameraShaker.Instance.ShakeOnce(4f, 4f, .1f, .1f);

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using RoomInfo;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     public RectTransform fader;
     public GameObject closedWall, openedWall;
+      
     /*
         void Start()
         { 
@@ -32,6 +34,16 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1f;
         }
 */ 
+    void Awake()
+    {
+        FloorManager floorMan = GameObject.FindWithTag("FloorManager").GetComponent<FloorManager>();
+
+        RoomInfo.room starterRoom = new RoomInfo.room();
+        starterRoom.roomType = roomTypes.starter;
+         
+
+        floorMan.SpawnRoom(starterRoom);
+    }
     void Update()
     {
         //IF PLAYER DIED, LOAD MENU
@@ -41,17 +53,17 @@ public class GameManager : MonoBehaviour
             room = 0;
             floor = 0;
         }
-
+        /* LOGIC FOR NEXZT FLOOR
         if (room >= 10)
         {
             room = 0;
             floor++;
 
-            GameObject.FindWithTag("SceneSpawnPoint").transform.position = Vector2.zero;
-            SceneManager.LoadScene("Level2");
+            GameObject.FindWithTag("SceneSpawnPoint").transform.position = Vector2.zero; 
             Debug.Log("Floor Completed!");
-        }
+        }*/
     }
+
     void LoadMenu()
     {
         SceneManager.LoadScene("Menu");
@@ -60,5 +72,5 @@ public class GameManager : MonoBehaviour
     public static void CompleteRoom()
     {
         room++;
-    }
+    } 
 }

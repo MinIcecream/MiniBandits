@@ -1,11 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using RoomInfo;
+using TMPro;
 
-public class TransitionToNextRoom : MonoBehaviour
-{/*
-    public LevelManager levelMan;
+public class Door : MonoBehaviour
+{
+    public room room;
+
+    public BaseRoomManager levelMan;
     FloorManager floorMan;
+
+    public TextMeshProUGUI tmp;
+
+    public void SetReward(room r)
+    {
+        room = r;
+        tmp.text = room.reward.ToString();
+    }
 
     void OnTriggerStay2D(Collider2D coll)
     {
@@ -14,8 +26,8 @@ public class TransitionToNextRoom : MonoBehaviour
         if (coll.gameObject.tag == "Player")
         {
             Debug.Log("LEAVING...");
-            levelMan.TransitionToNextRoom(); 
+            levelMan.TransitionToNextRoom(room);
             Destroy(this);
         }
-    }*/
+    } 
 }
