@@ -15,6 +15,7 @@ TagManager:
   - InventoryCanvas
   - Terrain
   - FloorManager
+  - PersistBetweenFloors
   layers:
   - Default
   - TransparentFX

@@ -11,7 +11,8 @@ public class GameManager : MonoBehaviour
 
     public RectTransform fader;
     public GameObject closedWall, openedWall;
-      
+
+    static roomThemes[] themes;
     /*
         void Start()
         { 
@@ -34,16 +35,39 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1f;
         }
 */ 
+
+
+    //Initially spawn player in a starter room
     void Awake()
     {
+        themes = RoomOptionGenerator.GenerateRoomThemes(10);
+
         FloorManager floorMan = GameObject.FindWithTag("FloorManager").GetComponent<FloorManager>();
+        floorMan.floorTheme = themes[floor];
+
+        RoomInfo.room starterRoom = new RoomInfo.room();
+        starterRoom.roomType = roomTypes.starter; 
+
+        floorMan.SpawnRoom(starterRoom);
+        floorMan.UpdatePlayerAndCameraPos();
+    }
+
+    public static void GenerateNewFloor()
+    {
+        room = 0;
+        floor++;
+        SceneManager.LoadScene("Levels"); 
+        
+        FloorManager floorMan = GameObject.FindWithTag("FloorManager").GetComponent<FloorManager>();
+        floorMan.floorTheme = themes[floor];
 
         RoomInfo.room starterRoom = new RoomInfo.room();
         starterRoom.roomType = roomTypes.starter;
-         
 
         floorMan.SpawnRoom(starterRoom);
+        floorMan.UpdatePlayerAndCameraPos();
     }
+    
     void Update()
     {
         //IF PLAYER DIED, LOAD MENU

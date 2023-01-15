@@ -13,9 +13,11 @@ public class ProgressRoomManager : BaseRoomManager
     List<GameObject> enemies = new List<GameObject>();
      
     public bool levelComplete = false;
-    public bool levelStarted = false; 
-     
-     
+    public bool levelStarted = false;
+
+    //if boss room, its initialized by floormanager. otherwise, its blank
+    public string bossTheme;
+
     void Update()
     {
         if (levelComplete)
@@ -33,21 +35,11 @@ public class ProgressRoomManager : BaseRoomManager
             } 
             EndRoom(); 
         } 
-    }
-
-    //Load the next level
-    IEnumerator LoadNextLevel()
-    { 
-        yield return new WaitForSeconds(1f); 
-        foreach(GameObject door in doors)
-        { 
-            door.SetActive(true);
-        } 
     } 
-
     
     void SpawnEnemies()
     {
+        //if a normal room:
         if (room)
         { 
             foreach (Room.enemy enemy in room.enemies)
@@ -55,9 +47,16 @@ public class ProgressRoomManager : BaseRoomManager
                 var newEnemy = Instantiate(Resources.Load<GameObject>("EnemyPrefabs/" + enemy.name), new Vector2(transform.position.x + enemy.pos.x, transform.position.y + enemy.pos.y), Quaternion.identity);
                 enemies.Add(newEnemy);
                 newEnemy.GetComponent<EnemyAI>().StartLevel();
-            }
-            GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().inCombat = true;
-        }  
+            } 
+        }
+        //if a boss room:
+        else
+        {
+            var newBoss = Instantiate(Resources.Load<GameObject>("BossPrefabs/" + bossTheme), transform.position, Quaternion.identity);
+            enemies.Add(newBoss);
+            newBoss.GetComponent<EnemyAI>().StartLevel();
+        }
+        GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().inCombat = true;
     }
 
     //WHEN THE PLAYER WALKS THROUGH THE DOOR:
@@ -78,11 +77,45 @@ public class ProgressRoomManager : BaseRoomManager
 
     //AFTER YOU BEAT ALL THE ENEMIES:
     public override void EndRoom()
-    {
+    { 
         GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().inCombat = false;
         levelComplete = true;
 
-        base.EndRoom();
+        if (bossTheme=="")
+        { 
+            base.EndRoom();
+        }
         StartCoroutine(LoadNextLevel());
+    }
+
+    //Load the next level
+    IEnumerator LoadNextLevel()
+    {
+        yield return new WaitForSeconds(1f);
+
+        foreach (GameObject door in doors)
+        {
+            door.SetActive(true);
+        }
+        switch (reward)
+        {
+            case rewardTypes.gold:
+                Debug.Log("+50 Gold!");
+                break;
+            case rewardTypes.randomWeapon:
+                {
+                    Weapon newWeapon = RoomOptionGenerator.GenerateRandomWeapon();
+                    GameObject newItem = Instantiate(Resources.Load<GameObject>("ItemInteractable"), itemSpawnPt.position, Quaternion.identity);
+                    newItem.GetComponent<ItemInteractable>().item = newWeapon;
+                }
+                break;
+            case rewardTypes.randomArmor:
+                {
+                    Armor newArmor = RoomOptionGenerator.GenerateRandomArmor();
+                    GameObject newItem = Instantiate(Resources.Load<GameObject>("ItemInteractable"), itemSpawnPt.position, Quaternion.identity);
+                    newItem.GetComponent<ItemInteractable>().item = newArmor;
+                }
+                break;
+        }
     }
 }

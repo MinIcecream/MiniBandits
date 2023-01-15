@@ -13,7 +13,7 @@ public class StartRoom : MonoBehaviour
          
         if (coll.gameObject.tag == "Player")
         {
-            Debug.Log("PLAYER ENETERD ROOM!");
+            //Debug.Log("PLAYER ENETERD ROOM!");
 
             levelMan.StartRoom();
 

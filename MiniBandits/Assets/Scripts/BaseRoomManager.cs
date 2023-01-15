@@ -8,7 +8,8 @@ public class BaseRoomManager : MonoBehaviour
     public FloorManager floorMan;
     public GameObject[] doors;
     //Where to spawn player in the room
-    public Transform playerSpawnPt;
+    public Transform playerSpawnPt,itemSpawnPt;
+    public rewardTypes reward;
 
     public virtual void Awake()
     {
@@ -27,8 +28,7 @@ public class BaseRoomManager : MonoBehaviour
 
         for (int i = 0; i < doors.Length; i++)
         {
-            doors[i].GetComponent<Door>().SetReward(room[i]);
-            Debug.Log(room[i]);
+            doors[i].GetComponent<Door>().SetReward(room[i]); 
         }
     }
 }

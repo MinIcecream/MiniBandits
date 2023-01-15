@@ -8,7 +8,7 @@ public class FloorManager : MonoBehaviour
     public int roomOffset;
 
     //Gamemanager initializes variable holding this floor's theme (dungeon, spider, graveyard,etc)
-    roomThemes floorTheme = roomThemes.graveyard;
+    public roomThemes floorTheme = roomThemes.graveyard;
 
     //Where to spawn the next room
     public Transform roomSpawnPt;
@@ -30,37 +30,59 @@ public class FloorManager : MonoBehaviour
             tempList.Add((Room)r);
         }
          
-        while (enemies.Count < 10)
+        while (enemies.Count < 9)
         { 
             int ran = Random.Range(0, tempList.Count - 1);
             enemies.Add(tempList[ran]);
             tempList.RemoveAt(ran);
-        }
+        } 
     }
+
+    //SPAWN LEVELS, INITIALIZES THEIR ENEMIES TO SPAWN, SETS THE PLAYER SPAWN POINT FOR WHEN THEY ENTER THE LEVEL
     public void SpawnRoom(room room)
     {
         if (room.roomType == roomTypes.normal)
         {
-            GameObject newLevel = (GameObject)Instantiate(Resources.Load("RoomLayouts/" + floorTheme.ToString()), roomSpawnPt.position, Quaternion.identity);
-
-            ProgressRoomManager man;
-            man = newLevel.transform.Find("LevelManager").gameObject.GetComponent<ProgressRoomManager>();
-
-            if (man == null)
+            if (enemies.Count == 0)
             {
-                Debug.Log("NO LEVEL MANAGER ATTACHED TO :" + newLevel);
-            }
-            else
-            {
-                playerSpawnPt = man.playerSpawnPt;
-                if (enemies[0] != null)
+                //SPAWN THE BOSS LEVEL
+                GameObject newLevel = (GameObject)Instantiate(Resources.Load("RoomLayouts/" + floorTheme.ToString()+"Boss"), roomSpawnPt.position, Quaternion.identity);
+                ProgressRoomManager man = newLevel.transform.Find("LevelManager").gameObject.GetComponent<ProgressRoomManager>();
+
+                if (man == null)
                 {
-                    man.room = enemies[0];
-                    enemies.RemoveAt(0);
+                    Debug.Log("NO LEVEL MANAGER ATTACHED TO :" + newLevel);
                 }
                 else
                 {
-                    Debug.Log("NO MORE ROOMS TO ASSIGN THIS LEVELAMANGER!!!");
+                    playerSpawnPt = man.playerSpawnPt;
+                    man.reward = room.reward;
+                    man.bossTheme = floorTheme.ToString();
+                }
+            }
+            else
+            {
+                GameObject newLevel = (GameObject)Instantiate(Resources.Load("RoomLayouts/" + floorTheme.ToString()), roomSpawnPt.position, Quaternion.identity); 
+                ProgressRoomManager man = newLevel.transform.Find("LevelManager").gameObject.GetComponent<ProgressRoomManager>();
+
+                if (man == null)
+                {
+                    Debug.Log("NO LEVEL MANAGER ATTACHED TO :" + newLevel);
+                }
+                else
+                {
+                    playerSpawnPt = man.playerSpawnPt;
+                    man.reward = room.reward;
+
+                    if (enemies[0] != null)
+                    {
+                        man.room = enemies[0];
+                        enemies.RemoveAt(0);
+                    }
+                    else
+                    {
+                        Debug.Log("NO MORE ROOMS TO ASSIGN THIS LEVELAMANGER!!!");
+                    }
                 }
             } 
         }
