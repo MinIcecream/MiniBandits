@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    private int health;
+    [HideInInspector]
+    public int health;
     public int maxHealth;
 
     public virtual void Start()
@@ -18,6 +19,14 @@ public class Health : MonoBehaviour
     public virtual void DealDamage(int damage)
     {
         health -= damage;
+    }
+    public virtual void Heal(int healAmt)
+    {
+        health += healAmt;
+        if (health > maxHealth)
+        {
+            health = maxHealth;
+        }
     }
     public int GetHealth()
     {

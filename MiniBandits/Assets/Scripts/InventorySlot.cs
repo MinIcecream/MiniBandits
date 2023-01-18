@@ -2,14 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class InventorySlot : MonoBehaviour
+public class InventorySlot : MonoBehaviour, IPointerEnterHandler
 {
     public Image image;
     public Item item;
      
     public Item.itemType acceptedItems;
 
+    PlayerInventory inven;
+
+    void Awake()
+    {
+        inven = GameObject.FindWithTag("Inventory").GetComponent<PlayerInventory>();
+    }
     public Item GetItem()
     {
         return item;
@@ -43,5 +50,9 @@ public class InventorySlot : MonoBehaviour
         {
             image.overrideSprite = null;
         }
+    }
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        inven.SetDescription(item);
     }
 }

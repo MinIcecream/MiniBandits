@@ -36,4 +36,8 @@ public class PlayerHealth : Health
             }
         } 
     } 
+    public override void DealDamage(int damage)
+    {
+        health -= (int)(damage * (100.0 / (100 + player.defense)));
+    }
 }

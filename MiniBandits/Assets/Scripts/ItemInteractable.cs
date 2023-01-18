@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using TMPro;
 
 public class ItemInteractable : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class ItemInteractable : MonoBehaviour
     public Item item; 
 
     InventorySlot selectedSlot;
+
+    public TextMeshProUGUI tmp;
 
     void Awake()
     { 
@@ -22,10 +25,10 @@ public class ItemInteractable : MonoBehaviour
     void OnTriggerEnter2D(Collider2D coll)
     {
         popup.SetActive(true);
-        popup.transform.position = new Vector2(transform.position.x, transform.position.y + 1) ;
+        popup.transform.position = new Vector2(transform.position.x, transform.position.y + 1);
     }
     void OnTriggerExit2D(Collider2D coll)
-    {
+    { 
         popup.SetActive(false); 
     }
 
@@ -65,18 +68,9 @@ public class ItemInteractable : MonoBehaviour
     public void UpdateItem()
     { 
         if (item != null)
-        { 
-            if (item.type == Item.itemType.helmet|| item.type == Item.itemType.chestplate|| item.type == Item.itemType.pants)
-            {
-                Sprite[] armorIconsAtlas = Resources.LoadAll<Sprite>("ArmorPortraits");
-                // Get specific sprite
-                Sprite armorSprite = armorIconsAtlas.Single(s => s.name == item.name);
-                GetComponent<SpriteRenderer>().sprite = armorSprite;
-            }
-            else if(item.type == Item.itemType.weapon)
-            { 
-                GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("WeaponPortraits/" + item.name);
-            } 
+        {
+            tmp.text =item.name + "\n[E to interact]";
+            GetComponent<SpriteRenderer>().sprite = item.sprite;
         }
         else
         { 

@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.2264151, g: 0.2264151, b: 0.2264151, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -288,6 +288,8 @@ MonoBehaviour:
   - {fileID: 7117123270361435193}
   - {fileID: 7250441167104880122}
   playerSpawnPt: {fileID: 6066494865677941527}
+  itemSpawnPt: {fileID: 0}
+  reward: 0
   level: {fileID: 0}
 --- !u!1 &5791364617992288734
 GameObject:

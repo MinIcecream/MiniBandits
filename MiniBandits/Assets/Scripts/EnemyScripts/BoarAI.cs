@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class BoarAI : EnemyAI, IDamageable
 {
+    [HideInInspector]
     public bool ranIntoWall = false;
+    [HideInInspector]
     public bool charging = false;
+
     Vector2 chargeDir;
+
     public float chargeSpeed;
     public float chargeCooldown;
 
@@ -44,7 +48,7 @@ public class BoarAI : EnemyAI, IDamageable
         }
         if (charging)
         { 
-            transform.position = (Vector2)transform.position + chargeDir * chargeSpeed*Time.deltaTime;
+            transform.position = (Vector2)transform.position + chargeDir * chargeSpeed*Time.deltaTime;  
         }
     } 
     void OnCollisionEnter2D(Collision2D coll)

@@ -119,9 +119,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.009823799, y: 0}
+  m_Offset: {x: 0.009823561, y: -0.03764391}
   serializedVersion: 2
-  m_Radius: 5.0523434
+  m_Radius: 3.1575885
 --- !u!198 &6181974663495378071
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -374,7 +374,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.5
+      scalar: 0.3
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -837,7 +837,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 5.15
+      value: 3
       mode: 0
       spread: 0
       speed:

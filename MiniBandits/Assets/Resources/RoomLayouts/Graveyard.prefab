@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3626049828378762912}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.02, y: -3.3, z: 0.32944453}
+  m_LocalPosition: {x: 0.02, y: -0.03, z: 0.32944453}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -57,7 +57,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5770129776990730529}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.7119014, y: -0.1520565, z: -1.7790614}
+  m_LocalPosition: {x: 3.43, y: -3.07, z: -1.7790614}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -178,7 +178,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.4811321, g: 0.4811321, b: 0.4811321, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -236,8 +236,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5791364617768399914}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.8566, y: 2.4932, z: 0.93356746}
-  m_LocalScale: {x: 20.771484, y: 0.36588004, z: 1}
+  m_LocalPosition: {x: 1.4075, y: 4.4425, z: 0.93356746}
+  m_LocalScale: {x: 24.7389, y: 0.3107785, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5791364619447222045}
@@ -398,6 +398,7 @@ MonoBehaviour:
   room: {fileID: 0}
   levelComplete: 0
   levelStarted: 0
+  bossTheme: 
 --- !u!114 &2200495323527393893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -424,7 +425,7 @@ GameObject:
   - component: {fileID: 5791364617992288732}
   - component: {fileID: 5791364617992288733}
   m_Layer: 10
-  m_Name: ClosedBottomWall
+  m_Name: BottomWall
   m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -438,8 +439,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5791364617992288734}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.7651, y: -6.9542, z: 0.93356746}
-  m_LocalScale: {x: 20.795357, y: 0.5917777, z: 1}
+  m_LocalPosition: {x: 1.3712, y: -10.1226, z: 0.93356746}
+  m_LocalScale: {x: 25.313026, y: 0.42649418, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5791364619447222045}
@@ -571,8 +572,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5791364618022723405}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -9.39, y: -2.1372, z: 0.93356746}
-  m_LocalScale: {x: 9.386579, y: 0.2888737, z: 1}
+  m_LocalPosition: {x: -10.8549, y: -2.9113, z: 0.93356746}
+  m_LocalScale: {x: 15.006058, y: 0.39907902, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5791364619447222045}
@@ -704,8 +705,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5791364619188029681}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 10.9665, y: -2.1194, z: 0.93356746}
-  m_LocalScale: {x: 9.529142, y: 0.42643312, z: 1}
+  m_LocalPosition: {x: 13.3424, y: -2.8638, z: 0.93356746}
+  m_LocalScale: {x: 14.76291, y: 0.48153013, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5791364619447222045}
@@ -908,7 +909,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6141740596025369253}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.88, z: 0}
+  m_LocalPosition: {x: 0, y: -7.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -997,6 +998,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5791364619447222045}
     m_Modifications:
+    - target: {fileID: 2499694169315479766, guid: cf571dc6105674946a4a6a6a03fc0a22, type: 3}
+      propertyPath: m_fontSize
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499694169315479766, guid: cf571dc6105674946a4a6a6a03fc0a22, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3422310945304294126, guid: cf571dc6105674946a4a6a6a03fc0a22, type: 3}
       propertyPath: m_IsActive
       value: 1

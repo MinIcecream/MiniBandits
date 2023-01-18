@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 313929175159108716}
   - component: {fileID: 2854709988607463067}
   - component: {fileID: 6515935963533753517}
-  - component: {fileID: 4705478325364151942}
+  - component: {fileID: 4246708707122837619}
   m_Layer: 7
   m_Name: Plant
   m_TagString: Enemy
@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 8121160717422346259}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.35, y: 1.163, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -127,7 +127,6 @@ MonoBehaviour:
   hasDied: 0
   player: {fileID: 0}
   projectile: {fileID: 7777877402851561955, guid: d5074f1885365744aa1bee885fac76a5, type: 3}
-  bulletDeathTimer: 2
 --- !u!114 &2854709988607463067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,20 +153,20 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.027418435, y: -0.036076844}
+  m_Offset: {x: -0.47821045, y: 0.41121012}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 2, y: 1.9375}
     newSize: {x: 0.2, y: 0.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6392311, y: 0.8239449}
+  m_Size: {x: 0.6910906, y: 0.9535934}
   m_EdgeRadius: 0
---- !u!114 &4705478325364151942
+--- !u!114 &4246708707122837619
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -176,7 +175,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 8121160717422346259}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ad1ef3c63ac15b4a86bfb0f512f8bc3, type: 3}
+  m_Script: {fileID: 11500000, guid: 23033493e6cc5bb46bba5ceb876dc781, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 0
   maxHealth: 100

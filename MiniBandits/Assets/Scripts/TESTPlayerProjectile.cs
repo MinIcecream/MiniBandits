@@ -7,6 +7,7 @@ public class TESTPlayerProjectile : MonoBehaviour
     Vector2 direction;
     public float speed;
     public int damage;
+    public GameObject particles;
 
     public void SetDir(Vector2 dir)
     {
@@ -23,9 +24,12 @@ public class TESTPlayerProjectile : MonoBehaviour
         if (coll.gameObject.GetComponent<Health>() != null)
         {
             coll.gameObject.GetComponent<IDamageable>().Damage(damage);
+            Instantiate(particles, transform.position, Quaternion.identity);
+            Destroy(gameObject);
         }
         if (coll.gameObject.tag == "Wall")
-        { 
+        {
+            Instantiate(particles, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

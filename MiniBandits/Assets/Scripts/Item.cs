@@ -9,8 +9,8 @@ public class Item : ScriptableObject
     public Sprite sprite;
     public itemRarity rarity;
     public itemType type;
-    public int tier;  
-
+    public int tier;
+    public string description;
     public enum itemType
     {
         weapon,

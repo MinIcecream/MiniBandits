@@ -16,6 +16,7 @@ public class UpdateArmorSprite : MonoBehaviour
     void Awake()
     {
         inven = GameObject.FindWithTag("Inventory").GetComponent<PlayerInventory>();
+        UpdateArmor();
     }
     void OnEnable()
     {
@@ -36,9 +37,9 @@ public class UpdateArmorSprite : MonoBehaviour
 
         if (helmet)
         {   
-            if (Type.GetType(helmet.name) != null)
-            {
-                helmetScript = (ArmorTemplate)gameObject.AddComponent(Type.GetType(helmet.name));
+            if (Type.GetType(helmet.name.Replace(" ", "")) != null)
+            { 
+                helmetScript=(ArmorTemplate)gameObject.AddComponent(Type.GetType(helmet.name.Replace(" ", "")));
             }
             helmetSprite.sprite = helmet.sprite;
         }
@@ -49,9 +50,9 @@ public class UpdateArmorSprite : MonoBehaviour
         }
         if (chestplate)
         {
-            if (Type.GetType(chestplate.name) != null)
+            if (Type.GetType(chestplate.name.Replace(" ", "")) != null)
             { 
-                chestplateScript = (ArmorTemplate)gameObject.AddComponent(Type.GetType(chestplate.name));
+                chestplateScript = (ArmorTemplate)gameObject.AddComponent(Type.GetType(chestplate.name.Replace(" ", "")));
             } 
             chestplateSprite.sprite = chestplate.sprite;
         }
@@ -62,9 +63,9 @@ public class UpdateArmorSprite : MonoBehaviour
         }
         if (pants)
         {
-            if (Type.GetType(pants.name)!=null)
+            if (Type.GetType(pants.name.Replace(" ", "")) !=null)
             {
-                pantsScript = (ArmorTemplate)gameObject.AddComponent(Type.GetType(pants.name));
+                pantsScript = (ArmorTemplate)gameObject.AddComponent(Type.GetType(pants.name.Replace(" ", "")));
             } 
             pantsSprite.sprite = pants.sprite;
         }

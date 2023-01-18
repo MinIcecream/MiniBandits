@@ -19,6 +19,8 @@ public class WeaponTemplate : MonoBehaviour
     [HideInInspector]
     public float attackCooldown;
     [HideInInspector]
+    public int baseDamage;
+    [HideInInspector]
     public int damage;
 
     public virtual void Awake()
@@ -28,7 +30,7 @@ public class WeaponTemplate : MonoBehaviour
          
         attackCooldown = 1f / weapon.attackSpeed;
         weaponName = weapon.name;
-        damage = weapon.damage;
+        baseDamage = weapon.damage;
     }
     void Update()
     {
@@ -37,6 +39,7 @@ public class WeaponTemplate : MonoBehaviour
         {
             return;
         }
+        damage = baseDamage+ (int)((player.GetComponent<Player>().strength / 100.0) * baseDamage); 
         if (Input.GetMouseButton(0))
         {
             if (currentAttackCooldown <= 0)

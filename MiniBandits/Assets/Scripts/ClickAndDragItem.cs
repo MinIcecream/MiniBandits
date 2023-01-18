@@ -41,13 +41,26 @@ public class ClickAndDragItem : MonoBehaviour, IPointerExitHandler, IPointerEnte
             GameObject slot = IsPointerOverUIElement("InventorySlot");
             //IF YOU"RE OVER A SLOT:
             if (slot != null)
-            {
+            { 
                 var compatibleType = slot.GetComponent<InventorySlot>().acceptedItems;
+                Item otherSlotItem = slot.GetComponent<InventorySlot>().GetItem();
+
+                if (!otherSlotItem)
+                {
+                    if (compatibleType == parent.GetItem().type || compatibleType == Item.itemType.basic)
+                    {
+                        Item item = parent.GetItem();
+
+                        inventory.AddItemToInventory(otherSlotItem, parent);
+                        inventory.AddItemToInventory(item, slot.GetComponent<InventorySlot>());
+
+                    }
+                }
                 //CHECKING IF SLOT IS COMPATIBLE..l.
-                if (compatibleType == parent.GetItem().type || compatibleType == Item.itemType.basic)
+                // IF THE OTHER SSLOT iS COMPATIABLE WITH THIS ITEM's TYPE OR THE OTHER IS BASIC, THIS ITEM CAN SWITHC. CAN THE OTHER SWITCH?  
+                else if ((compatibleType == parent.GetItem().type || compatibleType == Item.itemType.basic) && (otherSlotItem.type == parent.acceptedItems || parent.acceptedItems == Item.itemType.basic))
                 { 
-                    Item item = parent.GetItem();
-                    Item otherSlotItem = slot.GetComponent<InventorySlot>().GetItem();
+                    Item item = parent.GetItem(); 
 
                     inventory.AddItemToInventory(otherSlotItem, parent);
                     inventory.AddItemToInventory(item, slot.GetComponent<InventorySlot>());

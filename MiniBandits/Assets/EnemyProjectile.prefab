@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2478215186414079167}
   - component: {fileID: 2169642747890951528}
   - component: {fileID: -1402040636888680874}
+  - component: {fileID: 3701017303696728965}
   m_Layer: 9
   m_Name: EnemyProjectile
   m_TagString: Untagged
@@ -76,8 +77,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 487288807bdfcd144869aa66eda85c18, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -122,6 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   damage: 20
+  particles: {fileID: 6409433017642527178, guid: 3ecead0ca126e2140ab4be0c47b27cec, type: 3}
 --- !u!58 &-1402040636888680874
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -135,6 +137,19 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.029648658, y: 0.000000003534395}
   serializedVersion: 2
-  m_Radius: 0.100000024
+  m_Radius: 0.115270466
+--- !u!114 &3701017303696728965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7777877402851561955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 204d8bfaa9a879b4c8c48894a2557c15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destructDelay: 2

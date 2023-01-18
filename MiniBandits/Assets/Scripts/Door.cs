@@ -16,7 +16,19 @@ public class Door : MonoBehaviour
     public void SetReward(room r)
     {
         room = r;
-        tmp.text = room.reward.ToString();
+        switch (room.reward)
+        {
+            case rewardTypes.randomWeapon:
+                tmp.text = "Random Weapon";
+                break;
+            case rewardTypes.randomArmor:
+                tmp.text = "Random Armor";
+                break;
+            case rewardTypes.gold:
+                tmp.text = "A Small Amount of Gold";
+                break;
+        }
+         
     }
 
     void OnTriggerStay2D(Collider2D coll)
@@ -24,8 +36,7 @@ public class Door : MonoBehaviour
         floorMan = GameObject.FindWithTag("FloorManager").GetComponent<FloorManager>();
 
         if (coll.gameObject.tag == "Player")
-        {
-            Debug.Log("LEAVING...");
+        { 
             levelMan.TransitionToNextRoom(room);
             Destroy(this);
         }

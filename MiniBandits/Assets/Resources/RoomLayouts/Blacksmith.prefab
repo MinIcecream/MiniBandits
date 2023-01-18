@@ -558,7 +558,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.2735849, g: 0.2735849, b: 0.2735849, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -633,15 +633,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe6ceb731959e704d80a6210dd7dd650, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  floorMan: {fileID: 0}
+  doors: []
+  playerSpawnPt: {fileID: 6141740596025369253}
+  itemSpawnPt: {fileID: 0}
+  reward: 0
   level: {fileID: 5791364619530835828}
   room: {fileID: 0}
   levelComplete: 0
   levelStarted: 0
-  openUpperWall: {fileID: 0}
-  closedUpperWall: {fileID: 0}
-  closedLowerWall: {fileID: 0}
-  openLowerWall: {fileID: 0}
-  playerSpawnPt: {fileID: 6141740596025369253}
+  bossTheme: 
 --- !u!1 &5791364619530835828
 GameObject:
   m_ObjectHideFlags: 0
@@ -1217,4 +1218,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cac48d6444a5dac4da1e396dc0e6c1f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelMan: {fileID: 0}

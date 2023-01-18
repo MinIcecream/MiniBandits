@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using TMPro;
 
 public class PlayerInventory : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class PlayerInventory : MonoBehaviour
     public InventorySlot helmetSlot, chestplateSlot, pantsSlot,weaponSlot;
 
     public List<GameObject> buttons = new List<GameObject>();
+
+    public TextMeshProUGUI itemTitle, itemDescription;
 
     void Awake()
     {
@@ -34,6 +37,15 @@ public class PlayerInventory : MonoBehaviour
             }
         }
         return false;
+    }
+    public void SetDescription(Item item)
+    {
+        if (item == null)
+        {
+            return;
+        }
+        itemTitle.text = item.name;
+        itemDescription.text = item.description;
     }
 
     //Equips the item to the corresponding active slot
@@ -113,7 +125,7 @@ public class PlayerInventory : MonoBehaviour
         return false;
     }
 
-    //IF ITEM IS NULL, REMOVE ITEM FROM THE ASLOT. OTHERWISE, ADD THE ITEM TO THE SLOT.
+    //IF ITEM IS NULL, REMOVE ITEM FROM THE SLOT. OTHERWISE, ADD THE ITEM TO THE SLOT.
     public void AddItemToInventory(Item itemToAdd, InventorySlot slot)
     {
         if (itemToAdd == null)

@@ -13,5 +13,11 @@ MonoBehaviour:
   m_Name: 3
   m_EditorClassIdentifier: 
   enemies:
-  - pos: {x: 5.17, y: 0.93715715}
+  - pos: {x: 5.17, y: 2.9371572}
     name: Boar
+  - pos: {x: -2.253968, y: -0.103279}
+    name: Boar
+  - pos: {x: 7.396747, y: -2.03377}
+    name: Boar
+  - pos: {x: 1.4536915, y: -0.9911287}
+    name: Plant

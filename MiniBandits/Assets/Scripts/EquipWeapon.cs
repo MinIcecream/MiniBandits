@@ -11,6 +11,7 @@ public class EquipWeapon : MonoBehaviour
     void Awake()
     {
         inven = GameObject.FindWithTag("Inventory").GetComponent<PlayerInventory>();
+        UpdateWeapon();
     }
     void OnEnable()
     {
@@ -56,11 +57,12 @@ public class EquipWeapon : MonoBehaviour
             Debug.Log("WEAPON NOT IMPLEMENTED!!");
             return;
         }
-
+         
         activeWeapon = Instantiate(weaponPrefab, spawnPt.position, Quaternion.identity);
    
         //If the weapon was successfully equiped: 
-        activeWeapon.transform.SetParent(this.gameObject.transform); 
-   
+        activeWeapon.transform.SetParent(this.gameObject.transform);
+        activeWeapon.transform.localRotation = Quaternion.identity;
+
     }
 }

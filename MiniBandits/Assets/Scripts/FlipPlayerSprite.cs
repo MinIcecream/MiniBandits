@@ -21,12 +21,12 @@ public class FlipPlayerSprite : MonoBehaviour
         {
             direction = "right";
         }
-        /*
+        
         if (direction == "left")
         {
             transform.eulerAngles = new Vector3(
             transform.eulerAngles.x,
-            transform.eulerAngles.y + 180,
+            0,
             transform.eulerAngles.z
             ); 
         }
@@ -34,9 +34,9 @@ public class FlipPlayerSprite : MonoBehaviour
         {
             transform.eulerAngles = new Vector3(
             transform.eulerAngles.x,
-            transform.eulerAngles.y + 180,
+            180,
             transform.eulerAngles.z
             );
-        }*/
+        }
     }
 }

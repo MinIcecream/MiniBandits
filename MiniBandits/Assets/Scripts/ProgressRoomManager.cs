@@ -105,14 +105,14 @@ public class ProgressRoomManager : BaseRoomManager
             case rewardTypes.randomWeapon:
                 {
                     Weapon newWeapon = RoomOptionGenerator.GenerateRandomWeapon();
-                    GameObject newItem = Instantiate(Resources.Load<GameObject>("ItemInteractable"), itemSpawnPt.position, Quaternion.identity);
+                    GameObject newItem = Instantiate(Resources.Load<GameObject>("Misc/ItemInteractable"), itemSpawnPt.position, Quaternion.identity);
                     newItem.GetComponent<ItemInteractable>().item = newWeapon;
                 }
                 break;
             case rewardTypes.randomArmor:
                 {
                     Armor newArmor = RoomOptionGenerator.GenerateRandomArmor();
-                    GameObject newItem = Instantiate(Resources.Load<GameObject>("ItemInteractable"), itemSpawnPt.position, Quaternion.identity);
+                    GameObject newItem = Instantiate(Resources.Load<GameObject>("Misc/ItemInteractable"), itemSpawnPt.position, Quaternion.identity);
                     newItem.GetComponent<ItemInteractable>().item = newArmor;
                 }
                 break;

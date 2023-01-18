@@ -16,6 +16,7 @@ TagManager:
   - Terrain
   - FloorManager
   - PersistBetweenFloors
+  - InfernalAura
   layers:
   - Default
   - TransparentFX

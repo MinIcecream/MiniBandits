@@ -6,19 +6,24 @@ using EZCameraShake;
 
 public class PlayerMovement : MonoBehaviour, IDamageable
 { 
-    public LayerMask mask;
-    public float speed; 
+    public LayerMask mask; 
 
+    [HideInInspector]
     public bool canMove=true;
 
     Health health;
+
+    [HideInInspector]
     bool hasDied = false;
 
+    [HideInInspector]
     public bool inCombat = false;
 
     Vector2 lastPosition = Vector2.zero;
      
     public float dashMagnitude;
+
+    public Animator walkAnim;
 
     void Awake()
     {
@@ -45,12 +50,12 @@ public class PlayerMovement : MonoBehaviour, IDamageable
         //CHECK IF MOVING. IF SO, PLAY ANIMATION
         if ((Vector2)transform.position == lastPosition)
         {
-            GetComponent<Animation>().enabled = false;
+            walkAnim.SetBool("Walk", false);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(Vector3.zero), 90 * Time.deltaTime);
         }
         else
         {
-            GetComponent<Animation>().enabled = true;
+            walkAnim.SetBool("Walk", true);
         }
  
 
@@ -69,7 +74,9 @@ public class PlayerMovement : MonoBehaviour, IDamageable
             walkSpeed = walkSpeed.normalized;
         }
         walkSpeed *= Time.deltaTime;
-        transform.position += walkSpeed * speed;
+
+        Player stats = GetComponent<Player>(); 
+        transform.position += walkSpeed * stats.speed/10;
 
         //DASH
         if (Input.GetKeyDown(KeyCode.Space) && GetComponent<PlayerStamina>().GetStamina()>0)
@@ -115,10 +122,10 @@ public class PlayerMovement : MonoBehaviour, IDamageable
     }
     IEnumerator DamageAnimation()
     {
-        transform.localScale = new Vector2(2.2f, 2.2f);
+        transform.localScale = new Vector2(1.2f, 1.2f);
 
         yield return new WaitForSeconds(0.1f);
 
-        transform.localScale = new Vector2(2f, 2f);
+        transform.localScale = new Vector2(1f, 1f);
     }
 }

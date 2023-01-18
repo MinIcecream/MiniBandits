@@ -14,7 +14,7 @@ public class BigSword : WeaponTemplate
     public override void Attack()
     {
         GetComponent<ParticleSystem>().Play();
-        transform.localRotation = Quaternion.Euler(0, 0, -90);
+        transform.localRotation = Quaternion.Euler(0, 0, 90);
         collider.enabled = true;
         StartCoroutine(DisableCollider());
     }
