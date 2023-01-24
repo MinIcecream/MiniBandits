@@ -62,6 +62,7 @@ public class InfernalAura : MonoBehaviour
         }
         if (numStacks == 0)
         {
+            Debug.Log("FDFS");
             Destroy(gameObject);
         }
 
@@ -91,7 +92,14 @@ public class InfernalAura : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
             foreach(IDamageable opp in damageables)
             {
-                opp.Damage(damage);
+                if (opp!=null)
+                { 
+                    opp.Damage(damage);
+                }
+                else
+                {
+                    damageables.Remove(opp);
+                }
             }
         }
     }

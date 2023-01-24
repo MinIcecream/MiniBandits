@@ -52,12 +52,17 @@ public class GameManager : MonoBehaviour
         floorMan.UpdatePlayerAndCameraPos();
     }
 
-    public static void GenerateNewFloor()
+    public void GenerateNewFloor()
     {
         room = 0;
         floor++;
-        SceneManager.LoadScene("Levels"); 
-        
+        SceneManager.LoadScene("Levels");
+
+        Invoke("GenerateStarterRoomAfterDelay", 0.1f);
+    }
+    void GenerateStarterRoomAfterDelay()
+    {
+
         FloorManager floorMan = GameObject.FindWithTag("FloorManager").GetComponent<FloorManager>();
         floorMan.floorTheme = themes[floor];
 
@@ -67,7 +72,6 @@ public class GameManager : MonoBehaviour
         floorMan.SpawnRoom(starterRoom);
         floorMan.UpdatePlayerAndCameraPos();
     }
-    
     void Update()
     {
         //IF PLAYER DIED, LOAD MENU
@@ -85,7 +89,7 @@ public class GameManager : MonoBehaviour
 
             GameObject.FindWithTag("SceneSpawnPoint").transform.position = Vector2.zero; 
             Debug.Log("Floor Completed!");
-        }*/
+        }*/ 
     }
 
     void LoadMenu()

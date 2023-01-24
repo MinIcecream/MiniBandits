@@ -39,4 +39,28 @@ public class FacePlayer : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
     }
+
+    void OnDisable()
+    {
+        if (player == null)
+        {
+            if (lastPlayerPos.x > transform.position.x)
+            {
+                transform.rotation =Quaternion.Euler(new Vector3(0, 180, 0));
+            }
+            else
+            {
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            }
+            return;
+        }
+        if (player.transform.position.x > transform.position.x)
+        {
+            transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+        }
+    }
 }

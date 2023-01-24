@@ -9,7 +9,7 @@ public class EndFloorDoor : MonoBehaviour
         if (coll.gameObject.tag == "Player")
         {
             Debug.Log("LEAVING...");
-            GameManager.GenerateNewFloor(); 
+            GameObject.FindWithTag("GameManager").GetComponent<GameManager>().GenerateNewFloor(); 
             Destroy(this);
         }
     }

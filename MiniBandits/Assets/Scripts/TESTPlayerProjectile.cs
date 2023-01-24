@@ -11,15 +11,12 @@ public class TESTPlayerProjectile : MonoBehaviour
 
     public void SetDir(Vector2 dir)
     {
-        direction = dir;
+        direction = dir; 
+        GetComponent<Rigidbody2D>().velocity = (Vector2)direction * speed; 
     }
+     
 
-    void Update()
-    {
-        transform.position = (Vector2)transform.position+direction * speed * Time.deltaTime;
-    }
-
-    void OnTriggerEnter2D(Collider2D coll)
+    public virtual void OnTriggerEnter2D(Collider2D coll)
     {
         if (coll.gameObject.GetComponent<Health>() != null)
         {

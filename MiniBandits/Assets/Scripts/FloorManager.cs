@@ -40,7 +40,7 @@ public class FloorManager : MonoBehaviour
 
     //SPAWN LEVELS, INITIALIZES THEIR ENEMIES TO SPAWN, SETS THE PLAYER SPAWN POINT FOR WHEN THEY ENTER THE LEVEL
     public void SpawnRoom(room room)
-    {
+    { 
         if (room.roomType == roomTypes.normal)
         {
             if (enemies.Count == 0)

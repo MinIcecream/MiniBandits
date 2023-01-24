@@ -43,7 +43,7 @@ public class EnemyAI : MonoBehaviour
     { 
         GetComponent<Health>().DealDamage(damage);
         StartCoroutine(DamageAnimation());
-    }
+    } 
     IEnumerator DamageAnimation()
     { 
         transform.localScale = new Vector2(1.2f, 1.2f);

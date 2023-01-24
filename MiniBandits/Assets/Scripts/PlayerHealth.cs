@@ -7,10 +7,10 @@ public class PlayerHealth : Health
     public Player player;
 
     public override void Start()
-    {
+    { 
         player = GetComponent<Player>();
-        maxHealth =  player.GetHealth();
-        base.Start();
+        maxHealth =  player.GetHealth(); 
+        base.Start(); 
     }
     void Update()
     {

@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2103427434096740029
 Transform:
   m_ObjectHideFlags: 0
@@ -240,6 +240,7 @@ MonoBehaviour:
   player: {fileID: 0}
   ranIntoWall: 0
   charging: 0
+  collider: {fileID: 955569775507847288}
   chargeSpeed: 10
   chargeCooldown: 2
 --- !u!114 &3961930588838374647

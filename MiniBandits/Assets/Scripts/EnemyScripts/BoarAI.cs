@@ -10,6 +10,7 @@ public class BoarAI : EnemyAI, IDamageable
     public bool charging = false;
 
     Vector2 chargeDir;
+    public new GameObject collider;
 
     public float chargeSpeed;
     public float chargeCooldown;
@@ -23,6 +24,7 @@ public class BoarAI : EnemyAI, IDamageable
         yield return new WaitForSeconds(chargeCooldown);
         if (player != null)
         {
+            collider.SetActive(true);
             chargeDir = player.transform.position - transform.position;
             chargeDir = chargeDir.normalized;
             GetComponent<FacePlayer>().enabled = false;
@@ -44,6 +46,7 @@ public class BoarAI : EnemyAI, IDamageable
             GetComponent<FacePlayer>().enabled = true;
             ranIntoWall = false;
             charging = false;
+            collider.SetActive(false);
             StartCoroutine(AttackTimer());
         }
         if (charging)

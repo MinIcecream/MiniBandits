@@ -17,6 +17,7 @@ TagManager:
   - FloorManager
   - PersistBetweenFloors
   - InfernalAura
+  - GameManager
   layers:
   - Default
   - TransparentFX
@@ -29,7 +30,7 @@ TagManager:
   - PlayerProjectile
   - EnemyProjectile
   - Terrain
-  - 
+  - OnlyWithTerrain
   - 
   - 
   - 

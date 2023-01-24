@@ -31,7 +31,7 @@ public class EyeballAI : EnemyAI, IDamageable
         }
         if (state == states.wandering)
         { 
-            if (Vector2.Distance(player.transform.position, transform.position) < 3)
+            if (Vector2.Distance(player.transform.position, transform.position) < 5)
             {
                 state = states.firing;
             }
@@ -46,7 +46,7 @@ public class EyeballAI : EnemyAI, IDamageable
             {
                 state = states.wandering;
             }
-            if (Vector2.Distance(player.transform.position, transform.position) > 3)
+            if (Vector2.Distance(player.transform.position, transform.position) > 5)
             {
                 state = states.chasing;
             } 
@@ -57,7 +57,7 @@ public class EyeballAI : EnemyAI, IDamageable
             {
                 state = states.wandering;
             }
-            if (Vector2.Distance(player.transform.position, transform.position) < 3)
+            if (Vector2.Distance(player.transform.position, transform.position) < 5)
             {
                 state = states.firing;
             } 

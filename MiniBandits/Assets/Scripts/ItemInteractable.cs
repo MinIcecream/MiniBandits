@@ -24,11 +24,19 @@ public class ItemInteractable : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D coll)
     {
+        if (coll.gameObject.tag != "Player")
+        {
+            return;
+        }
         popup.SetActive(true);
         popup.transform.position = new Vector2(transform.position.x, transform.position.y + 1);
     }
     void OnTriggerExit2D(Collider2D coll)
-    { 
+    {
+        if (coll.gameObject.tag != "Player")
+        {
+            return;
+        }
         popup.SetActive(false); 
     }
 

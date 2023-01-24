@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 
         //CHECKING IF PLAYTER DIED 
         if (health.GetHealth() <= 0)
-        {
+        { 
             Death();
             hasDied = true;
         }

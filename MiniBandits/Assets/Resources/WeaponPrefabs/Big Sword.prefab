@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6181974663495378071}
   - component: {fileID: 876521408314173019}
   m_Layer: 8
-  m_Name: BigSword
+  m_Name: Big Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

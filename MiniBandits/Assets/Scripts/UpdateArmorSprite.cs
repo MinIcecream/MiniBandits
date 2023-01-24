@@ -36,10 +36,13 @@ public class UpdateArmorSprite : MonoBehaviour
          
 
         if (helmet)
-        {   
+        {    
             if (Type.GetType(helmet.name.Replace(" ", "")) != null)
             { 
-                helmetScript=(ArmorTemplate)gameObject.AddComponent(Type.GetType(helmet.name.Replace(" ", "")));
+                if(gameObject.GetComponent(Type.GetType(helmet.name.Replace(" ", "")))==null)
+                { 
+                    helmetScript = (ArmorTemplate)gameObject.AddComponent(Type.GetType(helmet.name.Replace(" ", "")));
+                } 
             }
             helmetSprite.sprite = helmet.sprite;
         }
@@ -51,8 +54,11 @@ public class UpdateArmorSprite : MonoBehaviour
         if (chestplate)
         {
             if (Type.GetType(chestplate.name.Replace(" ", "")) != null)
-            { 
-                chestplateScript = (ArmorTemplate)gameObject.AddComponent(Type.GetType(chestplate.name.Replace(" ", "")));
+            {
+                if (gameObject.GetComponent(Type.GetType(chestplate.name.Replace(" ", ""))) == null)
+                {
+                    chestplateScript = (ArmorTemplate)gameObject.AddComponent(Type.GetType(chestplate.name.Replace(" ", "")));
+                } 
             } 
             chestplateSprite.sprite = chestplate.sprite;
         }
@@ -65,7 +71,10 @@ public class UpdateArmorSprite : MonoBehaviour
         {
             if (Type.GetType(pants.name.Replace(" ", "")) !=null)
             {
-                pantsScript = (ArmorTemplate)gameObject.AddComponent(Type.GetType(pants.name.Replace(" ", "")));
+                if (gameObject.GetComponent(Type.GetType(pants.name.Replace(" ", ""))) == null)
+                {
+                    pantsScript = (ArmorTemplate)gameObject.AddComponent(Type.GetType(pants.name.Replace(" ", "")));
+                } 
             } 
             pantsSprite.sprite = pants.sprite;
         }

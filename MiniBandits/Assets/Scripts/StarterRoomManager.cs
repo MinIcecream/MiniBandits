@@ -20,7 +20,5 @@ public class StarterRoomManager : BaseRoomManager
         floorMan.SpawnRoom(r);
 
         floorMan.UpdatePlayerAndCameraPos();
-    }
-
-     
+    } 
 }
