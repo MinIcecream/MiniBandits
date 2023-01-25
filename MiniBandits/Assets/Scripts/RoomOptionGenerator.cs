@@ -12,10 +12,9 @@ namespace RoomInfo
         graveyard
     }
     public enum roomTypes
-    {
-        blackSmith,
+    { 
         starter,
-        market,
+        campfire, 
         normal
     }
     public struct room
@@ -32,7 +31,7 @@ namespace RoomInfo
 }
 public class RoomOptionGenerator
 {
-    public float normalRoomWeight=100;
+    public float normalRoomWeight=90;
 
     public static roomThemes[] GenerateRoomThemes(int numThemes)
     {
@@ -97,7 +96,7 @@ public class RoomOptionGenerator
             { 
                 Array values = Enum.GetValues(typeof(roomTypes)); 
                 roomTypes randomRoom=roomTypes.normal; 
-                while (randomRoom == roomTypes.normal)
+                while (randomRoom == roomTypes.normal || randomRoom==roomTypes.starter)
                 {  
                     randomRoom = (roomTypes)values.GetValue(random.Next(values.Length)); 
                 }
@@ -129,6 +128,6 @@ public class RoomOptionGenerator
         } 
         int ran = UnityEngine.Random.Range(0, allArmor.Count); 
         return allArmor[ran];
-    }
+    } 
 }
 

@@ -124,6 +124,7 @@ MonoBehaviour:
   speed: 10
   damage: 20
   particles: {fileID: 6409433017642527178, guid: 3ecead0ca126e2140ab4be0c47b27cec, type: 3}
+  destroyOnHit: 1
 --- !u!58 &-1402040636888680874
 CircleCollider2D:
   m_ObjectHideFlags: 0

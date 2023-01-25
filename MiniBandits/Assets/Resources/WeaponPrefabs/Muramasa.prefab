@@ -10,9 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5311302903575278931}
   - component: {fileID: 5311302903575278932}
-  - component: {fileID: 7267819578731869025}
-  m_Layer: 6
-  m_Name: Buzzsaw Shooter
+  - component: {fileID: 1251705593230380382}
+  - component: {fileID: 4556001054714239215}
+  - component: {fileID: 1543175470530777282}
+  m_Layer: 8
+  m_Name: Muramasa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,18 +76,18 @@ SpriteRenderer:
   m_SortingLayerID: 1648826359
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 331355203, guid: 3ddb661a72214d14e92048bd8c38e421, type: 3}
+  m_Sprite: {fileID: 836702055, guid: 0714997099a906644954fb9deb40de6b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 1.9375}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7267819578731869025
+--- !u!114 &1251705593230380382
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,13 +96,59 @@ MonoBehaviour:
   m_GameObject: {fileID: 5311302903575278930}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2febf667e83fe2540843afbb76249d02, type: 3}
+  m_Script: {fileID: 11500000, guid: d8fbec1760181d347827cc2ffff19c53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  projectile: {fileID: 7777877402851561955, guid: 6ba4c96c323585b4cb76cf72ec7e5c65, type: 3}
-  weapon: {fileID: 11400000, guid: f0ac6e349a9d89f4caf40264b833245d, type: 2}
+  projectile: {fileID: 5567785658435745701, guid: eb6a232f65186494f91bc18004892180, type: 3}
+  weapon: {fileID: 11400000, guid: 65fe1f083f7e60c42ad9d319b9c80bff, type: 2}
   weaponName: 
   attackCooldown: 0
   baseDamage: 0
   damage: 0
+--- !u!95 &4556001054714239215
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5311302903575278930}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ac72a3bdc929eee428ea75c16569bb4b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!61 &1543175470530777282
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5311302903575278930}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.2529087, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 1.9375}
+    newSize: {x: 2, y: 1.9375}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.5058174, y: 1.9375}
+  m_EdgeRadius: 0

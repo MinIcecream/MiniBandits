@@ -3495,7 +3495,7 @@ MonoBehaviour:
   baseSpeed: 50
   baseStrength: 0
   baseHealth: 120
-  baseCrit: 0
+  baseCrit: 10
   baseLuck: 0
   lifeSteal: 0
   defense: 0
@@ -3811,7 +3811,7 @@ MonoBehaviour:
   activeHelmet: {fileID: 0}
   activeChestplate: {fileID: 0}
   activePants: {fileID: 0}
-  activeWeapon: {fileID: 11400000, guid: f8646f7ff0527a64799b2bc6177bbdd0, type: 2}
+  activeWeapon: {fileID: 11400000, guid: 65fe1f083f7e60c42ad9d319b9c80bff, type: 2}
   slots:
   - {fileID: 6575215804440797644}
   - {fileID: 6575215803543268009}

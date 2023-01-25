@@ -12,7 +12,7 @@ public class InfernalAura : MonoBehaviour
 
     ParticleSystem.ShapeModule ps;
     int damage;
-    public int baseRadius;
+    public float baseRadius;
     List<IDamageable> damageables = new List<IDamageable>();
 
     void Awake()
@@ -62,7 +62,6 @@ public class InfernalAura : MonoBehaviour
         }
         if (numStacks == 0)
         {
-            Debug.Log("FDFS");
             Destroy(gameObject);
         }
 

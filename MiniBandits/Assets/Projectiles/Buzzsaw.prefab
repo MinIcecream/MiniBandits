@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 1303991915207454805}
   - component: {fileID: 2478215186414079167}
   - component: {fileID: -3391925109637655075}
-  - component: {fileID: 6801373911892392172}
+  - component: {fileID: 3181559702863170683}
   m_Layer: 8
   m_Name: Buzzsaw
   m_TagString: Untagged
@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destructDelay: 10
---- !u!114 &6801373911892392172
+--- !u!114 &3181559702863170683
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -234,3 +234,5 @@ MonoBehaviour:
   speed: 20
   damage: 0
   particles: {fileID: 6409433017642527178, guid: 3ecead0ca126e2140ab4be0c47b27cec, type: 3}
+  destroyOnHit: 1
+  collider: {fileID: 2701296075400036410}

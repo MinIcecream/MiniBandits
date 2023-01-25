@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyHealth : Health
-{
-    
+{ 
     public override void DealDamage(int damage)
     {
         GameObject player = GameObject.FindWithTag("Player"); 
@@ -32,4 +31,5 @@ public class EnemyHealth : Health
         int healAmount = finalDamage * lifeSteal / 100;
         player.GetComponent<Health>().Heal(healAmount);
     }
+     
 }

@@ -32,6 +32,12 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 
     void Update()
     {
+       /*
+        if (Input.GetKeyDown("j"))
+        {
+            Debug.Log(RoomOptionGenerator.GenerateRandomArmor().name);
+        }
+         */
         if (hasDied)
         {
             canMove = false;

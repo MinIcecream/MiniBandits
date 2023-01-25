@@ -12,8 +12,7 @@ public class DamagePopup : MonoBehaviour
     public float speed;
 
     public void SetUp(Color col, string dmg)
-    {
-        Debug.Log(col);
+    { 
         tmp.text = dmg;
         color = col;
         tmp.color = color;

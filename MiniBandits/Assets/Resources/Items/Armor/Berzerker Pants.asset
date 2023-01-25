@@ -18,7 +18,7 @@ MonoBehaviour:
   rarity: 0
   type: 3
   tier: 0
-  description: 'Increases Attack '
+  description: Increases Attack and crit
   lifeSteal: 0
   defense: 10
   speed: 0

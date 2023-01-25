@@ -12,23 +12,29 @@ public class Door : MonoBehaviour
     FloorManager floorMan;
 
     public TextMeshProUGUI tmp;
-
+     
     public void SetReward(room r)
     {
         room = r;
-        switch (room.reward)
-        {
-            case rewardTypes.randomWeapon:
-                tmp.text = "Random Weapon";
-                break;
-            case rewardTypes.randomArmor:
-                tmp.text = "Random Armor";
-                break;
-            case rewardTypes.gold:
-                tmp.text = "A Small Amount of Gold";
-                break;
+        if(room.roomType== roomTypes.normal)
+        { 
+            switch (room.reward)
+            {
+                case rewardTypes.randomWeapon:
+                    tmp.text = "Random Weapon";
+                    break;
+                case rewardTypes.randomArmor:
+                    tmp.text = "Random Armor";
+                    break;
+                case rewardTypes.gold:
+                    tmp.text = "A Small Amount of Gold";
+                    break;
+            }
         }
-         
+        else
+        { 
+            tmp.text = room.roomType.ToString(); 
+        }
     }
 
     void OnTriggerStay2D(Collider2D coll)

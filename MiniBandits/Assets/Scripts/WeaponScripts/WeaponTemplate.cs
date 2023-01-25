@@ -7,6 +7,7 @@ public class WeaponTemplate : MonoBehaviour
 {   
     float currentAttackCooldown;
 
+    [HideInInspector]
     public PlayerMovement player;
 
     public GameObject projectile;

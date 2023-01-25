@@ -77,7 +77,11 @@ public class ProgressRoomManager : BaseRoomManager
 
     //AFTER YOU BEAT ALL THE ENEMIES:
     public override void EndRoom()
-    { 
+    {
+        if (GameObject.FindWithTag("Player") == null)
+        {
+            return;
+        }
         GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().inCombat = false;
         levelComplete = true;
 
