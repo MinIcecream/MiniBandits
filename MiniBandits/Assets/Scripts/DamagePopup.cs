@@ -10,12 +10,21 @@ public class DamagePopup : MonoBehaviour
     public float dissapearSpeed;
     public int fadeDelay;
     public float speed;
+    public GameObject critIcon;
 
-    public void SetUp(Color col, string dmg)
+    public void SetUp(Color col, string dmg, bool crit)
     { 
         tmp.text = dmg;
         color = col;
         tmp.color = color;
+        if (crit)
+        {
+            critIcon.SetActive(true);
+        }
+        else
+        {
+            critIcon.SetActive(false);
+        }
     }
     void Awake()
     { 
@@ -32,7 +41,7 @@ public class DamagePopup : MonoBehaviour
         while (color.a > 0)
         { 
             color.a -= dissapearSpeed * Time.deltaTime;
-
+            critIcon.GetComponent<SpriteRenderer>().color = color;
             tmp.color = color;
             yield return null;
         } 

@@ -21,11 +21,12 @@ public class PopupManager : MonoBehaviour
         if(crit)
         { 
             newColor = new Color(255, 0, 0);
+            popupObj.GetComponent<DamagePopup>().SetUp(newColor, dmg,true);
         }
         else
         { 
             newColor = new Color(255, 255, 255);
-        }
-        popupObj.GetComponent<DamagePopup>().SetUp(newColor, dmg);
+            popupObj.GetComponent<DamagePopup>().SetUp(newColor, dmg,false);
+        } 
     } 
 }
