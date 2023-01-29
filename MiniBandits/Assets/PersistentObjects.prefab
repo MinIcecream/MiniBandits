@@ -3342,6 +3342,7 @@ GameObject:
   - component: {fileID: 6575215802865004263}
   - component: {fileID: 6575215802865004260}
   - component: {fileID: 6575215802865004261}
+  - component: {fileID: 1979894002660501592}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -3541,6 +3542,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: right
+--- !u!114 &1979894002660501592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6575215802865004280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80e1beec9143d1145a2a5da3ef3fc72d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6575215802888001883
 GameObject:
   m_ObjectHideFlags: 0
@@ -3807,10 +3820,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f0ac6e349a9d89f4caf40264b833245d, type: 2}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  activeHelmet: {fileID: 0}
-  activeChestplate: {fileID: 0}
-  activePants: {fileID: 0}
+  - {fileID: 11400000, guid: ddae909cb38a24f449b651e512005221, type: 2}
+  activeHelmet: {fileID: 11400000, guid: fc81a3eb3967e7641bfa053a233d28c7, type: 2}
+  activeChestplate: {fileID: 11400000, guid: 18e31a5436dcd4d47ba02d981a255697, type: 2}
+  activePants: {fileID: 11400000, guid: 1f59504cef4f4f848b54169d1028e3e3, type: 2}
   activeWeapon: {fileID: 11400000, guid: 65fe1f083f7e60c42ad9d319b9c80bff, type: 2}
   slots:
   - {fileID: 6575215804440797644}

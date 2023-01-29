@@ -9,7 +9,7 @@ public class TESTPlayerProjectile : MonoBehaviour
     public int damage;
     public GameObject particles;
     public bool destroyOnHit=true;
-    public Collider2D collider;
+    public new Collider2D collider;
 
     void Awake()
     {

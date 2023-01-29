@@ -16,9 +16,5 @@ public class InfernalHelmet : ArmorTemplate
 
         InfernalAura aura = GameObject.FindWithTag("InfernalAura").GetComponent<InfernalAura>();
         aura.helmet = this;
-    }
-    void OnDisable()
-    {
-        Debug.Log("FDSFHSDKFHKDHF");
-    }
+    } 
 }

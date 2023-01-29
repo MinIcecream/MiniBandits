@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 7777877402851561955}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -2.2629, y: 1.163, z: -0.932}
-  m_LocalScale: {x: 2, y: 2, z: 7.08}
+  m_LocalScale: {x: 1, y: 1, z: 7.08}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -125,6 +125,7 @@ MonoBehaviour:
   damage: 20
   particles: {fileID: 6409433017642527178, guid: 3ecead0ca126e2140ab4be0c47b27cec, type: 3}
   destroyOnHit: 1
+  collider: {fileID: 0}
 --- !u!58 &-1402040636888680874
 CircleCollider2D:
   m_ObjectHideFlags: 0
