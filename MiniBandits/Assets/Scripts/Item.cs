@@ -7,6 +7,7 @@ public class Item : ScriptableObject
     public int id;
     public new string name;
     public Sprite sprite;
+    public int cost;
     public itemRarity rarity;
     public itemType type;
     public int tier;

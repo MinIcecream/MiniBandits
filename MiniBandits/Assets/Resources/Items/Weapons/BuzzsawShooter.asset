@@ -15,6 +15,7 @@ MonoBehaviour:
   id: 0
   name: Buzzsaw Shooter
   sprite: {fileID: -875374849, guid: 3ddb661a72214d14e92048bd8c38e421, type: 3}
+  cost: 20
   rarity: 0
   type: 0
   tier: 0

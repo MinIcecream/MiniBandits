@@ -15,6 +15,7 @@ namespace RoomInfo
     { 
         starter,
         campfire, 
+        market,
         normal
     }
     public struct room

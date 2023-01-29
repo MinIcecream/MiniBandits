@@ -15,6 +15,7 @@ MonoBehaviour:
   id: 0
   name: Bloodsucker's Suit
   sprite: {fileID: 938916337, guid: 6493cca2e1611ba4a824cce6dcb5ee52, type: 3}
+  cost: 35
   rarity: 0
   type: 2
   tier: 0

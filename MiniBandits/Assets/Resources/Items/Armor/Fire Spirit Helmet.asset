@@ -15,6 +15,7 @@ MonoBehaviour:
   id: 0
   name: Fire Spirit Helmet
   sprite: {fileID: 263635232, guid: 7def91e5dd49fa5418dc741d25853bdc, type: 3}
+  cost: 15
   rarity: 0
   type: 1
   tier: 0

@@ -15,6 +15,7 @@ MonoBehaviour:
   id: 0
   name: Infernal Helmet
   sprite: {fileID: -595510796, guid: c109227fa6192614699af85179c92b76, type: 3}
+  cost: 15
   rarity: 1
   type: 1
   tier: 0

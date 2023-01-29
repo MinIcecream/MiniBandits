@@ -14,7 +14,7 @@ public class GoldManager : MonoBehaviour
     {
         gold -= goldToSpend;
     }
-    public int getGold()
+    public int GetGold()
     {
         return gold;
     }

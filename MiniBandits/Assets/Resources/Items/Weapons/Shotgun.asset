@@ -15,8 +15,10 @@ MonoBehaviour:
   id: 2
   name: Shotgun
   sprite: {fileID: 21300000, guid: 39d5e63474baf244ab57b0cf07e4a34d, type: 3}
+  cost: 20
   rarity: 0
   type: 0
   tier: 0
+  description: 
   damage: 20
   attackSpeed: 1

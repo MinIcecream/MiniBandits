@@ -15,6 +15,7 @@ MonoBehaviour:
   id: 0
   name: Fire Spirit Chestplate
   sprite: {fileID: -1853713484, guid: 7def91e5dd49fa5418dc741d25853bdc, type: 3}
+  cost: 15
   rarity: 0
   type: 3
   tier: 0

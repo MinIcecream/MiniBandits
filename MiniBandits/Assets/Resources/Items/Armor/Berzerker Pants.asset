@@ -15,6 +15,7 @@ MonoBehaviour:
   id: 0
   name: Berzerker Pants
   sprite: {fileID: -911802804, guid: dba8674cbbaa027448cd71038a59b7a3, type: 3}
+  cost: 10
   rarity: 0
   type: 3
   tier: 0

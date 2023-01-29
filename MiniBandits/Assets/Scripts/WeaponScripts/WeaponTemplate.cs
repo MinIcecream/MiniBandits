@@ -26,14 +26,18 @@ public class WeaponTemplate : MonoBehaviour
 
     public virtual void Awake()
     {
-        player = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>(); 
-        GetComponent<SpriteRenderer>().sprite = weapon.sprite;
+       Invoke("InitializeVars", 0.1f);
          
         attackCooldown = 1f / weapon.attackSpeed;
         weaponName = weapon.name;
         baseDamage = weapon.damage;
     }
-    void Update()
+    void InitializeVars()
+    { 
+        player = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
+        GetComponent<SpriteRenderer>().sprite = weapon.sprite;
+    }
+    public virtual void Update()
     {
         //IF PLAYER IS GONE, PLAYER CAN't MOVE, OR MOUSE IS OVER UI, RETURN.
         if (player == null || !player.canMove|| EventSystem.current.IsPointerOverGameObject())

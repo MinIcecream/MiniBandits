@@ -104,7 +104,7 @@ public class ProgressRoomManager : BaseRoomManager
         switch (reward)
         {
             case rewardTypes.gold:
-                Debug.Log("+50 Gold!");
+                GameObject.FindWithTag("Player").GetComponent<GoldManager>().AddGold(10);
                 break;
             case rewardTypes.randomWeapon:
                 {

@@ -15,6 +15,7 @@ MonoBehaviour:
   id: 0
   name: Muramasa
   sprite: {fileID: 836702055, guid: 0714997099a906644954fb9deb40de6b, type: 3}
+  cost: 20
   rarity: 0
   type: 0
   tier: 0
