@@ -90,4 +90,11 @@ public class HolyTome : WeaponTemplate
     { 
         holding = true;
     }   
+    void OnDisable()
+    {
+        foreach(GameObject book in books)
+        {
+            Destroy(book);
+        }
+    }
 }
