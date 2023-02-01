@@ -6,8 +6,9 @@ using EZCameraShake;
 
 public class PlayerMovement : MonoBehaviour, IDamageable
 { 
-    public LayerMask mask; 
-
+    public LayerMask mask;
+    [SerializeField] private TrailRenderer dashTrail;
+    [SerializeField] private float dashTime;
     [HideInInspector]
     public bool canMove=true;
 
@@ -87,17 +88,29 @@ public class PlayerMovement : MonoBehaviour, IDamageable
         //DASH
         if (Input.GetKeyDown(KeyCode.Space) && GetComponent<PlayerStamina>().GetStamina()>0)
         {
-            GetComponent<PlayerStamina>().UseStamina(1);
-            Vector2 dashDirection = move.normalized;
-            Vector2 dashDistance = (Vector2)move.normalized * dashMagnitude; 
- 
-            transform.position = hitPoint(dashDirection, dashMagnitude);
+            StartCoroutine(Dash(move));
         }
          
  
         //END CAPTUING INPUT 
     }
+    IEnumerator Dash(Vector3 move)
+    {
+        dashTrail.emitting = true;
+        GetComponent<PlayerStamina>().UseStamina(1);
+        Vector2 dashDirection = move.normalized;
+        Vector2 dashDistance = (Vector2)move.normalized * dashMagnitude;
+        GetComponent<Collider2D>().enabled = false;
+        GetComponent<Rigidbody2D>().velocity = dashDistance;
+        //transform.position = hitPoint(dashDirection, dashMagnitude);
 
+        yield return new WaitForSeconds(dashTime);
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        GetComponent<Collider2D>().enabled = true;
+        dashTrail.emitting = false;
+    }
+
+    //OBSELETE NOW
     public Vector2 hitPoint(Vector2 dir, float distance)
     { 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, distance, mask);
