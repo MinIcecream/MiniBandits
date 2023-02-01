@@ -3965,14 +3965,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UIPanel: {fileID: 6575215803247554443}
   inventoryItems:
-  - {fileID: 11400000, guid: f0ac6e349a9d89f4caf40264b833245d, type: 2}
-  - {fileID: 11400000, guid: a26de3a72857502489e37a882d7836dc, type: 2}
   - {fileID: 0}
-  - {fileID: 11400000, guid: ddae909cb38a24f449b651e512005221, type: 2}
-  activeHelmet: {fileID: 11400000, guid: fc81a3eb3967e7641bfa053a233d28c7, type: 2}
-  activeChestplate: {fileID: 11400000, guid: 18e31a5436dcd4d47ba02d981a255697, type: 2}
-  activePants: {fileID: 11400000, guid: 1f59504cef4f4f848b54169d1028e3e3, type: 2}
-  activeWeapon: {fileID: 11400000, guid: 65fe1f083f7e60c42ad9d319b9c80bff, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  activeHelmet: {fileID: 0}
+  activeChestplate: {fileID: 0}
+  activePants: {fileID: 0}
+  activeWeapon: {fileID: 11400000, guid: d62a732ab68c8144f9a59b61987ca75c, type: 2}
   slots:
   - {fileID: 6575215804440797644}
   - {fileID: 6575215803543268009}
@@ -4618,7 +4618,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5bc0d3be0feba34c93c3009b0111ea2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DisplayNumbers: 1
   healthBar: {fileID: 6575215803310882247}
+  healthScript: {fileID: 6575215802865004258}
   tmp: {fileID: 6575215803943461245}
 --- !u!1 &6575215803323852469
 GameObject:

@@ -32,15 +32,23 @@ public class HolyTome : WeaponTemplate
 
             newBook.transform.SetParent(pivot);
             newBook.GetComponent<HolyBookProjectile>().damage = weapon.damage;
-            books.Add(newBook);
-            Invoke("Wait", 0.11f);
-        }   
-    } 
-    void Wait()
-    { 
-        pivot.SetParent(player.gameObject.transform);
-        pivot.localPosition = Vector2.zero;
-    }
+            books.Add(newBook); 
+        }
+
+        GameObject tempPlayer = GameObject.FindWithTag("Player");
+        if (tempPlayer == null)
+        {
+            foreach (GameObject book in books)
+            {
+                Destroy(book);
+            } 
+        }
+        else
+        { 
+            pivot.SetParent(tempPlayer.gameObject.transform);
+            pivot.localPosition = Vector2.zero;
+        } 
+    }  
     void FixedUpdate()
     { 
         foreach (GameObject book in books)

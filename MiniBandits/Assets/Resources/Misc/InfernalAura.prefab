@@ -4830,7 +4830,7 @@ MonoBehaviour:
   chestplate: {fileID: 0}
   pants: {fileID: 0}
   baseDamage: 20
-  baseRadius: 1.8
+  baseRadius: 2.2
 --- !u!58 &1153647047478311621
 CircleCollider2D:
   m_ObjectHideFlags: 0

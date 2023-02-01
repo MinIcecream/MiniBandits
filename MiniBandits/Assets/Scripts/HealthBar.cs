@@ -6,26 +6,30 @@ using TMPro;
 
 public class HealthBar : MonoBehaviour
 {
+    public bool DisplayNumbers;
     public Slider healthBar;
-    private Health playerHealth;
+    [SerializeField]
+    private Health healthScript;
     public TextMeshProUGUI tmp;
 
     void Start()
-    {
-        playerHealth = GameObject.FindWithTag("Player").GetComponent<Health>();
-        healthBar.maxValue = playerHealth.GetMaxHealth();
+    { 
+        healthBar.maxValue = healthScript.GetMaxHealth();
     }
 
 
     void Update()
     {
-        if (playerHealth == null)
+        if (healthScript == null)
         {
             return;
         }
-        int curHealth = playerHealth.GetHealth();
+        int curHealth = healthScript.GetHealth();
         healthBar.value = (curHealth);
-        tmp.text = curHealth.ToString();
-        healthBar.maxValue = playerHealth.GetMaxHealth();
+        if (DisplayNumbers)
+        { 
+            tmp.text = curHealth.ToString();
+        } 
+        healthBar.maxValue = healthScript.GetMaxHealth();
     }
 }

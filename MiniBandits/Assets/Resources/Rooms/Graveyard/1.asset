@@ -19,3 +19,7 @@ MonoBehaviour:
     name: plant
   - pos: {x: 10.976494, y: -2.845695}
     name: Plant
+  - pos: {x: 2.56, y: -2.845695}
+    name: Slime
+  - pos: {x: -2.81, y: -2.845695}
+    name: Slime

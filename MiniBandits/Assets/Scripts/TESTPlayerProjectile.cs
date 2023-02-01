@@ -9,6 +9,7 @@ public class TESTPlayerProjectile : MonoBehaviour
     public int damage;
     public GameObject particles;
     public bool destroyOnHit=true;
+    public bool destroyOnWall = true;
     public new Collider2D collider;
 
     void Awake()
@@ -46,8 +47,11 @@ public class TESTPlayerProjectile : MonoBehaviour
         }
         if (coll.gameObject.tag == "Wall")
         {
-            Instantiate(particles, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            if (destroyOnWall)
+            { 
+                Instantiate(particles, transform.position, Quaternion.identity);
+                Destroy(gameObject);
+            } 
         }
     }
 }

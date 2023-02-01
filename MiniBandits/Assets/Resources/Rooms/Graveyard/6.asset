@@ -18,7 +18,7 @@ MonoBehaviour:
   - pos: {x: -1.280836, y: -1.509241}
     name: Boar
   - pos: {x: -3.6204967, y: -1.0258833}
-    name: Plant
+    name: Alpha plant
   - pos: {x: 5.3114643, y: -0.9216192}
     name: Plant
   - pos: {x: 0.7238425, y: 2.9013991}

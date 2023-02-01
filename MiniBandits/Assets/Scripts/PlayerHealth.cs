@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerHealth : Health
 {
     public Player player;
+    bool canDamage = true;
 
     public override void Start()
     { 
@@ -38,6 +39,16 @@ public class PlayerHealth : Health
     } 
     public override void DealDamage(int damage)
     {
-        health -= (int)(damage * (100.0 / (100 + player.defense)));
+        if (canDamage)
+        {
+            StartCoroutine(InvulnerabilityFrames());
+            canDamage = false;
+            health -= (int)(damage * (100.0 / (100 + player.defense)));
+        } 
+    }
+    IEnumerator InvulnerabilityFrames()
+    {
+        yield return new WaitForSeconds(0.5f);
+        canDamage = true;
     }
 }

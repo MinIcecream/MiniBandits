@@ -32,7 +32,7 @@ public class MarketItem : MonoBehaviour
 
     void Update()
     {
-        popup.GetComponent<TextMeshPro>().text = "[E] to buy for " + item.cost + " gold";
+        popup.GetComponent<TextMeshPro>().text = "[E] to buy "+item.name+" for " + item.cost + " gold";
         GetComponent<SpriteRenderer>().sprite = item.sprite;
         if (popup.activeSelf && Input.GetKeyDown("e"))
         {

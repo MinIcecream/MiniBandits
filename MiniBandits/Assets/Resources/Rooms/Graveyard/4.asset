@@ -19,3 +19,7 @@ MonoBehaviour:
     name: Eyeball
   - pos: {x: 4.929163, y: -2.675128}
     name: Eyeball
+  - pos: {x: -3.85, y: -3.58}
+    name: slime
+  - pos: {x: 3.37, y: -3.58}
+    name: slime
