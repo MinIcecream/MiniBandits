@@ -51,27 +51,32 @@ public class PlayerInventory : MonoBehaviour
     //Equips the item to the corresponding active slot
     public void EquipItem(Item itemToEquip)
     {
+        Debug.Log("SUP");
         switch (itemToEquip.type)
         {
             case Item.itemType.helmet:
                 activeHelmet = itemToEquip;
+                UpdateInventorySlots();
                 return;
 
 
             case Item.itemType.chestplate:
                 activeChestplate = itemToEquip;
+                UpdateInventorySlots();
                 return;
 
 
             case Item.itemType.pants:
                 activePants = itemToEquip;
+                UpdateInventorySlots();
                 return;
 
 
             case Item.itemType.weapon:
                 activeWeapon = itemToEquip;
+                UpdateInventorySlots();
                 return;
-        }
+        } 
         Debug.Log("NO ACTIVE SLOT OF TYPE " + itemToEquip.type);
     }
     public bool ActiveSlotAvailable(Item.itemType type)
