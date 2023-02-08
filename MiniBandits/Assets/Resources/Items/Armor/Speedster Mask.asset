@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Speedster Mask
   m_EditorClassIdentifier: 
   id: 0
-  name: Speedster Mask
+  displayName: Speedster Mask
+  referenceName: Speedster Mask
   sprite: {fileID: 208487186, guid: b381b124968cb654581530596db6a36c, type: 3}
   cost: 10
   rarity: 0

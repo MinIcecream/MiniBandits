@@ -5,7 +5,8 @@ using UnityEngine;
 public class Item : ScriptableObject
 {
     public int id;
-    public new string name;
+    public new string displayName;
+    public new string referenceName;
     public Sprite sprite;
     public int cost;
     public itemRarity rarity;

@@ -14,8 +14,8 @@ namespace RoomInfo
     public enum roomTypes
     { 
         starter,
-       // campfire, 
-       // market,
+        campfire, 
+        market,
         normal,
         blacksmith
     }
@@ -33,7 +33,7 @@ namespace RoomInfo
 }
 public class RoomOptionGenerator
 {
-    public float normalRoomWeight=0;
+    public float normalRoomWeight=80;
 
     public static roomThemes[] GenerateRoomThemes(int numThemes)
     {

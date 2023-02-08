@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Fire Spirit Chestplate
   m_EditorClassIdentifier: 
   id: 0
-  name: Fire Spirit Chestplate
+  displayName: Fire Spirit Chestplate
+  referenceName: Fire Spirit Chestplate
   sprite: {fileID: 1494541391, guid: 7def91e5dd49fa5418dc741d25853bdc, type: 3}
   cost: 15
   rarity: 0

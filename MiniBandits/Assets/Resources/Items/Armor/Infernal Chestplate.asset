@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Infernal Chestplate
   m_EditorClassIdentifier: 
   id: 0
-  name: Infernal Chestplate
+  displayName: Infernal Chestplate
+  referenceName: Infernal Chestplate
   sprite: {fileID: 1869662553, guid: c109227fa6192614699af85179c92b76, type: 3}
   cost: 15
   rarity: 1

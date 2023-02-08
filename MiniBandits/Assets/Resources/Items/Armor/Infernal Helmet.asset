@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Infernal Helmet
   m_EditorClassIdentifier: 
   id: 0
-  name: Infernal Helmet
+  displayName: Infernal Helmet
+  referenceName: Infernal Helmet
   sprite: {fileID: -595510796, guid: c109227fa6192614699af85179c92b76, type: 3}
   cost: 15
   rarity: 1

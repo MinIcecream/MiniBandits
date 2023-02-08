@@ -38,7 +38,7 @@ public class EquipWeapon : MonoBehaviour
         if (activeWeapon)
         { 
             //IF THAT SAME WEAPON ALREADY EQUIPPED: RETURN
-            if (activeWeapon.GetComponent<WeaponTemplate>().GetName() == weapon.name)
+            if (activeWeapon.GetComponent<WeaponTemplate>().GetName() == weapon.referenceName)
             {
                 return;
             }
@@ -50,7 +50,7 @@ public class EquipWeapon : MonoBehaviour
 
         //OTHERWISE:
         //TIME TO UPDATE THE WEAPON!  
-        var weaponPrefab = Resources.Load<GameObject>("WeaponPrefabs/" + weapon.name);
+        var weaponPrefab = Resources.Load<GameObject>("WeaponPrefabs/" + weapon.referenceName);
 
         if (weaponPrefab == null)
         {

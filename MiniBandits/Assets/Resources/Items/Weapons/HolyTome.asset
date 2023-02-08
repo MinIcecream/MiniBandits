@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: HolyTome
   m_EditorClassIdentifier: 
   id: 0
-  name: Holy Tome
+  displayName: Holy Tome
+  referenceName: HolyTome
   sprite: {fileID: 21300000, guid: a3b29ef36526a144da0768fdace7793a, type: 3}
   cost: 20
   rarity: 0

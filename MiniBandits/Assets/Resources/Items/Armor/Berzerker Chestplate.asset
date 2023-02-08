@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Berzerker Chestplate
   m_EditorClassIdentifier: 
   id: 0
-  name: Berzerker Chestplate
+  displayName: Berzerker Chestplate
+  referenceName: Berzerker Chestplate
   sprite: {fileID: -380739581, guid: dba8674cbbaa027448cd71038a59b7a3, type: 3}
   cost: 10
   rarity: 0

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Fire Spirit Pants
   m_EditorClassIdentifier: 
   id: 0
-  name: Fire Spirit Pants
+  displayName: Fire Spirit Pants
+  referenceName: Fire Spirit Pants
   sprite: {fileID: -1853713484, guid: 7def91e5dd49fa5418dc741d25853bdc, type: 3}
   cost: 15
   rarity: 0

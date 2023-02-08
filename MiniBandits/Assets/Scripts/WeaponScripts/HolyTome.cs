@@ -23,13 +23,11 @@ public class HolyTome : WeaponTemplate
         for(int i =0;i< numBooks; i++)
         {
             float ang = (360 / numBooks) * i;
-
-            var newBook=Instantiate(projectile, transform.position, Quaternion.identity);
-
+             
             float newX=pivot.position.x + radius * Mathf.Sin(ang * Mathf.Deg2Rad);
-            float newY = pivot.position.y + radius * Mathf.Cos(ang * Mathf.Deg2Rad); 
-            newBook.transform.position = new Vector2(newX, newY);
+            float newY = pivot.position.y + radius * Mathf.Cos(ang * Mathf.Deg2Rad);  
 
+            var newBook = Instantiate(projectile, new Vector2(newX, newY), Quaternion.identity);
             newBook.transform.SetParent(pivot);
             newBook.GetComponent<HolyBookProjectile>().damage = weapon.damage;
             books.Add(newBook); 

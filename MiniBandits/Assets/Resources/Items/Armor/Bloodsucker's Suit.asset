@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Bloodsucker's Suit
   m_EditorClassIdentifier: 
   id: 0
-  name: Bloodsucker's Suit
+  displayName: Bloodsucker's Suit
+  referenceName: Bloodsucker's Suit
   sprite: {fileID: 938916337, guid: 6493cca2e1611ba4a824cce6dcb5ee52, type: 3}
   cost: 35
   rarity: 0
