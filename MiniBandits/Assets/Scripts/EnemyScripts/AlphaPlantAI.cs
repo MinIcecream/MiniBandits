@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AlphaPlantAI : EnemyAI, IDamageable
+public class AlphaPlantAI : EnemyAI, IDamageable, IAffectable
 {
     public GameObject projectile;
 
@@ -29,8 +29,11 @@ public class AlphaPlantAI : EnemyAI, IDamageable
                 Vector2 newVector = Quaternion.Euler(0, 0, 90*i) * dir;
                 newProjectile.GetComponent<TESTPlayerProjectile>().SetDir(newVector);
                 //waits 1 second before shooting another
-            }
-
+            } 
         }
+    }
+    public override void Knockback(float m, Vector2 s)
+    {
+        return;
     }
 }

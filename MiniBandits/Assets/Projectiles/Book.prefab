@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
+  knockBackAmt: 5
 --- !u!61 &4903410718042626636
 BoxCollider2D:
   m_ObjectHideFlags: 0

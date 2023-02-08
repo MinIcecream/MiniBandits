@@ -104,7 +104,9 @@ MonoBehaviour:
   damage: 0
   particles: {fileID: 6409433017642527178, guid: 523dbe5543342794b80b9c9ad2fff5aa, type: 3}
   destroyOnHit: 0
+  destroyOnWall: 1
   collider: {fileID: 3281322073435734612}
+  knockBackAmt: 5
 --- !u!50 &-8946377139731653809
 Rigidbody2D:
   serializedVersion: 4

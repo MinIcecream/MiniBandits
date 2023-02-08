@@ -12,6 +12,8 @@ public class EnemyAI : MonoBehaviour
     [HideInInspector]
     public GameObject player;
 
+    [HideInInspector] public bool canMove;
+
     public virtual void StartLevel()
     {
 
@@ -19,10 +21,11 @@ public class EnemyAI : MonoBehaviour
 
     public virtual void Awake()
     {
+        canMove = true;
         health = GetComponent<Health>();  
     }
     public virtual void Update()
-    {
+    { 
         health = GetComponent<Health>();
         if (hasDied)
         {
@@ -51,5 +54,19 @@ public class EnemyAI : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
 
         transform.localScale = new Vector2(1f, 1f);
+    }
+    public virtual void Knockback(float magnitude, Vector2 src)
+    { 
+        Vector2 dashDirection = (Vector2)transform.position - src;
+        Vector2 dashDistance = (Vector2)dashDirection.normalized * magnitude;
+        GetComponent<Rigidbody2D>().velocity = dashDistance;
+
+        canMove = false;
+
+        Invoke("EnableMovement",0.5f);
+    }
+    public virtual void EnableMovement()
+    {
+        canMove = true;
     }
 }

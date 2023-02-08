@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Armor", menuName = "Item/Armor")]
 public class Armor : Item
 {
+    [Space(10)]
+    [Header("Stats")]
     public int lifeSteal;
     public int defense;
     public int speed;

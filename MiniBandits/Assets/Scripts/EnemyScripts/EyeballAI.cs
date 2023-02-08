@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EyeballAI : EnemyAI, IDamageable
+public class EyeballAI : EnemyAI, IDamageable, IAffectable
 {
     public GameObject projectile;
     bool firing;
     public int chaseSpeed;
-
+    bool canStart = false;
     enum states
     {
         chasing,
@@ -21,11 +21,17 @@ public class EyeballAI : EnemyAI, IDamageable
         base.Awake();
         player = GameObject.FindWithTag("Player");
     }
+
+    public override void StartLevel()
+    {
+        canStart = true;
+    }
+
     public override void Update()
     {
         base.Update();
 
-        if(player == null)
+        if(player == null ||!canStart)
         {
             return;
         }
@@ -76,6 +82,10 @@ public class EyeballAI : EnemyAI, IDamageable
         }
         if (state == states.chasing)
         {
+            if (!canMove)
+            {
+                return;
+            }
             Vector2 dir = player.transform.position - transform.position; 
 
             transform.position = (Vector2)transform.position + dir.normalized * chaseSpeed * Time.deltaTime;

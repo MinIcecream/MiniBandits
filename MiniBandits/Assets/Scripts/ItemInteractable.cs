@@ -4,7 +4,7 @@ using UnityEngine;
 using System.Linq;
 using TMPro;
 
-public class ItemInteractable : MonoBehaviour
+public class ItemInteractable : MonoBehaviour, ISelectFromInventory
 {
     public GameObject popup;
     public Item item; 
@@ -61,9 +61,8 @@ public class ItemInteractable : MonoBehaviour
                 inventory.SelectSlot(this);
             }
         } 
-    }  
-     
-    public void Replace(InventorySlot slot)
+    }
+    public void SelectInventoryItem(InventorySlot slot)
     {
         Item itemToReplace = slot.GetItem();
         GameObject.FindWithTag("Inventory").GetComponent<PlayerInventory>().AddItemToInventory(item, slot);
@@ -72,7 +71,7 @@ public class ItemInteractable : MonoBehaviour
         GameObject.FindWithTag("Inventory").GetComponent<PlayerInventory>().HideUI();
         UpdateItem();
     }
-
+ 
     public void UpdateItem()
     { 
         if (item != null)

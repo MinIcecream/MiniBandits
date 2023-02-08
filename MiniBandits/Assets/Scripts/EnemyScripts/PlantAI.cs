@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlantAI : EnemyAI, IDamageable
+public class PlantAI : EnemyAI, IDamageable, IAffectable
 {
     public GameObject projectile;  
      
@@ -27,5 +27,10 @@ public class PlantAI : EnemyAI, IDamageable
             //waits 1 second before shooting another
             
         }
+    }
+
+    public override void Knockback(float m, Vector2 s)
+    {
+        return;
     }
 }

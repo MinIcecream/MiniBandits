@@ -92,16 +92,7 @@ public class FloorManager : MonoBehaviour
 
         } 
         roomSpawnPt.position = new Vector2(roomSpawnPt.position.x, roomSpawnPt.position.y + roomOffset);
-    } 
-    void Update()
-    {
-        if (Input.GetKeyDown("l"))
-        {
-            room[] rooms = RoomOptionGenerator.GenerateRoomOptions(1);
-             
-            SpawnRoom(rooms[0]);
-        }
-    }
+    }  
     public void UpdatePlayerAndCameraPos()
     { 
         GameObject.FindWithTag("Player").transform.position = playerSpawnPt.position;

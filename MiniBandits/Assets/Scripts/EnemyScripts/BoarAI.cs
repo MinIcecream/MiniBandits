@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoarAI : EnemyAI, IDamageable
+public class BoarAI : EnemyAI, IDamageable, IAffectable
 {
     [HideInInspector]
     public bool ranIntoWall = false;
@@ -60,5 +60,12 @@ public class BoarAI : EnemyAI, IDamageable
         { 
             ranIntoWall = true;
         }
+    }
+    public override void Knockback(float magnitude, Vector2 src)
+    {
+        if (!charging)
+        {
+            base.Knockback(magnitude, src);
+        } 
     }
 }

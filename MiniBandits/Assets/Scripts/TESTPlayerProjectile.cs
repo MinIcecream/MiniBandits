@@ -6,17 +6,18 @@ public class TESTPlayerProjectile : MonoBehaviour
 {
     Vector2 direction;
     public float speed;
+    [HideInInspector]
     public int damage;
     public GameObject particles;
     public bool destroyOnHit=true;
     public bool destroyOnWall = true;
     public new Collider2D collider;
+    public float knockBackAmt;
 
     void Awake()
     {
         if (GetComponent<Collider2D>() != null)
-        {
-
+        { 
             collider = GetComponent<Collider2D>();
         } 
         collider.enabled = false;
@@ -36,16 +37,26 @@ public class TESTPlayerProjectile : MonoBehaviour
 
     public virtual void OnTriggerEnter2D(Collider2D coll)
     {
-        if (coll.gameObject.GetComponent<Health>() != null)
+        GameObject obj = coll.gameObject;
+        if (obj.GetComponent<Health>() != null)
         {
-            coll.gameObject.GetComponent<IDamageable>().Damage(damage);
+            if (obj.GetComponent<IDamageable>() != null)
+            { 
+                obj.GetComponent<IDamageable>().Damage(damage);
+            }
+            if (obj.GetComponent<IAffectable>() != null)
+            {
+                obj.GetComponent<IAffectable>().Knockback(knockBackAmt, transform.position);
+            } 
+
             Instantiate(particles, transform.position, Quaternion.identity);
+
             if (destroyOnHit)
             { 
                 Destroy(gameObject);
             } 
         }
-        if (coll.gameObject.tag == "Wall")
+        if (obj.tag == "Wall")
         {
             if (destroyOnWall)
             { 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlimeAI : EnemyAI, IDamageable
+public class SlimeAI : EnemyAI, IDamageable, IAffectable
 { 
     public int chaseSpeed; 
 
@@ -19,9 +19,12 @@ public class SlimeAI : EnemyAI, IDamageable
         {
             return;
         }
-           
-        Vector2 dir = player.transform.position - transform.position;
 
+        if (!canMove)
+        {
+            return;
+        }
+        Vector2 dir = player.transform.position - transform.position; 
         transform.position = (Vector2)transform.position + dir.normalized * chaseSpeed * Time.deltaTime;
          
     } 

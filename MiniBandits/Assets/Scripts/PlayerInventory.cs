@@ -50,8 +50,7 @@ public class PlayerInventory : MonoBehaviour
 
     //Equips the item to the corresponding active slot
     public void EquipItem(Item itemToEquip)
-    {
-        Debug.Log("SUP");
+    { 
         switch (itemToEquip.type)
         {
             case Item.itemType.helmet:
@@ -275,12 +274,19 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
-    public void SelectSlot(ItemInteractable i)
+    public void SelectSlot(ISelectFromInventory i)
     { 
         foreach (GameObject button in buttons)
         {
             button.SetActive(true);
-            button.GetComponent<ReplaceButton>().SetItem(i); 
+            if (button.GetComponent<ReplaceButton>().slot.item != null)
+            { 
+                button.GetComponent<ReplaceButton>().SetItem(i);
+            }
+            else
+            { 
+                button.SetActive(false);
+            }
         }
     }
 

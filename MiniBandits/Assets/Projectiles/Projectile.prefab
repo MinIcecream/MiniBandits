@@ -127,6 +127,7 @@ MonoBehaviour:
   destroyOnHit: 1
   destroyOnWall: 1
   collider: {fileID: 0}
+  knockBackAmt: 5
 --- !u!58 &-1402040636888680874
 CircleCollider2D:
   m_ObjectHideFlags: 0

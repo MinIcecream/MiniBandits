@@ -33,16 +33,27 @@ public class UpdateArmorSprite : MonoBehaviour
         Armor helmet = (Armor)inven.activeHelmet;
         Armor chestplate = (Armor)inven.activeChestplate;
         Armor pants = (Armor)inven.activePants;
-         
 
+
+
+        //IF HELMET IS EQUIPPED:
         if (helmet)
-        {    
-            if (Type.GetType(helmet.name.Replace(" ", "")) != null)
-            { 
-                if(gameObject.GetComponent(Type.GetType(helmet.name.Replace(" ", "")))==null)
-                { 
-                    helmetScript = (ArmorTemplate)gameObject.AddComponent(Type.GetType(helmet.name.Replace(" ", "")));
-                } 
+        {
+            string helmetType = helmet.name.Replace(" ", "");
+
+            //IF THAT ARMOR HAS A SCRIPT:
+            if (Type.GetType(helmetType) != null)
+            {
+                //IF IT'S NOT EQUIPPED, DESTROY CURRENT SCRIPT AND ADD THE NEW ONE
+                if (gameObject.GetComponent(Type.GetType(helmetType)) == null)
+                {
+                    Destroy(helmetScript);
+                    helmetScript = (ArmorTemplate)gameObject.AddComponent(Type.GetType(helmetType));
+                }
+            }
+            else
+            {
+                Destroy(helmetScript);
             }
             helmetSprite.sprite = helmet.sprite;
         }
@@ -51,31 +62,59 @@ public class UpdateArmorSprite : MonoBehaviour
             helmetSprite.sprite = head;
             Destroy(helmetScript);
         }
+
+
+
+        //IF CHESTPLATE IS EQUIPPED:
         if (chestplate)
         {
-            if (Type.GetType(chestplate.name.Replace(" ", "")) != null)
-            {
-                if (gameObject.GetComponent(Type.GetType(chestplate.name.Replace(" ", ""))) == null)
-                {
-                    chestplateScript = (ArmorTemplate)gameObject.AddComponent(Type.GetType(chestplate.name.Replace(" ", "")));
-                } 
-            } 
+            string typeName = chestplate.name.Replace(" ", "");
+
+            //IF THAT ARMOR HAS A SCRIPT:
+            if (Type.GetType(typeName) != null)
+            { 
+                //IF IT'S NOT EQUIPPED, DESTROY CURRENT SCRIPT AND ADD THE NEW ONE
+                if (gameObject.GetComponent(Type.GetType(typeName)) == null)
+                { 
+                    Destroy(chestplateScript);
+                    chestplateScript = (ArmorTemplate)gameObject.AddComponent(Type.GetType(typeName));
+                }
+            }
+            else
+            { 
+                Destroy(chestplateScript);
+            }
             chestplateSprite.sprite = chestplate.sprite;
-        }
+        } 
         else
         {
             chestplateSprite.sprite = body;
             Destroy(chestplateScript);
         }
+
+
+
+
+
+        //IF PANTS IS EQUIPPED:
         if (pants)
         {
-            if (Type.GetType(pants.name.Replace(" ", "")) !=null)
+            string pantsType = pants.name.Replace(" ", "");
+
+            //IF THAT ARMOR HAS A SCRIPT:
+            if (Type.GetType(pantsType) != null)
             {
-                if (gameObject.GetComponent(Type.GetType(pants.name.Replace(" ", ""))) == null)
+                //IF IT'S NOT EQUIPPED, DESTROY CURRENT SCRIPT AND ADD THE NEW ONE
+                if (gameObject.GetComponent(Type.GetType(pantsType)) == null)
                 {
-                    pantsScript = (ArmorTemplate)gameObject.AddComponent(Type.GetType(pants.name.Replace(" ", "")));
-                } 
-            } 
+                    Destroy(pantsScript);
+                    pantsScript = (ArmorTemplate)gameObject.AddComponent(Type.GetType(pantsType));
+                }
+            }
+            else
+            {
+                Destroy(pantsScript);
+            }
             pantsSprite.sprite = pants.sprite;
         }
         else

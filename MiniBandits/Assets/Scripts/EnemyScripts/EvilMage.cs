@@ -143,4 +143,11 @@ public class EvilMage : EnemyAI, IDamageable
         }
         StartCoroutine(AttackCooldown());
     } 
+    void OnTriggerStay2D(Collider2D coll)
+    {
+        if (coll.gameObject.tag == "Player")
+        {
+            coll.gameObject.GetComponent<Health>().DealDamage(20);
+        }
+    }
 }
