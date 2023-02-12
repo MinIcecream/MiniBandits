@@ -38,7 +38,7 @@ public class EquipWeapon : MonoBehaviour
         if (activeWeapon)
         { 
             //IF THAT SAME WEAPON ALREADY EQUIPPED: RETURN
-            if (activeWeapon.GetComponent<WeaponTemplate>().GetName() == weapon.referenceName)
+            if (activeWeapon.GetComponent<WeaponTemplate>().weapon == weapon)
             {
                 return;
             }
@@ -62,7 +62,8 @@ public class EquipWeapon : MonoBehaviour
    
         //If the weapon was successfully equiped: 
         activeWeapon.transform.SetParent(this.gameObject.transform);
-        activeWeapon.transform.localRotation = Quaternion.identity;
+        activeWeapon.transform.localRotation = Quaternion.identity; 
+        activeWeapon.GetComponent<WeaponTemplate>().weapon = (Weapon)weapon;
 
     }
 }

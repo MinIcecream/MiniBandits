@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlimeAI : EnemyAI, IAffectable
-{ 
+public class ZombieAI : EnemyAI, IAffectable
+{
     public int chaseSpeed;
     bool canStart = false;
-
     public override void StartLevel()
     {
         canStart = true;
@@ -29,9 +28,10 @@ public class SlimeAI : EnemyAI, IAffectable
         {
             return;
         }
-        Vector2 dir = player.transform.position - transform.position; 
-        transform.position = (Vector2)transform.position + dir.normalized * chaseSpeed * Time.deltaTime; 
-    } 
+        Vector2 dir = player.transform.position - transform.position;
+        transform.position = (Vector2)transform.position + dir.normalized * chaseSpeed * Time.deltaTime;
+
+    }
     void OnTriggerStay2D(Collider2D coll)
     {
         if (coll.gameObject.tag == "Player")
@@ -39,5 +39,5 @@ public class SlimeAI : EnemyAI, IAffectable
             Knockback(2, coll.gameObject.transform.position);
             coll.gameObject.GetComponent<Health>().DealDamage(30);
         }
-    }
+    } 
 }

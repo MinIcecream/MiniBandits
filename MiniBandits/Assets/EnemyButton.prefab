@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 7167559374628109296}
   - component: {fileID: 3906963289258924282}
   - component: {fileID: 4482382563788052505}
-  - component: {fileID: 2824602724100789918}
+  - component: {fileID: 310646567942618459}
   m_Layer: 5
-  m_Name: Button
+  m_Name: EnemyButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -122,9 +122,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2824602724100789918}
-        m_TargetAssemblyTypeName: DevButton, Assembly-CSharp
-        m_MethodName: Equip
+      - m_Target: {fileID: 310646567942618459}
+        m_TargetAssemblyTypeName: SpawnEnemyButton, Assembly-CSharp
+        m_MethodName: SpawnEnemy
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -134,7 +134,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2824602724100789918
+--- !u!114 &310646567942618459
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1482979797373765981}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20147f2a861933a4fa397543ea4b5bde, type: 3}
+  m_Script: {fileID: 11500000, guid: 6838b9c4c247cc04590f6a6ef9f07e37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 0}
+  enemy: {fileID: 0}

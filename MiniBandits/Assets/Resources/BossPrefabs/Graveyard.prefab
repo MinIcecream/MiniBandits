@@ -539,7 +539,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DisplayNumbers: 0
   healthBar: {fileID: 3588202971555278845}
-  healthScript: {fileID: 0}
+  healthScript: {fileID: 6410755787528542857}
   tmp: {fileID: 0}
 --- !u!61 &8717159909955445418
 BoxCollider2D:

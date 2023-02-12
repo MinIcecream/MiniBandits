@@ -24,19 +24,14 @@ public class WeaponTemplate : MonoBehaviour
     [HideInInspector]
     public int damage;
 
-    public virtual void Awake()
+    public virtual void Start()
     {
-       Invoke("InitializeVars", 0.1f);
-         
         attackCooldown = 1f / weapon.attackSpeed;
         weaponName = weapon.name;
         baseDamage = weapon.damage;
-    }
-    void InitializeVars()
-    { 
         player = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
         GetComponent<SpriteRenderer>().sprite = weapon.sprite;
-    }
+    } 
     public virtual void Update()
     {
         //IF PLAYER IS GONE, PLAYER CAN't MOVE, OR MOUSE IS OVER UI, RETURN.

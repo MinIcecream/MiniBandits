@@ -17,9 +17,13 @@ public class HolyTome : WeaponTemplate
 
     List<GameObject> books = new List<GameObject>();
 
-    public override void Awake()
+    public override void Start()
     {
-        base.Awake();
+        base.Start();
+        if (weapon.tier == 1)
+        {
+            numBooks++;
+        }
         for(int i =0;i< numBooks; i++)
         {
             float ang = (360 / numBooks) * i;

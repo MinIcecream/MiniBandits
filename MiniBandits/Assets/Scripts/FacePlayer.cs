@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FacePlayer : MonoBehaviour
 {
+    [HideInInspector]
     public GameObject player;
     Vector2 lastPlayerPos;
 

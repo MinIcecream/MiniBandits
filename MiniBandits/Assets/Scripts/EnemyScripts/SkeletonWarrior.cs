@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EyeballAI : EnemyAI, IAffectable
-{
-    public GameObject projectile;
-    bool firing;
+public class SkeletonWarrior : EnemyAI, IAffectable
+{ 
+    public bool firing;
     public int chaseSpeed;
     bool canStart = false;
     public float attackDistance;
+    public Collider2D weaponCollider;
+    public int damage;
 
     enum states
     {
@@ -33,12 +34,12 @@ public class EyeballAI : EnemyAI, IAffectable
     {
         base.Update();
 
-        if(player == null ||!canStart)
+        if (player == null || !canStart)
         {
             return;
         }
         if (state == states.wandering)
-        { 
+        {
             if (Vector2.Distance(player.transform.position, transform.position) < attackDistance)
             {
                 state = states.firing;
@@ -47,8 +48,8 @@ public class EyeballAI : EnemyAI, IAffectable
             {
                 state = states.chasing;
             }
-        } 
-        if (state==states.firing && !firing)
+        }
+        if (state == states.firing && !firing)
         {
             if (!player)
             {
@@ -57,7 +58,7 @@ public class EyeballAI : EnemyAI, IAffectable
             if (Vector2.Distance(player.transform.position, transform.position) > attackDistance)
             {
                 state = states.chasing;
-            } 
+            }
         }
         if (state == states.chasing)
         {
@@ -68,7 +69,7 @@ public class EyeballAI : EnemyAI, IAffectable
             if (Vector2.Distance(player.transform.position, transform.position) < attackDistance)
             {
                 state = states.firing;
-            } 
+            }
         }
 
         if (state == states.wandering)
@@ -88,27 +89,23 @@ public class EyeballAI : EnemyAI, IAffectable
             {
                 return;
             }
-            Vector2 dir = player.transform.position - transform.position; 
+            Vector2 dir = player.transform.position - transform.position;
 
             transform.position = (Vector2)transform.position + dir.normalized * chaseSpeed * Time.deltaTime;
         }
     }
     IEnumerator Fire()
     { 
-        firing = true;
+        yield return new WaitForSeconds(0.2f); 
+        GetComponent<Animator>().SetTrigger("Attack"); 
+         
+    }
 
-        yield return new WaitForSeconds(0.2f);
-        //makes projectile
-        if (player)
+    void OnTriggerEnter2D(Collider2D coll)
+    { 
+        if (coll.gameObject.tag == "Player")
         {
-            var newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
-            //shoots projectile at player position
-            newProjectile.GetComponent<TESTPlayerProjectile>().SetDir(((Vector2)(player.transform.position - transform.position)).normalized);
-
-        } 
-
-        yield return new WaitForSeconds(1f);
-
-        firing = false;
+            coll.gameObject.GetComponent<Health>().DealDamage(damage);
+        }
     }
 }

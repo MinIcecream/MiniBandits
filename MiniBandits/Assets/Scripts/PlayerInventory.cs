@@ -21,6 +21,7 @@ public class PlayerInventory : MonoBehaviour
 
     public TextMeshProUGUI itemTitle, itemDescription;
 
+    public bool UIOpen;
     void Awake()
     {
         UpdateInventorySlots();
@@ -290,6 +291,38 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
+    public void ReplaceItem(Item item, Item newItem)
+    {
+        if (activeChestplate == item)
+        {
+            activeChestplate = newItem;
+        }
+        else if (activeHelmet == item)
+        {
+
+            activeHelmet = newItem;
+        }
+        else if (activePants == item)
+        {
+
+            activePants = newItem;
+        }
+        else if (activeWeapon == item)
+        {
+
+            activeWeapon = newItem;
+        }
+        for (int i = 0; i < inventoryItems.Length; i++)
+        {
+            if (inventoryItems[i] == item)
+            {
+                Debug.Log(item);
+                inventoryItems[i] = newItem;
+                break;
+            }
+        }
+        UpdateInventorySlots();
+    }
     public void DeselectSlots()
     {
         foreach (GameObject button in buttons)
@@ -310,11 +343,13 @@ public class PlayerInventory : MonoBehaviour
     {
         DeselectSlots();
         GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().canMove = true;
-        UIPanel.SetActive(false);
+        UIPanel.SetActive(false); 
+        UIOpen=false;
     }
     public void ShowUI()
     {
         GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().canMove = false;
         UIPanel.SetActive(true);
+        UIOpen = true;
     }
 }

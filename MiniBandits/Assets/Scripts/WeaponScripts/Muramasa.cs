@@ -5,9 +5,9 @@ using UnityEngine;
 public class Muramasa : WeaponTemplate
 {
     Animator anim;
-    public override void Awake()
+    public override void Start()
     {
-        base.Awake();
+        base.Start();
         anim = GetComponent<Animator>();
     }
     public override void Attack()

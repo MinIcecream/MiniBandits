@@ -33,7 +33,7 @@ namespace RoomInfo
 }
 public class RoomOptionGenerator
 {
-    public float normalRoomWeight=80;
+    public float normalRoomWeight= 90;
 
     public static roomThemes[] GenerateRoomThemes(int numThemes)
     {

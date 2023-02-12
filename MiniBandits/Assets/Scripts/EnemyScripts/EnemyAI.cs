@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAI : MonoBehaviour
-{
-    public new string name;
+public class EnemyAI : MonoBehaviour, IDamageable
+{ 
     [HideInInspector]
     public Health health;
     [HideInInspector]
@@ -22,6 +21,7 @@ public class EnemyAI : MonoBehaviour
     public virtual void Awake()
     {
         canMove = true;
+        player = GameObject.FindWithTag("Player");
         health = GetComponent<Health>();  
     }
     public virtual void Update()

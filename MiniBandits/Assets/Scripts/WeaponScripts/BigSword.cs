@@ -6,9 +6,9 @@ public class BigSword : WeaponTemplate
 {
     new Collider2D collider;
 
-    public override void Awake()
+    public override void Start()
     {
-        base.Awake();
+        base.Start();
         collider = GetComponent<Collider2D>();
     }
     public override void Attack()
