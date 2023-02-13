@@ -22,7 +22,8 @@ public class Player : MonoBehaviour
     public int crit;
     public int luck;
 
-
+    //Adi's awesome number for combat power
+    public int combatPower;
     public PlayerInventory inven;
 
     void Awake()
@@ -106,5 +107,6 @@ public class Player : MonoBehaviour
             crit += pants.crit;
             luck += pants.luck;
         }
+        combatPower = strength*(1+(crit/100))*(1+(lifeSteal/100))+(health*(1+(defense/100)))/100;
     }
 }
