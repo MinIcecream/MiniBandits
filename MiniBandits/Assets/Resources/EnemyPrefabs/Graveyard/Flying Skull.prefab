@@ -138,7 +138,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
@@ -4913,7 +4913,6 @@ GameObject:
   - component: {fileID: 8121160717422346263}
   - component: {fileID: 8121160717422346261}
   - component: {fileID: 8121160717422346260}
-  - component: {fileID: 2854709988607463067}
   - component: {fileID: 4707820133934179792}
   - component: {fileID: 8470154947012637711}
   - component: {fileID: 1680714528368010898}
@@ -4985,7 +4984,7 @@ SpriteRenderer:
   m_Sprite: {fileID: 21300000, guid: 87fe67d3782fcbd49b485e4ceef6b8a9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 1
+  m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.2, y: 0.2}
   m_AdaptiveModeThreshold: 0.5
@@ -5014,19 +5013,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &2854709988607463067
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8121160717422346259}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e24fc12bb0a2b8345b30b8701b3d5207, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!114 &4707820133934179792
 MonoBehaviour:
   m_ObjectHideFlags: 0

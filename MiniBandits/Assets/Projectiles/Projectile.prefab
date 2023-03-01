@@ -128,6 +128,8 @@ MonoBehaviour:
   destroyOnWall: 1
   collider: {fileID: 0}
   knockBackAmt: 5
+  dragMax: 0
+  dragMin: 0
 --- !u!58 &-1402040636888680874
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -141,9 +143,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.03144997, y: 0.000000003749128}
+  m_Offset: {x: -0.03144997, y: 0.006373289}
   serializedVersion: 2
-  m_Radius: 0.121773094
+  m_Radius: 0.23011786
 --- !u!114 &-3391925109637655075
 MonoBehaviour:
   m_ObjectHideFlags: 0

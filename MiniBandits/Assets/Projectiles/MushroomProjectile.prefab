@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -1402040636888680874}
   - component: {fileID: 3701017303696728965}
   m_Layer: 9
-  m_Name: EnemyProjectile
+  m_Name: MushroomProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,14 +28,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7777877402851561955}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.2629, y: 1.163, z: -0.932}
   m_LocalScale: {x: 1, y: 1, z: 7.08}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1303991915207454805
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 487288807bdfcd144869aa66eda85c18, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 41f7ca05adea9dd4ea8528a1807ee0c4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,8 +101,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0
+  m_LinearDrag: 2
+  m_AngularDrag: 2
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -128,8 +128,8 @@ MonoBehaviour:
   destroyOnWall: 1
   collider: {fileID: 0}
   knockBackAmt: 0
-  dragMax: 0
-  dragMin: 0
+  dragMax: 3
+  dragMin: 1.5
 --- !u!58 &-1402040636888680874
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -143,9 +143,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.029648658, y: 0.005829218}
+  m_Offset: {x: 0.0887419, y: -0.023678154}
   serializedVersion: 2
-  m_Radius: 0.22602397
+  m_Radius: 0.31822607
 --- !u!114 &3701017303696728965
 MonoBehaviour:
   m_ObjectHideFlags: 0
