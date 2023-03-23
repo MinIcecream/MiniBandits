@@ -80,10 +80,9 @@ public class PlayerMovement : MonoBehaviour, IDamageable
         {
             walkSpeed = walkSpeed.normalized;
         }
-        walkSpeed *= Time.deltaTime;
 
         Player stats = GetComponent<Player>(); 
-        GetComponent<Rigidbody2D>().velocity = walkSpeed * stats.speed*40;
+        GetComponent<Rigidbody2D>().velocity = walkSpeed * stats.speed*40*Time.deltaTime;
 
         //DASH
         if (Input.GetKeyDown(KeyCode.Space) && GetComponent<PlayerStamina>().GetStamina()>0)
