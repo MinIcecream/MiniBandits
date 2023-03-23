@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289863c28c8e25348802d81bdab6b602, type: 3}
+  m_Name: 3
+  m_EditorClassIdentifier: 
+  enemies:
+  - pos: {x: -3.6979117, y: 1.2121171}
+    name: Slime
+  - pos: {x: -0.80113053, y: 2.9697146}
+    name: Eyeball
+  - pos: {x: -0.4105533, y: -1.6195679}
+    name: Eyeball
+  - pos: {x: 3.0395458, y: 1.4074056}
+    name: Slime

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289863c28c8e25348802d81bdab6b602, type: 3}
+  m_Name: 10
+  m_EditorClassIdentifier: 
+  enemies:
+  - pos: {x: 1.1843038, y: -0.9035096}
+    name: Bee
+  - pos: {x: -2.1030548, y: 0.9517323}
+    name: Mushroom
+  - pos: {x: -1.940314, y: -1.098798}
+    name: Tumbleweed
+  - pos: {x: 1.900362, y: 1.1144727}
+    name: Alpha Plant

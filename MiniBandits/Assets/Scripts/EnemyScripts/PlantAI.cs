@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlantAI : EnemyAI, IDamageable, IAffectable
+public class PlantAI : EnemyAI, IAffectable
 {
     public GameObject projectile;  
      

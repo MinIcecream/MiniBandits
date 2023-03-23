@@ -8,7 +8,7 @@ public class FloorManager : MonoBehaviour
     public int roomOffset;
 
     //Gamemanager initializes variable holding this floor's theme (dungeon, spider, graveyard,etc)
-    public roomThemes floorTheme = roomThemes.graveyard;
+    public roomThemes floorTheme;
 
     //Where to spawn the next room
     public Transform roomSpawnPt;
@@ -20,8 +20,9 @@ public class FloorManager : MonoBehaviour
     //Generate a list of 10 random level scriptableobjects 
     public List<Room> enemies = new List<Room>(); 
 
-    void Awake()
+    void Start()
     {
+        Debug.Log(floorTheme.ToString());
         Object[] everyEnemy = Resources.LoadAll("Rooms/"+floorTheme.ToString(), typeof(Room));
         List<Room> tempList = new List<Room>();
 
@@ -46,7 +47,7 @@ public class FloorManager : MonoBehaviour
             if (enemies.Count == 0)
             {
                 //SPAWN THE BOSS LEVEL
-                GameObject newLevel = (GameObject)Instantiate(Resources.Load("RoomLayouts/" + floorTheme.ToString()+"Boss"), roomSpawnPt.position, Quaternion.identity);
+                GameObject newLevel = (GameObject)Instantiate(Resources.Load("RoomLayouts/" + floorTheme.ToString() + "Boss"), roomSpawnPt.position, Quaternion.identity);
                 ProgressRoomManager man = newLevel.transform.Find("LevelManager").gameObject.GetComponent<ProgressRoomManager>();
 
                 if (man == null)
@@ -61,8 +62,19 @@ public class FloorManager : MonoBehaviour
                 }
             }
             else
-            {
-                GameObject newLevel = (GameObject)Instantiate(Resources.Load("RoomLayouts/" + floorTheme.ToString()), roomSpawnPt.position, Quaternion.identity); 
+             {
+                  
+                var dataset = Resources.Load<GameObject>("RoomLayouts/" + floorTheme.ToString());
+                GameObject newLevel;
+
+                if (dataset != null)
+                {
+                    newLevel = (GameObject)Instantiate(Resources.Load("RoomLayouts/" + floorTheme.ToString()), roomSpawnPt.position, Quaternion.identity);
+                }
+                else
+                { 
+                    newLevel = (GameObject)Instantiate(Resources.Load("RoomLayouts/Graveyard"), roomSpawnPt.position, Quaternion.identity);
+                }
                 ProgressRoomManager man = newLevel.transform.Find("LevelManager").gameObject.GetComponent<ProgressRoomManager>();
 
                 if (man == null)

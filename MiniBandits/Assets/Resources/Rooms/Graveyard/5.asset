@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: 5
   m_EditorClassIdentifier: 
   enemies:
-  - pos: {x: 4.58543, y: 4.65}
-    name: Boar
-  - pos: {x: 1.4189367, y: -2.683015}
-    name: Plant
-  - pos: {x: -1.489364, y: -0.485581}
-    name: Eyeball
-  - pos: {x: 5.6937666, y: -2.3465624}
-    name: Eyeball
-  - pos: {x: -5.34, y: -2.3465624}
-    name: slime
+  - pos: {x: -4.348874, y: 1.4399538}
+    name: Skeleton Archer
+  - pos: {x: 3.104642, y: 1.4399538}
+    name: Skeleton Archer
+  - pos: {x: -0.05252415, y: 2.5140412}
+    name: Skeleton Archer
+  - pos: {x: -4.674355, y: -1.9450488}
+    name: Skeleton Warrior
+  - pos: {x: 3.788152, y: -2.4007225}
+    name: Skeleton Warrior

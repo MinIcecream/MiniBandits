@@ -7,9 +7,9 @@ public class SkeletonWarrior : EnemyAI, IAffectable
     public bool firing;
     public int chaseSpeed;
     bool canStart = false;
-    public float attackDistance;
+    public float attackDistance; 
     public Collider2D weaponCollider;
-    public int damage;
+    public int damage; 
 
     enum states
     {
@@ -95,10 +95,10 @@ public class SkeletonWarrior : EnemyAI, IAffectable
         }
     }
     IEnumerator Fire()
-    { 
-        yield return new WaitForSeconds(0.2f); 
-        GetComponent<Animator>().SetTrigger("Attack"); 
-         
+    {  
+        yield return new WaitForSeconds(0.2f);
+        GetComponent<Animator>().SetTrigger("Attack");
+          
     }
 
     void OnTriggerEnter2D(Collider2D coll)

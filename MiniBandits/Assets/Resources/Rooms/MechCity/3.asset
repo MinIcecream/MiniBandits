@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289863c28c8e25348802d81bdab6b602, type: 3}
+  m_Name: 3
+  m_EditorClassIdentifier: 
+  enemies:
+  - pos: {x: -0.21526468, y: 2.774426}
+    name: Missile Drone
+  - pos: {x: -4.6418066, y: 0.46351075}
+    name: Ranged Drone
+  - pos: {x: 3.6905077, y: 0.2356739}
+    name: Ranged Drone
+  - pos: {x: -0.08507228, y: -1.4893756}
+    name: Ranged Drone

@@ -13,13 +13,11 @@ MonoBehaviour:
   m_Name: 8
   m_EditorClassIdentifier: 
   enemies:
-  - pos: {x: 3.08, y: 4.14}
-    name: Boar
-  - pos: {x: -5.810043, y: -1.076411}
-    name: Plant
-  - pos: {x: 1.28, y: -0.69}
-    name: Plant
-  - pos: {x: 7.6052756, y: -1.111166}
-    name: Plant
-  - pos: {x: -3.0644212, y: 1.1636636}
-    name: Eyeball
+  - pos: {x: -0.05252415, y: 3.0022626}
+    name: Flying Skull
+  - pos: {x: -6.1064715, y: -0.7733171}
+    name: Zombie
+  - pos: {x: 4.6994987, y: -1.0662501}
+    name: Zombie
+  - pos: {x: -0.28036088, y: -0.675673}
+    name: Zombie

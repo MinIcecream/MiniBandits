@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using RoomInfo;
+using System;
 
 public class ProgressRoomManager : BaseRoomManager
 {
@@ -41,10 +42,13 @@ public class ProgressRoomManager : BaseRoomManager
     {
         //if a normal room:
         if (room)
-        { 
+        {
+            string theme = GameObject.FindWithTag("FloorManager").GetComponent<FloorManager>().floorTheme.ToString();
+            theme = char.ToUpper(theme[0]) + theme.Substring(1);
             foreach (Room.enemy enemy in room.enemies)
             {
-                var newEnemy = Instantiate(Resources.Load<GameObject>("EnemyPrefabs/" + enemy.name), new Vector2(transform.position.x + enemy.pos.x, transform.position.y + enemy.pos.y), Quaternion.identity);
+                Debug.Log("EnemyPrefabs/" + theme + "/" + enemy.name);
+                var newEnemy = Instantiate(Resources.Load<GameObject>("EnemyPrefabs/" +theme+"/"+ enemy.name), new Vector2(transform.position.x + enemy.pos.x, transform.position.y + enemy.pos.y), Quaternion.identity);
                 enemies.Add(newEnemy);
                 newEnemy.GetComponent<EnemyAI>().StartLevel();
             } 

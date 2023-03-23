@@ -9,7 +9,13 @@ namespace RoomInfo
 {
     public enum roomThemes
     {
-        graveyard
+        Graveyard,
+        EnchantedForest,
+        GoblinVillage,
+        MechCity,
+        Mothership,
+        RabidZoo,
+        SpiderDen
     }
     public enum roomTypes
     { 
@@ -41,7 +47,6 @@ public class RoomOptionGenerator
 
         for(int i=0; i < numThemes; i++)
         { 
-            themes[i] = roomThemes.graveyard;
 
             System.Random random = new System.Random();
 

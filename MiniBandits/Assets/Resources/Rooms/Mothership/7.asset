@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289863c28c8e25348802d81bdab6b602, type: 3}
+  m_Name: 7
+  m_EditorClassIdentifier: 
+  enemies:
+  - pos: {x: -2.819113, y: 0.6262512}
+    name: Sentinel
+  - pos: {x: 2.5513241, y: 0.43096268}
+    name: Sentinel
+  - pos: {x: -0.18271658, y: 2.7093296}
+    name: UFO
+  - pos: {x: -4.609259, y: -1.5544717}
+    name: Skeleton Warrior
+  - pos: {x: -0.11762038, y: -0.675673}
+    name: Parasite
+  - pos: {x: 4.178729, y: -1.8148565}
+    name: Parasite

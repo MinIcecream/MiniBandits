@@ -13,13 +13,9 @@ MonoBehaviour:
   m_Name: 4
   m_EditorClassIdentifier: 
   enemies:
-  - pos: {x: 2.99, y: 2.9371572}
-    name: Boar
-  - pos: {x: -3.454609, y: -2.501354}
-    name: Eyeball
-  - pos: {x: 4.929163, y: -2.675128}
-    name: Eyeball
-  - pos: {x: -3.85, y: -3.58}
-    name: slime
-  - pos: {x: 3.37, y: -3.58}
-    name: slime
+  - pos: {x: -5.5531535, y: 3.360292}
+    name: Flying Skull
+  - pos: {x: 4.50421, y: 3.5230324}
+    name: Flying Skull
+  - pos: {x: -0.01997605, y: 0.7238955}
+    name: Skeleton Warrior

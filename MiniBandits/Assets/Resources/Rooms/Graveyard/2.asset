@@ -13,11 +13,15 @@ MonoBehaviour:
   m_Name: 2
   m_EditorClassIdentifier: 
   enemies:
-  - pos: {x: 4.58543, y: 2.9371572}
-    name: Boar
-  - pos: {x: -2.97593, y: -1.980034}
-    name: Eyeball
-  - pos: {x: 0.028748274, y: -0.6435815}
-    name: Boar
-  - pos: {x: -4.58, y: -0.6435815}
-    name: alpha plant
+  - pos: {x: -3.3398826, y: 0.59370315}
+    name: Skeleton Warrior
+  - pos: {x: -0.08507228, y: 0.5286069}
+    name: Skeleton Warrior
+  - pos: {x: 3.169738, y: 0.5611551}
+    name: Skeleton Warrior
+  - pos: {x: -1.4520926, y: -0.96860576}
+    name: Zombie
+  - pos: {x: 1.7701697, y: -1.1964426}
+    name: Zombie
+  - pos: {x: 0.20786065, y: 3.360292}
+    name: Dark Mage

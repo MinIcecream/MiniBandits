@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289863c28c8e25348802d81bdab6b602, type: 3}
+  m_Name: 5
+  m_EditorClassIdentifier: 
+  enemies:
+  - pos: {x: 0.4031493, y: 3.067359}
+    name: Acid Bug
+  - pos: {x: -4.967288, y: 0.30077016}
+    name: Beetle
+  - pos: {x: 3.9183447, y: 0.040385365}
+    name: Beetle

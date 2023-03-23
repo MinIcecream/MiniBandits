@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: 9
   m_EditorClassIdentifier: 
   enemies:
-  - pos: {x: -3.02, y: 2.9371572}
-    name: Boar
-  - pos: {x: 9.169238, y: 2.1570156}
-    name: Plant
-  - pos: {x: -5.253968, y: 2.0167582}
-    name: Plant
-  - pos: {x: -3.026458, y: -2.343354}
-    name: Boar
-  - pos: {x: 9.030219, y: -2.795166}
-    name: Boar
+  - pos: {x: 0.04512018, y: 3.0022626}
+    name: Dark Mage
+  - pos: {x: -3.9582965, y: 1.50505}
+    name: Skeleton Archer
+  - pos: {x: 3.788152, y: 1.3423095}
+    name: Skeleton Archer
+  - pos: {x: -4.3163257, y: -1.977597}
+    name: Zombie
+  - pos: {x: 4.9924316, y: -2.368174}
+    name: Zombie

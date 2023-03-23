@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 
 
         //CHECK IF MOVING. IF SO, PLAY ANIMATION
-        if ((Vector2)transform.position == lastPosition)
+        if (GetComponent<Rigidbody2D>().velocity.magnitude==0)
         {
             walkAnim.SetBool("Walk", false);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(Vector3.zero), 90 * Time.deltaTime);
@@ -83,7 +83,7 @@ public class PlayerMovement : MonoBehaviour, IDamageable
         walkSpeed *= Time.deltaTime;
 
         Player stats = GetComponent<Player>(); 
-        transform.position += walkSpeed * stats.speed/10;
+        GetComponent<Rigidbody2D>().velocity = walkSpeed * stats.speed*40;
 
         //DASH
         if (Input.GetKeyDown(KeyCode.Space) && GetComponent<PlayerStamina>().GetStamina()>0)
@@ -101,7 +101,7 @@ public class PlayerMovement : MonoBehaviour, IDamageable
         Vector2 dashDirection = move.normalized;
         Vector2 dashDistance = (Vector2)move.normalized * dashMagnitude;
         GetComponent<Collider2D>().enabled = false;
-        GetComponent<Rigidbody2D>().velocity = dashDistance;
+        GetComponent<Rigidbody2D>().AddForce(dashDistance/15);
         //transform.position = hitPoint(dashDirection, dashMagnitude);
 
         yield return new WaitForSeconds(dashTime);
