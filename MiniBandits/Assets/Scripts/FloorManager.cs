@@ -22,7 +22,8 @@ public class FloorManager : MonoBehaviour
 
     void Start()
     {
-        Debug.Log(floorTheme.ToString());
+        floorTheme = GameObject.FindWithTag("GameManager").GetComponent<GameManager>().currentTheme;
+
         Object[] everyEnemy = Resources.LoadAll("Rooms/"+floorTheme.ToString(), typeof(Room));
         List<Room> tempList = new List<Room>();
 
@@ -47,7 +48,18 @@ public class FloorManager : MonoBehaviour
             if (enemies.Count == 0)
             {
                 //SPAWN THE BOSS LEVEL
-                GameObject newLevel = (GameObject)Instantiate(Resources.Load("RoomLayouts/" + floorTheme.ToString() + "Boss"), roomSpawnPt.position, Quaternion.identity);
+                var bossData = Resources.Load<GameObject>("RoomLayouts/" + floorTheme.ToString() + "Boss");
+                GameObject newLevel;
+
+                if (bossData != null)
+                {
+                    newLevel = (GameObject)Instantiate(Resources.Load("RoomLayouts/" + floorTheme.ToString() + "Boss"), roomSpawnPt.position, Quaternion.identity);
+                }
+                else
+                {
+                    newLevel = (GameObject)Instantiate(Resources.Load("RoomLayouts/GraveyardBoss"), roomSpawnPt.position, Quaternion.identity);
+                } 
+
                 ProgressRoomManager man = newLevel.transform.Find("LevelManager").gameObject.GetComponent<ProgressRoomManager>();
 
                 if (man == null)

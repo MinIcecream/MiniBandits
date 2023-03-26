@@ -43,8 +43,8 @@ public class BlacksmithSmelt : MonoBehaviour
             if (GameObject.FindWithTag("Player").GetComponent<GoldManager>().GetGold() >= item.cost)
             {
                 GameObject.FindWithTag("Player").GetComponent<GoldManager>().SpendGold(item.cost);
-                var newItem = Instantiate(Resources.Load<GameObject>("Misc/ItemInteractable"), transform.position, Quaternion.identity);
-                newItem.GetComponent<ItemInteractable>().item = item;
+                var newItem = Instantiate(Resources.Load<GameObject>("Misc/ItemDrop"), transform.position, Quaternion.identity);
+                newItem.GetComponent<ItemDrop>().item = item;
                 Destroy(gameObject);
             }
             else

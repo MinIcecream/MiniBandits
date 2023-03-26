@@ -4,7 +4,7 @@ using UnityEngine;
 using System.Linq;
 using TMPro;
 
-public class ItemInteractable : MonoBehaviour, ISelectFromInventory
+public class ItemDrop : MonoBehaviour
 {
     public GameObject popup;
     public Item item; 
@@ -48,30 +48,15 @@ public class ItemInteractable : MonoBehaviour, ISelectFromInventory
         }
         if (popup.activeSelf && Input.GetKeyDown("e"))
         {
-            PlayerInventory inventory = GameObject.FindWithTag("Inventory").GetComponent<PlayerInventory>(); 
+            PlayerInventory inventory = GameObject.FindWithTag("Inventory").GetComponent<PlayerInventory>();
 
-            if (inventory.EmptySlot())
-            {
-                inventory.AddItemToInventory(item);
-                Destroy(gameObject);
-            }
-            else
-            {
-                inventory.ShowUI();
-                inventory.SelectSlot(this);
-            }
-        } 
-    }
-    public void SelectInventoryItem(InventorySlot slot)
-    {
-        Item itemToReplace = slot.GetItem();
-        GameObject.FindWithTag("Inventory").GetComponent<PlayerInventory>().AddItemToInventory(item, slot);
-        item = itemToReplace;
-
-        GameObject.FindWithTag("Inventory").GetComponent<PlayerInventory>().HideUI();
-        UpdateItem();
-    }
- 
+               if (inventory.AvailableSlot(item))
+               {
+                   inventory.AddItemToInventory(item);
+                   Destroy(gameObject);
+               } 
+        }
+    } 
     public void UpdateItem()
     { 
         if (item != null)

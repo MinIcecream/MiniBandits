@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class InventorySlot : MonoBehaviour, IPointerEnterHandler
+public class InventorySlot : MonoBehaviour 
 {
     public Image image;
     public Item item;
@@ -12,6 +12,8 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler
     public Item.itemType acceptedItems;
 
     PlayerInventory inven;
+
+    public ISelectFromInventory reference;
 
     void Awake()
     {
@@ -50,9 +52,18 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler
         {
             image.overrideSprite = null;
         }
-    }
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        inven.SetDescription(item);
-    }
+    } 
+    public void OnClick()
+    {  
+        inven.SetDescription(this);
+
+        if (reference != null)
+        { 
+            reference.SelectInventoryItem(this); 
+        }
+        else
+        {
+            inven.EnableSlotOptions(this);
+        } 
+    } 
 }

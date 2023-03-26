@@ -16,20 +16,49 @@ public class PlayerInventory : MonoBehaviour
 
     public InventorySlot[] slots = new InventorySlot[5];
     public InventorySlot helmetSlot, chestplateSlot, pantsSlot,weaponSlot;
-
-    public List<GameObject> buttons = new List<GameObject>();
-
+     
     public TextMeshProUGUI itemTitle, itemDescription;
 
+    public GameObject dropButton, equipButton;
+    InventorySlot selectedSlot;
+
     public bool UIOpen;
+
     void Awake()
     {
         UpdateInventorySlots();
     }
-
-    //Returns whether there's an empty inventory slot
-    public bool EmptySlot()
+     
+    public bool AvailableSlot(Item item)
     {
+        switch (item.type)
+        {
+            case Item.itemType.helmet:
+                if (activeHelmet == null)
+                {
+                    return true;
+                }
+                break;
+            case Item.itemType.chestplate:
+                if (activeChestplate == null)
+                {
+                    return true;
+                }
+                break;
+            case Item.itemType.pants:
+                if (activePants == null)
+                {
+                    return true;
+                }
+                break;
+            case Item.itemType.weapon:
+                if (activeWeapon == null)
+                {
+                    return true;
+                }
+                break;
+        }
+
         for(int i = 0; i < inventoryItems.Length; i++)
         {
             if (inventoryItems[i] == null)
@@ -39,18 +68,96 @@ public class PlayerInventory : MonoBehaviour
         }
         return false;
     }
-    public void SetDescription(Item item)
+    //Set item description UI  
+    public void SetDescription(InventorySlot slot)
     {
-        if (item == null)
+        if (slot.item == null)
+        { 
+            return; 
+        } 
+        itemTitle.text = slot.item.name;
+        itemDescription.text = slot.item.description;
+          
+    }
+    // set which button to drop/equip slot stuff
+    public void EnableSlotOptions(InventorySlot slot)
+    {
+        if (slot.item == null)
+        {
+            dropButton.SetActive(false);
+            equipButton.SetActive(false);
+
+            selectedSlot = null;
+            return;
+        }
+        selectedSlot = slot; 
+
+        dropButton.SetActive(true);
+        equipButton.SetActive(true);
+    }
+
+    //If equip slot is null, equip the item. Else, swap the equipped item witht he item to equip.
+    public void EquipItem(InventorySlot slotToEquip)
+    {
+        if (slotToEquip.acceptedItems != Item.itemType.basic)
         {
             return;
         }
-        itemTitle.text = item.name;
-        itemDescription.text = item.description;
+        int index = Array.IndexOf(slots, slotToEquip);
+        Item itemToEquip = inventoryItems[index];
+
+        if (itemToEquip == null)
+        {
+            return;
+        }
+
+        switch (itemToEquip.type)
+        {
+            case Item.itemType.helmet:
+                if (activeHelmet != null)
+                {
+                    Item equippedItem = activeHelmet;
+                    RemoveItemFromInventory(slotToEquip);
+                    AddItemToInventory(equippedItem);
+                } 
+                SetActiveItem(itemToEquip);
+                return;
+
+            case Item.itemType.chestplate:
+                if (activeChestplate != null)
+                {
+                    Item equippedItem = activeChestplate;
+                    RemoveItemFromInventory(slotToEquip);
+                    AddItemToInventory(equippedItem);
+                }
+                SetActiveItem(itemToEquip);
+                return;
+
+            case Item.itemType.pants:
+                if (activePants != null)
+                {
+                    Item equippedItem = activePants;
+                    RemoveItemFromInventory(slotToEquip);
+                    AddItemToInventory(equippedItem);
+                }
+                SetActiveItem(itemToEquip);
+                return;
+
+            case Item.itemType.weapon:
+                if (activeWeapon != null)
+                {
+                    Item equippedItem = activeWeapon;
+                    RemoveItemFromInventory(slotToEquip);
+                    AddItemToInventory(equippedItem);
+                }
+                SetActiveItem(itemToEquip);
+                return;
+        }
+        Debug.Log("NO ACTIVE SLOT OF TYPE " + itemToEquip.type);
     }
 
     //Equips the item to the corresponding active slot
-    public void EquipItem(Item itemToEquip)
+    public void SetActiveItem(Item itemToEquip)
     { 
         switch (itemToEquip.type)
         {
@@ -79,6 +186,8 @@ public class PlayerInventory : MonoBehaviour
         } 
         Debug.Log("NO ACTIVE SLOT OF TYPE " + itemToEquip.type);
     }
+
+    //Checks if there is an open equip slot for an item
     public bool ActiveSlotAvailable(Item.itemType type)
     {
         switch (type)
@@ -130,52 +239,7 @@ public class PlayerInventory : MonoBehaviour
         return false;
     }
 
-    //IF ITEM IS NULL, REMOVE ITEM FROM THE SLOT. OTHERWISE, ADD THE ITEM TO THE SLOT.
-    public void AddItemToInventory(Item itemToAdd, InventorySlot slot)
-    {
-        if (itemToAdd == null)
-        {
-            switch (slot.acceptedItems)
-            {
-                case Item.itemType.helmet:
-                    activeHelmet = null;
-                    return;
-                case Item.itemType.chestplate:
-                    activeChestplate = null;
-                    return;
-                case Item.itemType.pants:
-                    activePants = null;
-                    return;
-                case Item.itemType.weapon:
-                    activeWeapon = null;
-                    return;
-                case Item.itemType.basic:
-                    int index = Array.IndexOf(slots, slot);
-                    inventoryItems[index] = null;
-                    return;
-            }
-        }
-        //Check if its a basic inventory slot
-        if (slot.acceptedItems == Item.itemType.basic)
-        {
-            int index = Array.IndexOf(slots, slot);
-            inventoryItems[index] = itemToAdd;
-        } 
-         
-        //Otherwise, if the slot accepts the item
-        else if (slot.acceptedItems == itemToAdd.type)
-        {
-            EquipItem(itemToAdd);
-        }
-
-        //Otherwise, the item is incompatible with the slot.
-        else
-        {
-            Debug.Log("INCOMPATIBLE!");
-        }
-
-        UpdateInventorySlots();
-    }
+    //Adds Item to inventory. If there's an open equip slot, equiops it. Else, just puts it in inventory.
     public void AddItemToInventory(Item itemToAdd)
     {
         if (itemToAdd == null)
@@ -185,7 +249,7 @@ public class PlayerInventory : MonoBehaviour
         //IF THER"S CURRENTLY NONE OF THAT ITEM EQUIPPED, EQUIP IT.
         if (ActiveSlotAvailable(itemToAdd.type))
         {
-            EquipItem(itemToAdd);
+            SetActiveItem(itemToAdd);
         }
 
         //OTHERWISE JUST ADD IT TO A BASIC SLOT
@@ -216,26 +280,30 @@ public class PlayerInventory : MonoBehaviour
 
         UpdateInventorySlots();
     }
-       
 
+    //Deletes item from inventory,
     public void RemoveItemFromInventory(InventorySlot slotToRemove)
     {
         switch (slotToRemove.acceptedItems)
         {
             case Item.itemType.helmet:
                 activeHelmet = null;
+                UpdateInventorySlots();
                 return;
 
             case Item.itemType.chestplate:
                 activeChestplate = null;
+                UpdateInventorySlots();
                 return;
 
             case Item.itemType.pants:
                 activePants = null;
+                UpdateInventorySlots();
                 return;
 
             case Item.itemType.weapon:
                 activeWeapon = null;
+                UpdateInventorySlots();
                 return;
 
             case Item.itemType.basic: 
@@ -244,6 +312,37 @@ public class PlayerInventory : MonoBehaviour
                 UpdateInventorySlots();
                 return;
         } 
+    }
+
+    //Deletes and spawns interactable item on the floor.
+    public void DropItem(InventorySlot slotToDrop)
+    {
+        if (slotToDrop.item == null)
+        {
+            return;
+        }
+        
+        Item itemToDrop = slotToDrop.item;
+        Debug.Log(itemToDrop);
+        RemoveItemFromInventory(slotToDrop);
+
+        GameObject player = GameObject.FindWithTag("Player");
+        if (player == null) 
+        {
+            return;
+        }
+
+        var itemDrop=Instantiate(Resources.Load<GameObject>("Misc/ItemDrop"), player.transform.position, Quaternion.identity);
+        itemDrop.GetComponent<ItemDrop>().item = itemToDrop;
+    } 
+
+    public void DropSelectedItem()
+    { 
+        DropItem(selectedSlot);
+    }
+    public void EquipSelectedItem()
+    {
+        EquipItem(selectedSlot);
     }
 
     void UpdateInventorySlots()
@@ -266,90 +365,42 @@ public class PlayerInventory : MonoBehaviour
             OnInventoryUpdate();
         }
     }
+       
      
-    void Update()
-    { 
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            HideUI();
-        }
-    }
-
-    public void SelectSlot(ISelectFromInventory i)
-    { 
-        foreach (GameObject button in buttons)
-        {
-            button.SetActive(true);
-            if (button.GetComponent<ReplaceButton>().slot.item != null)
-            { 
-                button.GetComponent<ReplaceButton>().SetItem(i);
-            }
-            else
-            { 
-                button.SetActive(false);
-            }
-        }
-    }
-
-    public void ReplaceItem(Item item, Item newItem)
-    {
-        if (activeChestplate == item)
-        {
-            activeChestplate = newItem;
-        }
-        else if (activeHelmet == item)
-        {
-
-            activeHelmet = newItem;
-        }
-        else if (activePants == item)
-        {
-
-            activePants = newItem;
-        }
-        else if (activeWeapon == item)
-        {
-
-            activeWeapon = newItem;
-        }
-        for (int i = 0; i < inventoryItems.Length; i++)
-        {
-            if (inventoryItems[i] == item)
-            {
-                Debug.Log(item);
-                inventoryItems[i] = newItem;
-                break;
-            }
-        }
-        UpdateInventorySlots();
-    }
-    public void DeselectSlots()
-    {
-        foreach (GameObject button in buttons)
-        {
-            button.SetActive(false);
-        }
-    }
     public Item GetActiveWeapon()
     {
         return activeWeapon;
     }
-
-    bool InBounds(int index)
-    {
-        return (index >= 0 && index < inventoryItems.Length);
-    } 
-    public void HideUI()
-    {
-        DeselectSlots();
-        GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().canMove = true;
+     
+    public void CloseInventory()
+    {  
         UIPanel.SetActive(false); 
         UIOpen=false;
+        foreach (InventorySlot slot in slots)
+        {
+            slot.reference = null;
+        }
+        helmetSlot.reference = null;
+        chestplateSlot.reference = null;
+        pantsSlot.reference = null;
+        weaponSlot.reference = null;
+    } 
+    public void OpenInventory()
+    {  
+        UIPanel.SetActive(true);
+        UIOpen = true; 
     }
-    public void ShowUI()
-    {
-        GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().canMove = false;
+    public void OpenInventory(ISelectFromInventory reference)
+    { 
         UIPanel.SetActive(true);
         UIOpen = true;
+        foreach (InventorySlot slot in slots)
+        {
+            slot.reference = reference;
+        }
+        helmetSlot.reference = reference;
+        chestplateSlot.reference = reference;
+        pantsSlot.reference = reference;
+        weaponSlot.reference = reference;
     }
 }

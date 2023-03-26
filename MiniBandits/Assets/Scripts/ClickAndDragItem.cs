@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems; 
-
-public class ClickAndDragItem : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler
-{
+ 
+public class ClickAndDragItem : MonoBehaviour//, IPointerExitHandler, IPointerEnterHandler
+{/*
     bool mouseHoveringOver = false;
     public bool beingDragged = false;
     public PlayerInventory inventory;
@@ -99,4 +99,5 @@ public class ClickAndDragItem : MonoBehaviour, IPointerExitHandler, IPointerEnte
         }
         return null;
     }
-}
+    */
+} 

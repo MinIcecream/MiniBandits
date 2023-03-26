@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 9169240318268292806}
   - component: {fileID: 9169240318268292807}
   m_Layer: 0
-  m_Name: ItemInteractable
+  m_Name: ItemDrop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

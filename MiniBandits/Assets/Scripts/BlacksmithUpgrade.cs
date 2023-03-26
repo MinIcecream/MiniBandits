@@ -10,7 +10,7 @@ public class BlacksmithUpgrade : MonoBehaviour,ISelectFromInventory
     GameObject popup;
 
     [HideInInspector]
-    public Item item;
+    public InventorySlot slot;
 
     [SerializeField]
     GameObject canvas;
@@ -65,33 +65,33 @@ public class BlacksmithUpgrade : MonoBehaviour,ISelectFromInventory
             PlayerInventory inventory = GameObject.FindWithTag("Inventory").GetComponent<PlayerInventory>();
 
             canvas.SetActive(true);
-            inventory.ShowUI();
-            inventory.SelectSlot(this);
+            inventory.OpenInventory(this); 
         } 
     }
     public void SelectInventoryItem(InventorySlot s)
-    { 
+    {
+        Debug.Log(s);
         text.text = "Upgrade "+ s.item.displayName+" for "+s.item.cost;
-        item = s.item;
+        slot = s;
         image.sprite = s.item.sprite;
     }
     public void UpgradeItem()
     { 
-        if (item == null)
+        if (slot.item == null)
         {
             return;
         }
 
         Item upgradedItem;
-        if (item.type == Item.itemType.weapon)
+        if (slot.item.type == Item.itemType.weapon)
         {
-            upgradedItem = Resources.Load<Item>("Items/Weapons/" + item.name + "+");
+            upgradedItem = Resources.Load<Item>("Items/Weapons/" + slot.item.name + "+");
         }
         else
         {
-            upgradedItem = Resources.Load<Item>("Items/Armor/" + item.name + "+");
+            upgradedItem = Resources.Load<Item>("Items/Armor/" + slot.item.name + "+");
         }
-        Debug.Log(item.referenceName + "+");
+        Debug.Log(slot.item.referenceName + "+");
         if (upgradedItem == null)
         { 
             Debug.Log("No more upgrades!");
@@ -102,14 +102,15 @@ public class BlacksmithUpgrade : MonoBehaviour,ISelectFromInventory
             Debug.Log(upgradedItem);
         }
 
-        if (GameObject.FindWithTag("Player").GetComponent<GoldManager>().GetGold() <= item.cost)
-        {
-             
-            GameObject.FindWithTag("Player").GetComponent<GoldManager>().SpendGold(item.cost); 
-             
-          
-             GameObject.FindWithTag("Inventory").GetComponent<PlayerInventory>().ReplaceItem(item, upgradedItem);
-             Reset();
+        GoldManager goldMan = GameObject.FindWithTag("Player").GetComponent<GoldManager>();
+        if (goldMan.GetGold() >= slot.item.cost)
+        { 
+            goldMan.SpendGold(slot.item.cost); 
+              
+             GameObject.FindWithTag("Inventory").GetComponent<PlayerInventory>().RemoveItemFromInventory(slot);
+             GameObject.FindWithTag("Inventory").GetComponent<PlayerInventory>().AddItemToInventory(upgradedItem);
+
+              Reset();
         }
         else
         {
@@ -118,7 +119,7 @@ public class BlacksmithUpgrade : MonoBehaviour,ISelectFromInventory
     }
     void Reset()
     {
-        item = null; 
+        slot = null; 
         text.text = "Select Item to Upgrade";
         image.sprite = null;
     }

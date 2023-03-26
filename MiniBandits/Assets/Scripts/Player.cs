@@ -109,6 +109,6 @@ public class Player : MonoBehaviour
             luck += pants.luck;
         }
         Debug.Log(strength * (1 + (crit / 100)) * (1 + (lifeSteal / 100)) + (health * (1 + (defense / 100))) / 100);
-        combatPower = strength*(1+(crit/100))*(1+(lifeSteal/100))+(health*(1+(defense/100)))/100;
+        combatPower = strength*(1+(crit/100))*(1+(lifeSteal/100))+(health*(1+(defense/100)))/100; 
     }
 }

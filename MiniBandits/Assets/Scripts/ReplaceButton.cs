@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ReplaceButton : MonoBehaviour 
-{
+{/*
     public ISelectFromInventory item;
     public InventorySlot slot;
 
@@ -19,5 +19,5 @@ public class ReplaceButton : MonoBehaviour
     {
         GameObject.FindWithTag("Inventory").GetComponent<PlayerInventory>().DeselectSlots();
         item.SelectInventoryItem(slot);
-    }
+    }*/
 }

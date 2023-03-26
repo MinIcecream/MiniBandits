@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     public GameObject closedWall, openedWall;
 
     static roomThemes[] themes;
+    public roomThemes currentTheme;
+
     /*
         void Start()
         { 
@@ -41,9 +43,8 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         themes = RoomOptionGenerator.GenerateRoomThemes(10);
-
-        FloorManager floorMan = GameObject.FindWithTag("FloorManager").GetComponent<FloorManager>();
-        floorMan.floorTheme = themes[floor];
+        currentTheme = themes[floor];
+        FloorManager floorMan = GameObject.FindWithTag("FloorManager").GetComponent<FloorManager>(); 
 
         RoomInfo.room starterRoom = new RoomInfo.room();
         starterRoom.roomType = roomTypes.starter; 
@@ -58,14 +59,13 @@ public class GameManager : MonoBehaviour
         floor++;
         SceneManager.LoadScene("Levels");
 
+        currentTheme = themes[floor];
         Invoke("GenerateStarterRoomAfterDelay", 0.1f);
     }
     void GenerateStarterRoomAfterDelay()
-    {
-
-        FloorManager floorMan = GameObject.FindWithTag("FloorManager").GetComponent<FloorManager>();
-        floorMan.floorTheme = themes[floor];
-
+    { 
+        FloorManager floorMan = GameObject.FindWithTag("FloorManager").GetComponent<FloorManager>(); 
+         
         RoomInfo.room starterRoom = new RoomInfo.room();
         starterRoom.roomType = roomTypes.starter;
 

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using RoomInfo;
 using System;
+using System.Linq;
 
 public class ProgressRoomManager : BaseRoomManager
 {
@@ -48,7 +49,7 @@ public class ProgressRoomManager : BaseRoomManager
             foreach (Room.enemy enemy in room.enemies)
             {
                 Debug.Log("EnemyPrefabs/" + theme + "/" + enemy.name);
-                var newEnemy = Instantiate(Resources.Load<GameObject>("EnemyPrefabs/" +theme+"/"+ enemy.name), new Vector2(transform.position.x + enemy.pos.x, transform.position.y + enemy.pos.y), Quaternion.identity);
+                var newEnemy = Instantiate(Resources.Load<GameObject>("EnemyPrefabs/" +theme+"/"+ enemy.name.Trim()), new Vector2(transform.position.x + enemy.pos.x, transform.position.y + enemy.pos.y), Quaternion.identity);
                 enemies.Add(newEnemy);
                 newEnemy.GetComponent<EnemyAI>().StartLevel();
             } 
@@ -56,7 +57,19 @@ public class ProgressRoomManager : BaseRoomManager
         //if a boss room:
         else
         {
-            var newBoss = Instantiate(Resources.Load<GameObject>("BossPrefabs/" + bossTheme), transform.position, Quaternion.identity);
+            var bossData = Resources.Load<GameObject>("BossPrefabs/" + bossTheme);
+            GameObject newBoss;
+
+            if (bossData != null)
+            {
+                newBoss = (GameObject)Instantiate(Resources.Load<GameObject>("BossPrefabs/" + bossTheme), transform.position, Quaternion.identity);
+            }
+            else
+            {
+                newBoss = (GameObject)Instantiate(Resources.Load<GameObject>("BossPrefabs/Graveyard"), transform.position, Quaternion.identity);
+            }
+
+             
             enemies.Add(newBoss);
             newBoss.GetComponent<EnemyAI>().StartLevel();
         }
@@ -74,7 +87,7 @@ public class ProgressRoomManager : BaseRoomManager
     //WHEN THE PLAYER ENTERS THE ROOm!
     public void StartRoom()
     {  
-        GameObject.FindWithTag("Inventory").GetComponent<PlayerInventory>().HideUI();
+        //GameObject.FindWithTag("Inventory").GetComponent<PlayerInventory>().HideUI();
         SpawnEnemies();
         levelStarted = true;
     }
@@ -113,15 +126,15 @@ public class ProgressRoomManager : BaseRoomManager
             case rewardTypes.randomWeapon:
                 {
                     Weapon newWeapon = RoomOptionGenerator.GenerateRandomWeapon();
-                    GameObject newItem = Instantiate(Resources.Load<GameObject>("Misc/ItemInteractable"), itemSpawnPt.position, Quaternion.identity);
-                    newItem.GetComponent<ItemInteractable>().item = newWeapon;
+                    GameObject newItem = Instantiate(Resources.Load<GameObject>("Misc/ItemDrop"), itemSpawnPt.position, Quaternion.identity);
+                    newItem.GetComponent<ItemDrop>().item = newWeapon;
                 }
                 break;
             case rewardTypes.randomArmor:
                 {
                     Armor newArmor = RoomOptionGenerator.GenerateRandomArmor();
-                    GameObject newItem = Instantiate(Resources.Load<GameObject>("Misc/ItemInteractable"), itemSpawnPt.position, Quaternion.identity);
-                    newItem.GetComponent<ItemInteractable>().item = newArmor;
+                    GameObject newItem = Instantiate(Resources.Load<GameObject>("Misc/ItemDrop"), itemSpawnPt.position, Quaternion.identity);
+                    newItem.GetComponent<ItemDrop>().item = newArmor;
                 }
                 break;
         }
