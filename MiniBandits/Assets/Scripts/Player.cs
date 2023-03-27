@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [Space]
+    [Header("Base Stats")]
+    [Space]
     //Base Stats
     public int baseLifeSteal;
     public int baseDefense;
@@ -11,8 +14,12 @@ public class Player : MonoBehaviour
     public int baseStrength;
     public int baseHealth; 
     public int baseCrit;
-    public int baseLuck; 
+    public int baseLuck;
 
+
+    [Space(10)]
+    [Header("Updated Stats")]
+    [Space]
     //Stats including buffs
     public int lifeSteal;
     public int defense;
@@ -22,7 +29,27 @@ public class Player : MonoBehaviour
     public int crit;
     public int luck;
 
+    [Space(10)]
+    [Header("Weights")]
+    [Space]
+
+    [SerializeField]
+    float lifeStealWeight;
+    [SerializeField]
+    float defenseWeight;
+    [SerializeField]
+    float speedWeight;
+    [SerializeField]
+    float strengthWeight;
+    [SerializeField]
+    float healthWeight;
+    [SerializeField]
+    float critWeight;
+    [SerializeField]
+    float luckWeight;
+
     //Adi's awesome number for combat power
+    [Space(10)]
     public int combatPower;
 
     public PlayerInventory inven;
@@ -63,7 +90,10 @@ public class Player : MonoBehaviour
     {
         PlayerInventory.OnInventoryUpdate -= UpdateStats;
     }
-
+    void Update()
+    {
+        UpdateStats();
+    }
     void UpdateStats()
     {
         lifeSteal=baseLifeSteal;
@@ -108,7 +138,7 @@ public class Player : MonoBehaviour
             crit += pants.crit;
             luck += pants.luck;
         }
-        Debug.Log(strength * (1 + (crit / 100)) * (1 + (lifeSteal / 100)) + (health * (1 + (defense / 100))) / 100);
-        combatPower = strength*(1+(crit/100))*(1+(lifeSteal/100))+(health*(1+(defense/100)))/100; 
+        //combatPower = strength*(1+(crit/100))*(1+(lifeSteal/100))+(health*(1+(defense/100)))/100; 
+        combatPower = (int)(strength * strengthWeight + crit * critWeight + defense * defenseWeight + health * healthWeight + luck * luckWeight + speed * speedWeight + lifeSteal * lifeStealWeight);
     }
 }

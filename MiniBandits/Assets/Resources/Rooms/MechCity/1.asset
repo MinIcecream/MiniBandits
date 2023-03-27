@@ -23,7 +23,3 @@ MonoBehaviour:
     name: Sentry
   - pos: {x: 0.14276445, y: -1.2289908}
     name: Sentry
-  - pos: {x: -3.9257483, y: 0.49605882}
-    name: Skeleton Warrior
-  - pos: {x: 4.048537, y: 0.49605882}
-    name: Skeleton Warrior

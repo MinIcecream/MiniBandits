@@ -19,11 +19,3 @@ MonoBehaviour:
     name: Cyborg
   - pos: {x: 0.01257205, y: 1.8630791}
     name: Sentry
-  - pos: {x: -2.819113, y: 2.2862043}
-    name: Alien Gunner
-  - pos: {x: 3.104642, y: 2.1234639}
-    name: Alien Gunner
-  - pos: {x: -3.6002674, y: -1.1638947}
-    name: Parasite
-  - pos: {x: 4.3414693, y: -1.2940869}
-    name: Skeleton Warrior

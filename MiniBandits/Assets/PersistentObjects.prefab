@@ -2862,6 +2862,13 @@ MonoBehaviour:
   health: 0
   crit: 0
   luck: 0
+  lifeStealWeight: 1.25
+  defenseWeight: 1.25
+  speedWeight: 0.5
+  strengthWeight: 1.5
+  healthWeight: 1
+  critWeight: 1.5
+  luckWeight: 0.25
   combatPower: 0
   inven: {fileID: 0}
 --- !u!114 &6575215802865004260
