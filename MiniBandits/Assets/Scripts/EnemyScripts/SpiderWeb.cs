@@ -11,31 +11,7 @@ public class SpiderWeb : MonoBehaviour
         if (coll.gameObject.tag == "Player")
         {
             player = coll.gameObject;
-            StartCoroutine(Slow());
+            player.GetComponent<PlayerStatusEffects>().Slow(2);
         }
-    }
-    IEnumerator Slow()
-    {
-        float startTime = Time.time;
-        while (Time.time - startTime < 2)
-        {
-            if (player!= null)
-            { 
-                player.GetComponent<Rigidbody2D>().drag = 10;
-                yield return null;
-            } 
-        } 
-        if (player != null)
-        { 
-            player.GetComponent<Rigidbody2D>().drag = 0;
-        } 
-    }
-
-    void OnDisable()
-    {
-        if (player)
-        { 
-            player.GetComponent<Rigidbody2D>().drag = 0;
-        } 
-    }
+    } 
 }

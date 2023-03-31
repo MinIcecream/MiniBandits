@@ -48,13 +48,16 @@ public class AcidPool : MonoBehaviour
     {
         foreach (GameObject obj in colls)
         {
-            if (obj.GetComponent<Health>() != null)
-            {
-                if (obj.GetComponent<IDamageable>() != null)
+            if (obj != null)
+            { 
+                if (obj.GetComponent<Health>() != null)
                 {
-                    obj.GetComponent<IDamageable>().Damage(damage);
-                }   
-            }
+                    if (obj.GetComponent<IDamageable>() != null)
+                    {
+                        obj.GetComponent<IDamageable>().Damage(damage);
+                    }
+                }
+            } 
         }
     }
     void OnTriggerEnter2D(Collider2D collider)

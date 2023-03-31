@@ -26,6 +26,10 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 
     public Animator walkAnim;
 
+    //Slow effect sets this to 5.
+    [HideInInspector]
+    public float movementSpeed=1;
+
     void Awake()
     {
         health = GetComponent<Health>();
@@ -82,7 +86,8 @@ public class PlayerMovement : MonoBehaviour, IDamageable
         }
 
         Player stats = GetComponent<Player>(); 
-        GetComponent<Rigidbody2D>().velocity = walkSpeed * stats.speed * 40 * Time.deltaTime;
+
+        GetComponent<Rigidbody2D>().velocity = walkSpeed * stats.speed*movementSpeed*0.1f;
 
         //DASH
         if (Input.GetKeyDown(KeyCode.Space) && GetComponent<PlayerStamina>().GetStamina()>0)
