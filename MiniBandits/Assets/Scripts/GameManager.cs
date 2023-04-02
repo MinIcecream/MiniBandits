@@ -53,14 +53,22 @@ public class GameManager : MonoBehaviour
         floorMan.UpdatePlayerAndCameraPos();
     }
 
-    public void GenerateNewFloor()
-    {
-        room = 0;
-        floor++;
+    public void LoadNewFloorScene()
+    {  
         SceneManager.LoadScene("Levels");
 
         currentTheme = themes[floor];
         Invoke("GenerateStarterRoomAfterDelay", 0.1f);
+    }
+
+    public void GenerateNewFloor()
+    { 
+        room = 0;
+        floor++;
+
+        SceneManager.LoadScene("FloorTransition");
+
+        Invoke("LoadNewFloorScene", 5f);
     }
     void GenerateStarterRoomAfterDelay()
     { 
