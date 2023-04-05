@@ -8,8 +8,7 @@ public class SkeletonWarrior : EnemyAI, IAffectable
     public int chaseSpeed;
     bool canStart = false;
     public float attackDistance; 
-    public Collider2D weaponCollider;
-    public int damage; 
+    public Collider2D weaponCollider; 
 
     enum states
     {

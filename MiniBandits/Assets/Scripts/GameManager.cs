@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
 
         SceneManager.LoadScene("FloorTransition");
 
-        Invoke("LoadNewFloorScene", 5f);
+        Invoke("LoadNewFloorScene", 2.5f);
     }
     void GenerateStarterRoomAfterDelay()
     { 

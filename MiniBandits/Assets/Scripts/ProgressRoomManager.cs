@@ -39,6 +39,16 @@ public class ProgressRoomManager : BaseRoomManager
         } 
     } 
     
+    void MakeEnemiesAggro()
+    {
+        foreach(GameObject enemy in enemies)
+        {
+            if (enemy!=null)
+            { 
+                enemy.GetComponent<EnemyAI>().StartLevel();
+            } 
+        }
+    }
     void SpawnEnemies()
     {
         //if a normal room:
@@ -50,9 +60,10 @@ public class ProgressRoomManager : BaseRoomManager
             {
                 Debug.Log("EnemyPrefabs/" + theme + "/" + enemy.name);
                 var newEnemy = Instantiate(Resources.Load<GameObject>("EnemyPrefabs/" +theme+"/"+ enemy.name.Trim()), new Vector2(transform.position.x + enemy.pos.x, transform.position.y + enemy.pos.y), Quaternion.identity);
-                enemies.Add(newEnemy);
-                newEnemy.GetComponent<EnemyAI>().StartLevel();
-            } 
+                enemies.Add(newEnemy); 
+                newEnemy.GetComponent<EnemyAI>().Scale(GameManager.floor);
+            }
+            Invoke("MakeEnemiesAggro", 0.5f);
         }
         //if a boss room:
         else
@@ -87,7 +98,7 @@ public class ProgressRoomManager : BaseRoomManager
     //WHEN THE PLAYER ENTERS THE ROOm!
     public void StartRoom()
     {  
-        //GameObject.FindWithTag("Inventory").GetComponent<PlayerInventory>().HideUI();
+        //GameObject.FindWithTag("Inventory").GetComponent<PlayerInventory>().HideUI(); 
         SpawnEnemies();
         levelStarted = true;
     }

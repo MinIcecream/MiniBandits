@@ -40,4 +40,10 @@ public class Health : MonoBehaviour
     {
         maxHealth = h;
     } 
+
+    public void SetMaxAndCurrentHealth(int h)
+    {
+        maxHealth = h;
+        health = maxHealth;
+    }
 }

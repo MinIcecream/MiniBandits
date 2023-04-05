@@ -12,6 +12,7 @@ public class SpiderWeb : MonoBehaviour
         {
             player = coll.gameObject;
             player.GetComponent<PlayerStatusEffects>().Slow(2);
+            Destroy(gameObject);
         }
     } 
 }

@@ -12,6 +12,14 @@ public class EnemyAI : MonoBehaviour, IDamageable
     public GameObject player;
 
     [HideInInspector] public bool canMove;
+     
+    [HideInInspector] public int damage;
+
+    public virtual void Scale(int difficultyLevel)
+    {
+        health.SetMaxAndCurrentHealth((int)(health.GetMaxHealth()*(0.2f*difficultyLevel+1)));
+        damage = (int)( damage* (1 + 0.2f * difficultyLevel));
+    }
 
     public virtual void StartLevel()
     {

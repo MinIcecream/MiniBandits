@@ -35,7 +35,8 @@ public class FloorTransitionUI : MonoBehaviour
     } 
 
     IEnumerator MoveToPosition(Transform target)
-    { 
+    {
+        yield return new WaitForSeconds(0.7f);
         float elapsedTime = 0f;
         float moveTime = 2f;
 

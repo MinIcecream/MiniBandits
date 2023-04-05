@@ -10,7 +10,7 @@ public class CyborgAI : EnemyAI, IAffectable
     public float attackDistance;
     public float meleeAttackDistance;
     public Collider2D weaponCollider;
-    public int damage;
+
     public GameObject projectile;
 
     enum states
