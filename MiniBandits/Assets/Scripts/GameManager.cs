@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public GameObject closedWall, openedWall;
 
     static roomThemes[] themes;
-    public roomThemes currentTheme;
+    public static roomThemes currentTheme;
 
     /*
         void Start()

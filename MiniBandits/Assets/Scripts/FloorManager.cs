@@ -22,7 +22,7 @@ public class FloorManager : MonoBehaviour
 
     void Start()
     {
-        floorTheme = GameObject.FindWithTag("GameManager").GetComponent<GameManager>().currentTheme;
+        floorTheme = GameManager.currentTheme;
 
         Object[] everyEnemy = Resources.LoadAll("Rooms/"+floorTheme.ToString(), typeof(Room));
         List<Room> tempList = new List<Room>();
