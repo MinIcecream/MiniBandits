@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f215491fd243cc743a384acfd3d73e7e, type: 3}
+  m_Name: KyberBlade
+  m_EditorClassIdentifier: 
+  id: 1
+  displayName: Kyber Blade
+  referenceName: KyberBlade
+  sprite: {fileID: 21300000, guid: fce902b2ac7a3f647906263a293fcf50, type: 3}
+  cost: 35
+  rarity: 0
+  type: 0
+  tier: 0
+  description: Spins quickly
+  damage: 25
+  attackSpeed: 1

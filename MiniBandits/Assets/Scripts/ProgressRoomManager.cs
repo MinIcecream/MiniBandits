@@ -58,7 +58,7 @@ public class ProgressRoomManager : BaseRoomManager
             theme = char.ToUpper(theme[0]) + theme.Substring(1);
             foreach (Room.enemy enemy in room.enemies)
             {
-                Debug.Log("EnemyPrefabs/" + theme + "/" + enemy.name);
+               // Debug.Log("EnemyPrefabs/" + theme + "/" + enemy.name);
                 var newEnemy = Instantiate(Resources.Load<GameObject>("EnemyPrefabs/" +theme+"/"+ enemy.name.Trim()), new Vector2(transform.position.x + enemy.pos.x, transform.position.y + enemy.pos.y), Quaternion.identity);
                 enemies.Add(newEnemy); 
                 newEnemy.GetComponent<EnemyAI>().Scale(GameManager.floor);

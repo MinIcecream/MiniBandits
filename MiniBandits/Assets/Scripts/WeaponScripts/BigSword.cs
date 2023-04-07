@@ -5,6 +5,7 @@ using UnityEngine;
 public class BigSword : WeaponTemplate
 {
     new Collider2D collider;
+    public float knockBackAmt;
 
     public override void Start()
     {
@@ -29,9 +30,14 @@ public class BigSword : WeaponTemplate
     }
     void OnTriggerEnter2D(Collider2D coll)
     {
-        if (coll.gameObject.tag == "Enemy")
+        GameObject obj = coll.gameObject;
+        if (obj.tag == "Enemy")
         {
-            coll.gameObject.GetComponent<IDamageable>().Damage(damage);
+            obj.GetComponent<IDamageable>().Damage(damage);
+        }
+        if (obj.GetComponent<IAffectable>() != null)
+        {
+            obj.GetComponent<IAffectable>().Knockback(knockBackAmt, transform.position);
         }
     }
 }

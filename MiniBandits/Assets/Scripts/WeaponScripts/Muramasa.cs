@@ -17,14 +17,10 @@ public class Muramasa : WeaponTemplate
 
         anim.SetTrigger("Attack");
         var newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
-
-        Vector2 unNormalizedDir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        Vector2 dir = (Vector2)(unNormalizedDir.normalized);
          
-        newProjectile.GetComponent<TESTPlayerProjectile>().SetDir(dir);
-        newProjectile.GetComponent<TESTPlayerProjectile>().damage = damage;
-
-        newProjectile.transform.right = dir;
+         
+        newProjectile.GetComponent<BaseProjectile>().SetDir(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        newProjectile.GetComponent<BaseProjectile>().damage = damage; 
     }
     IEnumerator DisableCollider()
     {

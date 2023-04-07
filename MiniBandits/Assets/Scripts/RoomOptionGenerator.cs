@@ -39,7 +39,7 @@ namespace RoomInfo
 }
 public class RoomOptionGenerator
 {
-    public float normalRoomWeight= 90;
+    public float normalRoomWeight= 80;
 
     public static roomThemes[] GenerateRoomThemes(int numThemes)
     {
@@ -114,7 +114,7 @@ public class RoomOptionGenerator
     } 
     public static Weapon GenerateRandomWeapon()
     {
-        UnityEngine.Object[] tempList = Resources.LoadAll("Items/Weapons", typeof(Weapon));
+        UnityEngine.Object[] tempList = Resources.LoadAll("Items/Weapons/BaseWeapons", typeof(Weapon));
         List<Weapon> allWeapons = new List<Weapon>();
 
         foreach(Weapon w in tempList)

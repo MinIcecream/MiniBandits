@@ -52,6 +52,7 @@ public class Player : MonoBehaviour
     [Space(10)]
     public int combatPower;
 
+    [HideInInspector]
     public PlayerInventory inven;
 
     void Awake()

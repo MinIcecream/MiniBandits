@@ -4,33 +4,30 @@ using UnityEngine;
 
 public class Shotgun : WeaponTemplate
 {
-    public int min, max;
+    public int max, min;
+    public int angleRange;
 
     public override void Attack()
     {
         int bullets = Random.Range(min, max);
+        float distance = Vector2.Distance(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition));
+      
+        Vector2 targetPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
+        // Get the direction vector pointing towards the target point
+        Vector2 direction = targetPoint - (Vector2)transform.position;
+
+        // Generate 6 random points within the given distance and angle range
         for (int i = 0; i < bullets; i++)
         {
+            float randomAngle = Random.Range(-angleRange, angleRange);
+            Vector2 rotatedDirection = Quaternion.Euler(0f, 0f, randomAngle) * direction.normalized;
+            Vector2 randomPoint = (Vector2)transform.position + rotatedDirection * distance;
+
             var newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
 
-            Vector2 unNormalizedDir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-            Vector2 dir= (Vector2)(unNormalizedDir.normalized);
-
-            Vector2 rotatedDir = Rotate(dir, Random.Range(-10, 10));
-            newProjectile.GetComponent<TESTPlayerProjectile>().SetDir(rotatedDir);
-            newProjectile.GetComponent<TESTPlayerProjectile>().damage = damage; 
-        } 
-    }
-    public Vector2 Rotate(Vector2 v, float degrees)
-    {
-        float sin = Mathf.Sin(degrees * Mathf.Deg2Rad);
-        float cos = Mathf.Cos(degrees * Mathf.Deg2Rad);
-
-        float tx = v.x;
-        float ty = v.y;
-        v.x = (cos * tx) - (sin * ty);
-        v.y = (sin * tx) + (cos * ty);
-        return v;
-    }
+            newProjectile.GetComponent<BaseProjectile>().SetDir(randomPoint);
+            newProjectile.GetComponent<BaseProjectile>().damage = damage;
+        }
+    }  
 }

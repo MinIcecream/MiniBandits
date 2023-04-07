@@ -50,7 +50,7 @@ public class EquipWeapon : MonoBehaviour
 
         //OTHERWISE:
         //TIME TO UPDATE THE WEAPON!  
-        var weaponPrefab = Resources.Load<GameObject>("WeaponPrefabs/" + weapon.referenceName);
+        var weaponPrefab = Resources.Load<GameObject>("WeaponPrefabs/" + weapon.referenceName.Replace("+",""));
 
         if (weaponPrefab == null)
         {
@@ -61,7 +61,7 @@ public class EquipWeapon : MonoBehaviour
         activeWeapon = Instantiate(weaponPrefab, spawnPt.position, Quaternion.identity);
    
         //If the weapon was successfully equiped: 
-        activeWeapon.transform.SetParent(this.gameObject.transform);
+        activeWeapon.transform.SetParent(this.gameObject.transform);  
         activeWeapon.transform.localRotation = Quaternion.identity; 
         activeWeapon.GetComponent<WeaponTemplate>().weapon = (Weapon)weapon;
 

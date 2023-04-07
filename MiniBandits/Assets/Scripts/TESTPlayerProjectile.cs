@@ -22,6 +22,7 @@ public class TESTPlayerProjectile : MonoBehaviour
     Rigidbody2D rb;
 
     public float dragMax, dragMin;
+     
 
     void Awake()
     {

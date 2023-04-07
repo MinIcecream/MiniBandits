@@ -105,7 +105,9 @@ MonoBehaviour:
   weapon: {fileID: 11400000, guid: f8646f7ff0527a64799b2bc6177bbdd0, type: 2}
   weaponName: 
   attackCooldown: 0
+  baseDamage: 0
   damage: 0
+  knockBackAmt: 6
 --- !u!58 &7272343605669279432
 CircleCollider2D:
   m_ObjectHideFlags: 0

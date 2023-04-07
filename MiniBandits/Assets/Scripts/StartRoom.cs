@@ -17,7 +17,7 @@ public class StartRoom : MonoBehaviour
 
             levelMan.StartRoom();
 
-            Destroy(this);
+            Destroy(this.gameObject);
         }
     }
 }

@@ -21,7 +21,7 @@ MonoBehaviour:
   type: 2
   tier: 0
   description: Gives a lot of lifesteal
-  lifeSteal: 50
+  lifeSteal: 5
   defense: 0
   speed: 0
   strength: 0

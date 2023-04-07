@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,7 +6,7 @@ using RoomInfo;
 
 public class GameManager : MonoBehaviour
 {
-    public static int floor=0;
+    public static int floor=1;
     public static int room=0;
 
     public RectTransform fader;
@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
 
     static roomThemes[] themes;
     public static roomThemes currentTheme;
+
+    public roomThemes[] ForDisplayOnly;
 
     /*
         void Start()
@@ -43,7 +45,8 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         themes = RoomOptionGenerator.GenerateRoomThemes(10);
-        currentTheme = themes[floor];
+        ForDisplayOnly = themes;
+        currentTheme = themes[floor-1];
         FloorManager floorMan = GameObject.FindWithTag("FloorManager").GetComponent<FloorManager>(); 
 
         RoomInfo.room starterRoom = new RoomInfo.room();
@@ -57,7 +60,7 @@ public class GameManager : MonoBehaviour
     {  
         SceneManager.LoadScene("Levels");
 
-        currentTheme = themes[floor];
+        currentTheme = themes[floor-1];
         Invoke("GenerateStarterRoomAfterDelay", 0.1f);
     }
 

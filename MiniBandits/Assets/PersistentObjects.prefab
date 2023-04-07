@@ -2855,7 +2855,7 @@ MonoBehaviour:
   baseSpeed: 50
   baseStrength: 20
   baseHealth: 120
-  baseCrit: 10
+  baseCrit: 5
   baseLuck: 0
   lifeSteal: 0
   defense: 0
@@ -6576,7 +6576,7 @@ MonoBehaviour:
   fader: {fileID: 0}
   closedWall: {fileID: 0}
   openedWall: {fileID: 0}
-  currentTheme: 0
+  ForDisplayOnly: 
 --- !u!1 &6575215804277966648
 GameObject:
   m_ObjectHideFlags: 0

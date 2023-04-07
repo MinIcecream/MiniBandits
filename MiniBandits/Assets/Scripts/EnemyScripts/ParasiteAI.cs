@@ -103,7 +103,7 @@ public class ParasiteAI : EnemyAI, IAffectable
         {
             var newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
             //shoots projectile at player position
-            newProjectile.GetComponent<AcidSpit>().SetTarget(player.transform.position); 
+            newProjectile.GetComponent<BaseProjectile>().SetDir(player.transform.position); 
         }
 
         yield return new WaitForSeconds(3f);
