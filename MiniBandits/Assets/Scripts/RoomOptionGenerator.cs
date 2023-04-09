@@ -17,29 +17,76 @@ namespace RoomInfo
         RabidZoo,
         SpiderDen
     }
-    public enum rooms
+    public enum rewardTypes
     {
         gold,
         randomWeapon,
         randomArmor,
-        vitalityShrine,
-        powerShrine,
-        defenseShrine,
-        speedShrine,
+        shrine,
         blackSmith,
         market,
         starter
     }   
+    public struct room{
+        int chance;
+        rewardTypes reward;
+        bool progressRoom;
+    }
 }
 public class RoomOptionGenerator
 {  
+    private List<room> rooms = new List<room>();
+
+    void Awake(){
+        
+        room starter = new room();
+        starter.reward=rewardTypes.starter;
+        starter.progressRoom=false;
+        starter.chance=20;
+        rooms.Add(starter);
+
+        room blackSmith = new room();
+        starter.reward=rewardTypes.blackSmith;
+        starter.progressRoom=false;
+        starter.chance=20;
+        rooms.Add(starter);
+        
+        room market = new room();
+        starter.reward=rewardTypes.market;
+        starter.progressRoom=false;
+        starter.chance=20;
+        rooms.Add(market);
+        
+        room gold = new room();
+        starter.reward=rewardTypes.gold;
+        starter.progressRoom=true;
+        starter.chance=20;
+        rooms.Add(gold);
+        
+        room randomWeapon = new room();
+        starter.reward=rewardTypes.randomWeapon;
+        starter.progressRoom=true;
+        starter.chance=20;
+        rooms.Add(randomWeapon);
+        
+        room randomArmor = new room();
+        starter.reward=rewardTypes.randomArmor;
+        starter.progressRoom=true;
+        starter.chance=20;
+        rooms.Add(randomArmor);
+        
+        room shrine = new room();
+        starter.reward=rewardTypes.shrine;
+        starter.progressRoom=true;
+        starter.chance=20; 
+        rooms.Add(shrine);
+    }
     public static roomThemes[] GenerateRoomThemes(int numThemes)
     {
         roomThemes[] themes = new roomThemes[numThemes];
 
         for(int i=0; i < numThemes; i++)
         { 
-
             System.Random random = new System.Random();
 
             Type type = typeof(roomThemes);

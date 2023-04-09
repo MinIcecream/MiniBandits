@@ -9,7 +9,7 @@ public class BaseRoomManager : MonoBehaviour
     public GameObject[] doors;
     //Where to spawn player in the room
     public Transform playerSpawnPt,itemSpawnPt;
-    public rooms reward;
+    public rooms room;
 
     public virtual void Awake()
     {
@@ -24,11 +24,11 @@ public class BaseRoomManager : MonoBehaviour
     //AFTER YOU BEAT ALL THE ENEMIES:
     public virtual void EndRoom()
     { 
-        rooms[] room = RoomOptionGenerator.GenerateRoomOptions(doors.Length);
+        rooms[] generatedRooms = RoomOptionGenerator.GenerateRoomOptions(doors.Length);
 
         for (int i = 0; i < doors.Length; i++)
         {
-            doors[i].GetComponent<Door>().SetReward(room[i]); 
+            doors[i].GetComponent<Door>().SetReward(generatedRooms[i]); 
         }
     }
 }
