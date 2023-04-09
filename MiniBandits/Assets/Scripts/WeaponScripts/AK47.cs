@@ -6,8 +6,7 @@ public class AK47 : WeaponTemplate
 {  
     public override void Attack()
     {
-        var newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
-         
+        var newProjectile = Instantiate(projectile, transform.position, Quaternion.identity); 
 
         newProjectile.GetComponent<BaseProjectile>().speed = 15;
         newProjectile.GetComponent<BaseProjectile>().SetDir(Camera.main.ScreenToWorldPoint(Input.mousePosition));

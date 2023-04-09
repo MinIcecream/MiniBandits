@@ -20,6 +20,34 @@ public class ProgressRoomManager : BaseRoomManager
     //if boss room, its initialized by floormanager. otherwise, its blank
     public string bossTheme;
 
+    public void Start()
+    {   
+        if (reward == rooms.vitalityShrine)
+        {
+            Debug.Log("YESS");
+            GameObject shrine = Instantiate(Resources.Load<GameObject>("Misc/Shrines/VitalityShrine"), itemSpawnPt.position, Quaternion.identity);
+            shrine.GetComponent<Shrine>().roomMan = this;
+        }
+        else if(reward == rooms.powerShrine)
+        {
+            Debug.Log("YESS");
+            GameObject shrine = Instantiate(Resources.Load<GameObject>("Misc/Shrines/PowerShrine"), itemSpawnPt.position, Quaternion.identity);
+            shrine.GetComponent<Shrine>().roomMan = this;
+        }
+        else if(reward == rooms.defenseShrine)
+        {
+            Debug.Log("YESS");
+            GameObject shrine = Instantiate(Resources.Load<GameObject>("Misc/Shrines/DefenseShrine"), itemSpawnPt.position, Quaternion.identity);
+            shrine.GetComponent<Shrine>().roomMan = this;
+        }
+        else if (reward == rooms.speedShrine)
+        {
+            Debug.Log("YESS");
+            GameObject shrine = Instantiate(Resources.Load<GameObject>("Misc/Shrines/SpeedShrine"), itemSpawnPt.position, Quaternion.identity);
+            shrine.GetComponent<Shrine>().roomMan = this;
+        }
+    }
+
     void Update()
     {
         if (levelComplete)
@@ -88,8 +116,8 @@ public class ProgressRoomManager : BaseRoomManager
     }
 
     //WHEN THE PLAYER WALKS THROUGH THE DOOR:
-    public override void TransitionToNextRoom(room r)
-    {
+    public override void TransitionToNextRoom(rooms r)
+    { 
         floorMan.SpawnRoom(r);
 
         floorMan.UpdatePlayerAndCameraPos(); 
@@ -117,11 +145,11 @@ public class ProgressRoomManager : BaseRoomManager
         { 
             base.EndRoom();
         }
-        StartCoroutine(LoadNextLevel());
+        StartCoroutine(SpawnDoorsAndRewards());
     }
 
     //Load the next level
-    IEnumerator LoadNextLevel()
+    IEnumerator SpawnDoorsAndRewards()
     {
         yield return new WaitForSeconds(1f);
 
@@ -131,17 +159,17 @@ public class ProgressRoomManager : BaseRoomManager
         }
         switch (reward)
         {
-            case rewardTypes.gold:
+            case rooms.gold:
                 GameObject.FindWithTag("Player").GetComponent<GoldManager>().AddGold(20);
                 break;
-            case rewardTypes.randomWeapon:
+            case rooms.randomWeapon:
                 {
                     Weapon newWeapon = RoomOptionGenerator.GenerateRandomWeapon();
                     GameObject newItem = Instantiate(Resources.Load<GameObject>("Misc/ItemDrop"), itemSpawnPt.position, Quaternion.identity);
                     newItem.GetComponent<ItemDrop>().item = newWeapon;
                 }
                 break;
-            case rewardTypes.randomArmor:
+            case rooms.randomArmor:
                 {
                     Armor newArmor = RoomOptionGenerator.GenerateRandomArmor();
                     GameObject newItem = Instantiate(Resources.Load<GameObject>("Misc/ItemDrop"), itemSpawnPt.position, Quaternion.identity);

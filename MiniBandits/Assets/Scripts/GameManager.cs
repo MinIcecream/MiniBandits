@@ -46,11 +46,11 @@ public class GameManager : MonoBehaviour
     {
         themes = RoomOptionGenerator.GenerateRoomThemes(10);
         ForDisplayOnly = themes;
+        Debug.Log(floor);
         currentTheme = themes[floor-1];
         FloorManager floorMan = GameObject.FindWithTag("FloorManager").GetComponent<FloorManager>(); 
 
-        RoomInfo.room starterRoom = new RoomInfo.room();
-        starterRoom.roomType = roomTypes.starter; 
+        rooms starterRoom = rooms.starter; 
 
         floorMan.SpawnRoom(starterRoom);
         floorMan.UpdatePlayerAndCameraPos();
@@ -75,10 +75,9 @@ public class GameManager : MonoBehaviour
     }
     void GenerateStarterRoomAfterDelay()
     { 
-        FloorManager floorMan = GameObject.FindWithTag("FloorManager").GetComponent<FloorManager>(); 
-         
-        RoomInfo.room starterRoom = new RoomInfo.room();
-        starterRoom.roomType = roomTypes.starter;
+        FloorManager floorMan = GameObject.FindWithTag("FloorManager").GetComponent<FloorManager>();
+
+        rooms starterRoom = rooms.starter;
 
         floorMan.SpawnRoom(starterRoom);
         floorMan.UpdatePlayerAndCameraPos();
@@ -90,7 +89,7 @@ public class GameManager : MonoBehaviour
         {
             Invoke("LoadMenu", 1f);
             room = 0;
-            floor = 0;
+            floor = 1;
         }
         /* LOGIC FOR NEXZT FLOOR
         if (room >= 10)

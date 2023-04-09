@@ -36,7 +36,7 @@ public class BaseProjectile : MonoBehaviour
             StartCoroutine(EnableCollider());
         }
     }
-    public void SetDir(Vector2 targetPt)
+    public virtual void SetDir(Vector2 targetPt)
     {
         targetPoint = targetPt;
         Vector2 direction = (targetPt - (Vector2)transform.position).normalized;

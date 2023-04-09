@@ -17,30 +17,22 @@ namespace RoomInfo
         RabidZoo,
         SpiderDen
     }
-    public enum roomTypes
-    { 
-        starter,
-        campfire, 
-        market,
-        normal,
-        blacksmith
-    }
-    public struct room
-    {
-        public rewardTypes reward;
-        public roomTypes roomType;
-    }
-    public enum rewardTypes
+    public enum rooms
     {
         gold,
         randomWeapon,
-        randomArmor
-    }
+        randomArmor,
+        vitalityShrine,
+        powerShrine,
+        defenseShrine,
+        speedShrine,
+        blackSmith,
+        market,
+        starter
+    }   
 }
 public class RoomOptionGenerator
-{
-    public float normalRoomWeight= 80;
-
+{  
     public static roomThemes[] GenerateRoomThemes(int numThemes)
     {
         roomThemes[] themes = new roomThemes[numThemes];
@@ -61,56 +53,42 @@ public class RoomOptionGenerator
         return themes;
     }
 
-    public static room[] GenerateRoomOptions(int numDoors)
+    public static rooms[] GenerateRoomOptions(int numDoors)
     {
-        RoomOptionGenerator instance = new RoomOptionGenerator(); 
+        RoomOptionGenerator instance = new RoomOptionGenerator();
 
-        room[] rooms= new room[numDoors];
+        rooms[] roomOptions= new rooms[numDoors];
          
         System.Random random = new System.Random();
 
-        List<rewardTypes> alreadyAssignedRewards = new List<rewardTypes>();
+        List<rooms> alreadyAssignedRooms = new List<rooms>();
 
         for (int i = 0; i < numDoors; i++)
-        { 
-            if (UnityEngine.Random.Range(0, 100) <= instance.normalRoomWeight)
-            { 
-                rooms[i].roomType = roomTypes.normal; 
-                 
-                Array values = typeof(rewardTypes).GetEnumValues();
+        {  
+            Array values = typeof(rooms).GetEnumValues();
 
-                //Generatinga  random reward
-                int index = random.Next(values.Length);
-                rewardTypes randomReward = (rewardTypes)values.GetValue(index);
-                rooms[i].reward = randomReward;
+            //Generatinga  random reward
+            int index = random.Next(values.Length);
+            rooms randomRoom = (rooms)values.GetValue(index);
+            roomOptions[i] = randomRoom;
 
-                if (alreadyAssignedRewards.Contains(rooms[i].reward))
+            if (alreadyAssignedRooms.Contains(roomOptions[i]))
+            {
+                while (alreadyAssignedRooms.Contains(roomOptions[i])|| randomRoom == rooms.starter)
                 {
-                    while (alreadyAssignedRewards.Contains(rooms[i].reward))
-                    {
-                        index = random.Next(values.Length);
-                        randomReward = (rewardTypes)values.GetValue(index);
-                        rooms[i].reward = randomReward;
-                    }
-                    alreadyAssignedRewards.Add(rooms[i].reward);
+                    index = random.Next(values.Length);
+                    randomRoom = (rooms)values.GetValue(index);
+                roomOptions[i] = randomRoom;
                 }
-                else
-                {
-                    alreadyAssignedRewards.Add(rooms[i].reward);
-                }  
+            alreadyAssignedRooms.Add(roomOptions[i]);
             }
             else
-            { 
-                Array values = Enum.GetValues(typeof(roomTypes)); 
-                roomTypes randomRoom=roomTypes.normal; 
-                while (randomRoom == roomTypes.normal || randomRoom==roomTypes.starter)
-                {  
-                    randomRoom = (roomTypes)values.GetValue(random.Next(values.Length)); 
-                }
-                rooms[i].roomType = randomRoom;
-            }
+            {
+            alreadyAssignedRooms.Add(roomOptions[i]);
+            }  
+            
         }
-        return rooms;
+        return roomOptions;
     } 
     public static Weapon GenerateRandomWeapon()
     {
