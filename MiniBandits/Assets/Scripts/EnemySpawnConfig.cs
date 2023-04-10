@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Room", menuName = "Room")]
-public class Room : ScriptableObject
+[CreateAssetMenu(fileName = "New EnemySpawnConfig", menuName = "EnemySpawnConfig")]
+public class EnemySpawnConfig : ScriptableObject
 { 
     [System.Serializable]
     public struct enemy

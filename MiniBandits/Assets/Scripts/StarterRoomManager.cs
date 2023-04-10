@@ -15,7 +15,7 @@ public class StarterRoomManager : BaseRoomManager
       
 
     //WHEN THE PLAYER WALKS THROUGH THE DOOR:
-    public override void TransitionToNextRoom(rooms r)
+    public override void TransitionToNextRoom(roomConfig r)
     {
         floorMan.SpawnRoom(r);
 

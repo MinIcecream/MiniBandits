@@ -2854,7 +2854,7 @@ MonoBehaviour:
   baseDefense: 0
   baseSpeed: 50
   baseStrength: 20
-  baseHealth: 120
+  baseHealth: 1000
   baseCrit: 5
   baseLuck: 0
   lifeSteal: 0

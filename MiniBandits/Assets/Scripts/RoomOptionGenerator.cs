@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 using System;
 using RoomInfo;
 using System.Linq;
@@ -27,60 +28,32 @@ namespace RoomInfo
         market,
         starter
     }   
-    public struct room{
-        int chance;
-        rewardTypes reward;
-        bool progressRoom;
+    public struct roomConfig{
+        public int chance;
+        public rewardTypes reward;
+        public bool progressRoom; 
+
+        public roomConfig(int c, rewardTypes r, bool p)
+        {
+            chance = c;
+            reward = r;
+            progressRoom = p;
+        }
     }
 }
 public class RoomOptionGenerator
 {  
-    private List<room> rooms = new List<room>();
+    public static List<roomConfig> rooms = new List<roomConfig>() 
+    { 
+        new roomConfig(20, rewardTypes.starter, false),
+        new roomConfig(20, rewardTypes.market, false),
+        new roomConfig(20, rewardTypes.blackSmith, false),
+        new roomConfig(20, rewardTypes.randomWeapon, true),
+        new roomConfig(20, rewardTypes.randomArmor, true),
+        new roomConfig(20, rewardTypes.gold, true),
 
-    void Awake(){
-        
-        room starter = new room();
-        starter.reward=rewardTypes.starter;
-        starter.progressRoom=false;
-        starter.chance=20;
-        rooms.Add(starter);
-
-        room blackSmith = new room();
-        starter.reward=rewardTypes.blackSmith;
-        starter.progressRoom=false;
-        starter.chance=20;
-        rooms.Add(starter);
-        
-        room market = new room();
-        starter.reward=rewardTypes.market;
-        starter.progressRoom=false;
-        starter.chance=20;
-        rooms.Add(market);
-        
-        room gold = new room();
-        starter.reward=rewardTypes.gold;
-        starter.progressRoom=true;
-        starter.chance=20;
-        rooms.Add(gold);
-        
-        room randomWeapon = new room();
-        starter.reward=rewardTypes.randomWeapon;
-        starter.progressRoom=true;
-        starter.chance=20;
-        rooms.Add(randomWeapon);
-        
-        room randomArmor = new room();
-        starter.reward=rewardTypes.randomArmor;
-        starter.progressRoom=true;
-        starter.chance=20;
-        rooms.Add(randomArmor);
-        
-        room shrine = new room();
-        starter.reward=rewardTypes.shrine;
-        starter.progressRoom=true;
-        starter.chance=20; 
-        rooms.Add(shrine);
-    }
+    };
+     
     public static roomThemes[] GenerateRoomThemes(int numThemes)
     {
         roomThemes[] themes = new roomThemes[numThemes];
@@ -100,40 +73,37 @@ public class RoomOptionGenerator
         return themes;
     }
 
-    public static rooms[] GenerateRoomOptions(int numDoors)
-    {
+    public static List<roomConfig> GenerateRoomOptions(int numDoors)
+    { 
         RoomOptionGenerator instance = new RoomOptionGenerator();
 
-        rooms[] roomOptions= new rooms[numDoors];
-         
-        System.Random random = new System.Random();
+        List<roomConfig> roomOptions = new List<roomConfig>(numDoors); 
+        List<roomConfig> alreadyAssignedRooms = new List<roomConfig>(); 
+        int totalWeight = 0;
 
-        List<rooms> alreadyAssignedRooms = new List<rooms>();
+        foreach(roomConfig s in rooms)
+        {
+            totalWeight += s.chance;
+        } 
 
-        for (int i = 0; i < numDoors; i++)
-        {  
-            Array values = typeof(rooms).GetEnumValues();
-
-            //Generatinga  random reward
-            int index = random.Next(values.Length);
-            rooms randomRoom = (rooms)values.GetValue(index);
-            roomOptions[i] = randomRoom;
-
-            if (alreadyAssignedRooms.Contains(roomOptions[i]))
+        for(int i = 0; i < numDoors; i++)
+        { 
+            roomOptions.Add(rooms[0]);
+            while (alreadyAssignedRooms.Contains(roomOptions[i]) || roomOptions[i].reward == rewardTypes.starter)
             {
-                while (alreadyAssignedRooms.Contains(roomOptions[i])|| randomRoom == rooms.starter)
+                int rand = Random.Range(0, totalWeight);
+                int cumulativeWeight = 0;
+
+                foreach (roomConfig s in rooms)
                 {
-                    index = random.Next(values.Length);
-                    randomRoom = (rooms)values.GetValue(index);
-                roomOptions[i] = randomRoom;
+                    cumulativeWeight += s.chance;
+                    if (rand < cumulativeWeight)
+                    { 
+                        roomOptions[i] = s;
+                        break;
+                    }
                 }
-            alreadyAssignedRooms.Add(roomOptions[i]);
             }
-            else
-            {
-            alreadyAssignedRooms.Add(roomOptions[i]);
-            }  
-            
         }
         return roomOptions;
     } 

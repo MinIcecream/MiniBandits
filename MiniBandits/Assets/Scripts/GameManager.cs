@@ -45,12 +45,13 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         themes = RoomOptionGenerator.GenerateRoomThemes(10);
-        ForDisplayOnly = themes;
-        Debug.Log(floor);
+        ForDisplayOnly = themes; 
         currentTheme = themes[floor-1];
-        FloorManager floorMan = GameObject.FindWithTag("FloorManager").GetComponent<FloorManager>(); 
+        FloorManager floorMan = GameObject.FindWithTag("FloorManager").GetComponent<FloorManager>();
 
-        rooms starterRoom = rooms.starter; 
+        roomConfig starterRoom = new roomConfig();
+        starterRoom.reward = rewardTypes.starter;
+        starterRoom.progressRoom = false;
 
         floorMan.SpawnRoom(starterRoom);
         floorMan.UpdatePlayerAndCameraPos();
@@ -77,7 +78,9 @@ public class GameManager : MonoBehaviour
     { 
         FloorManager floorMan = GameObject.FindWithTag("FloorManager").GetComponent<FloorManager>();
 
-        rooms starterRoom = rooms.starter;
+        roomConfig starterRoom = new roomConfig();
+        starterRoom.reward  = rewardTypes.starter;
+        starterRoom.progressRoom = false;
 
         floorMan.SpawnRoom(starterRoom);
         floorMan.UpdatePlayerAndCameraPos();

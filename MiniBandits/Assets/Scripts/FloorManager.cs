@@ -18,18 +18,18 @@ public class FloorManager : MonoBehaviour
      
 
     //Generate a list of 10 random level scriptableobjects 
-    public List<Room> enemies = new List<Room>(); 
+    public List<EnemySpawnConfig> enemies = new List<EnemySpawnConfig>(); 
 
     void Start()
     {
         floorTheme = GameManager.currentTheme;
 
-        Object[] everyEnemy = Resources.LoadAll("Rooms/"+floorTheme.ToString(), typeof(Room));
-        List<Room> tempList = new List<Room>();
+        Object[] everyEnemy = Resources.LoadAll("EnemyConfigs/"+floorTheme.ToString(), typeof(EnemySpawnConfig));
+        List<EnemySpawnConfig> tempList = new List<EnemySpawnConfig>();
 
         foreach(Object r in everyEnemy)
         {
-            tempList.Add((Room)r);
+            tempList.Add((EnemySpawnConfig)r);
         }
          
         while (enemies.Count < 9)
@@ -41,9 +41,9 @@ public class FloorManager : MonoBehaviour
     }
 
     //SPAWN LEVELS, INITIALIZES THEIR ENEMIES TO SPAWN, SETS THE PLAYER SPAWN POINT FOR WHEN THEY ENTER THE LEVEL
-    public void SpawnRoom(rooms room)
+    public void SpawnRoom(roomConfig room)
     { 
-        if (room != rooms.starter && room!=rooms.market && room!=rooms.blackSmith)
+        if (room.progressRoom)
         {
             if (enemies.Count == 0)
             {
@@ -69,12 +69,13 @@ public class FloorManager : MonoBehaviour
                 else
                 {
                     playerSpawnPt = man.playerSpawnPt;
-                    man.reward = room.reward;
+                    man.room = room;
                     man.bossTheme = floorTheme.ToString();
                 }
             }
+
             else
-             {
+            {
                   
                 var dataset = Resources.Load<GameObject>("RoomLayouts/" + floorTheme.ToString());
                 GameObject newLevel;
@@ -96,11 +97,11 @@ public class FloorManager : MonoBehaviour
                 else
                 {
                     playerSpawnPt = man.playerSpawnPt;
-                    man.reward = room.reward;
+                    man.room = room;
 
                     if (enemies[0] != null)
                     {
-                        man.room = enemies[0];
+                        man.spawnInfo = enemies[0];
                         enemies.RemoveAt(0);
                     }
                     else
@@ -112,9 +113,9 @@ public class FloorManager : MonoBehaviour
         }
         else
         {
-            Instantiate(Resources.Load("RoomLayouts/" + room.roomType.ToString()), roomSpawnPt.position, Quaternion.identity);
+            Instantiate(Resources.Load("RoomLayouts/" + room.reward.ToString()), roomSpawnPt.position, Quaternion.identity); 
 
-        } 
+        }
         roomSpawnPt.position = new Vector2(roomSpawnPt.position.x, roomSpawnPt.position.y + roomOffset);
     }  
     public void UpdatePlayerAndCameraPos()

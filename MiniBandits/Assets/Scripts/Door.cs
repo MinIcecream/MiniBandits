@@ -6,46 +6,37 @@ using TMPro;
 
 public class Door : MonoBehaviour
 {
-    public rooms room;
+    public roomConfig room;
 
     public BaseRoomManager levelMan;
     FloorManager floorMan;
 
     public TextMeshProUGUI tmp;
      
-    public void SetReward(rooms r)
+    public void SetReward(roomConfig r)
     {
         room = r; 
-        if(room== rooms.starter)
+        if(room.progressRoom)
         { 
-            switch (room)
+            switch (room.reward)
             {
-                case rooms.randomWeapon:
+                case rewardTypes.randomWeapon:
                     tmp.text = "Random Weapon";
                     break;
-                case rooms.randomArmor:
+                case rewardTypes.randomArmor:
                     tmp.text = "Random Armor";
                     break;
-                case rooms.gold:
+                case rewardTypes.gold:
                     tmp.text = "A Small Amount of Gold";
                     break;
-                case rooms.vitalityShrine:
+                case rewardTypes.shrine:
                     tmp.text = "Shrine of Vitality";
-                    break;
-                case rooms.defenseShrine:
-                    tmp.text = "Shrine of Defense";
-                    break;
-                case rooms.powerShrine:
-                    tmp.text = "Shrine of Power";
-                    break;
-                case rooms.speedShrine:
-                    tmp.text = "Shrine of Speed";
-                    break;
+                    break; 
             }
         }
         else
         { 
-            tmp.text = room.ToString(); 
+            tmp.text = room.reward.ToString(); 
         }
     }
 

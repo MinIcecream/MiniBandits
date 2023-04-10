@@ -7,13 +7,11 @@ using System;
 using System.Linq;
 
 public class ProgressRoomManager : BaseRoomManager
-{
-    public GameObject level;
-
-    public Room room;
-
+{  
     List<GameObject> enemies = new List<GameObject>();
-     
+
+    public EnemySpawnConfig spawnInfo;
+
     public bool levelComplete = false;
     public bool levelStarted = false;
 
@@ -22,27 +20,23 @@ public class ProgressRoomManager : BaseRoomManager
 
     public void Start()
     {   
-        if (reward == rooms.vitalityShrine)
-        {
-            Debug.Log("YESS");
+        if (room.reward == rewardTypes.shrine)
+        { 
             GameObject shrine = Instantiate(Resources.Load<GameObject>("Misc/Shrines/VitalityShrine"), itemSpawnPt.position, Quaternion.identity);
             shrine.GetComponent<Shrine>().roomMan = this;
         }
-        else if(reward == rooms.powerShrine)
-        {
-            Debug.Log("YESS");
+        else if(room.reward == rewardTypes.shrine)
+        { 
             GameObject shrine = Instantiate(Resources.Load<GameObject>("Misc/Shrines/PowerShrine"), itemSpawnPt.position, Quaternion.identity);
             shrine.GetComponent<Shrine>().roomMan = this;
         }
-        else if(reward == rooms.defenseShrine)
-        {
-            Debug.Log("YESS");
+        else if(room.reward == rewardTypes.shrine)
+        { 
             GameObject shrine = Instantiate(Resources.Load<GameObject>("Misc/Shrines/DefenseShrine"), itemSpawnPt.position, Quaternion.identity);
             shrine.GetComponent<Shrine>().roomMan = this;
         }
-        else if (reward == rooms.speedShrine)
-        {
-            Debug.Log("YESS");
+        else if (room.reward == rewardTypes.shrine)
+        { 
             GameObject shrine = Instantiate(Resources.Load<GameObject>("Misc/Shrines/SpeedShrine"), itemSpawnPt.position, Quaternion.identity);
             shrine.GetComponent<Shrine>().roomMan = this;
         }
@@ -80,11 +74,12 @@ public class ProgressRoomManager : BaseRoomManager
     void SpawnEnemies()
     {
         //if a normal room:
-        if (room)
+        if (spawnInfo)
         {
             string theme = GameObject.FindWithTag("FloorManager").GetComponent<FloorManager>().floorTheme.ToString();
             theme = char.ToUpper(theme[0]) + theme.Substring(1);
-            foreach (Room.enemy enemy in room.enemies)
+
+            foreach (EnemySpawnConfig.enemy enemy in spawnInfo.enemies)
             {
                // Debug.Log("EnemyPrefabs/" + theme + "/" + enemy.name);
                 var newEnemy = Instantiate(Resources.Load<GameObject>("EnemyPrefabs/" +theme+"/"+ enemy.name.Trim()), new Vector2(transform.position.x + enemy.pos.x, transform.position.y + enemy.pos.y), Quaternion.identity);
@@ -106,8 +101,7 @@ public class ProgressRoomManager : BaseRoomManager
             else
             {
                 newBoss = (GameObject)Instantiate(Resources.Load<GameObject>("BossPrefabs/Graveyard"), transform.position, Quaternion.identity);
-            }
-
+            } 
              
             enemies.Add(newBoss);
             newBoss.GetComponent<EnemyAI>().StartLevel();
@@ -116,7 +110,7 @@ public class ProgressRoomManager : BaseRoomManager
     }
 
     //WHEN THE PLAYER WALKS THROUGH THE DOOR:
-    public override void TransitionToNextRoom(rooms r)
+    public override void TransitionToNextRoom(roomConfig r)
     { 
         floorMan.SpawnRoom(r);
 
@@ -157,19 +151,19 @@ public class ProgressRoomManager : BaseRoomManager
         {
             door.SetActive(true);
         }
-        switch (reward)
+        switch (room.reward)
         {
-            case rooms.gold:
+            case rewardTypes.gold:
                 GameObject.FindWithTag("Player").GetComponent<GoldManager>().AddGold(20);
                 break;
-            case rooms.randomWeapon:
+            case rewardTypes.randomWeapon:
                 {
                     Weapon newWeapon = RoomOptionGenerator.GenerateRandomWeapon();
                     GameObject newItem = Instantiate(Resources.Load<GameObject>("Misc/ItemDrop"), itemSpawnPt.position, Quaternion.identity);
                     newItem.GetComponent<ItemDrop>().item = newWeapon;
                 }
                 break;
-            case rooms.randomArmor:
+            case rewardTypes.randomArmor:
                 {
                     Armor newArmor = RoomOptionGenerator.GenerateRandomArmor();
                     GameObject newItem = Instantiate(Resources.Load<GameObject>("Misc/ItemDrop"), itemSpawnPt.position, Quaternion.identity);

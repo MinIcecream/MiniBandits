@@ -8,7 +8,7 @@ using UnityEditor;
 
 public class RoomCreator : MonoBehaviour
 {
-    public Room room;
+    public EnemySpawnConfig room;
 
 #if UNITY_EDITOR
     public void SaveRoom()
