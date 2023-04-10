@@ -78,8 +78,8 @@ public class EvilMage : EnemyAI, IDamageable
                 {
                     var newProjectile = Instantiate(projectile, new Vector2(transform.position.x - 30 + 1.8f * i, transform.position.y + 20), Quaternion.identity);
                     //shoots projectile at player position
-                    newProjectile.GetComponent<TESTPlayerProjectile>().SetDir(new Vector2(0, -1));
-                    newProjectile.GetComponent<TESTPlayerProjectile>().destroyOnWall = false;
+                    newProjectile.GetComponent<BaseProjectile>().SetDir(new Vector2(0, -1)+(Vector2)transform.position);
+                    newProjectile.GetComponent<BaseProjectile>().destroyOnWall = false;
                 }
             }
             else
@@ -92,8 +92,8 @@ public class EvilMage : EnemyAI, IDamageable
                     }
                     var newProjectile = Instantiate(projectile, new Vector2(transform.position.x - 20, transform.position.y + -40+1.8f*i), Quaternion.identity);
                     //shoots projectile at player position
-                    newProjectile.GetComponent<TESTPlayerProjectile>().SetDir(new Vector2(1, 0));
-                    newProjectile.GetComponent<TESTPlayerProjectile>().destroyOnWall = false;
+                    newProjectile.GetComponent<BaseProjectile>().SetDir(new Vector2(1, 0)+(Vector2)transform.position);
+                    newProjectile.GetComponent<BaseProjectile>().destroyOnWall = false;
                 }
             }
             yield return new WaitForSeconds(3f);
@@ -111,7 +111,7 @@ public class EvilMage : EnemyAI, IDamageable
             }
             var newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
             //shoots projectile at player position
-            newProjectile.GetComponent<TESTPlayerProjectile>().SetDir(((Vector2)(player.transform.position - transform.position)).normalized);
+            newProjectile.GetComponent<BaseProjectile>().SetDir((Vector2)(player.transform.position));
             yield return new WaitForSeconds(0.2f);
         }
         StartCoroutine(AttackCooldown());
@@ -136,7 +136,7 @@ public class EvilMage : EnemyAI, IDamageable
 
                     var newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
                     Vector2 dir = (Vector2)(Quaternion.Euler(0, 0, ang) * Vector2.right); 
-                    newProjectile.GetComponent<TESTPlayerProjectile>().SetDir(dir.normalized);
+                    newProjectile.GetComponent<BaseProjectile>().SetDir(dir.normalized+(Vector2)transform.position);
                 } 
             }
             yield return new WaitForSeconds(2f);

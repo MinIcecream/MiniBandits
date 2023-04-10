@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpiderWeb : MonoBehaviour
+public class SpiderWeb : BaseProjectile
 {
     GameObject player;
      
-    void OnTriggerEnter2D(Collider2D coll)
+    public override void OnTriggerEnter2D(Collider2D coll)
     {
         if (coll.gameObject.tag == "Player")
         {

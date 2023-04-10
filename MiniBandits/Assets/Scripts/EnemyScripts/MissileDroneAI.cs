@@ -102,8 +102,7 @@ public class MissileDroneAI : EnemyAI, IAffectable
         if (player)
         {
             var newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
-            //shoots projectile at player position
-            newProjectile.GetComponent<HomingMissile>().target = player.transform;
+            //shoots projectile at player position 
 
         }
 

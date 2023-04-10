@@ -13,7 +13,7 @@ public class EnemyAI : MonoBehaviour, IDamageable
 
     [HideInInspector] public bool canMove;
      
-    [HideInInspector] public int damage;
+    public int damage;
 
     public virtual void Scale(int difficultyLevel)
     {

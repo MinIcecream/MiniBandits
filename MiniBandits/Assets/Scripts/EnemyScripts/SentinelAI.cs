@@ -22,8 +22,7 @@ public class SentinelAI : EnemyAI, IAffectable
             }
             //makes projectile
             var newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
-            //shoots projectile at player position
-            newProjectile.GetComponent<HomingMissile>().target = player.transform;
+            //shoots projectile at player position 
             //waits 1 second before shooting another 
         }
     }

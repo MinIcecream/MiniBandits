@@ -27,7 +27,8 @@ public class AlphaPlantAI : EnemyAI, IDamageable, IAffectable
                 var newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
                 //shoots projectile at player position
                 Vector2 newVector = Quaternion.Euler(0, 0, 90*i) * dir;
-                newProjectile.GetComponent<TESTPlayerProjectile>().SetDir(newVector);
+                newProjectile.GetComponent<BaseProjectile>().damage=damage;
+                newProjectile.GetComponent<BaseProjectile>().SetDir(newVector+(Vector2)transform.position);
                 //waits 1 second before shooting another
             } 
         }

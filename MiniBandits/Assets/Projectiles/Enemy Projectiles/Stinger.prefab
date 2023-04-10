@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4873401057454396061}
   - component: {fileID: 1303991915207454805}
   - component: {fileID: 2478215186414079167}
-  - component: {fileID: 2169642747890951528}
   - component: {fileID: 3701017303696728965}
   - component: {fileID: 2436879538782005151}
+  - component: {fileID: 7222940850682861373}
   m_Layer: 9
   m_Name: Stinger
   m_TagString: Untagged
@@ -109,27 +109,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &2169642747890951528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7777877402851561955}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3afc990b93852e42a72dd6b7198ed58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 12
-  damage: 20
-  particles: {fileID: 6409433017642527178, guid: 3ecead0ca126e2140ab4be0c47b27cec, type: 3}
-  destroyOnHit: 1
-  destroyOnWall: 1
-  collider: {fileID: 0}
-  knockBackAmt: 0
-  dragMax: 0
-  dragMin: 0
 --- !u!114 &3701017303696728965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,3 +148,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16553526, y: 0.4488504}
   m_EdgeRadius: 0
+--- !u!114 &7222940850682861373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7777877402851561955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 096d0f184cdd40f4e8eef26cb8b01883, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 12
+  particles: {fileID: 0}
+  destroyOnHit: 1
+  destroyOnWall: 1
+  collider: {fileID: 0}
+  knockBackAmt: 0
+  damage: 0
+  targetPoint: {x: 0, y: 0}
+  rb: {fileID: 0}

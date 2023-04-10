@@ -26,7 +26,7 @@ public class SentryAI : EnemyAI, IAffectable
                 {
                     break;
                 }
-                newProjectile.GetComponent<TESTPlayerProjectile>().SetDir(((Vector2)(player.transform.position - transform.position)).normalized);
+                newProjectile.GetComponent<BaseProjectile>().SetDir(((Vector2)(player.transform.position)));
                 //waits 1 second before shooting another
                 yield return new WaitForSeconds(0.2f);
             }

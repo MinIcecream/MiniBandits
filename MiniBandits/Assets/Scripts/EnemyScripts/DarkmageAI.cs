@@ -104,19 +104,19 @@ public class DarkmageAI : EnemyAI, IAffectable
             var newProjectile = Instantiate(projectile, transform.position, Quaternion.identity); 
             Vector2 dir= (player.transform.position - transform.position).normalized;
             //shoots projectile at player position
-            newProjectile.GetComponent<TESTPlayerProjectile>().SetDir((Vector2)(dir));
+            newProjectile.GetComponent<BaseProjectile>().SetDir((Vector2)(dir)+(Vector2)(transform.position));
 
 
             var newProjectile2 = Instantiate(projectile, transform.position, Quaternion.identity);
             Vector2 dir2 = Quaternion.AngleAxis(10, Vector3.forward) * dir;
             //shoots projectile at player position
-            newProjectile2.GetComponent<TESTPlayerProjectile>().SetDir((Vector2)(dir2));
+            newProjectile2.GetComponent<BaseProjectile>().SetDir((Vector2)(dir2)+(Vector2)(transform.position));
 
 
             var newProjectile3= Instantiate(projectile, transform.position, Quaternion.identity);
             Vector2  dir3 = Quaternion.AngleAxis(-10, Vector3.forward) * dir;
             //shoots projectile at player position
-            newProjectile3.GetComponent<TESTPlayerProjectile>().SetDir((Vector2)(dir3));
+            newProjectile3.GetComponent<BaseProjectile>().SetDir((Vector2)(dir3)+(Vector2)(transform.position));
         }
 
         yield return new WaitForSeconds(1f);

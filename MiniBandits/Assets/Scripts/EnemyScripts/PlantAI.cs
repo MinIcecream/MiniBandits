@@ -23,7 +23,7 @@ public class PlantAI : EnemyAI, IAffectable
             //makes projectile
             var newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
             //shoots projectile at player position
-            newProjectile.GetComponent<TESTPlayerProjectile>().SetDir(((Vector2)(player.transform.position - transform.position)).normalized); 
+            newProjectile.GetComponent<BaseProjectile>().SetDir(((Vector2)player.transform.position)); 
             //waits 1 second before shooting another
             
         }

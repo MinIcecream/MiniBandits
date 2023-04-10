@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class SporeProjectile : BaseProjectile
 {
-    // Start is called before the first frame update
-    void Start()
+    public float dragMax, dragMin;
+     
+    public override void Awake()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        base.Awake();
+        rb.drag = Random.Range(dragMin, dragMax);
     }
 }
