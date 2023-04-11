@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2103427434096740029}
-  - component: {fileID: 6449785564309443609}
   - component: {fileID: 4611460188878553936}
   m_Layer: 0
   m_Name: Collider
@@ -33,19 +32,6 @@ Transform:
   m_Father: {fileID: 8121160717422346263}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6449785564309443609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 955569775507847288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5bb88bbd96147147843b4fdb368140c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 20
 --- !u!61 &4611460188878553936
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -238,6 +224,7 @@ MonoBehaviour:
   hasDied: 0
   player: {fileID: 0}
   canMove: 0
+  damage: 250
   ranIntoWall: 0
   charging: 0
   collider: {fileID: 955569775507847288}
@@ -256,4 +243,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 100
+  maxHealth: 1000

@@ -73,4 +73,11 @@ public class TumbleweedAI : EnemyAI, IDamageable, IAffectable
             base.Knockback(magnitude, src);
         }
     }
+    public void OnTriggerEnter2D(Collider2D coll)
+    {
+        if (coll.gameObject.tag == "Player")
+        {
+            coll.gameObject.GetComponent<IDamageable>().Damage(damage);
+        }
+    }
 }

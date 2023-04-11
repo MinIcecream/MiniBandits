@@ -24,6 +24,8 @@ public class PlayerInventory : MonoBehaviour
 
     public bool UIOpen;
 
+    public ItemDescriptionCardManager infoManager;
+
     void Awake()
     {
         UpdateInventorySlots();
@@ -74,9 +76,23 @@ public class PlayerInventory : MonoBehaviour
         if (slot.item == null)
         { 
             return; 
+        }
+
+        switch (slot.item.type)
+        {
+            case Item.itemType.helmet: 
+                infoManager.DisplayInfo(helmetSlot, slot);
+                break;
+            case Item.itemType.pants:
+                infoManager.DisplayInfo(pantsSlot, slot);
+                break;
+            case Item.itemType.chestplate:
+                infoManager.DisplayInfo(chestplateSlot, slot);
+                break;
+            case Item.itemType.weapon:
+                infoManager.DisplayInfo(weaponSlot, slot);
+                break;
         } 
-        itemTitle.text = slot.item.name;
-        itemDescription.text = slot.item.description;
           
     }
     // set which button to drop/equip slot stuff

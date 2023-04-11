@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 100
+  maxHealth: 800
 --- !u!114 &3300257573571295788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,9 +214,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d0fc0e3327155d4f9f69b9289fd2f9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Slime
   health: {fileID: 0}
   hasDied: 0
   player: {fileID: 0}
   canMove: 0
+  damage: 250
   chaseSpeed: 3

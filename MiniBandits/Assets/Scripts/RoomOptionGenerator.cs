@@ -23,7 +23,10 @@ namespace RoomInfo
         gold,
         randomWeapon,
         randomArmor,
-        shrine,
+        vitalityShrine,
+        powerShrine,
+        speedShrine,
+        defenseShrine,
         blackSmith,
         market,
         starter
@@ -50,6 +53,10 @@ public class RoomOptionGenerator
         new roomConfig(20, rewardTypes.blackSmith, false),
         new roomConfig(20, rewardTypes.randomWeapon, true),
         new roomConfig(20, rewardTypes.randomArmor, true),
+        new roomConfig(5, rewardTypes.vitalityShrine, true),
+        new roomConfig(5, rewardTypes.defenseShrine, true),
+        new roomConfig(5, rewardTypes.powerShrine, true),
+        new roomConfig(5, rewardTypes.speedShrine, true),
         new roomConfig(20, rewardTypes.gold, true),
 
     };
@@ -104,6 +111,7 @@ public class RoomOptionGenerator
                     }
                 }
             }
+            alreadyAssignedRooms.Add(roomOptions[i]);
         }
         return roomOptions;
     } 

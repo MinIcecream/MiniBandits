@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 100
+  maxHealth: 1000
 --- !u!114 &7234423378345913793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,4 +179,5 @@ MonoBehaviour:
   hasDied: 0
   player: {fileID: 0}
   canMove: 0
+  damage: 250
   projectile: {fileID: 7777877402851561955, guid: 5c66f9465ecc7b74ca3173c6e4212398, type: 3}

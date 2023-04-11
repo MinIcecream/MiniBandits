@@ -9,4 +9,5 @@ public class Weapon : Item
     [Header("Stats")] 
     public int damage;
     public float attackSpeed;
+    public int manualDPS;
 }

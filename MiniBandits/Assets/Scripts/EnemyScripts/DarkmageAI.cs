@@ -104,18 +104,21 @@ public class DarkmageAI : EnemyAI, IAffectable
             var newProjectile = Instantiate(projectile, transform.position, Quaternion.identity); 
             Vector2 dir= (player.transform.position - transform.position).normalized;
             //shoots projectile at player position
+            newProjectile.GetComponent<BaseProjectile>().damage = damage;
             newProjectile.GetComponent<BaseProjectile>().SetDir((Vector2)(dir)+(Vector2)(transform.position));
 
 
             var newProjectile2 = Instantiate(projectile, transform.position, Quaternion.identity);
             Vector2 dir2 = Quaternion.AngleAxis(10, Vector3.forward) * dir;
             //shoots projectile at player position
+            newProjectile2.GetComponent<BaseProjectile>().damage = damage;
             newProjectile2.GetComponent<BaseProjectile>().SetDir((Vector2)(dir2)+(Vector2)(transform.position));
 
 
             var newProjectile3= Instantiate(projectile, transform.position, Quaternion.identity);
             Vector2  dir3 = Quaternion.AngleAxis(-10, Vector3.forward) * dir;
             //shoots projectile at player position
+            newProjectile3.GetComponent<BaseProjectile>().damage = damage;
             newProjectile3.GetComponent<BaseProjectile>().SetDir((Vector2)(dir3)+(Vector2)(transform.position));
         }
 

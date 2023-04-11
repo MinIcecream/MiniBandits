@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 100
+  maxHealth: 1000
 --- !u!114 &-1835424293163609137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,9 +175,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4801220be12fed46b73a62e90621c6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Alpha Plant
   health: {fileID: 0}
   hasDied: 0
   player: {fileID: 0}
   canMove: 0
+  damage: 250
   projectile: {fileID: 7777877402851561955, guid: d5074f1885365744aa1bee885fac76a5, type: 3}

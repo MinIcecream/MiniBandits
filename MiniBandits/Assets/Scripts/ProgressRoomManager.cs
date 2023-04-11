@@ -20,22 +20,22 @@ public class ProgressRoomManager : BaseRoomManager
 
     public void Start()
     {   
-        if (room.reward == rewardTypes.shrine)
+        if (room.reward == rewardTypes.vitalityShrine)
         { 
             GameObject shrine = Instantiate(Resources.Load<GameObject>("Misc/Shrines/VitalityShrine"), itemSpawnPt.position, Quaternion.identity);
             shrine.GetComponent<Shrine>().roomMan = this;
         }
-        else if(room.reward == rewardTypes.shrine)
+        else if(room.reward == rewardTypes.powerShrine)
         { 
             GameObject shrine = Instantiate(Resources.Load<GameObject>("Misc/Shrines/PowerShrine"), itemSpawnPt.position, Quaternion.identity);
             shrine.GetComponent<Shrine>().roomMan = this;
         }
-        else if(room.reward == rewardTypes.shrine)
+        else if(room.reward == rewardTypes.defenseShrine)
         { 
             GameObject shrine = Instantiate(Resources.Load<GameObject>("Misc/Shrines/DefenseShrine"), itemSpawnPt.position, Quaternion.identity);
             shrine.GetComponent<Shrine>().roomMan = this;
         }
-        else if (room.reward == rewardTypes.shrine)
+        else if (room.reward == rewardTypes.speedShrine)
         { 
             GameObject shrine = Instantiate(Resources.Load<GameObject>("Misc/Shrines/SpeedShrine"), itemSpawnPt.position, Quaternion.identity);
             shrine.GetComponent<Shrine>().roomMan = this;

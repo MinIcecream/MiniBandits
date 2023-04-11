@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class SpawnEnemyButton : MonoBehaviour
 {
-
     public GameObject enemy;
 
     public void SetEnemy(GameObject obj)

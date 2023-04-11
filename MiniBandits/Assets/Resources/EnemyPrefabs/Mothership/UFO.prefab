@@ -9775,7 +9775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 100
+  maxHealth: 1000
 --- !u!60 &6680409900791197112
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -9825,5 +9825,6 @@ MonoBehaviour:
   hasDied: 0
   player: {fileID: 0}
   canMove: 0
+  damage: 50
   chaseSpeed: 3
   beam: {fileID: 2756242576481453007}

@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 100
+  maxHealth: 1000
 --- !u!61 &3698314543543345362
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -179,6 +179,7 @@ MonoBehaviour:
   hasDied: 0
   player: {fileID: 0}
   canMove: 0
+  damage: 100
   projectile: {fileID: 7777877402851561955, guid: 7d33157934c97fd409afe390a5af7454, type: 3}
   chaseSpeed: 5
   attackDistance: 8

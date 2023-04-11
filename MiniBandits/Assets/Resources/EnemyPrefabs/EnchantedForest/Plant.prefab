@@ -122,11 +122,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f113509aa4783ea4cae493744e566267, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Plant
   health: {fileID: 0}
   hasDied: 0
   player: {fileID: 0}
   canMove: 0
+  damage: 250
   projectile: {fileID: 7777877402851561955, guid: d5074f1885365744aa1bee885fac76a5, type: 3}
 --- !u!114 &2854709988607463067
 MonoBehaviour:
@@ -180,4 +180,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 100
+  maxHealth: 1000

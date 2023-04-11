@@ -68,4 +68,13 @@ public class BoarAI : EnemyAI, IDamageable, IAffectable
             base.Knockback(magnitude, src);
         } 
     }
+     
+    void OnTriggerEnter2D(Collider2D coll)
+    {
+        if (coll.gameObject.tag == "Player")
+        {
+            Knockback(2, coll.gameObject.transform.position);
+            coll.gameObject.GetComponent<Health>().DealDamage(damage);
+        }
+    }
 }

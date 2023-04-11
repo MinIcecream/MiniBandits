@@ -41,7 +41,7 @@ public class UFOAI : EnemyAI, IAffectable
     {
         if (coll.gameObject.tag == "Player")
         {
-            coll.gameObject.GetComponent<Health>().DealDamage(5);
+            coll.gameObject.GetComponent<Health>().DealDamage(damage);
         }
     }
 }

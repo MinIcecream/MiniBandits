@@ -249,7 +249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 100
+  maxHealth: 1000
 --- !u!61 &2551868475929428204
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -292,10 +292,11 @@ MonoBehaviour:
   hasDied: 0
   player: {fileID: 0}
   canMove: 0
+  damage: 250
+  firing: 0
   chaseSpeed: 5
   attackDistance: 1
   weaponCollider: {fileID: 5271790184275108389}
-  damage: 20
 --- !u!95 &2992060999519833901
 Animator:
   serializedVersion: 4

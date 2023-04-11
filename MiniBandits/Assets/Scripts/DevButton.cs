@@ -24,6 +24,6 @@ public class DevButton : MonoBehaviour
             return;
         }
 
-        inven.GetComponent<PlayerInventory>().SetActiveItem(item); 
+        inven.GetComponent<PlayerInventory>().AddItemToInventory(item); 
     }
 }

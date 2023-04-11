@@ -29,9 +29,25 @@ public class Door : MonoBehaviour
                 case rewardTypes.gold:
                     tmp.text = "A Small Amount of Gold";
                     break;
-                case rewardTypes.shrine:
+                case rewardTypes.vitalityShrine:
                     tmp.text = "Shrine of Vitality";
+                    break;
+                case rewardTypes.powerShrine:
+                    tmp.text = "Shrine of Power";
+                    break;
+                case rewardTypes.speedShrine:
+                    tmp.text = "Shrine of Speed";
+                    break;
+                case rewardTypes.defenseShrine:
+                    tmp.text = "Shrine of Defense";
+                    break;
+                case rewardTypes.market:
+                    tmp.text = "Market";
+                    break;
+                case rewardTypes.blackSmith:
+                    tmp.text = "Blacksmith";
                     break; 
+
             }
         }
         else

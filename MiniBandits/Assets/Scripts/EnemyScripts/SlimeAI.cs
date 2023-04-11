@@ -37,7 +37,7 @@ public class SlimeAI : EnemyAI, IAffectable
         if (coll.gameObject.tag == "Player")
         {
             Knockback(2, coll.gameObject.transform.position);
-            coll.gameObject.GetComponent<Health>().DealDamage(30);
+            coll.gameObject.GetComponent<Health>().DealDamage(damage);
         }
     }
 }

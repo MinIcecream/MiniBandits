@@ -5026,7 +5026,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 100
+  maxHealth: 1000
 --- !u!114 &8470154947012637711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5043,6 +5043,7 @@ MonoBehaviour:
   hasDied: 0
   player: {fileID: 0}
   canMove: 0
+  damage: 250
   flamePt: {fileID: 1047509747869386305}
   flipYPt: {fileID: 4512151376650941922}
   flames: {fileID: 5489021931210574398}
