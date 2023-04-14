@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class HeatRay : WeaponTemplate
 {
@@ -13,10 +14,15 @@ public class HeatRay : WeaponTemplate
     {
         lineRen = GetComponent<LineRenderer>();
     }
-
     public override void Update()
     {
-        base.Update();
+        //IF PLAYER IS GONE, PLAYER CAN't MOVE, OR MOUSE IS OVER UI, RETURN.
+        if (player == null || !player.canMove || EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+        damage = baseDamage + (int)((player.GetComponent<Player>().strength / 100.0) * baseDamage);
+
         if (Input.GetMouseButton(0))
         {
             lineRen.enabled = true;
@@ -24,10 +30,9 @@ public class HeatRay : WeaponTemplate
         }
         else
         { 
-
             lineRen.enabled = false;
         }
-    }
+    } 
 
     void ShootLaser()
     {
@@ -59,7 +64,7 @@ public class HeatRay : WeaponTemplate
     }
     IEnumerator RemoveFromList(GameObject obj)
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(1 / weapon.attackSpeed);
         hitEnemies.Remove(obj);
     }
 

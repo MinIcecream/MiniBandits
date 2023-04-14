@@ -91,7 +91,7 @@ public class BlacksmithUpgrade : MonoBehaviour,ISelectFromInventory
         {
             upgradedItem = Resources.Load<Item>("Items/Armor/Upgrades/" + slot.item.referenceName + "+");
         }
-        Debug.Log("Items/Weapons/Upgrades" + slot.item.referenceName + "+");
+        Debug.Log("Items/Weapons/Upgrades/" + slot.item.referenceName + "+");
         if (upgradedItem == null)
         { 
             Debug.Log("No more upgrades!");

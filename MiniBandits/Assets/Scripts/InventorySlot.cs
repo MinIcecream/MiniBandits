@@ -54,8 +54,11 @@ public class InventorySlot : MonoBehaviour
         }
     } 
     public void OnClick()
-    {  
-        inven.SetDescription(this);
+    {
+        if (item == null)
+        {
+            return;
+        }
 
         if (reference != null)
         { 
@@ -63,7 +66,7 @@ public class InventorySlot : MonoBehaviour
         }
         else
         {
-            inven.EnableSlotOptions(this);
+            inven.SetDescription(this); 
         } 
     } 
 }

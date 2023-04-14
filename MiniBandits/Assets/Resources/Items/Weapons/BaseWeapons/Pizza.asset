@@ -17,9 +17,11 @@ MonoBehaviour:
   referenceName: Pizza
   sprite: {fileID: 2075690294, guid: 92c868c0dd1166e4aafb81d0b2c9a314, type: 3}
   cost: 20
-  rarity: 0
+  rarity: 1
   type: 0
   tier: 0
   description: Shoots pizza
-  damage: 10
+  color: {r: 255, g: 255, b: 255, a: 1}
+  damage: 45
   attackSpeed: 4
+  manualDPS: 0

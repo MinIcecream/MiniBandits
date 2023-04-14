@@ -6,6 +6,8 @@ using TMPro;
 
 public class ItemDrop : MonoBehaviour
 {
+    public SpriteRenderer backgroundColor;
+
     public GameObject popup;
     public Item item; 
 
@@ -60,7 +62,11 @@ public class ItemDrop : MonoBehaviour
     public void UpdateItem()
     { 
         if (item != null)
-        {
+        { 
+            Color color = item.color;
+            color.a = 0.3f;
+            backgroundColor.color = color;
+           
             tmp.text =item.name + "\n[E to interact]";
             GetComponent<SpriteRenderer>().sprite = item.sprite;
         }
@@ -76,6 +82,9 @@ public class ItemDrop : MonoBehaviour
          
         if (item != null)
         {
+            Color color = item.color;
+            color.a = 0.3f;
+            backgroundColor.color = color;
             if (item.type == Item.itemType.helmet || item.type == Item.itemType.chestplate || item.type == Item.itemType.pants)
             {
                 Sprite[] armorIconsAtlas = Resources.LoadAll<Sprite>("ArmorPortraits");

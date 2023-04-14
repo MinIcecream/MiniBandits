@@ -980,9 +980,7 @@ MonoBehaviour:
   - {fileID: 1210720968}
   - {fileID: 1103490925}
   - {fileID: 1952950928}
-  - {fileID: 1465149943}
   marker: {fileID: 1782102546}
-  testFloor: 10
 --- !u!114 &1864483201
 MonoBehaviour:
   m_ObjectHideFlags: 0

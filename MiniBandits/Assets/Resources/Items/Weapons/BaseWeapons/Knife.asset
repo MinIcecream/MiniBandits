@@ -17,9 +17,11 @@ MonoBehaviour:
   referenceName: Knife
   sprite: {fileID: 21300000, guid: 7909d551e710c134db417646a79dadaf, type: 3}
   cost: 20
-  rarity: 0
+  rarity: 1
   type: 0
   tier: 0
   description: Stabby
-  damage: 15
+  color: {r: 255, g: 255, b: 255, a: 1}
+  damage: 55
   attackSpeed: 3
+  manualDPS: 0

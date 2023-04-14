@@ -29,8 +29,7 @@ public class ZombieAI : EnemyAI, IAffectable
             return;
         }
         Vector2 dir = player.transform.position - transform.position;
-        transform.position = (Vector2)transform.position + dir.normalized * chaseSpeed * Time.deltaTime;
-
+        transform.position = (Vector2)transform.position + dir.normalized * chaseSpeed * Time.deltaTime; 
     }
     void OnTriggerStay2D(Collider2D coll)
     {

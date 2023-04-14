@@ -110,7 +110,7 @@ MonoBehaviour:
   radius: 2.56
   increasedRadius: 4.5
   speed: 0.7
-  increasedSpeed: 2
+  increasedSpeed: 360
   changeOrbitSpeed: 0.4
   holding: 0
 --- !u!1 &3699306973478478873

@@ -9775,7 +9775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 1000
+  maxHealth: 400
 --- !u!60 &6680409900791197112
 PolygonCollider2D:
   m_ObjectHideFlags: 0

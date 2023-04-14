@@ -48,16 +48,16 @@ public class RoomOptionGenerator
 {  
     public static List<roomConfig> rooms = new List<roomConfig>() 
     { 
-        new roomConfig(20, rewardTypes.starter, false),
-        new roomConfig(20, rewardTypes.market, false),
-        new roomConfig(20, rewardTypes.blackSmith, false),
+        new roomConfig(0, rewardTypes.starter, false),
+        new roomConfig(15, rewardTypes.market, false),
+        new roomConfig(15, rewardTypes.blackSmith, false),
         new roomConfig(20, rewardTypes.randomWeapon, true),
         new roomConfig(20, rewardTypes.randomArmor, true),
         new roomConfig(5, rewardTypes.vitalityShrine, true),
         new roomConfig(5, rewardTypes.defenseShrine, true),
         new roomConfig(5, rewardTypes.powerShrine, true),
         new roomConfig(5, rewardTypes.speedShrine, true),
-        new roomConfig(20, rewardTypes.gold, true),
+        new roomConfig(50, rewardTypes.gold, true),
 
     };
      
@@ -138,6 +138,9 @@ public class RoomOptionGenerator
         } 
         int ran = UnityEngine.Random.Range(0, allArmor.Count); 
         return allArmor[ran];
-    } 
+    }
 }
+
+ 
+
 

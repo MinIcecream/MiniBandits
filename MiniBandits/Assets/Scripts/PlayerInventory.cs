@@ -94,23 +94,7 @@ public class PlayerInventory : MonoBehaviour
                 break;
         } 
           
-    }
-    // set which button to drop/equip slot stuff
-    public void EnableSlotOptions(InventorySlot slot)
-    {
-        if (slot.item == null)
-        {
-            dropButton.SetActive(false);
-            equipButton.SetActive(false);
-
-            selectedSlot = null;
-            return;
-        }
-        selectedSlot = slot; 
-
-        dropButton.SetActive(true);
-        equipButton.SetActive(true);
-    }
+    } 
 
     //If equip slot is null, equip the item. Else, swap the equipped item witht he item to equip.
     public void EquipItem(InventorySlot slotToEquip)

@@ -17,9 +17,11 @@ MonoBehaviour:
   referenceName: AWP
   sprite: {fileID: 21300000, guid: 1dd1ff52000e6664d881752e33cb3920, type: 3}
   cost: 20
-  rarity: 0
+  rarity: 1
   type: 0
   tier: 0
   description: 'Very powerful. '
-  damage: 60
-  attackSpeed: 1
+  color: {r: 255, g: 255, b: 255, a: 1}
+  damage: 220
+  attackSpeed: 0.85
+  manualDPS: 0

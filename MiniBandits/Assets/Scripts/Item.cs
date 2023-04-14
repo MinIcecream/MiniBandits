@@ -13,6 +13,8 @@ public class Item : ScriptableObject
     public itemType type;
     public int tier;
     public string description;
+    public Color color;
+
     public enum itemType
     {
         weapon,
@@ -25,9 +27,9 @@ public class Item : ScriptableObject
     public enum itemRarity
     {
         common,
+        uncommon,
         rare,
-        epic,
-        legendary
+        epic
     }
     [System.Serializable]
     public struct Stat
@@ -39,6 +41,24 @@ public class Item : ScriptableObject
         {
             statName = n;
             value = v;
+        }
+    }  
+    void OnEnable()
+    {  
+        switch (rarity)
+        {
+            case itemRarity.common:
+                color = new Color(255, 255, 255, 1);
+                break;
+            case itemRarity.uncommon:
+                color = new Color(0, 242, 0, 1);
+                break;
+            case itemRarity.rare:
+                color = new Color(0, 137, 255, 1);
+                break;
+            case itemRarity.epic:
+                color = new Color(155, 0, 173, 1);
+                break;
         }
     }
 }

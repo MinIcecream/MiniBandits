@@ -17,9 +17,11 @@ MonoBehaviour:
   referenceName: LeadPipe
   sprite: {fileID: -69388783, guid: b4ff3887457cc3942a0fc6978c14c870, type: 3}
   cost: 20
-  rarity: 0
+  rarity: 1
   type: 0
   tier: 2
   description: 
-  damage: 75
-  attackSpeed: 3.5
+  color: {r: 255, g: 255, b: 255, a: 1}
+  damage: 125
+  attackSpeed: 3.2
+  manualDPS: 0

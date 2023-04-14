@@ -17,9 +17,11 @@ MonoBehaviour:
   referenceName: BuzzsawShooter
   sprite: {fileID: -875374849, guid: 3ddb661a72214d14e92048bd8c38e421, type: 3}
   cost: 20
-  rarity: 0
+  rarity: 2
   type: 0
   tier: 0
   description: 
-  damage: 30
+  color: {r: 255, g: 255, b: 255, a: 1}
+  damage: 75
   attackSpeed: 2.5
+  manualDPS: 0

@@ -17,9 +17,11 @@ MonoBehaviour:
   referenceName: HolyTome
   sprite: {fileID: 21300000, guid: a3b29ef36526a144da0768fdace7793a, type: 3}
   cost: 20
-  rarity: 0
+  rarity: 2
   type: 0
   tier: 2
   description: Summon holy books to orbit you
-  damage: 35
-  attackSpeed: 1000
+  color: {r: 255, g: 255, b: 255, a: 1}
+  damage: 220
+  attackSpeed: 0.75
+  manualDPS: 495

@@ -22,16 +22,12 @@ public class FloorTransitionUI : MonoBehaviour
         {
             Debug.Log("OUT OF BOUNDS!");
             yield break;
-        }
-        if (GameManager.floor > 0)
-        { 
-            marker.position = gridLines[floor - 1].position;
-        }
-        else
-        { 
-            marker.position = gridLines[floor].position;
-        }
-        StartCoroutine(MoveToPosition(gridLines[floor]));
+        } 
+        //THIS SCENE IS ONLY CALLED WHEN FLOOR > 2
+
+        marker.position = gridLines[floor-2].position;
+         
+        StartCoroutine(MoveToPosition(gridLines[floor-1]));
     } 
 
     IEnumerator MoveToPosition(Transform target)

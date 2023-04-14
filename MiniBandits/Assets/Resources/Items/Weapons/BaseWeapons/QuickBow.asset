@@ -17,9 +17,11 @@ MonoBehaviour:
   referenceName: QuickBow
   sprite: {fileID: 21300000, guid: 7635cd6f6a21b9a4797087cfa2705067, type: 3}
   cost: 5
-  rarity: 0
+  rarity: 2
   type: 0
   tier: 0
   description: shoots lots of arrows
-  damage: 25
+  color: {r: 255, g: 255, b: 255, a: 1}
+  damage: 65
   attackSpeed: 4
+  manualDPS: 0

@@ -14,6 +14,7 @@ public class ItemInfoCard : MonoBehaviour
     public void DisplayStats(Item item)
     {
         image.sprite = item.sprite;
+        itemName.color = item.color;
         itemName.text = item.displayName;
         itemDescription.text = item.description;
 
@@ -70,6 +71,7 @@ public class ItemInfoCard : MonoBehaviour
     { 
         image.sprite = item.sprite;
         itemName.text = item.displayName;
+        itemName.color = item.color;
         itemDescription.text = item.description;
 
         if (item.type == Item.itemType.weapon)

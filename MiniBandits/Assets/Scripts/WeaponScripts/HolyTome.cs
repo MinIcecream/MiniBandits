@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class HolyTome : WeaponTemplate
 {
@@ -8,8 +9,8 @@ public class HolyTome : WeaponTemplate
     public int numBooks;
     public float radius;
     public float increasedRadius;
-    public float speed;
-    public float increasedSpeed;
+    float speed;
+    float increasedSpeed;
 
     public float changeOrbitSpeed;
 
@@ -49,8 +50,29 @@ public class HolyTome : WeaponTemplate
         { 
             pivot.SetParent(tempPlayer.gameObject.transform);
             pivot.localPosition = Vector2.zero;
-        } 
-    }  
+        }
+
+        increasedSpeed = weapon.attackSpeed * 360f;
+        speed = 0.3f * increasedSpeed;
+    }
+
+    public override void Update()
+    {
+        //IF PLAYER IS GONE, PLAYER CAN't MOVE, OR MOUSE IS OVER UI, RETURN.
+        if (player == null || !player.canMove || EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+        damage = baseDamage + (int)((player.GetComponent<Player>().strength / 100.0) * baseDamage);
+        if (Input.GetMouseButton(0))
+        {  
+            Attack(); 
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            holding = false;
+        }
+    }
     void FixedUpdate()
     { 
         foreach (GameObject book in books)
@@ -64,7 +86,7 @@ public class HolyTome : WeaponTemplate
                     book.transform.position += (Vector3)(normalizedDir * changeOrbitSpeed);
                 }
               
-                pivot.Rotate(0, 0, increasedSpeed);
+                pivot.Rotate(0, 0, increasedSpeed * Time.fixedDeltaTime); 
             }
             else
             {
@@ -74,10 +96,8 @@ public class HolyTome : WeaponTemplate
                     Vector2 normalizedDir = diff.normalized;
                     book.transform.position -= (Vector3)(normalizedDir * changeOrbitSpeed);
                 }
-                pivot.Rotate(0, 0, speed);
-            } 
-            
-              
+                pivot.Rotate(0, 0, speed*Time.fixedDeltaTime);
+            }  
         }
     }
     void LateUpdate()
@@ -87,15 +107,7 @@ public class HolyTome : WeaponTemplate
             0,
             pivot.eulerAngles.z
         );
-    }
-    public override void Update()
-    {
-        base.Update(); 
-        if (Input.GetMouseButtonUp(0))
-        { 
-            holding = false; 
-        } 
-    }
+    } 
     public override void Attack()
     { 
         holding = true;

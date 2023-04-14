@@ -17,9 +17,11 @@ MonoBehaviour:
   referenceName: ShimmeringRing
   sprite: {fileID: 21300000, guid: b9a886555f038ee46b5895189b785cca, type: 3}
   cost: 20
-  rarity: 0
+  rarity: 2
   type: 0
   tier: 0
   description: Fast disc
-  damage: 30
+  color: {r: 255, g: 255, b: 255, a: 1}
+  damage: 80
   attackSpeed: 3
+  manualDPS: 0

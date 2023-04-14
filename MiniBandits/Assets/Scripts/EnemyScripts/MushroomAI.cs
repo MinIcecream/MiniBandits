@@ -23,6 +23,7 @@ public class MushroomAI : EnemyAI, IDamageable, IAffectable
             //makes projectile
             var newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
             //shoots projectile at player position
+            newProjectile.GetComponent<BaseProjectile>().damage = damage;
             newProjectile.GetComponent<BaseProjectile>().SetDir((Vector2)player.transform.position);
             //waits 1 second before shooting another
 

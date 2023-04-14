@@ -17,9 +17,11 @@ MonoBehaviour:
   referenceName: Shuriken
   sprite: {fileID: 21300000, guid: 5f0e2e0e8b14fab4c8314ea3d0c3b673, type: 3}
   cost: 25
-  rarity: 0
+  rarity: 2
   type: 0
   tier: 0
   description: Sharp
-  damage: 12
-  attackSpeed: 4.2
+  color: {r: 255, g: 255, b: 255, a: 1}
+  damage: 55
+  attackSpeed: 4.5
+  manualDPS: 0

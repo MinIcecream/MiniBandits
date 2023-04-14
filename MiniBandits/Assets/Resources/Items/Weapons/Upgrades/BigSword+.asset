@@ -21,5 +21,6 @@ MonoBehaviour:
   type: 0
   tier: 1
   description: 
-  damage: 70
+  damage: 200
   attackSpeed: 1
+  manualDPS: 0

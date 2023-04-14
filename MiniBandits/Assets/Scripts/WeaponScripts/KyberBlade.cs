@@ -1,21 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class KyberBlade : WeaponTemplate
 {
     public int knockBackAmt;
     List<GameObject> hitEnemies = new List<GameObject>();
+    
     public override void Update()
     {
-        base.Update();
+        //IF PLAYER IS GONE, PLAYER CAN't MOVE, OR MOUSE IS OVER UI, RETURN.
+        if (player == null || !player.canMove || EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+        damage = baseDamage + (int)((player.GetComponent<Player>().strength / 100.0) * baseDamage); 
+        
         if (Input.GetMouseButton(0))
         {
             GetComponent<Collider2D>().enabled = true;
             transform.Rotate(Vector3.forward * Time.deltaTime * 1500);
         }
         if (Input.GetMouseButtonUp(0))
-        { 
+        {
             GetComponent<Collider2D>().enabled = false;
         }
     } 
@@ -42,7 +50,7 @@ public class KyberBlade : WeaponTemplate
     }
     IEnumerator RemoveFromList(GameObject obj)
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(1/weapon.attackSpeed);
         hitEnemies.Remove(obj);
     }
 }
