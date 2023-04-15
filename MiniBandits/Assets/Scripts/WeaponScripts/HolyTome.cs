@@ -23,9 +23,13 @@ public class HolyTome : WeaponTemplate
         base.Start();
         if (weapon.tier == 1)
         {
-            numBooks++;
+            numBooks=4;
         }
-        for(int i =0;i< numBooks; i++)
+        else if (weapon.tier == 2)
+        {
+            numBooks=5;
+        }
+        for (int i =0;i< numBooks; i++)
         {
             float ang = (360 / numBooks) * i;
              
