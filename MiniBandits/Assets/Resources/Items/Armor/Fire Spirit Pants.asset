@@ -16,11 +16,12 @@ MonoBehaviour:
   displayName: Fire Spirit Pants
   referenceName: Fire Spirit Pants
   sprite: {fileID: -1853713484, guid: 7def91e5dd49fa5418dc741d25853bdc, type: 3}
-  cost: 15
-  rarity: 0
+  cost: 10
+  rarity: 1
   type: 3
   tier: 0
   description: Summons fire spirits
+  color: {r: 255, g: 255, b: 255, a: 1}
   lifeSteal: 0
   defense: 10
   speed: 0

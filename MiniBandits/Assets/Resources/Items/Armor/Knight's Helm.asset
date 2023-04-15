@@ -16,11 +16,12 @@ MonoBehaviour:
   displayName: Knight's Helm
   referenceName: Knight Helmet
   sprite: {fileID: -593278988, guid: a4f8c0d469c68dc45a6f76affa053a61, type: 3}
-  cost: 5
-  rarity: 1
+  cost: 20
+  rarity: 0
   type: 1
   tier: 0
   description: Gives defense
+  color: {r: 0, g: 242, b: 0, a: 1}
   lifeSteal: 0
   defense: 20
   speed: 0

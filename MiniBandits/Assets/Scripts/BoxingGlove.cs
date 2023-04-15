@@ -23,6 +23,7 @@ public class BoxingGlove : BaseProjectile
     }
     IEnumerator GoToTarget(Vector2 target)
     {
+        //While it's far away, mmove towards it and draw line
         while (Vector2.Distance(transform.position, target) > 0.2f)
         {
             if (parent == null)
@@ -49,7 +50,9 @@ public class BoxingGlove : BaseProjectile
             Destroy(gameObject);
             yield break;
         }
-        while (Vector2.Distance(transform.position, player.position) > 1f)
+
+        //While if it smore than 1 away, 
+        while (Vector2.Distance(player.position, player.position) > 0.6f)
         {
             if (parent == null)
             {

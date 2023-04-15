@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4873401057454396061}
   - component: {fileID: 1303991915207454805}
   - component: {fileID: 2478215186414079167}
-  - component: {fileID: -1402040636888680874}
   - component: {fileID: -3391925109637655075}
   - component: {fileID: 3041719150104971998}
+  - component: {fileID: 7042067937437770722}
   m_Layer: 8
   m_Name: AWPProjectile
   m_TagString: Untagged
@@ -77,8 +77,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 487288807bdfcd144869aa66eda85c18, type: 3}
-  m_Color: {r: 0, g: 0.7005143, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: f2a5d082ae8ac364f82dd95cefd906be, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -109,22 +109,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &-1402040636888680874
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7777877402851561955}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.03144997, y: 0.006373289}
-  serializedVersion: 2
-  m_Radius: 0.23011786
 --- !u!114 &-3391925109637655075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,8 +138,34 @@ MonoBehaviour:
   particles: {fileID: 0}
   destroyOnHit: 0
   destroyOnWall: 0
-  collider: {fileID: -1402040636888680874}
+  collider: {fileID: 0}
   knockBackAmt: 5
   damage: 0
   targetPoint: {x: 0, y: 0}
   rb: {fileID: 0}
+--- !u!61 &7042067937437770722
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7777877402851561955}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.10246238, y: 0.25438917}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 0.2, y: 0.2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.551395, y: 0.25460786}
+  m_EdgeRadius: 0

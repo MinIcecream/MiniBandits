@@ -29,20 +29,23 @@ public class Grenade : BaseProjectile
         {
             GameObject obj = hitCollider.gameObject;
  
-            if (obj.GetComponent<IDamageable>() != null)
-            {
-                obj.GetComponent<IDamageable>().Damage(damage);
+            if (obj.tag =="Enemy")
+            { 
+                if (obj.GetComponent<IDamageable>() != null)
+                {
+                    obj.GetComponent<IDamageable>().Damage(damage);
+                }
+                if (obj.GetComponent<IAffectable>() != null)
+                {
+                    obj.GetComponent<IAffectable>().Knockback(knockBackAmt, transform.position);
+                } 
             }
-            if (obj.GetComponent<IAffectable>() != null)
-            {
-                obj.GetComponent<IAffectable>().Knockback(knockBackAmt, transform.position);
-            }
-            InstantiateParticles();
-             
-        } 
+        }
+        InstantiateParticles();
     }
     void OnDisable()
     {
+        Debug.Log("FDFS");
         Explode();
     }
 }

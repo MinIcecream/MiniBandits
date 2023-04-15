@@ -154,7 +154,7 @@ MonoBehaviour:
   player: {fileID: 0}
   canMove: 0
   damage: 250
-  projectile: {fileID: 7777877402851561955, guid: d5074f1885365744aa1bee885fac76a5, type: 3}
+  projectile: {fileID: 7777877402851561955, guid: 7c13b21e6253dd740b4724721c577e3a, type: 3}
   chaseSpeed: 5
   attackDistance: 5
 --- !u!58 &6726088707241268023

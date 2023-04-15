@@ -17,10 +17,11 @@ MonoBehaviour:
   referenceName: Berzerker Pants
   sprite: {fileID: -911802804, guid: dba8674cbbaa027448cd71038a59b7a3, type: 3}
   cost: 10
-  rarity: 0
+  rarity: 2
   type: 3
   tier: 0
   description: Increases Attack and crit
+  color: {r: 255, g: 255, b: 255, a: 1}
   lifeSteal: 0
   defense: 10
   speed: 0

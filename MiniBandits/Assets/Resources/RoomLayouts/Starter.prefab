@@ -616,7 +616,6 @@ MonoBehaviour:
   - {fileID: 2982650075942186306}
   playerSpawnPt: {fileID: 6066494865677941527}
   itemSpawnPt: {fileID: 0}
-  reward: 0
   level: {fileID: 0}
 --- !u!1 &5791364619530835828
 GameObject:
@@ -713,7 +712,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8316926483713495208, guid: cf571dc6105674946a4a6a6a03fc0a22, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.92
+      value: 5.179
       objectReference: {fileID: 0}
     - target: {fileID: 8316926483713495208, guid: cf571dc6105674946a4a6a6a03fc0a22, type: 3}
       propertyPath: m_LocalPosition.z
@@ -800,7 +799,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8316926483713495208, guid: cf571dc6105674946a4a6a6a03fc0a22, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.92
+      value: 5.179
       objectReference: {fileID: 0}
     - target: {fileID: 8316926483713495208, guid: cf571dc6105674946a4a6a6a03fc0a22, type: 3}
       propertyPath: m_LocalPosition.z

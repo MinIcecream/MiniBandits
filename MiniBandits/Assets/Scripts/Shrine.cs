@@ -73,7 +73,7 @@ public class Shrine : MonoBehaviour
             switch (shrineType)
             {
                 case shrineTypes.vitality:
-                    player.GetComponent<Health>().Heal(20);
+                    player.GetComponent<Health>().Heal(200);
                     break;
                 case shrineTypes.defense:
                     player.GetComponent<PlayerStatusEffects>().BuffDefense(10,10);

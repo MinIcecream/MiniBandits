@@ -16,11 +16,12 @@ MonoBehaviour:
   displayName: Bloodsucker's Suit
   referenceName: Bloodsucker's Suit
   sprite: {fileID: 938916337, guid: 6493cca2e1611ba4a824cce6dcb5ee52, type: 3}
-  cost: 35
-  rarity: 0
+  cost: 10
+  rarity: 3
   type: 2
   tier: 0
   description: Gives a lot of lifesteal
+  color: {r: 255, g: 255, b: 255, a: 1}
   lifeSteal: 5
   defense: 0
   speed: 0

@@ -187,6 +187,45 @@ public class PlayerInventory : MonoBehaviour
         Debug.Log("NO ACTIVE SLOT OF TYPE " + itemToEquip.type);
     }
 
+    //returns true if inventory contains the item
+    public bool InventoryContains(Item item)
+    { 
+        foreach(Item i in inventoryItems)
+        {
+            if (item == i)
+            {
+                return true;
+            }
+        }
+        switch (item.type)
+        {
+            case Item.itemType.helmet:
+                if (activeHelmet == item)
+                {
+                    return true;
+                }
+                break;
+            case Item.itemType.pants:
+                if (activePants == item)
+                {
+                    return true;
+                }
+                break;
+            case Item.itemType.chestplate:
+                if (activeChestplate == item)
+                {
+                    return true;
+                }
+                break;
+            case Item.itemType.weapon:
+                if (activeWeapon == item)
+                {
+                    return true;
+                }
+                break;
+        }
+        return false;
+    }
     //Checks if there is an open equip slot for an item
     public bool ActiveSlotAvailable(Item.itemType type)
     {

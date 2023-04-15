@@ -49,16 +49,20 @@ public class Item : ScriptableObject
         {
             case itemRarity.common:
                 color = new Color(255, 255, 255, 1);
+                cost = 10;
                 break;
             case itemRarity.uncommon:
                 color = new Color(0, 242, 0, 1);
+                cost = 20;
                 break;
             case itemRarity.rare:
                 color = new Color(0, 137, 255, 1);
+                cost = 30;
                 break;
             case itemRarity.epic:
                 color = new Color(155, 0, 173, 1);
+                cost = 50;
                 break;
-        }
+        } 
     }
 }

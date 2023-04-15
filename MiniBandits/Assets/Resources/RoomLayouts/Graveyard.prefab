@@ -587,9 +587,7 @@ MonoBehaviour:
   - {fileID: 356969916310815768}
   playerSpawnPt: {fileID: 6066494865677941527}
   itemSpawnPt: {fileID: 4046012618282696960}
-  reward: 0
-  level: {fileID: 5791364619530835828}
-  room: {fileID: 0}
+  spawnInfo: {fileID: 0}
   levelComplete: 0
   levelStarted: 0
   bossTheme: 
@@ -848,7 +846,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8316926483713495208, guid: cf571dc6105674946a4a6a6a03fc0a22, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.6015944
+      value: 5.179
       objectReference: {fileID: 0}
     - target: {fileID: 8316926483713495208, guid: cf571dc6105674946a4a6a6a03fc0a22, type: 3}
       propertyPath: m_LocalPosition.z
@@ -919,11 +917,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8316926483713495208, guid: cf571dc6105674946a4a6a6a03fc0a22, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.58
+      value: -2.7
       objectReference: {fileID: 0}
     - target: {fileID: 8316926483713495208, guid: cf571dc6105674946a4a6a6a03fc0a22, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.6015944
+      value: 5.179
       objectReference: {fileID: 0}
     - target: {fileID: 8316926483713495208, guid: cf571dc6105674946a4a6a6a03fc0a22, type: 3}
       propertyPath: m_LocalPosition.z

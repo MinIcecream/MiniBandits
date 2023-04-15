@@ -71,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1648826359
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 1229123341, guid: 46d52e23bf0390d47bdc0f852baa3f14, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -265,6 +265,6 @@ MonoBehaviour:
   player: {fileID: 0}
   canMove: 0
   damage: 250
-  projectile: {fileID: 7777877402851561955, guid: d5074f1885365744aa1bee885fac76a5, type: 3}
+  projectile: {fileID: 7777877402851561955, guid: fd833881ffb0966468f7ab0cddcb58e6, type: 3}
   chaseSpeed: 5
   attackDistance: 5

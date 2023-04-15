@@ -72,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 723825137
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -419501878, guid: d7b80000fae9c754da185e92ffd3229d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -182,7 +182,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1648826359
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -983817547, guid: d7b80000fae9c754da185e92ffd3229d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -274,7 +274,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 723825137
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -1392005993, guid: d7b80000fae9c754da185e92ffd3229d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -403,4 +403,4 @@ MonoBehaviour:
   attackDistance: 5
   meleeAttackDistance: 1
   weaponCollider: {fileID: 5271790184275108389}
-  projectile: {fileID: 7777877402851561955, guid: d5074f1885365744aa1bee885fac76a5, type: 3}
+  projectile: {fileID: 7777877402851561955, guid: 7c13b21e6253dd740b4724721c577e3a, type: 3}
