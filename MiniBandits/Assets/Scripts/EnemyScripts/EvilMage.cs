@@ -66,7 +66,7 @@ public class EvilMage : EnemyAI, IDamageable
     IEnumerator SpawnLines()
     {
         yield return new WaitForSeconds(1.5f);
-        for(int j = 0; j < 3; j++)
+        for(int j = 0; j < 4; j++)
         { 
             if (j == 0||j==2)
             {
@@ -74,7 +74,7 @@ public class EvilMage : EnemyAI, IDamageable
                 {
                     break;
                 }
-                for (int i = 0; i < 50; i++)
+                for (int i = 0; i < 30; i++)
                 {
                     var newProjectile = Instantiate(projectile, new Vector2(transform.position.x - 30 + 1.8f * i, transform.position.y + 20), Quaternion.identity);
                     //shoots projectile at player position
@@ -85,7 +85,7 @@ public class EvilMage : EnemyAI, IDamageable
             }
             else
             { 
-                for (int i = 0; i < 50; i++)
+                for (int i = 0; i < 30; i++)
                 {
                     if (player == null)
                     {
@@ -98,7 +98,7 @@ public class EvilMage : EnemyAI, IDamageable
                     newProjectile.GetComponent<BaseProjectile>().destroyOnWall = false;
                 }
             }
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(2f);
         }
         StartCoroutine(AttackCooldown());
     }
@@ -128,8 +128,8 @@ public class EvilMage : EnemyAI, IDamageable
             {
                 break;
             }
-            int numProjectiles=30;
-            int gap = 6;
+            int numProjectiles=50;
+            int gap = 2;
             //spawn
             for (int j = 0; j < numProjectiles; j++)
             {
@@ -151,7 +151,7 @@ public class EvilMage : EnemyAI, IDamageable
     {
         if (coll.gameObject.tag == "Player")
         {
-            coll.gameObject.GetComponent<Health>().DealDamage(20);
+            coll.gameObject.GetComponent<Health>().DealDamage(80);
         }
     }
 }

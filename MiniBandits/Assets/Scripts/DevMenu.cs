@@ -28,6 +28,13 @@ public class DevMenu : MonoBehaviour
             newButton.GetComponent<SpawnEnemyButton>().SetEnemy(enemy);
             newButton.transform.SetParent(this.gameObject.transform);
         }
+        Object[] bosses = Resources.LoadAll("BossPrefabs", typeof(GameObject));
+        foreach (GameObject boss in bosses)
+        {
+            var newButton = Instantiate(enemyButton, transform.position, Quaternion.identity);
+            newButton.GetComponent<SpawnEnemyButton>().SetEnemy(boss);
+            newButton.transform.SetParent(this.gameObject.transform);
+        }
     }
     void Update()
     {
