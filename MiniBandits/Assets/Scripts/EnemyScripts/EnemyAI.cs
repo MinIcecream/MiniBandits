@@ -12,7 +12,8 @@ public class EnemyAI : MonoBehaviour, IDamageable
     public GameObject player;
 
     [HideInInspector] public bool canMove;
-     
+
+    float scale;
     public int damage;
 
     public virtual void Scale(int difficultyLevel)
@@ -30,7 +31,8 @@ public class EnemyAI : MonoBehaviour, IDamageable
     {
         canMove = true;
         player = GameObject.FindWithTag("Player");
-        health = GetComponent<Health>();  
+        health = GetComponent<Health>();
+        scale = transform.localScale.x;
     }
     public virtual void Update()
     { 
@@ -57,11 +59,11 @@ public class EnemyAI : MonoBehaviour, IDamageable
     } 
     IEnumerator DamageAnimation()
     { 
-        transform.localScale = new Vector2(1.2f, 1.2f);
+        transform.localScale = new Vector2(scale*1.2f, scale*1.2f);
 
         yield return new WaitForSeconds(0.1f);
 
-        transform.localScale = new Vector2(1f, 1f);
+        transform.localScale = new Vector2(scale, scale);
     }
     public virtual void Knockback(float magnitude, Vector2 src)
     { 
