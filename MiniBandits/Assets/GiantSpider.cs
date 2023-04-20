@@ -131,14 +131,14 @@ public class GiantSpider : EnemyAI, IDamageable
         Vector2 target = player.transform.position;
         Instantiate(damageIndicator, target, Quaternion.identity);
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.4f);
 
         transform.position = new Vector3(target.x, target.y + 50,0);
 
         lineRen.SetPosition(1, transform.position);
         while (transform.position.y > target.y)
         { 
-            transform.position += -Vector3.up * Time.deltaTime * 50;
+            transform.position += -Vector3.up * Time.deltaTime * 60;
             lineRen.SetPosition(0, transform.position);
             yield return null;
         }
