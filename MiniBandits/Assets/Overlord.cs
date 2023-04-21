@@ -71,7 +71,11 @@ public class Overlord : EnemyAI, IDamageable
         while (timeElapsed < 10)
         {
             timeElapsed += Time.deltaTime;
-             
+
+            if (player == null)
+            {
+                yield break;
+            }
             //Changing directions to shoot lser
             Vector2 targetDirection = player.transform.position - transform.position;
             

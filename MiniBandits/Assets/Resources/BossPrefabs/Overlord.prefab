@@ -770,6 +770,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f904fcdb2eddf746ba7b26d0b818d65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shape: 1
+  shape: 0
   radius: 9.93
-  width: 2
+  width: 0.1
