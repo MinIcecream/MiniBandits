@@ -179,7 +179,7 @@ MonoBehaviour:
   hasDied: 0
   player: {fileID: 0}
   canMove: 0
-  damage: 250
+  damage: 200
   projectile: {fileID: 7777877402851561955, guid: 77c4a0b3c851ad54ab2684a3b2fd78fe, type: 3}
   chaseSpeed: 5
   attackDistance: 5

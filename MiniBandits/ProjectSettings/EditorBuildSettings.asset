@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FloorTransition.unity
     guid: 450e4b2b0192ae14087373ca53ef6358
+  - enabled: 1
+    path: Assets/Scenes/Characters.unity
+    guid: 3fba29a87c3c77f428d08fc0b5a9fc73
   m_configObjects: {}

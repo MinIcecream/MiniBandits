@@ -7,11 +7,11 @@ public class PlayerHealth : Health
     public Player player;
     bool canDamage = true;
 
-    public override void Start()
+    public override void Awake()
     { 
         player = GetComponent<Player>();
         maxHealth =  player.GetHealth(); 
-        base.Start(); 
+        base.Awake(); 
     }
     void Update()
     {
@@ -43,7 +43,7 @@ public class PlayerHealth : Health
         {
             StartCoroutine(InvulnerabilityFrames());
             canDamage = false;
-            health -= (int)(damage * (100.0 / (100 + player.defense)));
+            health -= (int)(damage * (100.0 / (100 + player.defense*2)));
         } 
     }
     IEnumerator InvulnerabilityFrames()

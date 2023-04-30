@@ -36,14 +36,14 @@ public class PlayerStatusEffects : MonoBehaviour
     }
     public void BuffSpeed(int amt, int numRooms)
     { 
-        player.GetComponent<Player>().baseStrength += amt;
+        player.GetComponent<Player>().baseSpeed += amt;
         int floor = GameManager.floor + Mathf.FloorToInt(numRooms / 10f);
         int room = GameManager.room + numRooms % 10 + 1;
         StartCoroutine(BuffSpeed(amt, floor, room));
     }
     public void BuffDefense(int amt, int numRooms)
     {
-        player.GetComponent<Player>().baseStrength += amt;
+        player.GetComponent<Player>().baseDefense += amt;
         int floor = GameManager.floor + Mathf.FloorToInt(numRooms / 10f);
         int room = GameManager.room + numRooms % 10 + 1;
         StartCoroutine(BuffDefense(amt, floor, room)); 

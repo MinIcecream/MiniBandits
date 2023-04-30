@@ -57,7 +57,7 @@ public class EvilMage : EnemyAI, IDamageable
     IEnumerator AttackCooldown()
     {
         currentlyAttacking = false;
-        yield return new WaitForSeconds(Random.Range(5, 8));
+        yield return new WaitForSeconds(Random.Range(2,5));
         canAttack = true;
     }
     //Shoot a bunch of projectiles at you

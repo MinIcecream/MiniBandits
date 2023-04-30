@@ -6,7 +6,7 @@ public class SpawnPersistentObjects : MonoBehaviour
 {
     public GameObject persistentObjs;
 
-    void Start()
+    void Awake()
     {
         if (GameObject.FindWithTag("PersistBetweenFloors") == null)
         {

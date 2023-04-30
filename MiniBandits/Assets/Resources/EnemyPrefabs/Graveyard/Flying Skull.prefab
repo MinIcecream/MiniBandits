@@ -4857,7 +4857,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.5358429, y: 0}
+  m_Offset: {x: -1.0279602, y: 0.051649094}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4868,7 +4868,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.3556857, y: 1.3238095}
+  m_Size: {x: 2.3399203, y: 0.39412594}
   m_EdgeRadius: 0
 --- !u!1 &6822334720055612400
 GameObject:
@@ -5043,11 +5043,11 @@ MonoBehaviour:
   hasDied: 0
   player: {fileID: 0}
   canMove: 0
-  damage: 100
+  damage: 70
   flamePt: {fileID: 1047509747869386305}
   flipYPt: {fileID: 4512151376650941922}
   flames: {fileID: 5489021931210574398}
-  chaseSpeed: 2
+  chaseSpeed: 1.8
   attackDistance: 3
 --- !u!60 &1680714528368010898
 PolygonCollider2D:

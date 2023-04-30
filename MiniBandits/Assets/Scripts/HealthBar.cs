@@ -17,7 +17,6 @@ public class HealthBar : MonoBehaviour
         healthBar.maxValue = healthScript.GetMaxHealth();
     }
 
-
     void Update()
     {
         if (healthScript == null)
@@ -25,6 +24,11 @@ public class HealthBar : MonoBehaviour
             return;
         }
         int curHealth = healthScript.GetHealth();
+
+        if (curHealth < 0)
+        {
+            curHealth = 0;
+        }
         healthBar.value = (curHealth);
         if (DisplayNumbers)
         { 

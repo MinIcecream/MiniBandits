@@ -484,6 +484,7 @@ GameObject:
   - component: {fileID: 1036030407537834962}
   - component: {fileID: 3432200462521531377}
   - component: {fileID: -6476114656247065168}
+  - component: {fileID: 1089351685188317745}
   m_Layer: 7
   m_Name: SpiderDen
   m_TagString: Enemy
@@ -760,3 +761,18 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &1089351685188317745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8121160717422346259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f904fcdb2eddf746ba7b26d0b818d65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shape: 1
+  radius: 8
+  width: 0

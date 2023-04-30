@@ -13,7 +13,7 @@ namespace RoomInfo
         Graveyard,
         EnchantedForest,
         GoblinVillage,
-        MechCity,
+        Scrapyard,
         Mothership,
         RabidZoo,
         SpiderDen
@@ -29,8 +29,21 @@ namespace RoomInfo
         defenseShrine,
         blackSmith,
         market,
-        starter
+        starter,
+        rareArmor,
+        rareWeapon,
+        heart
     }   
+    struct itemChance
+    {
+        public Item item;
+        public int chance;
+        public itemChance(Item w, int c)
+        {
+            chance = c;
+            item = w; 
+        }
+    }
     public struct roomConfig{
         public int chance;
         public rewardTypes reward;
@@ -45,7 +58,8 @@ namespace RoomInfo
     }
 }
 public class RoomOptionGenerator
-{  
+{
+    public static List<roomConfig> previouslyGeneratedRooms = new List<roomConfig>();
     public static List<roomConfig> rooms = new List<roomConfig>() 
     { 
         new roomConfig(0, rewardTypes.starter, false),
@@ -58,7 +72,9 @@ public class RoomOptionGenerator
         new roomConfig(5, rewardTypes.powerShrine, true),
         new roomConfig(5, rewardTypes.speedShrine, true),
         new roomConfig(50, rewardTypes.gold, true),
-
+        new roomConfig(0, rewardTypes.rareWeapon, true),
+        new roomConfig(0, rewardTypes.rareWeapon, true),
+        new roomConfig(5, rewardTypes.heart, true),
     };
      
     public static roomThemes[] GenerateRoomThemes(int numThemes)
@@ -78,8 +94,7 @@ public class RoomOptionGenerator
             themes[i] = randomTheme;
         }
         return themes;
-    }
-
+    } 
     public static List<roomConfig> GenerateRoomOptions(int numDoors)
     { 
         RoomOptionGenerator instance = new RoomOptionGenerator();
@@ -107,6 +122,7 @@ public class RoomOptionGenerator
                     if (rand < cumulativeWeight)
                     { 
                         roomOptions[i] = s;
+                        previouslyGeneratedRooms.Add(s);
                         break;
                     }
                 }
@@ -115,30 +131,97 @@ public class RoomOptionGenerator
         }
         return roomOptions;
     } 
-    public static Weapon GenerateRandomWeapon()
+    public static Weapon GenerateRandomWeapon(int c, int u, int r, int e)
     {
         UnityEngine.Object[] tempList = Resources.LoadAll("Items/Weapons/BaseWeapons", typeof(Weapon));
-        List<Weapon> allWeapons = new List<Weapon>();
+        List<itemChance> allWeapons = new List<itemChance>();
+         
 
-        foreach(Weapon w in tempList)
-        { 
-            allWeapons.Add(w);
+        foreach (Weapon w in tempList)
+        {
+            if (w.rarity == Item.itemRarity.common)
+            {
+                itemChance newItem = new itemChance(w, c);
+                allWeapons.Add(newItem);
+            }
+            if (w.rarity == Item.itemRarity.uncommon)
+            {
+                itemChance newItem = new itemChance(w, u); 
+                allWeapons.Add(newItem);
+            }
+            if (w.rarity == Item.itemRarity.rare)
+            {
+                itemChance newItem = new itemChance(w, r);
+                allWeapons.Add(newItem);
+            }
+            if (w.rarity == Item.itemRarity.epic)
+            {
+                itemChance newItem = new itemChance(w, e);
+                allWeapons.Add(newItem);
+            } 
         } 
-        int ran = UnityEngine.Random.Range(0, allWeapons.Count); 
-        return allWeapons[ran];
+        int totalWeight = 0;
+        foreach (itemChance s in allWeapons)
+        {
+            totalWeight += s.chance; 
+        } 
+        int rand = Random.Range(0, totalWeight);
+        int cumulativeWeight = 0;
+        foreach (itemChance w in allWeapons)
+        {
+            cumulativeWeight += w.chance;
+            if (rand < cumulativeWeight)
+            {
+                return (Weapon)w.item;
+            }
+        }
+        return (Weapon)tempList[0];
     }
-    public static Armor GenerateRandomArmor()
+    public static Armor GenerateRandomArmor(int c, int u, int r, int e)
     { 
         UnityEngine.Object[] tempList = Resources.LoadAll("Items/Armor", typeof(Armor));
-        List<Armor> allArmor = new List<Armor>();
-
-        foreach (Armor w in tempList)
-        { 
-            allArmor.Add(w);
-        } 
-        int ran = UnityEngine.Random.Range(0, allArmor.Count); 
-        return allArmor[ran];
-    }
+        List<itemChance> allArmor = new List<itemChance>();
+         
+        foreach (Armor a in tempList)
+        {
+            if (a.rarity == Item.itemRarity.common)
+            {
+                itemChance newItem = new itemChance(a, c);
+                allArmor.Add(newItem);
+            }
+            if (a.rarity == Item.itemRarity.uncommon)
+            {
+                itemChance newItem = new itemChance(a, u);
+                allArmor.Add(newItem);
+            }
+            if (a.rarity == Item.itemRarity.rare)
+            {
+                itemChance newItem = new itemChance(a, r);
+                allArmor.Add(newItem);
+            }
+            if (a.rarity == Item.itemRarity.epic)
+            {
+                itemChance newItem = new itemChance(a, e);
+                allArmor.Add(newItem);
+            }
+        }
+        int totalWeight = 0;
+        foreach (itemChance s in allArmor)
+        {
+            totalWeight += s.chance;
+        }
+        int rand = Random.Range(0, totalWeight);
+        int cumulativeWeight = 0;
+        foreach (itemChance w in allArmor)
+        {
+            cumulativeWeight += w.chance;
+            if (rand < cumulativeWeight)
+            {
+                return (Armor)w.item;
+            }
+        }
+        return (Armor)tempList[0]; 
+    } 
 }
 
  

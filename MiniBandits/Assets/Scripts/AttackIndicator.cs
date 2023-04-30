@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class AttackIndicator : MonoBehaviour
 {
+    LayerMask wallMask;
+
     public enum shapes
     {
         line,
@@ -18,14 +20,28 @@ public class AttackIndicator : MonoBehaviour
     //LINE
     [SerializeField] private float width;
 
-    //Generaate a circle indicator
+    void Start()
+    {
+        wallMask = LayerMask.GetMask("Terrain");
+    }
+    //Generaate a circle indicator at point, or line going in difrection until hit wall
     public void GenerateAttackIndicator(Vector2 pos)
     {
-        var newIndicator = Instantiate(Resources.Load<GameObject>("Misc/CircleIndicator"), pos, Quaternion.identity);
-        newIndicator.transform.localScale = new Vector2(radius * 2, radius * 2);
+        if (shape == shapes.circle)
+        { 
+            var newIndicator = Instantiate(Resources.Load<GameObject>("Misc/CircleIndicator"), pos, Quaternion.identity);
+            newIndicator.transform.localScale = new Vector2(radius * 2, radius * 2);
+        }
+        else
+        {  
+            RaycastHit2D hitWall = Physics2D.Raycast(transform.position, pos, 30, wallMask);
+
+            GenerateAttackIndicator(transform.position, hitWall.point);
+
+        }
     }
 
-    //Line indicator
+    //Line indicator with start and end points
     public void GenerateAttackIndicator(Vector2 origin, Vector2 destination)
     {
         Vector2 pointInBetween = Vector2.Lerp(origin, destination, 0.5f);

@@ -71,7 +71,7 @@ public class Player : MonoBehaviour
     //ADD OR SUBTRACT A NUMBER FROM THE MAX HEALTH
     public void AddHealth(int h)
     {
-        health += h;
+        baseHealth += h; 
     }
 
     public int GetHealth()

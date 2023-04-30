@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2478215186414079167}
   - component: {fileID: 5724842442954333333}
   - component: {fileID: 3379824047356869846}
-  - component: {fileID: 5345268827242411295}
   - component: {fileID: 8510853574842928209}
   m_Layer: 7
   m_Name: Cacoon
@@ -161,18 +160,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spider: {fileID: 8121160717422346259, guid: 7d68d2f542ea29d45bd63792994dac00, type: 3}
---- !u!114 &5345268827242411295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7777877402851561955}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 204d8bfaa9a879b4c8c48894a2557c15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   destructDelay: 10
 --- !u!114 &8510853574842928209
 MonoBehaviour:

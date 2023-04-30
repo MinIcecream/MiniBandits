@@ -8,6 +8,7 @@ public class Overlord : EnemyAI, IDamageable
 
     public int chaseSpeed;
     public LayerMask raycastMask;
+    public GameObject projectile;
 
     bool canAttack = false;
     string lastAttack = "shockWave";
@@ -61,7 +62,11 @@ public class Overlord : EnemyAI, IDamageable
     //Shoot in a line that fills the screen
     IEnumerator Laser()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.5f); 
+        GetComponent<AttackIndicator>().GenerateAttackIndicator(Vector2.down);
+       
+         
+        yield return new WaitForSeconds(1f);
         lineRen.enabled = true;
 
         float timeElapsed = 0f;
@@ -80,7 +85,8 @@ public class Overlord : EnemyAI, IDamageable
             Vector2 targetDirection = player.transform.position - transform.position;
             
             float angle = Vector2.SignedAngle(laserDirection, targetDirection);
-            float rotateAngle = 0.25f;
+            float rotateAngle = 0.19f;
+
 
             if (angle > rotateAngle)
             {
@@ -93,13 +99,11 @@ public class Overlord : EnemyAI, IDamageable
             else
             {
                 laserDirection = targetDirection.normalized;
-            }
-
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, laserDirection, 30, raycastMask); 
+            } 
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, laserDirection, 30, raycastMask);
             DrawRay(transform.position, hit.point);
             if (hit.collider.gameObject.tag == "Player")
-            {
-                Debug.Log("sus");
+            { 
                 hit.collider.gameObject.GetComponent<Health>().DealDamage(damage);
             }
             yield return null;
@@ -112,7 +116,16 @@ public class Overlord : EnemyAI, IDamageable
     IEnumerator Shockwave()
     {
         yield return new WaitForSeconds(1.5f);
-        
+
+        for( int i =0; i<3; i++)
+        { 
+            //makes projectile
+            var newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
+            //shoots projectile at player position
+            newProjectile.GetComponent<BaseProjectile>().damage = damage;
+            newProjectile.GetComponent<BaseProjectile>().SetDir((Vector2)player.transform.position);
+            yield return new WaitForSeconds(0.5f);
+        } 
         StartCoroutine(AttackCooldown());
     }
 

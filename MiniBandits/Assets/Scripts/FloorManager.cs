@@ -37,7 +37,8 @@ public class FloorManager : MonoBehaviour
             int ran = Random.Range(0, tempList.Count - 1);
             enemies.Add(tempList[ran]);
             tempList.RemoveAt(ran);
-        } 
+         }  
+       
     }
 
     //SPAWN LEVELS, INITIALIZES THEIR ENEMIES TO SPAWN, SETS THE PLAYER SPAWN POINT FOR WHEN THEY ENTER THE LEVEL

@@ -204,7 +204,7 @@ MonoBehaviour:
   hasDied: 0
   player: {fileID: 0}
   canMove: 0
-  damage: 250
+  damage: 200
   charging: 0
   collider: {fileID: 7183279876911527456}
   chargeSpeed: 7

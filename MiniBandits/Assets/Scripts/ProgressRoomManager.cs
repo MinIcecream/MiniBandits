@@ -153,21 +153,96 @@ public class ProgressRoomManager : BaseRoomManager
         }
         switch (room.reward)
         {
+            case rewardTypes.heart:
+                Instantiate(Resources.Load<GameObject>("Misc/Heart"), transform.position, Quaternion.identity);
+                break;
+
             case rewardTypes.gold:
-                GameObject.FindWithTag("Player").GetComponent<GoldManager>().AddGold(10);
+                for (int i = 0; i < 5; i++)
+                {
+                    float x = UnityEngine.Random.Range(itemSpawnPt.position.x - 0.25f, itemSpawnPt.position.x + 0.25f);
+                    float y = UnityEngine.Random.Range(itemSpawnPt.position.y - 0.25f, itemSpawnPt.position.y + 0.25f);
+                    Instantiate(Resources.Load<GameObject>("Misc/Coin"), new Vector2(x, y), Quaternion.identity);
+                }
                 break;
             case rewardTypes.randomWeapon:
                 {
-                    Weapon newWeapon = RoomOptionGenerator.GenerateRandomWeapon();
-                    GameObject newItem = Instantiate(Resources.Load<GameObject>("Misc/ItemDrop"), itemSpawnPt.position, Quaternion.identity);
-                    newItem.GetComponent<ItemDrop>().item = newWeapon;
+                    //on floor 1, bad drops. Floor 3 it imporives. higher chance of rares. 5 even higher chance, even small chance of epics. 7+ high chance of epics.
+
+                    //floor 1
+                    if (GameManager.floor < 2)
+                    { 
+                        Weapon newWeapon = RoomOptionGenerator.GenerateRandomWeapon(5, 10, 1, 0);
+                        GameObject newItem = Instantiate(Resources.Load<GameObject>("Misc/ItemDrop"), itemSpawnPt.position, Quaternion.identity);
+                        newItem.GetComponent<ItemDrop>().item = newWeapon;  
+                    }
+                    //floor 2 
+                    else if (GameManager.floor < 3)
+                    { 
+                        Weapon newWeapon = RoomOptionGenerator.GenerateRandomWeapon(3, 10, 5, 0);
+                        GameObject newItem = Instantiate(Resources.Load<GameObject>("Misc/ItemDrop"), itemSpawnPt.position, Quaternion.identity);
+                        newItem.GetComponent<ItemDrop>().item = newWeapon;
+                    }
+                    //floor 3
+                    else if (GameManager.floor < 4)
+                    {
+                        Weapon newWeapon = RoomOptionGenerator.GenerateRandomWeapon(2, 8, 5, 0);
+                        GameObject newItem = Instantiate(Resources.Load<GameObject>("Misc/ItemDrop"), itemSpawnPt.position, Quaternion.identity);
+                        newItem.GetComponent<ItemDrop>().item = newWeapon;
+                    }
+                    //floor 4,5,6
+                    else if (GameManager.floor < 7)
+                    {
+                        Weapon newWeapon = RoomOptionGenerator.GenerateRandomWeapon(0, 5, 5, 1);
+                        GameObject newItem = Instantiate(Resources.Load<GameObject>("Misc/ItemDrop"), itemSpawnPt.position, Quaternion.identity);
+                        newItem.GetComponent<ItemDrop>().item = newWeapon;
+                    }
+                    //floor 6+
+                    else 
+                    {
+                        Weapon newWeapon = RoomOptionGenerator.GenerateRandomWeapon(0, 3, 4, 3);
+                        GameObject newItem = Instantiate(Resources.Load<GameObject>("Misc/ItemDrop"), itemSpawnPt.position, Quaternion.identity);
+                        newItem.GetComponent<ItemDrop>().item = newWeapon;
+                    }
                 }
                 break;
             case rewardTypes.randomArmor:
                 {
-                    Armor newArmor = RoomOptionGenerator.GenerateRandomArmor();
-                    GameObject newItem = Instantiate(Resources.Load<GameObject>("Misc/ItemDrop"), itemSpawnPt.position, Quaternion.identity);
-                    newItem.GetComponent<ItemDrop>().item = newArmor;
+                    //floor 1
+                    if (GameManager.floor < 2)
+                    {
+                        Armor newArmor = RoomOptionGenerator.GenerateRandomArmor(5, 10, 1, 0);
+                        GameObject newItem = Instantiate(Resources.Load<GameObject>("Misc/ItemDrop"), itemSpawnPt.position, Quaternion.identity);
+                        newItem.GetComponent<ItemDrop>().item = newArmor;
+                    }
+                    //floor 2 
+                    else if (GameManager.floor < 3)
+                    {
+                        Armor newArmor = RoomOptionGenerator.GenerateRandomArmor(3, 10, 5, 0);
+                        GameObject newItem = Instantiate(Resources.Load<GameObject>("Misc/ItemDrop"), itemSpawnPt.position, Quaternion.identity);
+                        newItem.GetComponent<ItemDrop>().item = newArmor;
+                    }
+                    //floor 3
+                    else if (GameManager.floor < 4)
+                    {
+                        Armor newArmor = RoomOptionGenerator.GenerateRandomArmor(2, 8, 5, 0);
+                        GameObject newItem = Instantiate(Resources.Load<GameObject>("Misc/ItemDrop"), itemSpawnPt.position, Quaternion.identity);
+                        newItem.GetComponent<ItemDrop>().item = newArmor;
+                    }
+                    //floor 4,5,6
+                    else if (GameManager.floor < 7)
+                    {
+                        Armor newArmor = RoomOptionGenerator.GenerateRandomArmor(0, 5, 5, 1);
+                        GameObject newItem = Instantiate(Resources.Load<GameObject>("Misc/ItemDrop"), itemSpawnPt.position, Quaternion.identity);
+                        newItem.GetComponent<ItemDrop>().item = newArmor;
+                    }
+                    //floor 6+
+                    else
+                    {
+                        Armor newArmor = RoomOptionGenerator.GenerateRandomArmor(0, 3, 4, 3);
+                        GameObject newItem = Instantiate(Resources.Load<GameObject>("Misc/ItemDrop"), itemSpawnPt.position, Quaternion.identity);
+                        newItem.GetComponent<ItemDrop>().item = newArmor;
+                    }
                 }
                 break;
         }

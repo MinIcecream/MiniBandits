@@ -20,7 +20,7 @@ public class InventorySlot : MonoBehaviour
         inven = GameObject.FindWithTag("Inventory").GetComponent<PlayerInventory>();
     }
     public Item GetItem()
-    {
+    { 
         return item;
     }
 

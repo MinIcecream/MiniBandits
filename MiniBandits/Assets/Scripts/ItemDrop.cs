@@ -4,16 +4,13 @@ using UnityEngine;
 using System.Linq;
 using TMPro;
 
-public class ItemDrop : MonoBehaviour
+public class ItemDrop :  Interactable
 {
     public SpriteRenderer backgroundColor;
-
-    public GameObject popup;
+     
     public Item item; 
 
-    InventorySlot selectedSlot;
-
-    public TextMeshProUGUI tmp;
+    InventorySlot selectedSlot; 
 
     void Awake()
     { 
@@ -23,42 +20,21 @@ public class ItemDrop : MonoBehaviour
     {
         yield return new WaitForSeconds(0.01f);
         UpdateItem();
-    }
-    void OnTriggerEnter2D(Collider2D coll)
-    {
-        if (coll.gameObject.tag != "Player")
-        {
-            return;
-        }
-        popup.SetActive(true);
-        popup.transform.position = new Vector2(transform.position.x, transform.position.y + 1);
-    }
-    void OnTriggerExit2D(Collider2D coll)
-    {
-        if (coll.gameObject.tag != "Player")
-        {
-            return;
-        }
-        popup.SetActive(false); 
-    }
-
-    void Update()
-    {
+    }  
+    public override void Interact()
+    { 
         if (GameObject.FindWithTag("Inventory") == null)
         {
             return;
         }
-        if (popup.activeSelf && Input.GetKeyDown("e"))
-        {
-            PlayerInventory inventory = GameObject.FindWithTag("Inventory").GetComponent<PlayerInventory>();
+        PlayerInventory inventory = GameObject.FindWithTag("Inventory").GetComponent<PlayerInventory>();
 
-               if (inventory.AvailableSlot(item))
-               {
-                   inventory.AddItemToInventory(item);
-                   Destroy(gameObject);
-               } 
+        if (inventory.AvailableSlot(item))
+        {
+            inventory.AddItemToInventory(item);
+            Destroy(gameObject);
         }
-    } 
+    }
     public void UpdateItem()
     { 
         if (item != null)
@@ -67,7 +43,7 @@ public class ItemDrop : MonoBehaviour
             color.a = 0.3f;
             backgroundColor.color = color;
            
-            tmp.text =item.name + "\n[E to interact]";
+            popup.GetComponent<TextMeshPro>().text =item.displayName + "\n[E to interact]";
             GetComponent<SpriteRenderer>().sprite = item.sprite;
         }
         else

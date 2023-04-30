@@ -8,7 +8,7 @@ public class Health : MonoBehaviour
     public int health;
     public int maxHealth;
 
-    public virtual void Start()
+    public virtual void Awake()
     {
         health = maxHealth;
     }
@@ -45,5 +45,10 @@ public class Health : MonoBehaviour
     {
         maxHealth = h;
         health = maxHealth;
+    }
+    public void AddMaxAndCurrentHealth(int h)
+    {
+        maxHealth += h;
+        health += h;
     }
 }

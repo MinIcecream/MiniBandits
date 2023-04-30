@@ -397,7 +397,7 @@ MonoBehaviour:
   hasDied: 0
   player: {fileID: 0}
   canMove: 0
-  damage: 300
+  damage: 250
   firing: 0
   chaseSpeed: 5
   attackDistance: 5

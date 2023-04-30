@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Shopkeep : MonoBehaviour
+public class Shopkeep : Interactable
 {
     public Transform[] itemPos;
 
     public List<GameObject> itemDrops = new List<GameObject>();
 
-    public GameObject itemPrefab,popup;
+    public GameObject itemPrefab;
 
     PlayerInventory inven;
 
@@ -18,44 +18,24 @@ public class Shopkeep : MonoBehaviour
         inven = GameObject.FindWithTag("Inventory").GetComponent<PlayerInventory>(); 
         popup.GetComponent<TextMeshPro>().text = "10 gold to refresh shop";
         SetItems();
-    }
-    void OnTriggerEnter2D(Collider2D coll)
-    { 
-        if (coll.gameObject.tag != "Player")
+    }  
+    public override void Interact()
+    {   
+        if (GameObject.FindWithTag("Player") == null)
         {
             return;
         }
-        popup.SetActive(true);
-        popup.transform.position = new Vector2(transform.position.x, transform.position.y + 1.5f);
-        
-    }
-    void OnTriggerExit2D(Collider2D coll)
-    {
-        if (coll.gameObject.tag != "Player")
+        if (GameObject.FindWithTag("Player").GetComponent<GoldManager>().GetGold() >= 10)
         {
-            return;
-        }
-        popup.SetActive(false);
-    }
-    void Update()
-    {  
-        if (popup.activeSelf && Input.GetKeyDown("e"))
-        {
-            if (GameObject.FindWithTag("Player") == null)
-            {
-                return;
-            }
-            if (GameObject.FindWithTag("Player").GetComponent<GoldManager>().GetGold() >= 10)
-            {
-                GameObject.FindWithTag("Player").GetComponent<GoldManager>().SpendGold(10);
+            GameObject.FindWithTag("Player").GetComponent<GoldManager>().SpendGold(10);
 
-                SetItems();
-            }
-            else
-            {
-                Debug.Log("YOU BROKE LOL");
-            }
+            SetItems();
         }
+        else
+        {
+            Debug.Log("YOU BROKE LOL");
+        }
+         
     }
     void SetItems()
     { 
@@ -86,11 +66,11 @@ public class Shopkeep : MonoBehaviour
 
             if (Random.Range(0, 3) < 2)
             {
-                newItem = RoomOptionGenerator.GenerateRandomArmor();
+                newItem = RoomOptionGenerator.GenerateRandomArmor(3,15,5,1);
             }
             else
             {
-                newItem = RoomOptionGenerator.GenerateRandomWeapon();
+                newItem = RoomOptionGenerator.GenerateRandomWeapon(3, 15, 5, 1);
             }
 
             //if this item is already in the list or in the player's inventory, regenerate it.
@@ -98,11 +78,11 @@ public class Shopkeep : MonoBehaviour
             {
                 if (Random.Range(0, 3) < 2)
                 {
-                    newItem = RoomOptionGenerator.GenerateRandomArmor();
+                    newItem = RoomOptionGenerator.GenerateRandomArmor(3, 15, 5, 1);
                 }
                 else
                 {
-                    newItem = RoomOptionGenerator.GenerateRandomWeapon();
+                    newItem = RoomOptionGenerator.GenerateRandomWeapon(3,15,5,1);
                 }
             }
             itemsToReturn.Add(newItem);

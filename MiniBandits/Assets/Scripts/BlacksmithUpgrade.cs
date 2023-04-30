@@ -4,11 +4,8 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class BlacksmithUpgrade : MonoBehaviour,ISelectFromInventory
-{
-    [SerializeField]
-    GameObject popup;
-
+public class BlacksmithUpgrade : Interactable,ISelectFromInventory
+{ 
     [HideInInspector]
     public InventorySlot slot;
 
@@ -21,30 +18,10 @@ public class BlacksmithUpgrade : MonoBehaviour,ISelectFromInventory
     [SerializeField]
     Image image;
 
-    bool used; 
-     
+    bool used;  
 
     public Item testItem;
-    
-    void OnTriggerEnter2D(Collider2D coll)
-    {
-        if (!used)
-        {
-            if (coll.gameObject.tag != "Player")
-            {
-                return;
-            }
-            popup.SetActive(true); 
-        }
-    }
-    void OnTriggerExit2D(Collider2D coll)
-    {
-        if (coll.gameObject.tag != "Player")
-        {
-            return;
-        }
-        popup.SetActive(false);
-    }
+     
 
     void Update()
     {
@@ -55,18 +32,18 @@ public class BlacksmithUpgrade : MonoBehaviour,ISelectFromInventory
                 Reset();
                 canvas.SetActive(false);
             }
-        }
-        if (popup.activeSelf && Input.GetKeyDown("e"))
-        {
-            if (GameObject.FindWithTag("Player") == null)
-            {
-                return;
-            }
-            PlayerInventory inventory = GameObject.FindWithTag("Inventory").GetComponent<PlayerInventory>();
-
-            canvas.SetActive(true);
-            inventory.OpenInventory(this); 
         } 
+    }
+    public override void Interact()
+    {
+        if (GameObject.FindWithTag("Player") == null)
+        {
+            return;
+        }
+        PlayerInventory inventory = GameObject.FindWithTag("Inventory").GetComponent<PlayerInventory>();
+
+        canvas.SetActive(true);
+        inventory.OpenInventory(this);
     }
     public void SelectInventoryItem(InventorySlot s)
     {
@@ -77,7 +54,7 @@ public class BlacksmithUpgrade : MonoBehaviour,ISelectFromInventory
     }
     public void UpgradeItem()
     { 
-        if (slot.item == null)
+        if (slot==null || slot.GetItem() == null)
         {
             return;
         }

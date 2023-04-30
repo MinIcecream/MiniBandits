@@ -129,7 +129,7 @@ public class GiantSpider : EnemyAI, IDamageable
         }
         yield return new WaitForSeconds(0.5f);
         Vector2 target = player.transform.position;
-        Instantiate(damageIndicator, target, Quaternion.identity);
+        GetComponent<AttackIndicator>().GenerateAttackIndicator(target);
 
         yield return new WaitForSeconds(0.4f);
 

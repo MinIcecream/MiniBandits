@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FireSpirit : MonoBehaviour
 {
-    int damage = 20;
+    public int damage = 20;
     List<IDamageable> damageables = new List<IDamageable>();
 
     void Awake()

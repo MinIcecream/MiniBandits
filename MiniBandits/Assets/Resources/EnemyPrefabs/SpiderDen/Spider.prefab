@@ -252,7 +252,7 @@ MonoBehaviour:
   hasDied: 0
   player: {fileID: 0}
   canMove: 0
-  damage: 250
+  damage: 100
   projectile: {fileID: 7777877402851561955, guid: 009aa3cae4170e545a9a3788860f621b, type: 3}
   charging: 0
   collider: {fileID: 955569775507847288}

@@ -40,7 +40,7 @@ public class KnifeProjectile : BaseProjectile
             yield return null;
         }
 
-        if (parent == null)
+        if (parent == null || player==null)
         {
             Destroy(gameObject);
             yield break;

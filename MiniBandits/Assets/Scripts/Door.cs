@@ -45,7 +45,10 @@ public class Door : MonoBehaviour
                 break;
             case rewardTypes.blackSmith:
                 tmp.text = "Blacksmith";
-                break; 
+                break;
+            case rewardTypes.heart:
+                tmp.text = "Heart";
+                break;
 
         }
          

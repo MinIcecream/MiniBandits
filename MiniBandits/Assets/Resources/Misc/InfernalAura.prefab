@@ -4829,7 +4829,7 @@ MonoBehaviour:
   helmet: {fileID: 0}
   chestplate: {fileID: 0}
   pants: {fileID: 0}
-  baseDamage: 20
+  baseDamage: 80
   baseRadius: 2.2
 --- !u!58 &1153647047478311621
 CircleCollider2D:
