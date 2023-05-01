@@ -38,8 +38,7 @@ public class Interact : MonoBehaviour
             closestScript.ActivatePopup();
 
             if (Input.GetKeyDown("e"))
-            {
-                Debug.Log("FDF");
+            { 
                 closestScript.Interact();
             }
         }

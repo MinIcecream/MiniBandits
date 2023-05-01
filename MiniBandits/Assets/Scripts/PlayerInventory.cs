@@ -189,7 +189,11 @@ public class PlayerInventory : MonoBehaviour
 
     //returns true if inventory contains the item
     public bool InventoryContains(Item item)
-    { 
+    {
+        if (item == null)
+        {
+            return true;
+        }
         foreach(Item i in inventoryItems)
         {
             if (item == i)

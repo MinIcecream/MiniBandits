@@ -164,17 +164,29 @@ public class RoomOptionGenerator
         foreach (itemChance s in allWeapons)
         {
             totalWeight += s.chance; 
-        } 
-        int rand = Random.Range(0, totalWeight);
-        int cumulativeWeight = 0;
-        foreach (itemChance w in allWeapons)
-        {
-            cumulativeWeight += w.chance;
-            if (rand < cumulativeWeight)
-            {
-                return (Weapon)w.item;
-            }
         }
+
+        GameObject inventory = GameObject.FindWithTag("Inventory");
+        Weapon weaponToReturn = null;
+        if (inventory != null)
+        { 
+            while(inventory.GetComponent<PlayerInventory>().InventoryContains(weaponToReturn))
+            {
+                Debug.Log("FD");
+                int rand = Random.Range(0, totalWeight);
+                int cumulativeWeight = 0;
+                foreach (itemChance w in allWeapons)
+                {
+                    cumulativeWeight += w.chance;
+                    if (rand < cumulativeWeight)
+                    {
+                        weaponToReturn = (Weapon)w.item;
+                        break;
+                    }
+                } 
+            } 
+            return weaponToReturn;
+        } 
         return (Weapon)tempList[0];
     }
     public static Armor GenerateRandomArmor(int c, int u, int r, int e)
@@ -210,17 +222,27 @@ public class RoomOptionGenerator
         {
             totalWeight += s.chance;
         }
-        int rand = Random.Range(0, totalWeight);
-        int cumulativeWeight = 0;
-        foreach (itemChance w in allArmor)
-        {
-            cumulativeWeight += w.chance;
-            if (rand < cumulativeWeight)
+        GameObject inventory = GameObject.FindWithTag("Inventory");
+        Armor armorToReturn = null;
+        if (inventory != null)
+        { 
+            while (inventory.GetComponent<PlayerInventory>().InventoryContains(armorToReturn))
             {
-                return (Armor)w.item;
-            }
+                int rand = Random.Range(0, totalWeight);
+                int cumulativeWeight = 0;
+                foreach (itemChance w in allArmor)
+                {
+                    cumulativeWeight += w.chance;
+                    if (rand < cumulativeWeight)
+                    {
+                        armorToReturn = (Armor)w.item;
+                        break; 
+                    }
+                }
+            } 
+            return armorToReturn;
         }
-        return (Armor)tempList[0]; 
+        return (Armor)tempList[0];
     } 
 }
 

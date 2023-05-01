@@ -63,15 +63,19 @@ public class Shrine : Interactable
         {
             case shrineTypes.vitality:
                 player.GetComponent<Health>().Heal(200);
+                PopupManager.SpawnPopup(transform.position, "healed!",false);
                 break;
             case shrineTypes.defense:
                 player.GetComponent<PlayerStatusEffects>().BuffDefense(10, 10);
+                PopupManager.SpawnPopup(transform.position, "Defense Up!", false);
                 break;
             case shrineTypes.strength:
                 player.GetComponent<PlayerStatusEffects>().BuffStrength(10, 10);
+                PopupManager.SpawnPopup(transform.position, "Strength Up!", false);
                 break;
             case shrineTypes.speed:
                 player.GetComponent<PlayerStatusEffects>().BuffSpeed(10, 10);
+                PopupManager.SpawnPopup(transform.position, "Speed Up!", false);
                 break;
         }
     }
