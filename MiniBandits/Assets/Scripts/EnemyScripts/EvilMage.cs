@@ -65,7 +65,7 @@ public class EvilMage : EnemyAI, IDamageable
     //Shoot in a line that fills the screen
     IEnumerator SpawnLines()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.5f);
         for(int j = 0; j < 4; j++)
         { 
             if (j == 0||j==2)
@@ -104,7 +104,7 @@ public class EvilMage : EnemyAI, IDamageable
     }
     IEnumerator RapidFire()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.5f);
         for (int i =0; i < 10; i++)
         {
             if (player == null)

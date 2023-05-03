@@ -23,35 +23,54 @@ public class RoomGeneratorAlgorithm : MonoBehaviour
     { 
         if (gold.GetGold() <= 20)
         {
-            RoomOptionGenerator.rooms[1] = new roomConfig(0, rewardTypes.market, false);
-            RoomOptionGenerator.rooms[2] = new roomConfig(0, rewardTypes.blackSmith, false);
+            RoomOptionGenerator.rooms[1] = new roomConfig(0, rewardTypes.market, false, false);
+            RoomOptionGenerator.rooms[2] = new roomConfig(0, rewardTypes.blackSmith, false, false);
         }
         else if (gold.GetGold() < 40)
         {
-            RoomOptionGenerator.rooms[1] = new roomConfig(20, rewardTypes.market, false);
-            RoomOptionGenerator.rooms[2] = new roomConfig(20, rewardTypes.blackSmith, false);
+            RoomOptionGenerator.rooms[1] = new roomConfig(20, rewardTypes.market, false, false);
+            RoomOptionGenerator.rooms[2] = new roomConfig(20, rewardTypes.blackSmith, false, false);
         }
         else
         {
-            RoomOptionGenerator.rooms[1] = new roomConfig(40, rewardTypes.market, false);
-            RoomOptionGenerator.rooms[2] = new roomConfig(40, rewardTypes.blackSmith, false);
+            RoomOptionGenerator.rooms[1] = new roomConfig(40, rewardTypes.market, false, false);
+            RoomOptionGenerator.rooms[2] = new roomConfig(40, rewardTypes.blackSmith, false, false);
         }
 
         if (playerHealth.GetHealth() < playerHealth.GetMaxHealth()/4)
         { 
-            RoomOptionGenerator.rooms[5] = new roomConfig(15, rewardTypes.vitalityShrine, true);
+            RoomOptionGenerator.rooms[5] = new roomConfig(15, rewardTypes.vitalityShrine, true, false);
         }
         else if (playerHealth.GetHealth() < playerHealth.GetMaxHealth())
         { 
-            RoomOptionGenerator.rooms[5] = new roomConfig(10, rewardTypes.vitalityShrine, true);
+            RoomOptionGenerator.rooms[5] = new roomConfig(10, rewardTypes.vitalityShrine, true, false);
         }
         else
         { 
-            RoomOptionGenerator.rooms[5] = new roomConfig(0, rewardTypes.vitalityShrine, true);
-        }  
+            RoomOptionGenerator.rooms[5] = new roomConfig(0, rewardTypes.vitalityShrine, true, false);
+        }
+        if (GameManager.floor < 3)
+        {
+            RoomOptionGenerator.rooms[10] = new roomConfig(0, rewardTypes.rareArmor, true, true);
+            RoomOptionGenerator.rooms[11] = new roomConfig(0, rewardTypes.rareArmor, true, true);
+        }
+        else
+        { 
+            RoomOptionGenerator.rooms[10] = new roomConfig(5, rewardTypes.rareArmor, true, true);
+            RoomOptionGenerator.rooms[11] = new roomConfig(5, rewardTypes.rareArmor, true, true);
+        }
+        if (GameManager.floor == 0 && GameManager.room == 0)
+        {
+            RoomOptionGenerator.rooms[13] = new roomConfig(0, rewardTypes.largeGold, true, true);
+        }
+        else
+        {
+            RoomOptionGenerator.rooms[13] = new roomConfig(5, rewardTypes.largeGold, true, true);
+        } 
 
         bool allowMarket = true;
         bool allowBlacksmith = true;
+        bool allowLocked = true;
         for (int i = RoomOptionGenerator.previouslyGeneratedRooms.Count-1; i > RoomOptionGenerator.previouslyGeneratedRooms.Count - 7; i--)
         {
             if (i < 0)
@@ -66,16 +85,24 @@ public class RoomGeneratorAlgorithm : MonoBehaviour
             {
                 allowMarket = false;
             }
+            if (RoomOptionGenerator.previouslyGeneratedRooms[i].locked)
+            {
+                allowLocked = false;
+            }
         }
         if (!allowBlacksmith)
         {
-            RoomOptionGenerator.rooms[2] = new roomConfig(0, rewardTypes.blackSmith, false);
+            RoomOptionGenerator.rooms[2] = new roomConfig(0, rewardTypes.blackSmith, false, false);
         }
         if (!allowMarket)
         {
-            RoomOptionGenerator.rooms[1] = new roomConfig(0, rewardTypes.market, false);
-        }
-     
-
+            RoomOptionGenerator.rooms[1] = new roomConfig(0, rewardTypes.market, false, false);
+        } 
+        if (!allowLocked)
+        {
+            RoomOptionGenerator.rooms[10] = new roomConfig(0, rewardTypes.rareArmor, true, true);
+            RoomOptionGenerator.rooms[11] = new roomConfig(0, rewardTypes.rareArmor, true, true);
+            RoomOptionGenerator.rooms[13] = new roomConfig(0, rewardTypes.largeGold, true, true);
+        } 
     }
 }

@@ -57,7 +57,7 @@ public class GiantSpider : EnemyAI, IDamageable
     IEnumerator AttackCooldown()
     {
         currentlyAttacking = false;
-        yield return new WaitForSeconds(Random.Range(5, 8));
+        yield return new WaitForSeconds(Random.Range(1, 3));
         canAttack = true;
     }
     //Shoot a bunch of projectiles at you
@@ -65,7 +65,7 @@ public class GiantSpider : EnemyAI, IDamageable
     //Shoot in a line that fills the screen
     IEnumerator Spawn()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.5f);
          
         float xMin = 0;
         float xMax = 0;
@@ -109,7 +109,7 @@ public class GiantSpider : EnemyAI, IDamageable
     }
     IEnumerator Ascend()
     { 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.5f);
 
         lineRen.enabled = true;
         GetComponent<Collider2D>().enabled = false;

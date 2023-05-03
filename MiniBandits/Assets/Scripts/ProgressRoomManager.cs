@@ -165,6 +165,32 @@ public class ProgressRoomManager : BaseRoomManager
                     Instantiate(Resources.Load<GameObject>("Misc/Coin"), new Vector2(x, y), Quaternion.identity);
                 }
                 break;
+
+            case rewardTypes.largeGold:
+                for (int i = 0; i < 12; i++)
+                {
+                    float x = UnityEngine.Random.Range(itemSpawnPt.position.x - 0.25f, itemSpawnPt.position.x + 0.25f);
+                    float y = UnityEngine.Random.Range(itemSpawnPt.position.y - 0.25f, itemSpawnPt.position.y + 0.25f);
+                    Instantiate(Resources.Load<GameObject>("Misc/Coin"), new Vector2(x, y), Quaternion.identity);
+                }
+                break;
+
+            case rewardTypes.key: 
+                Instantiate(Resources.Load<GameObject>("Misc/Key"), itemSpawnPt.position, Quaternion.identity);
+                break;
+
+            case rewardTypes.rareWeapon: 
+                Weapon newRareWeapon = RoomOptionGenerator.GenerateRandomWeapon(0, 0, 5, 5);
+                GameObject rareWeaponDrop = Instantiate(Resources.Load<GameObject>("Misc/ItemDrop"), itemSpawnPt.position, Quaternion.identity);
+                rareWeaponDrop.GetComponent<ItemDrop>().item = newRareWeapon;
+                break;
+
+            case rewardTypes.rareArmor:
+                Armor newRareArmor = RoomOptionGenerator.GenerateRandomArmor(0, 0, 5, 5);
+                GameObject rareArmorDrop = Instantiate(Resources.Load<GameObject>("Misc/ItemDrop"), itemSpawnPt.position, Quaternion.identity);
+                rareArmorDrop.GetComponent<ItemDrop>().item = newRareArmor;
+                break;
+
             case rewardTypes.randomWeapon:
                 {
                     //on floor 1, bad drops. Floor 3 it imporives. higher chance of rares. 5 even higher chance, even small chance of epics. 7+ high chance of epics.

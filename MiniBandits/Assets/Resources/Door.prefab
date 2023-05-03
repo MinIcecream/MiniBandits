@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 29784305874186305}
   - component: {fileID: 7895974761403356369}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ RectTransform:
   m_GameObject: {fileID: 879457603169399396}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1.6478753}
-  m_LocalScale: {x: 0.68446267, y: 0.715103, z: 1}
+  m_LocalScale: {x: 0.6844624, y: 0.7151029, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8316926483713495208}
@@ -172,6 +172,52 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 29784305874186305}
   m_maskType: 0
+--- !u!1 &1439412519089179773
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3486785268715494698}
+  - component: {fileID: 9177391585258148074}
+  m_Layer: 0
+  m_Name: LockedDoor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3486785268715494698
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439412519089179773}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.11887051, y: -0.02976232, z: 3.295344}
+  m_LocalScale: {x: 0.68446267, y: 0.715103, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8316926483713495208}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9177391585258148074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439412519089179773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd53f3fe46578fa478a250f3169e65d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popup: {fileID: 0}
+  parent: {fileID: 4853622945043093355}
 --- !u!1 &5143303285294886928
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,6 +250,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2353932852679417352}
+  - {fileID: 3486785268715494698}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -299,3 +346,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelMan: {fileID: 0}
   tmp: {fileID: 7895974761403356369}
+  locked: 0
+  lockedDoor: {fileID: 1439412519089179773}
+  lockedSprite: {fileID: 21300000, guid: c0ddc29bb4fe6a94ca4e15eaf4532a51, type: 3}
+  unlockedSprite: {fileID: 21300000, guid: 1d3b6b504004dcc438ce32338b207253, type: 3}

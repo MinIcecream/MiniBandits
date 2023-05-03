@@ -54,7 +54,7 @@ public class Overlord : EnemyAI, IDamageable
     IEnumerator AttackCooldown()
     {
         currentlyAttacking = false;
-        yield return new WaitForSeconds(Random.Range(5, 8));
+        yield return new WaitForSeconds(Random.Range(1, 3));
         canAttack = true;
     }
     //Shoot a bunch of projectiles at you
@@ -115,7 +115,7 @@ public class Overlord : EnemyAI, IDamageable
     }
     IEnumerator Shockwave()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.5f);
 
         for( int i =0; i<3; i++)
         { 

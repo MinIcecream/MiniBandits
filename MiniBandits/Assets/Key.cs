@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Coin : MonoBehaviour
+public class Key : MonoBehaviour
 {
     GameObject player;
-    bool followPlayer = false; 
+    bool followPlayer = false;
     [SerializeField] float speed;
 
     void Start()
     {
-        player = GameObject.FindWithTag("Player"); 
+        player = GameObject.FindWithTag("Player");
     }
     void FixedUpdate()
-    { 
+    {
         if (player == null)
         {
             return;
@@ -23,7 +23,7 @@ public class Coin : MonoBehaviour
             followPlayer = true;
         }
         if (followPlayer)
-        { 
+        {
             Vector2 dir = player.transform.position - transform.position;
             transform.position += (Vector3)(dir.normalized * Time.deltaTime * speed);
         }
@@ -33,8 +33,8 @@ public class Coin : MonoBehaviour
     {
         if (coll.gameObject.tag == "Player")
         {
-            player.GetComponent<GoldManager>().AddGold(2);
-            PopupManager.SpawnPopup(coll.gameObject.transform.position, "+2 gold", false);
+            player.GetComponent<KeyManager>().AddKeys(1);
+            PopupManager.SpawnPopup(coll.gameObject.transform.position, "+1 key", false);
             Destroy(gameObject);
         }
     }

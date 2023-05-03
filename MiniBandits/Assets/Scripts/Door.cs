@@ -12,7 +12,11 @@ public class Door : MonoBehaviour
     FloorManager floorMan;
 
     public TextMeshPro tmp;
-     
+
+    public bool locked;
+
+    public GameObject lockedDoor;
+    public Sprite lockedSprite, unlockedSprite;
     public void SetReward(roomConfig r)
     {
         room = r; 
@@ -49,19 +53,45 @@ public class Door : MonoBehaviour
             case rewardTypes.heart:
                 tmp.text = "Heart";
                 break;
-
+            case rewardTypes.rareWeapon:
+                tmp.text = "Rare Weapon";
+                break; 
+            case rewardTypes.rareArmor:
+                tmp.text = "Rare Armor";
+                break;
+            case rewardTypes.key:
+                tmp.text = "Key";
+                break;
+            case rewardTypes.largeGold:
+                tmp.text = "A Lot of Gold";
+                break;
         }
-         
+
+        if (r.locked)
+        {
+            locked = true;
+            lockedDoor.SetActive(true);
+            GetComponent<SpriteRenderer>().sprite = lockedSprite;
+        }
+    }
+    public void Unlock()
+    { 
+        locked = false;
+        Destroy(lockedDoor);
+        GetComponent<SpriteRenderer>().sprite = unlockedSprite;
     }
 
     void OnTriggerStay2D(Collider2D coll)
     {
-        floorMan = GameObject.FindWithTag("FloorManager").GetComponent<FloorManager>();
-
-        if (coll.gameObject.tag == "Player")
+        if (!locked)
         { 
-            levelMan.TransitionToNextRoom(room);
-            Destroy(this);
-        }
+            floorMan = GameObject.FindWithTag("FloorManager").GetComponent<FloorManager>();
+
+            if (coll.gameObject.tag == "Player")
+            {
+                levelMan.TransitionToNextRoom(room);
+                Destroy(this);
+            }
+        } 
     } 
 }

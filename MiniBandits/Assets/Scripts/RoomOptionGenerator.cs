@@ -21,6 +21,7 @@ namespace RoomInfo
     public enum rewardTypes
     {
         gold,
+        largeGold,
         randomWeapon,
         randomArmor,
         vitalityShrine,
@@ -32,7 +33,8 @@ namespace RoomInfo
         starter,
         rareArmor,
         rareWeapon,
-        heart
+        heart,
+        key
     }   
     struct itemChance
     {
@@ -47,13 +49,15 @@ namespace RoomInfo
     public struct roomConfig{
         public int chance;
         public rewardTypes reward;
-        public bool progressRoom; 
+        public bool progressRoom;
+        public bool locked;
 
-        public roomConfig(int c, rewardTypes r, bool p)
+        public roomConfig(int c, rewardTypes r, bool p, bool l)
         {
             chance = c;
             reward = r;
             progressRoom = p;
+            locked = l;
         }
     }
 }
@@ -62,19 +66,21 @@ public class RoomOptionGenerator
     public static List<roomConfig> previouslyGeneratedRooms = new List<roomConfig>();
     public static List<roomConfig> rooms = new List<roomConfig>() 
     { 
-        new roomConfig(0, rewardTypes.starter, false),
-        new roomConfig(15, rewardTypes.market, false),
-        new roomConfig(15, rewardTypes.blackSmith, false),
-        new roomConfig(20, rewardTypes.randomWeapon, true),
-        new roomConfig(20, rewardTypes.randomArmor, true),
-        new roomConfig(5, rewardTypes.vitalityShrine, true),
-        new roomConfig(5, rewardTypes.defenseShrine, true),
-        new roomConfig(5, rewardTypes.powerShrine, true),
-        new roomConfig(5, rewardTypes.speedShrine, true),
-        new roomConfig(50, rewardTypes.gold, true),
-        new roomConfig(0, rewardTypes.rareWeapon, true),
-        new roomConfig(0, rewardTypes.rareWeapon, true),
-        new roomConfig(5, rewardTypes.heart, true),
+        new roomConfig(0, rewardTypes.starter, false, false),
+        new roomConfig(15, rewardTypes.market, false, false),
+        new roomConfig(15, rewardTypes.blackSmith, false, false),
+        new roomConfig(20, rewardTypes.randomWeapon, true, false),
+        new roomConfig(20, rewardTypes.randomArmor, true, false),
+        new roomConfig(5, rewardTypes.vitalityShrine, true, false),
+        new roomConfig(5, rewardTypes.defenseShrine, true, false),
+        new roomConfig(5, rewardTypes.powerShrine, true, false),
+        new roomConfig(5, rewardTypes.speedShrine, true, false),
+        new roomConfig(50, rewardTypes.gold, true, false),
+        new roomConfig(5, rewardTypes.rareWeapon, true, true),
+        new roomConfig(5, rewardTypes.rareArmor, true, true),
+        new roomConfig(5, rewardTypes.heart, true, false),
+        new roomConfig(5, rewardTypes.largeGold, true, true),
+        new roomConfig(20, rewardTypes.key, true, false)
     };
      
     public static roomThemes[] GenerateRoomThemes(int numThemes)
@@ -169,10 +175,16 @@ public class RoomOptionGenerator
         GameObject inventory = GameObject.FindWithTag("Inventory");
         Weapon weaponToReturn = null;
         if (inventory != null)
-        { 
+        {
+            int sup = 0;
             while(inventory.GetComponent<PlayerInventory>().InventoryContains(weaponToReturn))
             {
-                Debug.Log("FD");
+                sup++;
+                if (sup > 20)
+                {
+                    Debug.Log("NOOOO");
+                    break;
+                }
                 int rand = Random.Range(0, totalWeight);
                 int cumulativeWeight = 0;
                 foreach (itemChance w in allWeapons)
@@ -183,7 +195,8 @@ public class RoomOptionGenerator
                         weaponToReturn = (Weapon)w.item;
                         break;
                     }
-                } 
+                }
+                Debug.Log(weaponToReturn);
             } 
             return weaponToReturn;
         } 
