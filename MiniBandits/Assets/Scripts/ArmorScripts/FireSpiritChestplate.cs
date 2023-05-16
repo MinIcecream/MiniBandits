@@ -13,7 +13,7 @@ public class FireSpiritChestplate : ArmorTemplate
         player = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
 
         StartCoroutine(SpawnSpirits());
-    }
+    } 
     IEnumerator SpawnSpirits()
     {
         while (true)

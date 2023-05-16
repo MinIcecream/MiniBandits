@@ -7,9 +7,8 @@ public class StarterRoomManager : BaseRoomManager
 {
     public GameObject level;   
 
-    public override void Awake()
-    {
-        base.Awake();
+    public void Start()
+    { 
         EndRoom();
     }
       

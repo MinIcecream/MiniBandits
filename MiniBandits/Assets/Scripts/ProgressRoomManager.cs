@@ -205,7 +205,7 @@ public class ProgressRoomManager : BaseRoomManager
                     //floor 2 
                     else if (GameManager.floor < 3)
                     { 
-                        Weapon newWeapon = RoomOptionGenerator.GenerateRandomWeapon(3, 10, 5, 0);
+                        Weapon newWeapon = RoomOptionGenerator.GenerateRandomWeapon(3, 10, 3, 0);
                         GameObject newItem = Instantiate(Resources.Load<GameObject>("Misc/ItemDrop"), itemSpawnPt.position, Quaternion.identity);
                         newItem.GetComponent<ItemDrop>().item = newWeapon;
                     }
@@ -244,7 +244,7 @@ public class ProgressRoomManager : BaseRoomManager
                     //floor 2 
                     else if (GameManager.floor < 3)
                     {
-                        Armor newArmor = RoomOptionGenerator.GenerateRandomArmor(3, 10, 5, 0);
+                        Armor newArmor = RoomOptionGenerator.GenerateRandomArmor(3, 10, 3, 0);
                         GameObject newItem = Instantiate(Resources.Load<GameObject>("Misc/ItemDrop"), itemSpawnPt.position, Quaternion.identity);
                         newItem.GetComponent<ItemDrop>().item = newArmor;
                     }

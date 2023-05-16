@@ -104,13 +104,12 @@ public class PlayerMovement : MonoBehaviour, IDamageable
         GetComponent<PlayerStamina>().UseStamina(1);
         Vector2 dashDirection = move.normalized;
         Vector2 dashDistance = (Vector2)move.normalized * dashMagnitude;
-        GetComponent<Collider2D>().enabled = false;
+        GetComponent<PlayerHealth>().MakeInvincible(); 
         GetComponent<Rigidbody2D>().AddForce(dashDistance/15);
         //transform.position = hitPoint(dashDirection, dashMagnitude);
 
         yield return new WaitForSeconds(dashTime);
-        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        GetComponent<Collider2D>().enabled = true;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero; 
         dashTrail.emitting = false;
     }
 

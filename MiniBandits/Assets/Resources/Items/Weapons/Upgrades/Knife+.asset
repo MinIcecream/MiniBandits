@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   displayName: Knife+
-  referenceName: Knife+
+  referenceName: Knife
   sprite: {fileID: 21300000, guid: 7909d551e710c134db417646a79dadaf, type: 3}
   cost: 20
   rarity: 1
   type: 0
   tier: 1
   description: Stabby
-  color: {r: 255, g: 255, b: 255, a: 1}
+  color: {r: 0, g: 242, b: 0, a: 1}
   damage: 80
   attackSpeed: 3.1
   manualDPS: 0

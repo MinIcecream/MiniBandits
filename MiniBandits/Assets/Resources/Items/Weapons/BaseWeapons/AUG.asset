@@ -16,12 +16,16 @@ MonoBehaviour:
   displayName: AUG
   referenceName: AUG
   sprite: {fileID: 21300000, guid: 851f50d42ff7f4e429356ddfb94330f0, type: 3}
-  cost: 10
+  cost: 20
   rarity: 1
   type: 0
   tier: 0
   description: 
-  color: {r: 255, g: 255, b: 255, a: 1}
+  color: {r: 0, g: 242, b: 0, a: 1}
   damage: 55
   attackSpeed: 1
   manualDPS: 165
+  numProjectiles: 0
+  AOE: 0
+  projectileSpeed: 0
+  stats: 0

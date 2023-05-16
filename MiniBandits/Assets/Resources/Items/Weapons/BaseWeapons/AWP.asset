@@ -21,7 +21,11 @@ MonoBehaviour:
   type: 0
   tier: 0
   description: 'Very powerful. '
-  color: {r: 255, g: 255, b: 255, a: 1}
+  color: {r: 0, g: 242, b: 0, a: 1}
   damage: 220
   attackSpeed: 0.85
   manualDPS: 0
+  numProjectiles: 0
+  AOE: 0
+  projectileSpeed: 0
+  stats: 8

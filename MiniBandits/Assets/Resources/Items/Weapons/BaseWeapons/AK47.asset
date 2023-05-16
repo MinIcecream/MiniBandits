@@ -16,12 +16,16 @@ MonoBehaviour:
   displayName: AK-47
   referenceName: AK47
   sprite: {fileID: 21300000, guid: 52c803d7bebe8fc44a6d2ecab6fae705, type: 3}
-  cost: 15
+  cost: 30
   rarity: 2
   type: 0
   tier: 0
   description: Shoots fast.
-  color: {r: 255, g: 255, b: 255, a: 1}
+  color: {r: 0, g: 137, b: 255, a: 1}
   damage: 60
   attackSpeed: 4
   manualDPS: 0
+  numProjectiles: 0
+  AOE: 0
+  projectileSpeed: 0
+  stats: -1

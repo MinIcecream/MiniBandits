@@ -58,7 +58,7 @@ public class ShimmeringRing : BaseProjectile
         float rotationAngle = Mathf.Clamp(angleToPlayer, -20, 20);
          
         // Rotate the object's velocity towards the direction to the player
-        Vector2 newVelocity = Quaternion.Euler(0f, 0f, rotationAngle) * rb.velocity;
+        Vector2 newVelocity = Quaternion.Euler(0f, 0f, rotationAngle) * rb.velocity * Time.deltaTime;
 
         // Set the magnitude of the new velocity to the original magnitude
         newVelocity = newVelocity.normalized * rb.velocity.magnitude;

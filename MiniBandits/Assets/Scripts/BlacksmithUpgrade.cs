@@ -51,6 +51,7 @@ public class BlacksmithUpgrade : Interactable,ISelectFromInventory
         text.text = "Upgrade "+ s.item.displayName+" for "+s.item.cost;
         slot = s;
         image.sprite = s.item.sprite;
+        image.preserveAspect = true;
     }
     public void UpgradeItem()
     { 
@@ -60,15 +61,23 @@ public class BlacksmithUpgrade : Interactable,ISelectFromInventory
         }
 
         Item upgradedItem;
+
+        string weaponName = slot.item.referenceName;
+
+        for (int i = 0; i < slot.item.tier+1; i++)
+        {
+            weaponName += "+";
+        } 
         if (slot.item.type == Item.itemType.weapon)
         {
-            upgradedItem = Resources.Load<Item>("Items/Weapons/Upgrades/" + slot.item.referenceName + "+");
+            upgradedItem = Resources.Load<Item>("Items/Weapons/Upgrades/" + weaponName);
         }
         else
         {
-            upgradedItem = Resources.Load<Item>("Items/Armor/Upgrades/" + slot.item.referenceName + "+");
+            upgradedItem = Resources.Load<Item>("Items/Armor/Upgrades/" + weaponName);
         }
-        Debug.Log("Items/Weapons/Upgrades/" + slot.item.referenceName + "+");
+        Debug.Log("Items/Weapons/Upgrades/"+ weaponName);
+
         if (upgradedItem == null)
         { 
             Debug.Log("No more upgrades!");

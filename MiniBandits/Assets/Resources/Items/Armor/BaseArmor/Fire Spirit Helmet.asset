@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ed522ac7decdb5458e99b454d171c91, type: 3}
+  m_Name: Fire Spirit Helmet
+  m_EditorClassIdentifier: 
+  id: 0
+  displayName: Fire Spirit Helmet
+  referenceName: Fire Spirit Helmet
+  sprite: {fileID: 263635232, guid: 7def91e5dd49fa5418dc741d25853bdc, type: 3}
+  cost: 20
+  rarity: 1
+  type: 1
+  tier: 0
+  description: Summons fire spirits
+  color: {r: 0, g: 242, b: 0, a: 1}
+  lifeSteal: 0
+  defense: 10
+  speed: 0
+  strength: 10
+  health: 0
+  crit: 0
+  luck: 0

@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class ArmorTemplate : MonoBehaviour
 {
-     
+    public Armor armor;
 }

@@ -41,14 +41,21 @@ public class PlayerHealth : Health
     {
         if (canDamage)
         {
-            StartCoroutine(InvulnerabilityFrames());
+            MakeInvincible();
             canDamage = false;
             health -= (int)(damage * (100.0 / (100 + player.defense*2)));
         } 
     }
-    IEnumerator InvulnerabilityFrames()
+    public void MakeInvincible()
+    { 
+        canDamage = false;
+        this.gameObject.layer = LayerMask.NameToLayer("OnlyWithTerrain");
+        StartCoroutine(InvulnerabilityFramesCooldown());
+    }
+    IEnumerator InvulnerabilityFramesCooldown()
     {
         yield return new WaitForSeconds(0.5f);
+        this.gameObject.layer = LayerMask.NameToLayer("Player");
         canDamage = true;
     }
 }

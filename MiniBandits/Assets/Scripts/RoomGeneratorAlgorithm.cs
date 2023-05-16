@@ -13,96 +13,78 @@ public class RoomGeneratorAlgorithm : MonoBehaviour
         playerHealth = GameObject.FindWithTag("Player").GetComponent<Health>();
         gold = GameObject.FindWithTag("Player").GetComponent<GoldManager>();
         UpdateOdds();
+        StartCoroutine(RefreshOdds());
     }
-    void Update()
+    IEnumerator RefreshOdds()
     {
-        UpdateOdds();
+        while (true)
+        {
+            yield return new WaitForSeconds(1f);
+            UpdateOdds();
+        }
     }
-
     void UpdateOdds()
-    { 
+    {
         if (gold.GetGold() <= 20)
         {
-            RoomOptionGenerator.rooms[1] = new roomConfig(0, rewardTypes.market, false, false);
-            RoomOptionGenerator.rooms[2] = new roomConfig(0, rewardTypes.blackSmith, false, false);
+            RoomOptionGenerator.ChangeRoomChance(rewardTypes.market, 0);
+            RoomOptionGenerator.ChangeRoomChance(rewardTypes.blackSmith, 0);
         }
         else if (gold.GetGold() < 40)
         {
-            RoomOptionGenerator.rooms[1] = new roomConfig(20, rewardTypes.market, false, false);
-            RoomOptionGenerator.rooms[2] = new roomConfig(20, rewardTypes.blackSmith, false, false);
+            RoomOptionGenerator.ChangeRoomChance(rewardTypes.market, 20);
+            RoomOptionGenerator.ChangeRoomChance(rewardTypes.blackSmith, 20);
         }
         else
         {
-            RoomOptionGenerator.rooms[1] = new roomConfig(40, rewardTypes.market, false, false);
-            RoomOptionGenerator.rooms[2] = new roomConfig(40, rewardTypes.blackSmith, false, false);
+            RoomOptionGenerator.ChangeRoomChance(rewardTypes.market, 40);
+            RoomOptionGenerator.ChangeRoomChance(rewardTypes.blackSmith, 40);
         }
 
-        if (playerHealth.GetHealth() < playerHealth.GetMaxHealth()/4)
-        { 
-            RoomOptionGenerator.rooms[5] = new roomConfig(15, rewardTypes.vitalityShrine, true, false);
+        if (playerHealth.GetHealth() < playerHealth.GetMaxHealth() / 4)
+        {
+            RoomOptionGenerator.ChangeRoomChance(rewardTypes.vitalityShrine, 15); 
         }
         else if (playerHealth.GetHealth() < playerHealth.GetMaxHealth())
-        { 
-            RoomOptionGenerator.rooms[5] = new roomConfig(10, rewardTypes.vitalityShrine, true, false);
+        {
+            RoomOptionGenerator.ChangeRoomChance(rewardTypes.vitalityShrine, 10); 
         }
         else
-        { 
-            RoomOptionGenerator.rooms[5] = new roomConfig(0, rewardTypes.vitalityShrine, true, false);
+        {
+            RoomOptionGenerator.ChangeRoomChance(rewardTypes.vitalityShrine, 0);
         }
         if (GameManager.floor < 3)
         {
-            RoomOptionGenerator.rooms[10] = new roomConfig(0, rewardTypes.rareArmor, true, true);
-            RoomOptionGenerator.rooms[11] = new roomConfig(0, rewardTypes.rareArmor, true, true);
-        }
-        else
-        { 
-            RoomOptionGenerator.rooms[10] = new roomConfig(5, rewardTypes.rareArmor, true, true);
-            RoomOptionGenerator.rooms[11] = new roomConfig(5, rewardTypes.rareArmor, true, true);
-        }
-        if (GameManager.floor == 0 && GameManager.room == 0)
-        {
-            RoomOptionGenerator.rooms[13] = new roomConfig(0, rewardTypes.largeGold, true, true);
+            RoomOptionGenerator.ChangeRoomChance(rewardTypes.rareWeapon, 0);
+            RoomOptionGenerator.ChangeRoomChance(rewardTypes.rareArmor, 0); 
         }
         else
         {
-            RoomOptionGenerator.rooms[13] = new roomConfig(5, rewardTypes.largeGold, true, true);
-        } 
-
-        bool allowMarket = true;
-        bool allowBlacksmith = true;
-        bool allowLocked = true;
-        for (int i = RoomOptionGenerator.previouslyGeneratedRooms.Count-1; i > RoomOptionGenerator.previouslyGeneratedRooms.Count - 7; i--)
-        {
-            if (i < 0)
-            {
-                return;
-            }
-            if (RoomOptionGenerator.previouslyGeneratedRooms[i].reward == rewardTypes.blackSmith)
-            {
-                allowBlacksmith = false;
-            }
-            if (RoomOptionGenerator.previouslyGeneratedRooms[i].reward == rewardTypes.market)
-            {
-                allowMarket = false;
-            }
-            if (RoomOptionGenerator.previouslyGeneratedRooms[i].locked)
-            {
-                allowLocked = false;
-            }
+            RoomOptionGenerator.ChangeRoomChance(rewardTypes.rareWeapon, 5);
+            RoomOptionGenerator.ChangeRoomChance(rewardTypes.rareArmor, 5);
         }
-        if (!allowBlacksmith)
+        if (GameManager.floor == 1 && GameManager.room == 0)
         {
-            RoomOptionGenerator.rooms[2] = new roomConfig(0, rewardTypes.blackSmith, false, false);
+            RoomOptionGenerator.ChangeRoomChance(rewardTypes.largeGold, 0);  
         }
-        if (!allowMarket)
+        else
         {
-            RoomOptionGenerator.rooms[1] = new roomConfig(0, rewardTypes.market, false, false);
+            RoomOptionGenerator.ChangeRoomChance(rewardTypes.largeGold, 5); 
         } 
-        if (!allowLocked)
+        foreach (rewardTypes value in rewardTypes.GetValues(typeof(rewardTypes)))
         {
-            RoomOptionGenerator.rooms[10] = new roomConfig(0, rewardTypes.rareArmor, true, true);
-            RoomOptionGenerator.rooms[11] = new roomConfig(0, rewardTypes.rareArmor, true, true);
-            RoomOptionGenerator.rooms[13] = new roomConfig(0, rewardTypes.largeGold, true, true);
+            for (int i = RoomOptionGenerator.previouslyGeneratedRooms.Count - 1; i > RoomOptionGenerator.previouslyGeneratedRooms.Count - 7; i--)
+            {
+                if (i < 0)
+                {
+                    break ;
+                } 
+                if (RoomOptionGenerator.previouslyGeneratedRooms[i].reward == value)
+                {
+                    RoomOptionGenerator.ChangeRoomChance(value,0); 
+                } 
+            }
         } 
     }
+
 }

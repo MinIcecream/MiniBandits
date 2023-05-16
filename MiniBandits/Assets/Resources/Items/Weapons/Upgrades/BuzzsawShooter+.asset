@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   displayName: Buzzsaw Shooter+
-  referenceName: BuzzsawShooter+
+  referenceName: BuzzsawShooter
   sprite: {fileID: -875374849, guid: 3ddb661a72214d14e92048bd8c38e421, type: 3}
-  cost: 20
+  cost: 30
   rarity: 2
   type: 0
   tier: 1
   description: 
-  color: {r: 255, g: 255, b: 255, a: 1}
+  color: {r: 0, g: 137, b: 255, a: 1}
   damage: 90
   attackSpeed: 3
   manualDPS: 0

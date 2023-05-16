@@ -49,8 +49,9 @@ public class EquipWeapon : MonoBehaviour
         }
 
         //OTHERWISE:
-        //TIME TO UPDATE THE WEAPON!  
-        var weaponPrefab = Resources.Load<GameObject>("WeaponPrefabs/" + weapon.referenceName.Replace("+",""));
+        //TIME TO UPDATE THE WEAPON!   
+         
+        var weaponPrefab = Resources.Load<GameObject>("WeaponPrefabs/" + weapon.referenceName);
 
         if (weaponPrefab == null)
         {

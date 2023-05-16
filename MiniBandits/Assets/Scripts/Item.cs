@@ -30,19 +30,7 @@ public class Item : ScriptableObject
         uncommon,
         rare,
         epic
-    }
-    [System.Serializable]
-    public struct Stat
-    {
-        public string statName;
-        public int value;
-
-        public Stat(string n,int v)
-        {
-            statName = n;
-            value = v;
-        }
-    }  
+    } 
     void OnEnable()
     {  
         switch (rarity)

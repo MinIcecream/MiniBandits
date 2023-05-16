@@ -6,8 +6,23 @@ using UnityEngine;
 public class Weapon : Item
 {
     [Space(10)]
-    [Header("Stats")] 
+    [Header("Stats")]
     public int damage;
     public float attackSpeed;
-    public int manualDPS;
+
+
+    [SerializeField] public int manualDPS; 
+    [SerializeField] public int numProjectiles;
+    [SerializeField] public int AOE;
+    [SerializeField] public int projectileSpeed; 
+
+    [System.Flags] public enum Stats
+    {
+        manualDPS = 1,
+        numProjectiles = 2,
+        AOE = 4,
+        projectileSpeed = 8
+    }
+    public Stats stats;
+     
 }

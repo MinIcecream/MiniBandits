@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   displayName: Punch Gun++
-  referenceName: PunchGun+
+  referenceName: PunchGun
   sprite: {fileID: -740633431, guid: e366344d3f794a044b95493d6460044e, type: 3}
-  cost: 25
+  cost: 30
   rarity: 2
   type: 0
   tier: 1

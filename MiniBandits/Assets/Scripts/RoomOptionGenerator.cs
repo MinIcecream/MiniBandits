@@ -62,7 +62,7 @@ namespace RoomInfo
     }
 }
 public class RoomOptionGenerator
-{
+{ 
     public static List<roomConfig> previouslyGeneratedRooms = new List<roomConfig>();
     public static List<roomConfig> rooms = new List<roomConfig>() 
     { 
@@ -101,14 +101,14 @@ public class RoomOptionGenerator
         }
         return themes;
     } 
+
     public static List<roomConfig> GenerateRoomOptions(int numDoors)
     { 
         RoomOptionGenerator instance = new RoomOptionGenerator();
 
         List<roomConfig> roomOptions = new List<roomConfig>(numDoors); 
         List<roomConfig> alreadyAssignedRooms = new List<roomConfig>(); 
-        int totalWeight = 0;
-
+        int totalWeight = 0; 
         foreach(roomConfig s in rooms)
         {
             totalWeight += s.chance;
@@ -137,6 +137,7 @@ public class RoomOptionGenerator
         }
         return roomOptions;
     } 
+
     public static Weapon GenerateRandomWeapon(int c, int u, int r, int e)
     {
         UnityEngine.Object[] tempList = Resources.LoadAll("Items/Weapons/BaseWeapons", typeof(Weapon));
@@ -196,7 +197,7 @@ public class RoomOptionGenerator
                         break;
                     }
                 }
-                Debug.Log(weaponToReturn);
+                //Debug.Log(weaponToReturn);
             } 
             return weaponToReturn;
         } 
@@ -204,7 +205,7 @@ public class RoomOptionGenerator
     }
     public static Armor GenerateRandomArmor(int c, int u, int r, int e)
     { 
-        UnityEngine.Object[] tempList = Resources.LoadAll("Items/Armor", typeof(Armor));
+        UnityEngine.Object[] tempList = Resources.LoadAll("Items/Armor/BaseArmor", typeof(Armor));
         List<itemChance> allArmor = new List<itemChance>();
          
         foreach (Armor a in tempList)
@@ -238,9 +239,16 @@ public class RoomOptionGenerator
         GameObject inventory = GameObject.FindWithTag("Inventory");
         Armor armorToReturn = null;
         if (inventory != null)
-        { 
+        {
+            int sup = 0;
             while (inventory.GetComponent<PlayerInventory>().InventoryContains(armorToReturn))
             {
+                sup++;
+                if (sup > 20)
+                {
+                    Debug.Log("NOOOO");
+                    break;
+                }
                 int rand = Random.Range(0, totalWeight);
                 int cumulativeWeight = 0;
                 foreach (itemChance w in allArmor)
@@ -252,11 +260,24 @@ public class RoomOptionGenerator
                         break; 
                     }
                 }
+                //Debug.Log(armorToReturn);
             } 
             return armorToReturn;
         }
         return (Armor)tempList[0];
     } 
+    public static void ChangeRoomChance(rewardTypes reward, int c)
+    { 
+        for(int i = 0; i<rooms.Count;i++)
+        {
+            if (rooms[i].reward == reward)
+            { 
+                roomConfig myRoom = rooms[i];
+                myRoom.chance = c;
+                rooms[i] = myRoom;
+            }
+        }  
+    }
 }
 
  

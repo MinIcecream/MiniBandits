@@ -39,7 +39,7 @@ public class UpdateArmorSprite : MonoBehaviour
         //IF HELMET IS EQUIPPED:
         if (helmet)
         {
-            string helmetType = helmet.name.Replace(" ", "");
+            string helmetType = helmet.referenceName.Replace(" ", "");
 
             //IF THAT ARMOR HAS A SCRIPT:
             if (Type.GetType(helmetType) != null)
@@ -68,7 +68,7 @@ public class UpdateArmorSprite : MonoBehaviour
         //IF CHESTPLATE IS EQUIPPED:
         if (chestplate)
         {
-            string typeName = chestplate.name.Replace(" ", "");
+            string typeName = chestplate.referenceName.Replace(" ", "");
 
             //IF THAT ARMOR HAS A SCRIPT:
             if (Type.GetType(typeName) != null)
@@ -99,7 +99,7 @@ public class UpdateArmorSprite : MonoBehaviour
         //IF PANTS IS EQUIPPED:
         if (pants)
         {
-            string pantsType = pants.name.Replace(" ", "");
+            string pantsType = pants.referenceName.Replace(" ", "");
 
             //IF THAT ARMOR HAS A SCRIPT:
             if (Type.GetType(pantsType) != null)

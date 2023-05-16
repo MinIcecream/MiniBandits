@@ -90,11 +90,11 @@ public class Overlord : EnemyAI, IDamageable
 
             if (angle > rotateAngle)
             {
-                laserDirection = Quaternion.Euler(0, 0, rotateAngle) * laserDirection;
+                laserDirection = Quaternion.Euler(0, 0, rotateAngle) * laserDirection*Time.deltaTime;
             }
             else if (angle < -rotateAngle)
             {
-                laserDirection = Quaternion.Euler(0, 0, -rotateAngle) * laserDirection;
+                laserDirection = Quaternion.Euler(0, 0, -rotateAngle) * laserDirection * Time.deltaTime;
             }
             else
             {

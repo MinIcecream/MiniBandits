@@ -21,6 +21,11 @@ MonoBehaviour:
   type: 0
   tier: 0
   description: 
+  color: {r: 255, g: 255, b: 255, a: 1}
   damage: 100
   attackSpeed: 1
   manualDPS: 0
+  numProjectiles: 0
+  AOE: 0
+  projectileSpeed: 0
+  stats: 0

@@ -66,13 +66,16 @@ public class GameManager : MonoBehaviour
     }
 
     public void GenerateNewFloor()
-    { 
+    {   
+        SceneManager.LoadScene("FloorTransition");
+        StartCoroutine(IncrementFloor());
+        Invoke("LoadNewFloorScene", 2.5f);
+    }
+    IEnumerator IncrementFloor()
+    {
+        yield return null;
         room = 0;
         floor++;
-
-        SceneManager.LoadScene("FloorTransition");
-
-        Invoke("LoadNewFloorScene", 2.5f);
     }
     void GenerateStarterRoomAfterDelay()
     { 

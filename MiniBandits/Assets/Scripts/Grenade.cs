@@ -44,8 +44,7 @@ public class Grenade : BaseProjectile
         InstantiateParticles();
     }
     void OnDisable()
-    {
-        Debug.Log("FDFS");
+    { 
         Explode();
     }
 }

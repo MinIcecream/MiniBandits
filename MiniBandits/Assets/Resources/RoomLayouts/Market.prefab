@@ -391,7 +391,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -100
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.07450981, g: 0.07450981, b: 0.07450981, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -637,13 +637,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a79e12a43cf14b4b8d084cdc8f47ae6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  popup: {fileID: 9036902734294775485}
   itemPos:
   - {fileID: 1747261800176197225}
   - {fileID: 726632138120113536}
   - {fileID: 7122534549852065076}
   itemDrops: []
   itemPrefab: {fileID: 6751033245084232101, guid: 103ca6fc02e7c6d4eab53e65282a4aef, type: 3}
-  popup: {fileID: 9036902734294775485}
 --- !u!1 &6141740596025369253
 GameObject:
   m_ObjectHideFlags: 0
