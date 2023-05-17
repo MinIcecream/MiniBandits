@@ -16,12 +16,11 @@ public class HolyTome : WeaponTemplate
 
     List<GameObject> books = new List<GameObject>();
 
-    public override void Start()
+    void SpawnBooks(int n)
     {
-        base.Start(); 
-        for (int i =0;i< numProjectiles; i++)
-        {
-            float ang = (360 / numProjectiles) * i;
+        for (int i =0;i< n; i++)
+        {  
+            float ang = (360 / n) * i;
              
             float newX=pivot.position.x + range * Mathf.Sin(ang * Mathf.Deg2Rad);
             float newY = pivot.position.y + range * Mathf.Cos(ang * Mathf.Deg2Rad);  
@@ -30,8 +29,12 @@ public class HolyTome : WeaponTemplate
             newBook.transform.SetParent(pivot);
             newBook.GetComponent<HolyBookProjectile>().damage = weapon.damage;
             newBook.GetComponent<HolyBookProjectile>().knockBack = weapon.knockBack;
-            books.Add(newBook); 
+            books.Add(newBook);  
         }
+    }
+    public override void Start()
+    {
+        base.Start();  
 
         GameObject tempPlayer = GameObject.FindWithTag("Player");
         if (tempPlayer == null)
@@ -58,7 +61,18 @@ public class HolyTome : WeaponTemplate
         {
             return;
         }
-        damage = baseDamage + (int)((player.GetComponent<Player>().strength / 100.0) * baseDamage);
+        UpdateStats();
+
+        if(books.Count != numProjectiles)
+        {
+            foreach(GameObject book in books)
+            {
+                Destroy(book); 
+            }
+            books = new List<GameObject>();
+            SpawnBooks(numProjectiles);
+        }
+
         if (Input.GetMouseButton(0))
         {  
             Attack(); 

@@ -82,12 +82,7 @@ public class WeaponTemplate : MonoBehaviour
 
         //UPDATE ALL STATS
 
-        damage = baseDamage+ (int)((playerStats.strength / 100.0) * baseDamage); 
-        numProjectiles = baseNumProjectiles + playerStats.numProjectiles;
-        projectileSpeed = baseProjectileSpeed + playerStats.projectileSpeed;
-        knockBack = baseKnockBack + playerStats.knockBack;
-        AOE = baseAOE + playerStats.AOE;
-        range = baseRange + playerStats.range; 
+        UpdateStats();
 
         if (Input.GetMouseButton(0))
         {
@@ -102,6 +97,17 @@ public class WeaponTemplate : MonoBehaviour
         {
             currentAttackCooldown -= Time.deltaTime;
         } 
+    }
+
+    public virtual void UpdateStats(){
+
+        damage = baseDamage+ (int)((playerStats.strength / 100.0) * baseDamage); 
+        numProjectiles = baseNumProjectiles + playerStats.numProjectiles;
+        projectileSpeed = baseProjectileSpeed + playerStats.projectileSpeed;
+        knockBack = baseKnockBack + playerStats.knockBack;
+        AOE = baseAOE + playerStats.AOE;
+        range = baseRange + playerStats.range; 
+        attackCooldown = 1f/(weapon.attackSpeed+playerStats.attackSpeed);
     }
     public virtual void Attack()
     {
