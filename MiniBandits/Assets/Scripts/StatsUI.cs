@@ -9,7 +9,7 @@ public class StatsUI : MonoBehaviour
     Player player;
 
     [SerializeField]
-    TextMeshProUGUI lifeSteal, defense, speed, strength, health, crit, luck, combatPower;
+    TextMeshProUGUI lifeSteal, defense, speed, strength, health, crit, luck, combatPower, numProjectiles, projectileSpeed, range, AOE, knockBack, attackSpeed;
      
     void Awake()
     { 
@@ -28,7 +28,12 @@ public class StatsUI : MonoBehaviour
         speed.text = "Speed: " + player.speed.ToString();
         strength.text = "Strength: " + player.strength.ToString();
         health.text = "Health: " + player.health.ToString();
-        crit.text = "Crit: " + player.crit.ToString();
-        luck.text = "Luck: " + player.luck.ToString();
+        crit.text = "Crit: " + player.crit.ToString(); 
+        numProjectiles.text = "Additional Projectiles: " + player.numProjectiles.ToString();
+        range.text = "Bonus Range: " + player.range.ToString();
+        attackSpeed.text = "Bonus Attack Speed: " + player.attackSpeed.ToString();
+        AOE.text = "Bonus AOE: " + player.AOE.ToString();
+        knockBack.text = "Bonus Knockback: " + player.knockBack.ToString();
+        projectileSpeed.text = "Bonus Projectile Speed: " + player.projectileSpeed.ToString(); 
     }
 }

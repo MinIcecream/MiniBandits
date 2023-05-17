@@ -64,6 +64,30 @@ public class ItemInfoCard : MonoBehaviour
             {
                 stats += "Crit: " + armor.crit + " \n";
             }
+            if (armor.numProjectiles != 0)
+            {
+                stats += "+" + armor.numProjectiles  + " projectiles \n";
+            }
+            if (armor.projectileSpeed != 0)
+            {
+                stats += "+" + armor.projectileSpeed + " projectile Speed \n";
+            }
+            if (armor.attackSpeed != 0)
+            {
+                stats += "+" + armor.attackSpeed + " attack speed \n";
+            }
+            if (armor.AOE != 0)
+            {
+                stats += "+" + armor.AOE + " AOE \n";
+            }
+            if (armor.range != 0)
+            {
+                stats += "+" + armor.range + " range \n";
+            }
+            if (armor.knockBack != 0)
+            {
+                stats += "+" + armor.knockBack + " knockback \n";
+            }
             itemStats.text = stats;
         }
     }
@@ -183,6 +207,73 @@ public class ItemInfoCard : MonoBehaviour
                 else
                 {
                     stats += "Crit: " + (armor.crit - armorToCompare.crit).ToString() + " \n"; 
+                } 
+            }
+
+            if (armor.numProjectiles != 0 || armorToCompare.numProjectiles!=0)
+            {
+                if (armor.numProjectiles >= armorToCompare.numProjectiles)
+                { 
+                    stats += "+" + (armor.numProjectiles - armorToCompare.numProjectiles).ToString() + " projectiles \n";
+                }
+                else
+                { 
+                    stats += (armor.numProjectiles - armorToCompare.numProjectiles).ToString() + " projectiles \n";
+                } 
+            }
+            if (armor.projectileSpeed != 0 || armorToCompare.projectileSpeed != 0)
+            {
+                if (armor.projectileSpeed >= armorToCompare.projectileSpeed)
+                {
+                    stats += "+" + (armor.projectileSpeed - armorToCompare.projectileSpeed).ToString() + " projectile speed\n";
+                }
+                else
+                { 
+                    stats += (armor.projectileSpeed - armorToCompare.projectileSpeed).ToString() + " projectile speed \n";
+                } 
+            }
+            if (armor.range != 0 || armorToCompare.range != 0)
+            {
+                if (armor.range >= armorToCompare.range)
+                {
+                    stats += "+" + (armor.range - armorToCompare.range).ToString() + " range \n";
+                }
+                else
+                { 
+                    stats += (armor.range - armorToCompare.range).ToString() + " range \n";
+                } 
+            }
+            if (armor.AOE != 0 || armorToCompare.AOE != 0)
+            {
+                if (armor.AOE >= armorToCompare.AOE)
+                {
+                    stats += "+" + (armor.AOE - armorToCompare.AOE).ToString() + " AOE \n";
+                }
+                else
+                { 
+                    stats += (armor.AOE - armorToCompare.AOE).ToString() + " AOE \n";
+                } 
+            }
+            if (armor.knockBack != 0 || armorToCompare.knockBack != 0)
+            {
+                if (armor.knockBack >= armorToCompare.knockBack)
+                {
+                    stats += "+" + (armor.knockBack - armorToCompare.knockBack).ToString() + " knockback \n";
+                }
+                else
+                { 
+                    stats += (armor.knockBack - armorToCompare.knockBack).ToString() + " knockback\n";
+                } 
+            }
+            if (armor.attackSpeed != 0 || armorToCompare.attackSpeed != 0)
+            {
+                if (armor.attackSpeed >= armorToCompare.attackSpeed)
+                {
+                    stats += "+" + (armor.attackSpeed - armorToCompare.attackSpeed).ToString() + "attack speed\n";
+                }
+                else
+                {
+                    stats += (armor.attackSpeed - armorToCompare.attackSpeed).ToString() + " attack speed \n"; 
                 } 
             }
             itemStats.text = stats;

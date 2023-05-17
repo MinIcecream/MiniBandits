@@ -16,16 +16,22 @@ MonoBehaviour:
   displayName: Berzerker Chestplate
   referenceName: Berzerker Chestplate
   sprite: {fileID: -380739581, guid: dba8674cbbaa027448cd71038a59b7a3, type: 3}
-  cost: 10
+  cost: 30
   rarity: 2
   type: 2
   tier: 0
   description: Increases Attack and Crit
-  color: {r: 255, g: 255, b: 255, a: 1}
+  color: {r: 0, g: 137, b: 255, a: 1}
   lifeSteal: 0
   defense: 10
   speed: 0
   strength: 20
   health: 0
   crit: 20
-  luck: 0
+  numProjectiles: 6
+  AOE: 0
+  projectileSpeed: 0
+  range: 0
+  attackSpeed: 0
+  knockBack: 0
+  stats: 1345
