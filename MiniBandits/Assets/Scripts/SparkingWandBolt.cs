@@ -8,8 +8,9 @@ public class SparkingWandBolt : BaseProjectile
     public float maxTorque = 10f;
     public float forceMagnitude = 10f;
 
-    void FixedUpdate()
-    {  
+    public override void FixedUpdate()
+    {
+        base.FixedUpdate();
         Transform closestEnemy=null;
         // Find all objects with the given tag
         GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag("Enemy");

@@ -16,11 +16,18 @@ MonoBehaviour:
   displayName: Bow
   referenceName: Bow
   sprite: {fileID: 21300000, guid: b0126b7551b6e0444b46718c2f25426c, type: 3}
-  cost: 5
+  cost: 10
   rarity: 0
   type: 0
   tier: 0
   description: 
+  color: {r: 255, g: 255, b: 255, a: 1}
   damage: 60
   attackSpeed: 2
   manualDPS: 0
+  numProjectiles: 0
+  AOE: 0
+  projectileSpeed: 15
+  range: 12
+  knockBack: 3
+  stats: 56

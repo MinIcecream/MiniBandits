@@ -3,22 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BaseProjectile : MonoBehaviour
-{   
-    //Set in inspector
-    public float speed;
-
+{    
     public GameObject particles;
 
     public bool destroyOnHit = true;
     public bool destroyOnWall = true;
 
     public new Collider2D collider;
-
-    public float knockBackAmt;
-
+      
     //Set through script
     [HideInInspector]
     public int damage;
+    [HideInInspector]
+    public int knockBack = 3; 
+
+    [HideInInspector]
+    public int range = 1000;
+    [HideInInspector]
+    public float speed;
+
+    Vector2 origin;
 
     [HideInInspector]
     public Vector2 targetPoint;
@@ -36,12 +40,20 @@ public class BaseProjectile : MonoBehaviour
             StartCoroutine(EnableCollider());
         }
     }
-    public virtual void SetDir(Vector2 targetPt)
+    public virtual void FixedUpdate()
     {
+        if(Vector2.Distance(transform.position, origin) > range)
+        {
+            Destroy(gameObject);
+        }
+    }
+    public virtual void SetDir(Vector2 targetPt)
+    { 
+        origin = transform.position;
         targetPoint = targetPt;
         Vector2 direction = (targetPt - (Vector2)transform.position).normalized;
         rb.velocity = (Vector2)direction * speed;
-        transform.right = direction;
+        transform.right = direction; 
     }
 
     IEnumerator EnableCollider()
@@ -61,7 +73,7 @@ public class BaseProjectile : MonoBehaviour
             }
             if (obj.GetComponent<IAffectable>() != null)
             {
-                obj.GetComponent<IAffectable>().Knockback(knockBackAmt, transform.position);
+                obj.GetComponent<IAffectable>().Knockback(knockBack, transform.position);
             }
             InstantiateParticles();
 

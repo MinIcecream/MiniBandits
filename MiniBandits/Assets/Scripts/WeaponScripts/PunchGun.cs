@@ -17,9 +17,12 @@ public class PunchGun : WeaponTemplate
             gloveFired = true;
 
             var newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
-
-            newProjectile.GetComponent<BaseProjectile>().damage = damage;
+             
             newProjectile.GetComponent<BoxingGlove>().parent = this;
+            newProjectile.GetComponent<BaseProjectile>().damage = damage;
+            newProjectile.GetComponent<BaseProjectile>().knockBack = knockBack;
+            newProjectile.GetComponent<BaseProjectile>().speed = projectileSpeed;
+            newProjectile.GetComponent<BaseProjectile>().range = range; 
             newProjectile.GetComponent<BaseProjectile>().SetDir(Camera.main.ScreenToWorldPoint(Input.mousePosition)); 
         } 
 

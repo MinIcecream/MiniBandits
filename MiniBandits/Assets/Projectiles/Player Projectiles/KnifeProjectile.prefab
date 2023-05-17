@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4873401057454396061}
   - component: {fileID: 1303991915207454805}
   - component: {fileID: 2478215186414079167}
-  - component: {fileID: -3391925109637655075}
   - component: {fileID: 518121113257911699}
   - component: {fileID: -7982516761672518347}
   m_Layer: 8
@@ -75,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1648826359
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7909d551e710c134db417646a79dadaf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -109,19 +108,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-3391925109637655075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7777877402851561955}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 204d8bfaa9a879b4c8c48894a2557c15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destructDelay: 10
 --- !u!61 &518121113257911699
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -135,7 +121,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.033070326, y: 0.0036745518}
+  m_Offset: {x: -0.10600966, y: -0.27051163}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -146,7 +132,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.68385935, y: 0.57236636}
+  m_Size: {x: 0.9620193, y: 0.19883704}
   m_EdgeRadius: 0
 --- !u!114 &-7982516761672518347
 MonoBehaviour:
@@ -160,15 +146,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cfe00b80589dff498693c8e48363cd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
   particles: {fileID: 0}
   destroyOnHit: 0
   destroyOnWall: 0
   collider: {fileID: 518121113257911699}
-  knockBackAmt: 3
   damage: 0
+  knockBack: 3
+  range: 1000
+  speed: 30
   targetPoint: {x: 0, y: 0}
   rb: {fileID: 0}
-  maxDistance: 5
   parent: {fileID: 0}
   player: {fileID: 0}

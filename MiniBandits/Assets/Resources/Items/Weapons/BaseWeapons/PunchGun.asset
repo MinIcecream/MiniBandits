@@ -16,12 +16,18 @@ MonoBehaviour:
   displayName: Punch Gun
   referenceName: PunchGun
   sprite: {fileID: -740633431, guid: e366344d3f794a044b95493d6460044e, type: 3}
-  cost: 25
+  cost: 30
   rarity: 2
   type: 0
   tier: 0
   description: Punch a bunch
-  color: {r: 255, g: 255, b: 255, a: 1}
+  color: {r: 0, g: 137, b: 255, a: 1}
   damage: 80
   attackSpeed: 3
   manualDPS: 0
+  numProjectiles: 0
+  AOE: 0
+  projectileSpeed: 22
+  range: 6
+  knockBack: 5
+  stats: 56

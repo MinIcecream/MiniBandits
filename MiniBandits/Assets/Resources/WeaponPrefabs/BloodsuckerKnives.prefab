@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5311302903575278931}
   - component: {fileID: 5311302903575278932}
-  - component: {fileID: 4842175429916169770}
+  - component: {fileID: -3294067813728810450}
   m_Layer: 6
   m_Name: BloodsuckerKnives
   m_TagString: Untagged
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1648826359
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 1176484471, guid: cc030f20762f2b34ca70f714b5006a70, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4842175429916169770
+--- !u!114 &-3294067813728810450
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,7 +94,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5311302903575278930}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e93b0aebbdb27243a9e7ee2943eec1d, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a7a8aae9f96c2f4796fd3302937c0cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
@@ -102,8 +102,12 @@ MonoBehaviour:
   weapon: {fileID: 11400000, guid: 7c96fa5cfdac54142aa2037562ded7ff, type: 2}
   weaponName: 
   attackCooldown: 0
-  baseDamage: 0
   damage: 0
-  max: 3
-  min: 3
-  angleRange: 20
+  attackSpeed: 0
+  baseDamage: 0
+  numProjectiles: 0
+  range: 0
+  AOE: 0
+  knockBack: 0
+  projectileSpeed: 0
+  angleRange: 10

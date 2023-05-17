@@ -5,9 +5,7 @@ using UnityEngine.EventSystems;
 
 public class HolyTome : WeaponTemplate
 {
-    public Transform pivot;
-    public int numBooks;
-    public float radius;
+    public Transform pivot;  
     public float increasedRadius;
     float speed;
     float increasedSpeed;
@@ -20,25 +18,18 @@ public class HolyTome : WeaponTemplate
 
     public override void Start()
     {
-        base.Start();
-        if (weapon.tier == 1)
+        base.Start(); 
+        for (int i =0;i< numProjectiles; i++)
         {
-            numBooks=4;
-        }
-        else if (weapon.tier == 2)
-        {
-            numBooks=5;
-        }
-        for (int i =0;i< numBooks; i++)
-        {
-            float ang = (360 / numBooks) * i;
+            float ang = (360 / numProjectiles) * i;
              
-            float newX=pivot.position.x + radius * Mathf.Sin(ang * Mathf.Deg2Rad);
-            float newY = pivot.position.y + radius * Mathf.Cos(ang * Mathf.Deg2Rad);  
+            float newX=pivot.position.x + range * Mathf.Sin(ang * Mathf.Deg2Rad);
+            float newY = pivot.position.y + range * Mathf.Cos(ang * Mathf.Deg2Rad);  
 
             var newBook = Instantiate(projectile, new Vector2(newX, newY), Quaternion.identity);
             newBook.transform.SetParent(pivot);
             newBook.GetComponent<HolyBookProjectile>().damage = weapon.damage;
+            newBook.GetComponent<HolyBookProjectile>().knockBack = weapon.knockBack;
             books.Add(newBook); 
         }
 
@@ -83,7 +74,7 @@ public class HolyTome : WeaponTemplate
         { 
             if (holding)
             { 
-                if (Vector2.Distance(book.transform.position, pivot.position) < increasedRadius)
+                if (Vector2.Distance(book.transform.position, pivot.position) < range * 1.6f)
                 {
                     Vector2 diff = book.transform.position - pivot.position;
                     Vector2 normalizedDir = diff.normalized;
@@ -94,7 +85,7 @@ public class HolyTome : WeaponTemplate
             }
             else
             {
-                if (Vector2.Distance(book.transform.position, pivot.position) > radius)
+                if (Vector2.Distance(book.transform.position, pivot.position) > range)
                 {
                     Vector2 diff = book.transform.position - pivot.position;
                     Vector2 normalizedDir = diff.normalized;

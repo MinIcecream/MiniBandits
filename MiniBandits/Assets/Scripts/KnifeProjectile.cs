@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class KnifeProjectile : BaseProjectile
-{
-    public float maxDistance;
-
+{ 
     [HideInInspector]
     public Knife parent;
     [HideInInspector]
@@ -17,38 +15,42 @@ public class KnifeProjectile : BaseProjectile
         player = GameObject.FindWithTag("Player").transform;
         Vector2 direction = ((Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)transform.position).normalized;
         transform.right = -direction;
-        Vector2 targetPosition = direction * maxDistance + (Vector2)transform.position;
+        Vector2 targetPosition = direction * range + (Vector2)transform.position;
         StartCoroutine(GoToTarget(targetPosition));
     }
     IEnumerator GoToTarget(Vector2 target)
     {
+        Debug.Log(target);
+        //GO TO TARGET
         while (Vector2.Distance(transform.position, target) > 0.2f)
-        {
+        { 
             if (parent == null)
-            {
+            { 
                 Destroy(gameObject);
                 yield break;
             }
             if (endEarly)
-            {
+            { 
                 break;
             }
 
             Vector2 dir = (target - (Vector2)transform.position).normalized;
-            transform.position += (Vector3)dir * Time.deltaTime * speed; 
+            transform.position += (Vector3)((Vector2)dir * Time.deltaTime * speed); 
 
             yield return null;
         }
 
-        if (parent == null || player==null)
-        {
+        if (parent == null)
+        { 
             Destroy(gameObject);
             yield break;
         }
+
+        //RETURN TO PLAYER
         while (Vector2.Distance(transform.position, player.position) > 1f)
-        {
+        { 
             if (parent == null)
-            {
+            { 
                 Destroy(gameObject);
                 yield break;
             }
@@ -62,7 +64,7 @@ public class KnifeProjectile : BaseProjectile
         Destroy(gameObject);
     }
     public override void OnTriggerEnter2D(Collider2D coll)
-    {
+    { 
         endEarly = true;
         GameObject obj = coll.gameObject;
 
@@ -74,7 +76,7 @@ public class KnifeProjectile : BaseProjectile
             }
             if (obj.GetComponent<IAffectable>() != null)
             {
-                obj.GetComponent<IAffectable>().Knockback(knockBackAmt, transform.position);
+                obj.GetComponent<IAffectable>().Knockback(knockBack, transform.position);
             }
             InstantiateParticles();
              
@@ -83,6 +85,9 @@ public class KnifeProjectile : BaseProjectile
         { 
             InstantiateParticles();
         }
-    }
+    }  
+    public override void FixedUpdate()
+    {
 
+    }
 }

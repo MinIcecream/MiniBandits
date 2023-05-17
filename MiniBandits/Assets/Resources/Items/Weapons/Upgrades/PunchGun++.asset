@@ -25,3 +25,9 @@ MonoBehaviour:
   damage: 130
   attackSpeed: 3.5
   manualDPS: 0
+  numProjectiles: 0
+  AOE: 0
+  projectileSpeed: 22
+  range: 6
+  knockBack: 5
+  stats: 56

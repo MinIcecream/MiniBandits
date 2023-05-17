@@ -8,12 +8,12 @@ public class Item : ScriptableObject
     public string displayName;
     public string referenceName;
     public Sprite sprite;
-    public int cost;
+    [HideInInspector] public int cost;
     public itemRarity rarity;
     public itemType type;
     public int tier;
     public string description;
-    public Color color;
+    [HideInInspector]public Color color;
 
     public enum itemType
     {

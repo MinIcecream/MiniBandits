@@ -21,7 +21,13 @@ MonoBehaviour:
   type: 0
   tier: 2
   description: 
-  color: {r: 255, g: 255, b: 255, a: 1}
+  color: {r: 0, g: 242, b: 0, a: 1}
   damage: 75
   attackSpeed: 1.3
   manualDPS: 390
+  numProjectiles: 6
+  AOE: 0
+  projectileSpeed: 20
+  range: 8
+  knockBack: 3
+  stats: 59

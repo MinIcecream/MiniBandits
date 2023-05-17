@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: Muramasa+
   referenceName: Muramasa
   sprite: {fileID: 836702055, guid: 0714997099a906644954fb9deb40de6b, type: 3}
-  cost: 20
+  cost: 50
   rarity: 3
   type: 0
   tier: 1
@@ -25,3 +25,9 @@ MonoBehaviour:
   damage: 160
   attackSpeed: 3.6
   manualDPS: 0
+  numProjectiles: 0
+  AOE: 3
+  projectileSpeed: 25
+  range: 14
+  knockBack: 3
+  stats: 60

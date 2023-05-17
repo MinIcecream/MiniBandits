@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class KyberBlade : WeaponTemplate
-{
-    public int knockBackAmt;
+{ 
     List<GameObject> hitEnemies = new List<GameObject>();
     
     public override void Update()
@@ -26,6 +25,8 @@ public class KyberBlade : WeaponTemplate
         {
             GetComponent<Collider2D>().enabled = false;
         }
+
+        GetComponent<CircleCollider2D>().radius = AOE;
     } 
     void OnTriggerStay2D(Collider2D coll)
     {
@@ -42,7 +43,7 @@ public class KyberBlade : WeaponTemplate
             }
             if (obj.GetComponent<IAffectable>() != null)
             {
-                obj.GetComponent<IAffectable>().Knockback(knockBackAmt, transform.position);
+                obj.GetComponent<IAffectable>().Knockback(knockBack, transform.position);
             }
             hitEnemies.Add(coll.gameObject);
             StartCoroutine(RemoveFromList(coll.gameObject));

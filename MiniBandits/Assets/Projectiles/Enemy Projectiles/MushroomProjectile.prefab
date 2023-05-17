@@ -150,13 +150,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 557ed89c6fbd7e444bcdd0f62e9cde83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
   particles: {fileID: 0}
   destroyOnHit: 0
   destroyOnWall: 0
   collider: {fileID: 0}
-  knockBackAmt: 0
   damage: 0
+  knockBack: 3
+  range: 1000
+  speed: 8
   targetPoint: {x: 0, y: 0}
   rb: {fileID: 0}
   dragMax: 3

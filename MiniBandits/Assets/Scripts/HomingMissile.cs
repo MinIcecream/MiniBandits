@@ -11,8 +11,9 @@ public class HomingMissile : BaseProjectile
         base.Awake();
         player=GameObject.FindWithTag("Player").transform;
     }
-    void FixedUpdate()
+    public override void FixedUpdate()
     {
+        base.FixedUpdate();
         if (player!=null)
         {
             Vector2 direction = (Vector2)player.position-(Vector2)transform.position;

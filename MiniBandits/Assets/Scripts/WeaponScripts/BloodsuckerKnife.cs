@@ -22,7 +22,7 @@ public class BloodsuckerKnife : BaseProjectile
             }
             if (obj.GetComponent<IAffectable>() != null)
             {
-                obj.GetComponent<IAffectable>().Knockback(knockBackAmt, transform.position);
+                obj.GetComponent<IAffectable>().Knockback(knockBack, transform.position);
             }
             InstantiateParticles();
 

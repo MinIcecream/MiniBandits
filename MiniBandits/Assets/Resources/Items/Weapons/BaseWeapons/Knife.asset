@@ -21,7 +21,13 @@ MonoBehaviour:
   type: 0
   tier: 0
   description: Stabby
-  color: {r: 255, g: 255, b: 255, a: 1}
+  color: {r: 0, g: 242, b: 0, a: 1}
   damage: 55
   attackSpeed: 3
   manualDPS: 0
+  numProjectiles: 0
+  AOE: 0
+  projectileSpeed: 22
+  range: 6
+  knockBack: 4
+  stats: 56

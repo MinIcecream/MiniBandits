@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class BigSword : WeaponTemplate
 {
-    new Collider2D collider;
-    public float knockBackAmt;
+    new Collider2D collider; 
 
     public override void Start()
     {
@@ -13,11 +12,17 @@ public class BigSword : WeaponTemplate
         collider = GetComponent<Collider2D>();
     }
     public override void Attack()
-    {
-        GetComponent<ParticleSystem>().Play();
+    { 
         transform.localRotation = Quaternion.Euler(0, 0, 90);
         collider.enabled = true;
         StartCoroutine(DisableCollider());
+        GetComponent<CircleCollider2D>().radius = AOE;
+
+        ParticleSystem.ShapeModule shapeModule  = GetComponent<ParticleSystem>().shape;
+        shapeModule.shapeType = ParticleSystemShapeType.Circle;
+        shapeModule.radius = AOE;
+
+        GetComponent<ParticleSystem>().Play();
     }
 
     IEnumerator DisableCollider()
@@ -37,7 +42,7 @@ public class BigSword : WeaponTemplate
         }
         if (obj.GetComponent<IAffectable>() != null)
         {
-            obj.GetComponent<IAffectable>().Knockback(knockBackAmt, transform.position);
+            obj.GetComponent<IAffectable>().Knockback(knockBack, transform.position);
         }
     }
 }

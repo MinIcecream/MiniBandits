@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BoxingGlove : BaseProjectile
-{
-    public float maxDistance;
-
+{  
     [HideInInspector]
     public PunchGun parent;
     [HideInInspector]
@@ -18,7 +16,7 @@ public class BoxingGlove : BaseProjectile
         player = GameObject.FindWithTag("Player").transform;
         Vector2 direction = ((Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)transform.position).normalized;
         transform.right = -direction;
-        Vector2 targetPosition = direction * maxDistance + (Vector2)transform.position;
+        Vector2 targetPosition = direction * range + (Vector2)transform.position;
         StartCoroutine(GoToTarget(targetPosition));
     }
     IEnumerator GoToTarget(Vector2 target)
@@ -84,7 +82,7 @@ public class BoxingGlove : BaseProjectile
             }
             if (obj.GetComponent<IAffectable>() != null)
             {
-                obj.GetComponent<IAffectable>().Knockback(knockBackAmt, transform.position);
+                obj.GetComponent<IAffectable>().Knockback(knockBack, transform.position);
             }
             InstantiateParticles();
 
@@ -103,4 +101,8 @@ public class BoxingGlove : BaseProjectile
         }
     }
 
+    public override void FixedUpdate()
+    {
+
+    }
 }

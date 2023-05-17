@@ -27,7 +27,7 @@ public class ShimmeringRing : BaseProjectile
         {
             return; 
         }
-        if (distanceTraveled > 50)
+        if (distanceTraveled > range)
         {
             DoIt();
             collider.enabled = false;
@@ -77,7 +77,7 @@ public class ShimmeringRing : BaseProjectile
             }
             if (obj.GetComponent<IAffectable>() != null)
             {
-                obj.GetComponent<IAffectable>().Knockback(knockBackAmt, transform.position);
+                obj.GetComponent<IAffectable>().Knockback(knockBack, transform.position);
             } 
         }
 

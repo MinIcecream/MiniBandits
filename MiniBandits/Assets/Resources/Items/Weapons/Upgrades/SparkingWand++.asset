@@ -16,12 +16,18 @@ MonoBehaviour:
   displayName: Sparking Wand++
   referenceName: SparkingWand
   sprite: {fileID: 21300000, guid: defe481e6a0af7746b82716ccb57ce8c, type: 3}
-  cost: 20
+  cost: 30
   rarity: 2
   type: 0
   tier: 2
   description: Cool
-  color: {r: 255, g: 255, b: 255, a: 1}
+  color: {r: 0, g: 137, b: 255, a: 1}
   damage: 75
   attackSpeed: 2
   manualDPS: 450
+  numProjectiles: 3
+  AOE: 0
+  projectileSpeed: 16
+  range: 12
+  knockBack: 2
+  stats: 59

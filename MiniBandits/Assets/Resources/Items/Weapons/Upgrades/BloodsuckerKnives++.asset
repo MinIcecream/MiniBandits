@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: Bloodsucker Knives++
   referenceName: BloodsuckerKnives
   sprite: {fileID: 1176484471, guid: cc030f20762f2b34ca70f714b5006a70, type: 3}
-  cost: 30
+  cost: 50
   rarity: 3
   type: 0
   tier: 1
@@ -25,3 +25,9 @@ MonoBehaviour:
   damage: 58
   attackSpeed: 4
   manualDPS: 696
+  numProjectiles: 3
+  AOE: 0
+  projectileSpeed: 20
+  range: 6
+  knockBack: 2
+  stats: 59

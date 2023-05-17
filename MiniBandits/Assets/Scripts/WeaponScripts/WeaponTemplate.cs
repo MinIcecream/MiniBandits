@@ -18,19 +18,49 @@ public class WeaponTemplate : MonoBehaviour
     [HideInInspector]
     public string weaponName;
     [HideInInspector]
-    public float attackCooldown;
-    [HideInInspector]
-    public int baseDamage;
+    public float attackCooldown; 
     [HideInInspector]
     public int damage;
+
+
+    //FROM SCRIPTABLE OBJECT
+    [HideInInspector]
+    public float attackSpeed;
+
+    [HideInInspector]
+    public int baseDamage;
+
+    [HideInInspector]
+    public int numProjectiles;
+
+    [HideInInspector]
+    public int range;
+
+    [HideInInspector]
+    public int AOE;
+
+    [HideInInspector]
+    public int knockBack;
+
+    [HideInInspector]
+    public int projectileSpeed;
+     
 
     public virtual void Start()
     {
         attackCooldown = 1f / weapon.attackSpeed;
-        weaponName = weapon.name;
-        baseDamage = weapon.damage;
+        weaponName = weapon.name; 
         player = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
         GetComponent<SpriteRenderer>().sprite = weapon.sprite;
+
+
+        baseDamage = weapon.damage;
+        attackSpeed = weapon.attackSpeed;
+        numProjectiles = weapon.numProjectiles;
+        range = weapon.range;
+        AOE = weapon.AOE;
+        knockBack = weapon.knockBack;
+        projectileSpeed = weapon.projectileSpeed; 
     } 
     public virtual void Update()
     {

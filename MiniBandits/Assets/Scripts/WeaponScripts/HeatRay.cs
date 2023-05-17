@@ -5,8 +5,7 @@ using UnityEngine.EventSystems;
 
 public class HeatRay : WeaponTemplate
 {
-    public LayerMask raycastMask;
-    public int knockBackAmt;
+    public LayerMask raycastMask; 
     List<GameObject> hitEnemies = new List<GameObject>();
     LineRenderer lineRen; 
 
@@ -55,7 +54,7 @@ public class HeatRay : WeaponTemplate
                 }
                 if (obj.GetComponent<IAffectable>() != null)
                 {
-                    obj.GetComponent<IAffectable>().Knockback(knockBackAmt, transform.position);
+                    obj.GetComponent<IAffectable>().Knockback(knockBack, transform.position);
                 }
                 hitEnemies.Add(obj);
                 StartCoroutine(RemoveFromList(obj));

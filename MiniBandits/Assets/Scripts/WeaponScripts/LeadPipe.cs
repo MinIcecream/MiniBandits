@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class LeadPipe : WeaponTemplate
 {
-    Animator anim;
-    public int knockBackAmt;
+    Animator anim; 
     public override void Start()
     {
         base.Start();
@@ -16,7 +15,8 @@ public class LeadPipe : WeaponTemplate
         GetComponent<Collider2D>().enabled = true;
         StartCoroutine(DisableCollider());
 
-        anim.SetTrigger("Attack"); 
+        anim.SetTrigger("Attack");
+        GetComponent<BoxCollider2D>().size = new Vector2(AOE, GetComponent<BoxCollider2D>().size.y);
     }
     IEnumerator DisableCollider()
     {
@@ -31,7 +31,7 @@ public class LeadPipe : WeaponTemplate
         }
         if (coll.gameObject.GetComponent<IAffectable>() != null)
         {
-            coll.gameObject.GetComponent<IAffectable>().Knockback(knockBackAmt, transform.position);
+            coll.gameObject.GetComponent<IAffectable>().Knockback(knockBack, transform.position);
         }
     }
 }

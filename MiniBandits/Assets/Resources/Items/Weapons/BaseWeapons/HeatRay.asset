@@ -21,7 +21,13 @@ MonoBehaviour:
   type: 0
   tier: 0
   description: HOT!
-  color: {r: 255, g: 255, b: 255, a: 1}
+  color: {r: 0, g: 137, b: 255, a: 1}
   damage: 70
   attackSpeed: 3.5
   manualDPS: 0
+  numProjectiles: 0
+  AOE: 0
+  projectileSpeed: 0
+  range: 0
+  knockBack: 2
+  stats: 32

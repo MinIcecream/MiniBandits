@@ -16,12 +16,18 @@ MonoBehaviour:
   displayName: Bloodsucker Knives
   referenceName: BloodsuckerKnives
   sprite: {fileID: 1176484471, guid: cc030f20762f2b34ca70f714b5006a70, type: 3}
-  cost: 30
+  cost: 50
   rarity: 3
   type: 0
   tier: 0
   description: Steal their life.
-  color: {r: 255, g: 255, b: 255, a: 1}
+  color: {r: 155, g: 0, b: 173, a: 1}
   damage: 32
   attackSpeed: 3
   manualDPS: 288
+  numProjectiles: 3
+  AOE: 0
+  projectileSpeed: 20
+  range: 6
+  knockBack: 2
+  stats: 59

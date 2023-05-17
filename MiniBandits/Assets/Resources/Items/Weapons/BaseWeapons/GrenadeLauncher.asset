@@ -16,12 +16,18 @@ MonoBehaviour:
   displayName: Grenade Launcher
   referenceName: GrenadeLauncher
   sprite: {fileID: -1227012870, guid: 11ed1a8fc2316a64a8902a0ce65e78c6, type: 3}
-  cost: 20
+  cost: 30
   rarity: 2
   type: 0
   tier: 0
   description: Big booms
-  color: {r: 255, g: 255, b: 255, a: 1}
+  color: {r: 0, g: 137, b: 255, a: 1}
   damage: 240
   attackSpeed: 1
   manualDPS: 0
+  numProjectiles: 0
+  AOE: 2
+  projectileSpeed: 12
+  range: 5
+  knockBack: 5
+  stats: 60

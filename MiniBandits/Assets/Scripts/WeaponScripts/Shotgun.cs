@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Shotgun : WeaponTemplate
-{
-    public int max, min;
+{ 
     public int angleRange;
 
     public override void Attack()
     {
-        int bullets = Random.Range(min, max);
+        int bullets = Random.Range(numProjectiles-1, numProjectiles+1);
         float distance = Vector2.Distance(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition));
       
         Vector2 targetPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -25,9 +24,12 @@ public class Shotgun : WeaponTemplate
             Vector2 randomPoint = (Vector2)transform.position + rotatedDirection * distance;
 
             var newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
-
-            newProjectile.GetComponent<BaseProjectile>().SetDir(randomPoint);
             newProjectile.GetComponent<BaseProjectile>().damage = damage;
+            newProjectile.GetComponent<BaseProjectile>().speed = projectileSpeed;
+            newProjectile.GetComponent<BaseProjectile>().range = range;
+            newProjectile.GetComponent<BaseProjectile>().knockBack = knockBack;
+
+            newProjectile.GetComponent<BaseProjectile>().SetDir(randomPoint); 
         }
     }  
 }

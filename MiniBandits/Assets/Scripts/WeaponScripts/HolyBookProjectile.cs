@@ -6,7 +6,7 @@ public class HolyBookProjectile : MonoBehaviour
 {
     [HideInInspector]
     public int damage;
-    public float knockBackAmt;
+    public float knockBack;
 
     void Update()
     {
@@ -20,7 +20,7 @@ public class HolyBookProjectile : MonoBehaviour
         }
         if (coll.gameObject.GetComponent<IAffectable>() != null)
         {
-            coll.gameObject.GetComponent<IAffectable>().Knockback(knockBackAmt, transform.position);
+            coll.gameObject.GetComponent<IAffectable>().Knockback(knockBack, transform.position);
         }
     }
 }

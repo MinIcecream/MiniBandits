@@ -7,9 +7,11 @@ public class Pizza : WeaponTemplate
     public override void Attack()
     {
         var newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
-         
 
-        newProjectile.GetComponent<BaseProjectile>().speed = 15;
+
+        newProjectile.GetComponent<BaseProjectile>().knockBack = knockBack;
+        newProjectile.GetComponent<BaseProjectile>().range = range;
+        newProjectile.GetComponent<BaseProjectile>().speed = projectileSpeed;
         newProjectile.GetComponent<BaseProjectile>().SetDir(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         newProjectile.GetComponent<BaseProjectile>().damage = damage;
     }

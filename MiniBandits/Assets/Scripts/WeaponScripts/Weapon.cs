@@ -9,20 +9,23 @@ public class Weapon : Item
     [Header("Stats")]
     public int damage;
     public float attackSpeed;
-
-
+     
     [SerializeField] public int manualDPS; 
     [SerializeField] public int numProjectiles;
     [SerializeField] public int AOE;
-    [SerializeField] public int projectileSpeed; 
-
+    [SerializeField] public int projectileSpeed;
+    [SerializeField] public int range;
+    [SerializeField] public int knockBack;
+     
     [System.Flags] public enum Stats
     {
         manualDPS = 1,
         numProjectiles = 2,
         AOE = 4,
-        projectileSpeed = 8
-    }
+        projectileSpeed = 8,
+        range = 16,
+        knockBack = 32
+    } 
     public Stats stats;
      
 }
