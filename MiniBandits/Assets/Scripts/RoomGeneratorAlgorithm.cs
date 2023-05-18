@@ -25,6 +25,10 @@ public class RoomGeneratorAlgorithm : MonoBehaviour
     }
     void UpdateOdds()
     {
+        foreach (rewardTypes value in rewardTypes.GetValues(typeof(rewardTypes)))
+        { 
+            RoomOptionGenerator.ChangeRoomChance(value, 20); 
+        }
         if (gold.GetGold() <= 20)
         {
             RoomOptionGenerator.ChangeRoomChance(rewardTypes.market, 0);
@@ -73,7 +77,7 @@ public class RoomGeneratorAlgorithm : MonoBehaviour
         } 
         foreach (rewardTypes value in rewardTypes.GetValues(typeof(rewardTypes)))
         {
-            for (int i = RoomOptionGenerator.previouslyGeneratedRooms.Count - 1; i > RoomOptionGenerator.previouslyGeneratedRooms.Count - 7; i--)
+            for (int i = RoomOptionGenerator.previouslyGeneratedRooms.Count - 1; i > RoomOptionGenerator.previouslyGeneratedRooms.Count - 5; i--)
             {
                 if (i < 0)
                 {
