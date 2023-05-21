@@ -16,16 +16,22 @@ MonoBehaviour:
   displayName: Knight's Chestplate
   referenceName: Knight's Chestplate
   sprite: {fileID: -1812091892, guid: a4f8c0d469c68dc45a6f76affa053a61, type: 3}
-  cost: 20
+  cost: 10
   rarity: 0
   type: 2
   tier: 0
   description: Gives defense
-  color: {r: 0, g: 242, b: 0, a: 1}
+  color: {r: 255, g: 255, b: 255, a: 1}
   lifeSteal: 0
   defense: 20
   speed: 0
   strength: 0
   health: 0
   crit: 0
-  luck: 0
+  numProjectiles: 0
+  AOE: 0
+  projectileSpeed: 0
+  range: 0
+  attackSpeed: 0
+  knockBack: 0
+  stats: 64

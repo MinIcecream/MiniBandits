@@ -16,15 +16,22 @@ MonoBehaviour:
   displayName: Infernal Chestplate
   referenceName: Infernal Chestplate
   sprite: {fileID: 1869662553, guid: c109227fa6192614699af85179c92b76, type: 3}
-  cost: 15
+  cost: 20
   rarity: 1
   type: 2
   tier: 0
   description: Gives defense and burns enemies around you
+  color: {r: 0, g: 242, b: 0, a: 1}
   lifeSteal: 0
   defense: 15
   speed: 0
   strength: 0
   health: 0
   crit: 0
-  luck: 0
+  numProjectiles: 0
+  AOE: 0
+  projectileSpeed: 0
+  range: 0
+  attackSpeed: 0
+  knockBack: 0
+  stats: 64

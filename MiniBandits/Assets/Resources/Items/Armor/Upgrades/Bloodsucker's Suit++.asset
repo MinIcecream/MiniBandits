@@ -22,10 +22,16 @@ MonoBehaviour:
   tier: 2
   description: Gives a lot of lifesteal
   color: {r: 155, g: 0, b: 173, a: 1}
-  lifeSteal: 5
+  lifeSteal: 0
   defense: 0
   speed: 0
   strength: 0
-  health: 500
+  health: 0
   crit: 0
-  luck: 0
+  numProjectiles: 0
+  AOE: 0
+  projectileSpeed: 0
+  range: 0
+  attackSpeed: 0
+  knockBack: 0
+  stats: 0

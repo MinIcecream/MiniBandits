@@ -20,12 +20,18 @@ MonoBehaviour:
   rarity: 2
   type: 1
   tier: 1
-  description: Increases Attack and crit
+  description: "\r"
   color: {r: 0, g: 137, b: 255, a: 1}
   lifeSteal: 0
-  defense: 15
+  defense: 0
   speed: 0
-  strength: 30
+  strength: 40
   health: 0
   crit: 25
-  luck: 0
+  numProjectiles: 0
+  AOE: 0
+  projectileSpeed: 0
+  range: 0
+  attackSpeed: 0
+  knockBack: 0
+  stats: 1280

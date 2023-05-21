@@ -39,36 +39,76 @@ public class WeaponEditor : Editor
         EditorGUILayout.PropertyField(statsProperty);
         EditorGUILayout.PropertyField(serializedObject.FindProperty("damage"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("attackSpeed"));
+         
 
+        DisplayStats();
+
+        if (GUILayout.Button("Create Upgrade"))
+        {
+            Weapon script = (Weapon)target;
+            script.CreateUpgrade();
+        }
+
+        serializedObject.ApplyModifiedProperties();
+    }
+
+    void DisplayStats()
+    {
         int intValue = statsProperty.intValue;
         Weapon.Stats test = (Weapon.Stats)statsProperty.intValue;
         test = (Weapon.Stats)Enum.ToObject(typeof(Weapon.Stats), intValue);
-
         if (test.HasFlag(Weapon.Stats.numProjectiles))
-        { 
+        {
             EditorGUILayout.PropertyField(numProjectilesProperty);
         }
+        else
+        {
+            numProjectilesProperty.intValue = 0;
+        }
+
         if (test.HasFlag(Weapon.Stats.AOE))
         {
             EditorGUILayout.PropertyField(AOEProperty);
         }
+        else
+        {
+            AOEProperty.intValue = 0;
+        }
+
         if (test.HasFlag(Weapon.Stats.projectileSpeed))
         {
             EditorGUILayout.PropertyField(projectileSpeedProperty);
         }
+        else
+        {
+            projectileSpeedProperty.intValue = 0;
+        }
+
         if (test.HasFlag(Weapon.Stats.manualDPS))
         {
             EditorGUILayout.PropertyField(manualDPSProperty);
         }
+        else
+        {
+            manualDPSProperty.intValue = 0;
+        }
+
         if (test.HasFlag(Weapon.Stats.range))
         {
             EditorGUILayout.PropertyField(rangeProperty);
         }
+        else
+        {
+            rangeProperty.intValue = 0;
+        }
+
         if (test.HasFlag(Weapon.Stats.knockBack))
         {
             EditorGUILayout.PropertyField(knockBackProperty);
         }
-
-        serializedObject.ApplyModifiedProperties();
+        else
+        {
+            knockBackProperty.intValue = 0;
+        }
     }
 }

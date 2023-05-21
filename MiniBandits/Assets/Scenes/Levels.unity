@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 378489239}
   - component: {fileID: 378489238}
   - component: {fileID: 378489240}
+  - component: {fileID: 378489241}
   m_Layer: 0
   m_Name: PersistBetweenFloors
   m_TagString: Untagged
@@ -194,6 +195,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   persistentObjs: {fileID: 8956338075373961342, guid: ab73ce9c177af38408892854657f023f, type: 3}
+--- !u!114 &378489241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378489236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63e0be84bac73d446bc272615fd28f51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textAssetData: {fileID: 4900000, guid: 398740d5700509f468cdb8306a371162, type: 3}
 --- !u!1 &637593618
 GameObject:
   m_ObjectHideFlags: 0

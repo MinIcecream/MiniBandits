@@ -49,61 +49,131 @@ public class ArmorEditor : Editor
         EditorGUILayout.PropertyField(serializedObject.FindProperty("type"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("description"));
 
-        EditorGUILayout.PropertyField(statsProperty); 
+        EditorGUILayout.PropertyField(statsProperty);
 
+        DisplayStats(); 
+        
+        if (GUILayout.Button("Create Upgrade"))
+        {
+            Armor script = (Armor)target;
+            script.CreateUpgrade();
+        }
+
+        serializedObject.ApplyModifiedProperties();
+    }
+
+    void DisplayStats()
+    {
         int intValue = statsProperty.intValue;
         Armor.Stats test = (Armor.Stats)statsProperty.intValue;
         test = (Armor.Stats)Enum.ToObject(typeof(Armor.Stats), intValue);
 
         if (test.HasFlag(Armor.Stats.lifeSteal))
-        { 
+        {
             EditorGUILayout.PropertyField(lifeStealProperty);
         }
+        else
+        {
+            lifeStealProperty.intValue = 0;
+        }
+
         if (test.HasFlag(Armor.Stats.health))
         {
             EditorGUILayout.PropertyField(healthProperty);
         }
+        else
+        {
+            healthProperty.intValue = 0;
+        }
+
         if (test.HasFlag(Armor.Stats.defense))
         {
             EditorGUILayout.PropertyField(defenseProperty);
         }
+        else
+        {
+            defenseProperty.intValue = 0;
+        }
+
         if (test.HasFlag(Armor.Stats.strength))
         {
             EditorGUILayout.PropertyField(strengthProperty);
         }
+        else
+        {
+            strengthProperty.intValue = 0;
+        }
+
         if (test.HasFlag(Armor.Stats.crit))
         {
             EditorGUILayout.PropertyField(critProperty);
         }
+        else
+        {
+            critProperty.intValue = 0;
+        }
+
         if (test.HasFlag(Armor.Stats.speed))
         {
             EditorGUILayout.PropertyField(speedProperty);
         }
+        else
+        {
+            speedProperty.intValue = 0;
+        }
+
         if (test.HasFlag(Armor.Stats.numProjectiles))
         {
             EditorGUILayout.PropertyField(numProjectilesProperty);
         }
+        else
+        {
+            numProjectilesProperty.intValue = 0;
+        }
+
         if (test.HasFlag(Armor.Stats.projectileSpeed))
         {
             EditorGUILayout.PropertyField(projectileSpeedProperty);
         }
+        else
+        {
+            projectileSpeedProperty.intValue = 0;
+        }
+
         if (test.HasFlag(Armor.Stats.AOE))
         {
             EditorGUILayout.PropertyField(AOEProperty);
         }
+        else
+        {
+            AOEProperty.intValue = 0;
+        }
+
         if (test.HasFlag(Armor.Stats.range))
         {
             EditorGUILayout.PropertyField(rangeProperty);
         }
+        else
+        {
+            rangeProperty.intValue = 0;
+        }
+
         if (test.HasFlag(Armor.Stats.knockBack))
         {
             EditorGUILayout.PropertyField(knockBackProperty);
         }
+        else
+        {
+            knockBackProperty.intValue = 0;
+        }
+
         if (test.HasFlag(Armor.Stats.attackSpeed))
         {
             EditorGUILayout.PropertyField(attackSpeedProperty);
         }
-
-        serializedObject.ApplyModifiedProperties();
+        else
+        {
+            attackSpeedProperty.floatValue = 0;
+        }
     }
 }

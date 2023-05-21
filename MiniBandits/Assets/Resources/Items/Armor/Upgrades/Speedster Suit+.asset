@@ -20,7 +20,7 @@ MonoBehaviour:
   rarity: 0
   type: 2
   tier: 1
-  description: Makes you fast
+  description: "\r"
   color: {r: 255, g: 255, b: 255, a: 1}
   lifeSteal: 0
   defense: 0
@@ -28,4 +28,10 @@ MonoBehaviour:
   strength: 0
   health: 0
   crit: 0
-  luck: 0
+  numProjectiles: 0
+  AOE: 0
+  projectileSpeed: 0
+  range: 0
+  attackSpeed: 0
+  knockBack: 0
+  stats: 0

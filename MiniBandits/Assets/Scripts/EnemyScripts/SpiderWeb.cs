@@ -9,7 +9,7 @@ public class SpiderWeb : BaseProjectile
     public override void OnTriggerEnter2D(Collider2D coll)
     {
         if (coll.gameObject.tag == "Player")
-        {
+        { 
             player = coll.gameObject;
             player.GetComponent<PlayerStatusEffects>().Slow(2);
             Destroy(gameObject);

@@ -28,4 +28,10 @@ MonoBehaviour:
   strength: 10
   health: 0
   crit: 0
-  luck: 0
+  numProjectiles: 0
+  AOE: 0
+  projectileSpeed: 0
+  range: 0
+  attackSpeed: 0
+  knockBack: 0
+  stats: 320
