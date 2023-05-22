@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f215491fd243cc743a384acfd3d73e7e, type: 3}
+  m_Name: Shurikens+
+  m_EditorClassIdentifier: 
+  id: 0
+  displayName: Shuriken+
+  referenceName: Shuriken
+  sprite: {fileID: 21300000, guid: 5f0e2e0e8b14fab4c8314ea3d0c3b673, type: 3}
+  cost: 10
+  rarity: 2
+  type: 0
+  tier: 1
+  description: Sharp
+  color: {r: 255, g: 255, b: 255, a: 1}
+  damage: 65
+  attackSpeed: 4.8
+  manualDPS: 0
+  numProjectiles: 0
+  AOE: 0
+  projectileSpeed: 20
+  range: 11
+  knockBack: 3
+  stats: 56

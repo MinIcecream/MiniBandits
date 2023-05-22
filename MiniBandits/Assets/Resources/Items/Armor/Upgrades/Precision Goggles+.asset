@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ed522ac7decdb5458e99b454d171c91, type: 3}
+  m_Name: Precision Goggles+
+  m_EditorClassIdentifier: 
+  id: 0
+  displayName: Precision Goggles+
+  referenceName: PrecisionGoggles
+  sprite: {fileID: 966617277, guid: 970489efb34b1fa4faf4482a588c8f36, type: 3}
+  cost: 30
+  rarity: 2
+  type: 1
+  tier: 1
+  description: 
+  color: {r: 0, g: 137, b: 255, a: 1}
+  lifeSteal: 0
+  defense: 0
+  speed: 0
+  strength: 0
+  health: 0
+  crit: 0
+  numProjectiles: 0
+  AOE: 0
+  projectileSpeed: 0
+  range: 0
+  attackSpeed: 0
+  knockBack: 0

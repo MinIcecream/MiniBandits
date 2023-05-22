@@ -38,7 +38,11 @@ public class ArmorEditor : Editor
     }
 
     public override void OnInspectorGUI()
-    {  
+    {
+
+        base.OnInspectorGUI();
+
+        /*
         serializedObject.Update();
 
         EditorGUILayout.PropertyField(serializedObject.FindProperty("displayName"));
@@ -52,7 +56,7 @@ public class ArmorEditor : Editor
         EditorGUILayout.PropertyField(statsProperty);
 
         DisplayStats(); 
-        
+        */
         if (GUILayout.Button("Create Upgrade"))
         {
             Armor script = (Armor)target;

@@ -26,7 +26,7 @@ public class Weapon : Item
         range = 16,
         knockBack = 32
     } 
-    public Stats stats;
+   // public Stats stats;
 
     public void CreateUpgrade()
     {
@@ -34,17 +34,8 @@ public class Weapon : Item
 
         newWeapon.tier++;
         newWeapon.displayName += "+";
-
-        string newRefName = newWeapon.referenceName;
-
-        for (int i = 0; i < newWeapon.displayName.Length; i++)
-        {
-            if (newWeapon.displayName[i] == '+')
-            {
-                newRefName += '+';
-            }
-        }
-        string path = "Assets/Resources/Items/Weapons/BaseWeapons"+newRefName+".asset";
+         
+        string path = "Assets/Resources/Items/Weapons/BaseWeapons/"+newWeapon.displayName+".asset";
         UnityEditor.AssetDatabase.CreateAsset(newWeapon, path);
         UnityEditor.AssetDatabase.SaveAssets();
         UnityEditor.AssetDatabase.Refresh();

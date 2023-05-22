@@ -25,7 +25,9 @@ public class WeaponEditor : Editor
     }
 
     public override void OnInspectorGUI()
-    {  
+    {
+        base.OnInspectorGUI();
+        /*
         serializedObject.Update();
 
         EditorGUILayout.PropertyField(serializedObject.FindProperty("displayName"));
@@ -42,7 +44,7 @@ public class WeaponEditor : Editor
          
 
         DisplayStats();
-
+        */
         if (GUILayout.Button("Create Upgrade"))
         {
             Weapon script = (Weapon)target;

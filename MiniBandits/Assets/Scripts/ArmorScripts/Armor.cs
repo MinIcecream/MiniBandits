@@ -37,25 +37,16 @@ public class Armor : Item
         crit = 1024,
         attackSpeed = 2048
     } 
-    public Stats stats;
+   // public Stats stats;
 
     public void CreateUpgrade()
     {
         Armor newWeapon = Instantiate(this);
 
         newWeapon.tier++;
-        newWeapon.displayName += "+";
-
-        string newRefName = newWeapon.referenceName;
-
-        for (int i = 0; i < newWeapon.displayName.Length; i++)
-        {
-            if (newWeapon.displayName[i] == '+')
-            {
-                newRefName += '+';
-            }
-        }
-        string path = "Assets/Resources/Items/Armor/BaseArmor/" + newRefName + ".asset";
+        newWeapon.displayName += "+"; 
+         
+        string path = "Assets/Resources/Items/Armor/BaseArmor/" + newWeapon.displayName + ".asset";
         UnityEditor.AssetDatabase.CreateAsset(newWeapon, path);
         UnityEditor.AssetDatabase.SaveAssets();
         UnityEditor.AssetDatabase.Refresh();

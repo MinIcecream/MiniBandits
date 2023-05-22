@@ -207,7 +207,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63e0be84bac73d446bc272615fd28f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textAssetData: {fileID: 4900000, guid: 398740d5700509f468cdb8306a371162, type: 3}
+  armorData: {fileID: 4900000, guid: 398740d5700509f468cdb8306a371162, type: 3}
+  weaponData: {fileID: 4900000, guid: 5c64dfb0c5c8ff74d98064a321b83132, type: 3}
 --- !u!1 &637593618
 GameObject:
   m_ObjectHideFlags: 0
