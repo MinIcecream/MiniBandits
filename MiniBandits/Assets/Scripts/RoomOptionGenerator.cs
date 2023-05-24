@@ -132,7 +132,7 @@ public class RoomOptionGenerator
                 }
             }
             alreadyAssignedRooms.Add(roomOptions[i]);
-            RoomGeneratorAlgorithm.UpdateOdds();
+            //RoomGeneratorAlgorithm.UpdateOdds();
         }
         return roomOptions;
     } 

@@ -6,9 +6,8 @@ public class UpdateArmorSprite : MonoBehaviour
 {
     public PlayerInventory inven;
     public Transform spawnPt;
-
-    public Sprite head, body, legs;
-
+ 
+    public Sprite legs;
     public SpriteRenderer helmetSprite, chestplateSprite, pantsSprite;
 
     public ArmorTemplate helmetScript, chestplateScript, pantsScript;
@@ -59,7 +58,7 @@ public class UpdateArmorSprite : MonoBehaviour
         }
         else
         {
-            helmetSprite.sprite = head;
+            helmetSprite.sprite = null;
             Destroy(helmetScript);
         }
 
@@ -88,7 +87,7 @@ public class UpdateArmorSprite : MonoBehaviour
         } 
         else
         {
-            chestplateSprite.sprite = body;
+            chestplateSprite.sprite = null;
             Destroy(chestplateScript);
         }
 

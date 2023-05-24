@@ -85,16 +85,16 @@ public class Overlord : EnemyAI, IDamageable
             Vector2 targetDirection = player.transform.position - transform.position;
             
             float angle = Vector2.SignedAngle(laserDirection, targetDirection);
-            float rotateAngle = 0.19f;
+            float rotateAngle = 60f * Time.deltaTime;
 
 
             if (angle > rotateAngle)
             {
-                laserDirection = Quaternion.Euler(0, 0, rotateAngle) * laserDirection*Time.deltaTime;
+                laserDirection = Quaternion.Euler(0, 0, rotateAngle) * laserDirection;
             }
             else if (angle < -rotateAngle)
             {
-                laserDirection = Quaternion.Euler(0, 0, -rotateAngle) * laserDirection * Time.deltaTime;
+                laserDirection = Quaternion.Euler(0, 0, -rotateAngle) * laserDirection;
             }
             else
             {
