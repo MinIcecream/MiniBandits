@@ -10,8 +10,8 @@ public class CSVReader : MonoBehaviour
 
     void Awake()
     {
-        ReadArmorCSV();
-        ReadWeaponCSV();
+      //  ReadArmorCSV();
+      //  ReadWeaponCSV();
     }
     void ReadArmorCSV()
     {

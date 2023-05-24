@@ -27,9 +27,9 @@ public class BigSword : WeaponTemplate
 
     IEnumerator DisableCollider()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.01f);
         collider.enabled = false;
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.1f);
         GetComponent<ParticleSystem>().Stop(); 
         transform.localRotation = Quaternion.Euler(0, 0, 0);
     }

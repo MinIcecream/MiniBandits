@@ -103,9 +103,7 @@ public class RoomOptionGenerator
     } 
 
     public static List<roomConfig> GenerateRoomOptions(int numDoors)
-    { 
-        RoomOptionGenerator instance = new RoomOptionGenerator();
-
+    {  
         List<roomConfig> roomOptions = new List<roomConfig>(numDoors); 
         List<roomConfig> alreadyAssignedRooms = new List<roomConfig>(); 
         int totalWeight = 0; 
@@ -134,6 +132,7 @@ public class RoomOptionGenerator
                 }
             }
             alreadyAssignedRooms.Add(roomOptions[i]);
+            RoomGeneratorAlgorithm.UpdateOdds();
         }
         return roomOptions;
     } 
