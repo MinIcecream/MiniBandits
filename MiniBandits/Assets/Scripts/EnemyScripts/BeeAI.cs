@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class BeeAI : EnemyAI, IAffectable
 {
-    public GameObject projectile;
-    bool firing;
-    public int chaseSpeed;
-    bool canStart = false;
+    public GameObject projectile; 
+    public int chaseSpeed; 
     public float attackDistance;
 
     enum states
@@ -22,18 +20,13 @@ public class BeeAI : EnemyAI, IAffectable
     {
         base.Awake();
         player = GameObject.FindWithTag("Player");
-    }
-
-    public override void StartLevel()
-    {
-        canStart = true;
-    }
+    } 
 
     public override void Update()
     {
         base.Update();
 
-        if (player == null || !canStart)
+        if (player == null)
         {
             return;
         }
@@ -48,7 +41,7 @@ public class BeeAI : EnemyAI, IAffectable
                 state = states.chasing;
             }
         }
-        if (state == states.firing && !firing)
+        if (state == states.firing && canAttack)
         {
             if (!player)
             {
@@ -77,9 +70,9 @@ public class BeeAI : EnemyAI, IAffectable
         }
         if (state == states.firing)
         {
-            if (!firing)
+            if (canAttack)
             {
-                StartCoroutine(Fire());
+                attackCoroutine=StartCoroutine(Fire());
             }
         }
         if (state == states.chasing)
@@ -95,9 +88,9 @@ public class BeeAI : EnemyAI, IAffectable
     }
     IEnumerator Fire()
     {
-        firing = true;
+        canAttack = false;
 
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(attackCooldown);
         //makes projectile
         if (player)
         {
@@ -105,10 +98,8 @@ public class BeeAI : EnemyAI, IAffectable
             //shoots projectile at player position
             newProjectile.GetComponent<BaseProjectile>().damage = damage;
             newProjectile.GetComponent<BaseProjectile>().SetDir(((Vector2)(player.transform.position))); 
-        }
+        } 
 
-        yield return new WaitForSeconds(1f);
-
-        firing = false;
+        canAttack = true;
     }
-    }
+}

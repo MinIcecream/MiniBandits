@@ -50,19 +50,20 @@ public class Shrine : Interactable
     } 
     public override void Interact()
     {
-        used = true;
-        popup.SetActive(false);
-
         GameObject player = GameObject.FindWithTag("Player");
-        if (player == null)
+        if (player == null||used)
         {
             return;
         }
+        used = true;
+        popup.SetActive(false);
+         
 
         switch (shrineType)
         {
             case shrineTypes.vitality:
-                player.GetComponent<Health>().Heal(200);
+                int healAmt = (int)(.30f * player.GetComponent<Health>().GetMaxHealth());
+                player.GetComponent<Health>().Heal(healAmt);
                 PopupManager.SpawnPopup(transform.position, "healed!",false);
                 break;
             case shrineTypes.defense:

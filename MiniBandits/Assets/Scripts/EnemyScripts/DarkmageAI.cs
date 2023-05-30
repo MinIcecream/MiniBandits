@@ -4,36 +4,30 @@ using UnityEngine;
 
 public class DarkmageAI : EnemyAI, IAffectable
 {
-    public GameObject projectile;
-    bool firing;
+    public GameObject projectile; 
     public int chaseSpeed;
     bool canStart = false;
     public float attackDistance;
 
-    enum states
+    public enum states
     {
         chasing,
         firing,
         wandering
     }
-    states state = states.wandering;
+    public states state = states.wandering;
 
     public override void Awake()
     {
         base.Awake();
         player = GameObject.FindWithTag("Player");
     }
-
-    public override void StartLevel()
-    {
-        canStart = true;
-    }
-
+     
     public override void Update()
     {
         base.Update();
 
-        if (player == null || !canStart)
+        if (player == null)
         {
             return;
         }
@@ -48,7 +42,7 @@ public class DarkmageAI : EnemyAI, IAffectable
                 state = states.chasing;
             }
         }
-        if (state == states.firing && !firing)
+        if (state == states.firing && canAttack)
         {
             if (!player)
             {
@@ -77,9 +71,9 @@ public class DarkmageAI : EnemyAI, IAffectable
         }
         if (state == states.firing)
         {
-            if (!firing)
+            if (canAttack)
             {
-                StartCoroutine(Fire());
+                attackCoroutine = StartCoroutine(Fire());
             }
         }
         if (state == states.chasing)
@@ -94,10 +88,10 @@ public class DarkmageAI : EnemyAI, IAffectable
         }
     }
     IEnumerator Fire()
-    {
-        firing = true;
+    { 
+        canAttack = false;
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(attackCooldown);
         //makes projectile
         if (player)
         {
@@ -121,9 +115,8 @@ public class DarkmageAI : EnemyAI, IAffectable
             newProjectile3.GetComponent<BaseProjectile>().damage = damage;
             newProjectile3.GetComponent<BaseProjectile>().SetDir((Vector2)(dir3)+(Vector2)(transform.position));
         }
+         
 
-        yield return new WaitForSeconds(1f);
-
-        firing = false;
+        canAttack = true;
     }
 }

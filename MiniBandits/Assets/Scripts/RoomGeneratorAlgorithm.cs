@@ -4,35 +4,18 @@ using UnityEngine;
 using RoomInfo;
 
 public class RoomGeneratorAlgorithm : MonoBehaviour
-{
-    Health playerHealth;
-    GoldManager gold;
-    KeyManager key;
-
+{ 
   //  RoomGeneratorAlgorithm instance = new RoomGeneratorAlgorithm();
-
-    void Awake()
-    { 
-        playerHealth = GameObject.FindWithTag("Player").GetComponent<Health>();
-        gold = GameObject.FindWithTag("Player").GetComponent<GoldManager>();
-        key = GameObject.FindWithTag("Player").GetComponent<KeyManager>();
-        UpdateOdds();
-        StartCoroutine(RefreshOdds());
-    }
-    IEnumerator RefreshOdds()
+   
+    public static void UpdateOdds()
     {
-        while (true)
-        {
-            yield return new WaitForSeconds(1f);
-            UpdateOdds();
-        }
-    }
-    public void UpdateOdds()
-    { 
-        foreach (rewardTypes value in rewardTypes.GetValues(typeof(rewardTypes)))
-        { 
-            RoomOptionGenerator.ChangeRoomChance(value, 20);
-        }/*
+        Health playerHealth = GameObject.FindWithTag("Player").GetComponent<Health>();
+        GoldManager gold = GameObject.FindWithTag("Player").GetComponent<GoldManager>();
+        KeyManager key = GameObject.FindWithTag("Player").GetComponent<KeyManager>();
+
+        RoomOptionGenerator.SetDefaultRoomChances();
+        
+        /*
         for (int i = 0; i < RoomOptionGenerator.rooms.Count;i++)
         {
             if (RoomOptionGenerator.rooms[i].locked)
@@ -72,11 +55,7 @@ public class RoomGeneratorAlgorithm : MonoBehaviour
         if (playerHealth.GetHealth() < playerHealth.GetMaxHealth() / 4)
         {
             RoomOptionGenerator.ChangeRoomChance(rewardTypes.vitalityShrine, 15); 
-        }
-        else if (playerHealth.GetHealth() < playerHealth.GetMaxHealth())
-        {
-            RoomOptionGenerator.ChangeRoomChance(rewardTypes.vitalityShrine, 10); 
-        }
+        } 
         else
         {
             RoomOptionGenerator.ChangeRoomChance(rewardTypes.vitalityShrine, 0);

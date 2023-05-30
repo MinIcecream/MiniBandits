@@ -3,44 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TumbleweedAI : EnemyAI, IDamageable, IAffectable
-{ 
-    [HideInInspector]
-    public bool charging = false;
-     
+{  
     public new GameObject collider;
 
-    public float chargeSpeed;
-    public float chargeCooldown;
-
-    bool chargeCooldownStarted;
+    public float chargeSpeed; 
+     
 
     Rigidbody2D rb;
 
-    bool levelStarted;
-
-    public float currentRotation;
+    float currentRotation;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
-
-    public override void StartLevel()
-    {
-        levelStarted = true;
-    }
-
+     
     IEnumerator AttackTimer()
-    { 
-        yield return new WaitForSeconds(chargeCooldown);
-
+    {   
         if (player != null)
         { 
             collider.SetActive(true);
-            Vector2 chargeDir = player.transform.position - transform.position; 
-            rb.AddForce(chargeDir * 50 * chargeSpeed);
-            chargeCooldownStarted = false;
+            Vector2 chargeDir = player.transform.position - transform.position;
+            GetComponent<AttackIndicator>().GenerateAttackIndicator(chargeDir.normalized); 
+
+            yield return new WaitForSeconds(1f);
+            rb.AddForce(chargeDir * 50 * chargeSpeed); 
         }
+        yield return new WaitForSeconds(attackCooldown);
+        canAttack = true;
     }
 
     public override void Update()
@@ -48,16 +38,16 @@ public class TumbleweedAI : EnemyAI, IDamageable, IAffectable
         base.Update();
         player = GameObject.FindWithTag("Player");
 
-        if (player == null||!levelStarted)
+        if (player == null)
         {
             return;
         }   
         if (rb.velocity.magnitude <= .01f)
         { 
-            if (!chargeCooldownStarted)
+            if (canAttack)
             {
-                chargeCooldownStarted = true;
-                StartCoroutine(AttackTimer());
+                canAttack = false;
+                attackCoroutine = StartCoroutine(AttackTimer());
             }
         } 
         float linearVelocity = rb.velocity.magnitude; // Get the magnitude of the object's velocity
@@ -67,11 +57,8 @@ public class TumbleweedAI : EnemyAI, IDamageable, IAffectable
         transform.rotation = Quaternion.Euler(0f, 0f, currentRotation);
     } 
     public override void Knockback(float magnitude, Vector2 src)
-    {
-        if (!charging)
-        {
-            base.Knockback(magnitude, src);
-        }
+    { 
+        base.Knockback(magnitude, src); 
     }
     public void OnTriggerEnter2D(Collider2D coll)
     {

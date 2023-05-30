@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CyborgAI : EnemyAI, IAffectable
-{
-    public bool firing;
-    public int chaseSpeed;
-    bool canStart = false;
+{ 
+    public int chaseSpeed; 
     public float attackDistance;
     public float meleeAttackDistance;
     public Collider2D weaponCollider;
@@ -26,17 +24,12 @@ public class CyborgAI : EnemyAI, IAffectable
         base.Awake();
         player = GameObject.FindWithTag("Player");
     }
-
-    public override void StartLevel()
-    {
-        canStart = true;
-    }
-
+     
     public override void Update()
     {
         base.Update();
 
-        if (player == null || !canStart)
+        if (player == null)
         {
             return;
         }
@@ -51,7 +44,7 @@ public class CyborgAI : EnemyAI, IAffectable
                 state = states.chasing;
             }
         }
-        if (state == states.firing && !firing)
+        if (state == states.firing && canAttack)
         {
             if (!player)
             {
@@ -80,9 +73,9 @@ public class CyborgAI : EnemyAI, IAffectable
         }
         if (state == states.firing)
         {
-            if (!firing)
+            if (canAttack)
             {
-                StartCoroutine(Fire());
+                attackCoroutine = StartCoroutine(Fire());
             }
         }
         if (state == states.chasing)
@@ -98,7 +91,9 @@ public class CyborgAI : EnemyAI, IAffectable
     }
     IEnumerator Fire()
     {
-        firing = true;
+        canAttack = false;
+        yield return new WaitForSeconds(attackCooldown
+            );
         if (Vector2.Distance(player.transform.position, transform.position) < meleeAttackDistance)
         {
             yield return new WaitForSeconds(0.2f);
@@ -114,7 +109,7 @@ public class CyborgAI : EnemyAI, IAffectable
             //waits 1 second before shooting another
             yield return new WaitForSeconds(1f);
         }
-        firing = false;
+        canAttack = true;
     }
 
     void OnTriggerEnter2D(Collider2D coll)

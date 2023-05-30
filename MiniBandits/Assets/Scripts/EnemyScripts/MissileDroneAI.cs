@@ -5,9 +5,7 @@ using UnityEngine;
 public class MissileDroneAI : EnemyAI, IAffectable
 {
     public GameObject projectile;
-    bool firing;
     public int chaseSpeed;
-    bool canStart = false;
     public float attackDistance;
 
     enum states
@@ -24,16 +22,11 @@ public class MissileDroneAI : EnemyAI, IAffectable
         player = GameObject.FindWithTag("Player");
     }
 
-    public override void StartLevel()
-    {
-        canStart = true;
-    }
-
     public override void Update()
     {
         base.Update();
 
-        if (player == null || !canStart)
+        if (player == null)
         {
             return;
         }
@@ -48,7 +41,7 @@ public class MissileDroneAI : EnemyAI, IAffectable
                 state = states.chasing;
             }
         }
-        if (state == states.firing && !firing)
+        if (state == states.firing && canAttack)
         {
             if (!player)
             {
@@ -77,9 +70,9 @@ public class MissileDroneAI : EnemyAI, IAffectable
         }
         if (state == states.firing)
         {
-            if (!firing)
+            if (canAttack)
             {
-                StartCoroutine(Fire());
+                attackCoroutine = StartCoroutine(Fire());
             }
         }
         if (state == states.chasing)
@@ -95,19 +88,16 @@ public class MissileDroneAI : EnemyAI, IAffectable
     }
     IEnumerator Fire()
     {
-        firing = true;
+        canAttack = false;
 
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(attackCooldown);
         //makes projectile
         if (player)
         {
             var newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
             //shoots projectile at player position 
-
         }
 
-        yield return new WaitForSeconds(1f);
-
-        firing = false;
+        canAttack = true;
     }
 }

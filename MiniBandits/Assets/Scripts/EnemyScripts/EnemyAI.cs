@@ -10,6 +10,10 @@ public class EnemyAI : MonoBehaviour, IDamageable
     public bool hasDied = false;
     [HideInInspector]
     public GameObject player;
+    [HideInInspector]
+    public Coroutine attackCoroutine; 
+    public float attackCooldown;
+    [HideInInspector] public bool canAttack;
 
     [HideInInspector] public bool canMove;
 
@@ -24,7 +28,8 @@ public class EnemyAI : MonoBehaviour, IDamageable
 
     public virtual void StartLevel()
     {
-
+        canAttack = true;
+        canMove = true;
     }
 
     public virtual void Awake()
@@ -73,10 +78,20 @@ public class EnemyAI : MonoBehaviour, IDamageable
 
         canMove = false;
 
-        Invoke("EnableMovement",0.5f);
+        Invoke("EnableMovement", 0.5f);
+        StartCoroutine(Stagger());
     }
     public virtual void EnableMovement()
     {
         canMove = true;
+    }
+    public virtual IEnumerator Stagger()
+    {
+        if (attackCoroutine == null)
+        {
+            yield break;
+        }
+        StopCoroutine(attackCoroutine); 
+        canAttack = true;
     }
 }

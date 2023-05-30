@@ -12,8 +12,7 @@ public class BoarAI : EnemyAI, IDamageable, IAffectable
     Vector2 chargeDir;
     public new GameObject collider;
 
-    public float chargeSpeed;
-    public float chargeCooldown;
+    public float chargeSpeed; 
 
     public override void StartLevel()
     { 
@@ -21,7 +20,7 @@ public class BoarAI : EnemyAI, IDamageable, IAffectable
     } 
     IEnumerator AttackTimer()
     {
-        yield return new WaitForSeconds(chargeCooldown);
+        yield return new WaitForSeconds(attackCooldown);
         if (player != null)
         {
             collider.SetActive(true);

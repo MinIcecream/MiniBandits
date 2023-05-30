@@ -10,7 +10,7 @@ public class Health : MonoBehaviour
 
     public virtual void Awake()
     {
-        health = maxHealth;
+        health = maxHealth; 
     }
     public void SetHealth(int h)
     {

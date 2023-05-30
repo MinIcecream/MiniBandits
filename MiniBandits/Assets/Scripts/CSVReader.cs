@@ -10,8 +10,8 @@ public class CSVReader : MonoBehaviour
 
     void Awake()
     {
-      //  ReadArmorCSV();
-      //  ReadWeaponCSV();
+        ReadArmorCSV();
+        ReadWeaponCSV();
     }
     void ReadArmorCSV()
     {
@@ -52,7 +52,7 @@ public class CSVReader : MonoBehaviour
             }
             else
             {
-                Debug.Log(itemName);
+              //  Debug.Log(itemName);
             }
         }
     }
@@ -91,7 +91,7 @@ public class CSVReader : MonoBehaviour
             }
             else
             {
-                Debug.Log(itemName);
+              //  Debug.Log(itemName);
             }
         }
     }

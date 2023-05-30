@@ -223,6 +223,8 @@ MonoBehaviour:
   health: {fileID: 0}
   hasDied: 0
   player: {fileID: 0}
+  attackCooldown: 2
+  canAttack: 0
   canMove: 0
   damage: 200
   ranIntoWall: 0

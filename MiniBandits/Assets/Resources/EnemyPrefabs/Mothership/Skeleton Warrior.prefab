@@ -291,9 +291,10 @@ MonoBehaviour:
   health: {fileID: 0}
   hasDied: 0
   player: {fileID: 0}
+  attackCooldown: 0.6
+  canAttack: 0
   canMove: 0
   damage: 200
-  firing: 0
   chaseSpeed: 5
   attackDistance: 1
   weaponCollider: {fileID: 5271790184275108389}

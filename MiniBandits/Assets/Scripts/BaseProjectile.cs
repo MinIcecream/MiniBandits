@@ -78,7 +78,7 @@ public class BaseProjectile : MonoBehaviour
             InstantiateParticles();
 
             if (destroyOnHit)
-            {
+            { 
                 Destroy(gameObject);
             }
         }
@@ -86,7 +86,7 @@ public class BaseProjectile : MonoBehaviour
         {
             if (destroyOnWall)
             {
-                InstantiateParticles();
+                InstantiateParticles(); 
                 Destroy(gameObject);
             }
         }
@@ -99,5 +99,14 @@ public class BaseProjectile : MonoBehaviour
             return;
         } 
         Instantiate(particles, transform.position, Quaternion.identity);
+    }
+
+    public void Destroy(GameObject obj)
+    {
+        if (collider != null)
+        { 
+            collider.enabled = false;
+        } 
+        Object.Destroy(obj);
     }
 }

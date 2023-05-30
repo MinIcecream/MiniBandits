@@ -263,6 +263,8 @@ MonoBehaviour:
   health: {fileID: 0}
   hasDied: 0
   player: {fileID: 0}
+  attackCooldown: 1
+  canAttack: 0
   canMove: 0
   damage: 200
   projectile: {fileID: 7777877402851561955, guid: fd833881ffb0966468f7ab0cddcb58e6, type: 3}

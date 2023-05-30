@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MeleeDroneAI : EnemyAI, IAffectable
-{
-    public bool firing;
-    public int chaseSpeed;
-    bool canStart = false;
+{ 
+    public int chaseSpeed; 
     public float attackDistance;
     public Collider2D weaponCollider; 
 
@@ -22,18 +20,13 @@ public class MeleeDroneAI : EnemyAI, IAffectable
     {
         base.Awake();
         player = GameObject.FindWithTag("Player");
-    }
-
-    public override void StartLevel()
-    {
-        canStart = true;
-    }
+    } 
 
     public override void Update()
     {
         base.Update();
 
-        if (player == null || !canStart)
+        if (player == null)
         {
             return;
         }
@@ -48,7 +41,7 @@ public class MeleeDroneAI : EnemyAI, IAffectable
                 state = states.chasing;
             }
         }
-        if (state == states.firing && !firing)
+        if (state == states.firing && canAttack)
         {
             if (!player)
             {
@@ -77,9 +70,9 @@ public class MeleeDroneAI : EnemyAI, IAffectable
         }
         if (state == states.firing)
         {
-            if (!firing)
+            if (canAttack)
             {
-                StartCoroutine(Fire());
+                attackCoroutine = StartCoroutine(Fire());
             }
         }
         if (state == states.chasing)
@@ -96,8 +89,7 @@ public class MeleeDroneAI : EnemyAI, IAffectable
     IEnumerator Fire()
     {
         yield return new WaitForSeconds(0.2f);
-        GetComponent<Animator>().SetTrigger("Attack");
-
+        GetComponent<Animator>().SetTrigger("Attack"); 
     }
 
     void OnTriggerEnter2D(Collider2D coll)
@@ -106,5 +98,16 @@ public class MeleeDroneAI : EnemyAI, IAffectable
         {
             coll.gameObject.GetComponent<Health>().DealDamage(damage);
         }
+    }
+    public override IEnumerator Stagger()
+    {
+        if (attackCoroutine == null)
+        {
+            yield break;
+        }
+        StopCoroutine(attackCoroutine);
+        GetComponent<Animator>().CrossFade("Idle", 0f);
+        yield return new WaitForSeconds(attackCooldown);
+        canAttack = true;
     }
 }

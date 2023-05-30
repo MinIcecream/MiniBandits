@@ -48,13 +48,15 @@ namespace RoomInfo
     }
     public struct roomConfig{
         public int chance;
+        public int defaultChance;
         public rewardTypes reward;
         public bool progressRoom;
         public bool locked;
 
-        public roomConfig(int c, rewardTypes r, bool p, bool l)
+        public roomConfig(int c, int d, rewardTypes r, bool p, bool l)
         {
             chance = c;
+            defaultChance = d;
             reward = r;
             progressRoom = p;
             locked = l;
@@ -66,21 +68,21 @@ public class RoomOptionGenerator
     public static List<roomConfig> previouslyGeneratedRooms = new List<roomConfig>();
     public static List<roomConfig> rooms = new List<roomConfig>() 
     { 
-        new roomConfig(0, rewardTypes.starter, false, false),
-        new roomConfig(15, rewardTypes.market, false, false),
-        new roomConfig(15, rewardTypes.blackSmith, false, false),
-        new roomConfig(20, rewardTypes.randomWeapon, true, false),
-        new roomConfig(20, rewardTypes.randomArmor, true, false),
-        new roomConfig(5, rewardTypes.vitalityShrine, true, false),
-        new roomConfig(5, rewardTypes.defenseShrine, true, false),
-        new roomConfig(5, rewardTypes.powerShrine, true, false),
-        new roomConfig(5, rewardTypes.speedShrine, true, false),
-        new roomConfig(50, rewardTypes.gold, true, false),
-        new roomConfig(5, rewardTypes.rareWeapon, true, true),
-        new roomConfig(5, rewardTypes.rareArmor, true, true),
-        new roomConfig(5, rewardTypes.heart, true, false),
-        new roomConfig(5, rewardTypes.largeGold, true, true),
-        new roomConfig(20, rewardTypes.key, true, false)
+        new roomConfig(0, 0, rewardTypes.starter, false, false),
+        new roomConfig(15, 10, rewardTypes.market, false, false),
+        new roomConfig(15, 10, rewardTypes.blackSmith, false, false),
+        new roomConfig(20, 20, rewardTypes.randomWeapon, true, false),
+        new roomConfig(20, 20, rewardTypes.randomArmor, true, false),
+        new roomConfig(5, 10, rewardTypes.vitalityShrine, true, false),
+        new roomConfig(5, 10, rewardTypes.defenseShrine, true, false),
+        new roomConfig(5, 10, rewardTypes.powerShrine, true, false),
+        new roomConfig(5, 10, rewardTypes.speedShrine, true, false),
+        new roomConfig(50, 20, rewardTypes.gold, true, false),
+        new roomConfig(5, 5, rewardTypes.rareWeapon, true, true),
+        new roomConfig(5, 5, rewardTypes.rareArmor, true, true),
+        new roomConfig(5, 10, rewardTypes.heart, true, false),
+        new roomConfig(5, 5, rewardTypes.largeGold, true, true),
+        new roomConfig(20, 10, rewardTypes.key, true, false)
     };
      
     public static roomThemes[] GenerateRoomThemes(int numThemes)
@@ -113,7 +115,8 @@ public class RoomOptionGenerator
         } 
 
         for(int i = 0; i < numDoors; i++)
-        { 
+        {
+            RoomGeneratorAlgorithm.UpdateOdds();
             roomOptions.Add(rooms[0]);
             while (alreadyAssignedRooms.Contains(roomOptions[i]) || roomOptions[i].reward == rewardTypes.starter)
             {
@@ -133,6 +136,7 @@ public class RoomOptionGenerator
             }
             alreadyAssignedRooms.Add(roomOptions[i]);
             //RoomGeneratorAlgorithm.UpdateOdds();
+             
         }
         return roomOptions;
     } 
@@ -276,6 +280,15 @@ public class RoomOptionGenerator
                 rooms[i] = myRoom;
             }
         }  
+    }
+    public static void SetDefaultRoomChances()
+    {
+        for(int i = 0; i<rooms.Count; i++)
+        {
+            roomConfig myRoom = rooms[i];
+            myRoom.chance = myRoom.defaultChance;
+            rooms[i] = myRoom;
+        }
     }
 }
 

@@ -92,7 +92,8 @@ public class InfernalAura : MonoBehaviour
             foreach(IDamageable opp in damageables)
             {
                 if (opp!=null)
-                { 
+                {
+                    Debug.Log(opp);
                     opp.Damage(damage);
                 }
                 else

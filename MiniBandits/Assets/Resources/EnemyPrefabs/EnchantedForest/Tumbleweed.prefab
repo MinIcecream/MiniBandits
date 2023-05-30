@@ -62,6 +62,7 @@ GameObject:
   - component: {fileID: 4246708707122837619}
   - component: {fileID: 1547490200888759917}
   - component: {fileID: 7061273815074979140}
+  - component: {fileID: 1572116967852751597}
   m_Layer: 7
   m_Name: Tumbleweed
   m_TagString: Enemy
@@ -203,10 +204,24 @@ MonoBehaviour:
   health: {fileID: 0}
   hasDied: 0
   player: {fileID: 0}
+  attackCooldown: 2
   canMove: 0
   damage: 200
-  charging: 0
   collider: {fileID: 7183279876911527456}
   chargeSpeed: 7
   chargeCooldown: 2
-  currentRotation: 0
+--- !u!114 &1572116967852751597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8121160717422346259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f904fcdb2eddf746ba7b26d0b818d65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shape: 0
+  radius: 0
+  width: 2

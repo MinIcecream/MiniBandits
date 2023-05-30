@@ -6,29 +6,31 @@ public class SentinelAI : EnemyAI, IAffectable
 {
     public GameObject projectile;
 
-    public override void StartLevel()
+    void Update()
     {
-        StartCoroutine(FireTimer());
+        base.Update();
+        if (canAttack)
+        {
+            attackCoroutine = StartCoroutine(Fire());
+        }
     }
-    IEnumerator FireTimer()
+    IEnumerator Fire()
     {
         player = GameObject.FindWithTag("Player");
-        while (true)
+        canAttack = false;
+        yield return new WaitForSeconds(attackCooldown);
+        if (player == null)
         {
-            yield return new WaitForSeconds(1f);
-            if (player == null)
-            {
-                break;
-            }
-            //makes projectile
-            var newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
-            //shoots projectile at player position 
-            //waits 1 second before shooting another 
+            yield break;
         }
+        //makes projectile
+        var newProjectile = Instantiate(projectile, transform.position, Quaternion.identity); 
+
+        canAttack = true;
     }
 
     public override void Knockback(float m, Vector2 s)
     {
-        return;
+        StartCoroutine(Stagger());
     }
 }

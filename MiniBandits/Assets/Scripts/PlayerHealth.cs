@@ -15,26 +15,10 @@ public class PlayerHealth : Health
     }
     void Update()
     {
-        int healthStat = player.GetHealth();
-        int currHealth = GetHealth();
+        int healthStat = player.GetHealth(); 
         if (maxHealth != healthStat)
         {
-            //If your max health increased:
-            if (healthStat > maxHealth)
-            {
-                int diff = maxHealth - currHealth;
-                maxHealth = healthStat;
-                SetHealth(maxHealth - diff);
-            }
-            //If Max health decreased:
-            else
-            {
-                maxHealth = healthStat;
-                if (healthStat < currHealth)
-                {
-                    SetHealth(healthStat);
-                }
-            }
+            maxHealth = healthStat; 
         } 
     } 
     public override void DealDamage(int damage)

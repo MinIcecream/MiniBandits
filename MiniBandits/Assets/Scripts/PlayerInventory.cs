@@ -92,8 +92,7 @@ public class PlayerInventory : MonoBehaviour
             case Item.itemType.weapon:
                 infoManager.DisplayInfo(weaponSlot, slot);
                 break;
-        } 
-          
+        }  
     } 
 
     //If equip slot is null, equip the item. Else, swap the equipped item witht he item to equip.
@@ -196,36 +195,51 @@ public class PlayerInventory : MonoBehaviour
         }
         foreach(Item i in inventoryItems)
         {
-            if (item == i)
-            {
-                return true;
-            }
+            if (i != null)
+            { 
+                if (item.referenceName == i.referenceName)
+                {
+                    return true;
+                }
+            } 
         }
         switch (item.type)
         {
             case Item.itemType.helmet:
-                if (activeHelmet == item)
-                {
-                    return true;
-                }
+                if (activeHelmet != null)
+                { 
+                    if (activeHelmet.referenceName == item.referenceName)
+                    {
+                        return true;
+                    }
+                } 
                 break;
             case Item.itemType.pants:
-                if (activePants == item)
-                {
-                    return true;
-                }
+                if (activePants != null)
+                { 
+                    if (activePants.referenceName == item.referenceName)
+                    {
+                        return true;
+                    }
+                } 
                 break;
             case Item.itemType.chestplate:
-                if (activeChestplate == item)
-                {
-                    return true;
-                }
+                if (activeChestplate != null)
+                { 
+                    if (activeChestplate.referenceName == item.referenceName)
+                    {
+                        return true;
+                    }
+                } 
                 break;
             case Item.itemType.weapon:
-                if (activeWeapon == item)
-                {
-                    return true;
-                }
+                if (activeWeapon != null)
+                { 
+                    if (activeWeapon.referenceName == item.referenceName)
+                    {
+                        return true;
+                    }
+                } 
                 break;
         }
         return false;

@@ -93,7 +93,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5311302903575278930}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -119,6 +119,17 @@ MonoBehaviour:
   weapon: {fileID: 11400000, guid: 40fc1e66adb414f44a3339576d525223, type: 2}
   weaponName: 
   attackCooldown: 0
-  baseDamage: 0
   damage: 0
-  knockBackAmt: 3
+  attackSpeed: 0
+  AOE: 0
+  range: 0
+  knockBack: 0
+  numProjectiles: 0
+  projectileSpeed: 0
+  baseAttackSpeed: 0
+  baseDamage: 0
+  baseNumProjectiles: 0
+  baseRange: 0
+  baseAOE: 0
+  baseKnockBack: 0
+  baseProjectileSpeed: 0

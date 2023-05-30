@@ -6,37 +6,40 @@ public class SentryAI : EnemyAI, IAffectable
 {
     public GameObject projectile;
 
-    public override void StartLevel()
+
+    void Update()
     {
-        StartCoroutine(FireTimer());
+        base.Update();
+        if (canAttack)
+        {
+            attackCoroutine = StartCoroutine(Fire());
+        }
     }
-    IEnumerator FireTimer()
+    IEnumerator Fire()
     {
         player = GameObject.FindWithTag("Player");
-        while (true)
-        {
-            yield return new WaitForSeconds(1.3f); 
+        canAttack = false;
+        yield return new WaitForSeconds(attackCooldown); 
 
-            for(int i = 0; i < 3; i++)
-            { 
-                //makes projectile
-                var newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
-                //shoots projectile at player position
-                if (player == null)
-                {
-                    break;
-                }
-                newProjectile.GetComponent<BaseProjectile>().damage = damage;
-                newProjectile.GetComponent<BaseProjectile>().SetDir(((Vector2)(player.transform.position)));
-                //waits 1 second before shooting another
-                yield return new WaitForSeconds(0.2f);
+        for(int i = 0; i < 3; i++)
+        { 
+            //makes projectile
+            var newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
+            //shoots projectile at player position
+            if (player == null)
+            {
+                break;
             }
-
+            newProjectile.GetComponent<BaseProjectile>().damage = damage;
+            newProjectile.GetComponent<BaseProjectile>().SetDir(((Vector2)(player.transform.position)));
+            //waits 1 second before shooting another
+            yield return new WaitForSeconds(0.2f);
         }
+        canAttack = true;
     }
 
     public override void Knockback(float m, Vector2 s)
-    {
-        return;
+    { 
+        StartCoroutine(Stagger()); 
     }
 }

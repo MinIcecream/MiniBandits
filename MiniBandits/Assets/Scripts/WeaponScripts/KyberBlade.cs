@@ -14,7 +14,7 @@ public class KyberBlade : WeaponTemplate
         {
             return;
         }
-        damage = baseDamage + (int)((player.GetComponent<Player>().strength / 100.0) * baseDamage); 
+        UpdateStats(); 
         
         if (Input.GetMouseButton(0))
         {

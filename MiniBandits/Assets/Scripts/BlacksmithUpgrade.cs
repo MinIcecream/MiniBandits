@@ -62,12 +62,12 @@ public class BlacksmithUpgrade : Interactable,ISelectFromInventory
 
         Item upgradedItem;
 
-        string weaponName = slot.item.referenceName;
-
+        string weaponName = slot.item.displayName+"+";
+        /*
         for (int i = 0; i < slot.item.tier+1; i++)
         {
             weaponName += "+";
-        } 
+        } */
         if (slot.item.type == Item.itemType.weapon)
         {
             upgradedItem = Resources.Load<Item>("Items/Weapons/Upgrades/" + weaponName);

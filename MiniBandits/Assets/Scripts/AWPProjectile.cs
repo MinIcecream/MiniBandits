@@ -24,7 +24,7 @@ public class AWPProjectile : BaseProjectile
             InstantiateParticles();
 
             if (hitEnemies > 1)
-            {
+            { 
                 Destroy(gameObject);
             }
         }
