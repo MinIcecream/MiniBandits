@@ -92,8 +92,10 @@ public class CyborgAI : EnemyAI, IAffectable
     IEnumerator Fire()
     {
         canAttack = false;
-        yield return new WaitForSeconds(attackCooldown
-            );
+        yield return new WaitForSeconds(attackCooldown);
+        if(player==null){
+            yield break;
+        }
         if (Vector2.Distance(player.transform.position, transform.position) < meleeAttackDistance)
         {
             yield return new WaitForSeconds(0.2f);
