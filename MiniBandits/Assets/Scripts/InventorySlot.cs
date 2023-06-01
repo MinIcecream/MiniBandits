@@ -15,6 +15,8 @@ public class InventorySlot : MonoBehaviour
 
     public ISelectFromInventory reference;
 
+    public Sprite backgroundImage;
+
     void Awake()
     {
         inven = GameObject.FindWithTag("Inventory").GetComponent<PlayerInventory>();
@@ -26,18 +28,18 @@ public class InventorySlot : MonoBehaviour
 
     public void RemoveIcon()
     { 
-        image.overrideSprite = null; 
+        image.overrideSprite = backgroundImage; 
     }
     public void AddIcon()
     {
         if (item != null)
         { 
             image.overrideSprite = item.sprite;
-            image.preserveAspect = true ;
+            image.preserveAspect = true; 
         }
         else
         {
-            image.overrideSprite = null;
+            image.overrideSprite = backgroundImage; 
         }
     }
     public void UpdateItem(Item newItem)
@@ -46,11 +48,11 @@ public class InventorySlot : MonoBehaviour
         if (item != null)
         { 
             image.overrideSprite = item.sprite;
-            image.preserveAspect=true;
+            image.preserveAspect=true; 
         }
         else
         {
-            image.overrideSprite = null;
+            image.overrideSprite = backgroundImage; 
         }
     } 
     public void OnClick()
@@ -68,5 +70,6 @@ public class InventorySlot : MonoBehaviour
         {
             inven.SetDescription(this); 
         } 
-    } 
+    }
+     
 }

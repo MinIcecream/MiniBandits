@@ -59,4 +59,17 @@ public class ItemDescriptionCardManager : MonoBehaviour
         inven.AddItemToInventory(temp);
         DestroyInfoCards();
     }
+    public void UnequipItem()
+    {
+        if (inven.AvailableSlot(activeSlot.item))
+        {
+            inven.AddItemToInventory(activeSlot.item);
+            inven.RemoveItemFromInventory(activeSlot);
+        }
+        else
+        {
+            inven.DropItem(activeSlot);
+        }
+        DestroyInfoCards();
+    }
 }

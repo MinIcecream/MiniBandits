@@ -21,7 +21,7 @@ public class StatsUI : MonoBehaviour
         if (player == null)
         {
             return;
-        }
+        } 
         combatPower.text = "Combat Power: " + player.combatPower.ToString();
         lifeSteal.text = "Lifesteal: " + player.lifeSteal.ToString();
         defense.text = "Defense: " + player.defense.ToString();

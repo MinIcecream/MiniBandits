@@ -295,6 +295,19 @@ public class PlayerInventory : MonoBehaviour
         Debug.Log("NO ACTIVE SLOT OF TYPE " + type);
         return false;
     }
+    //Checks if there is an open equip slot for an item
+    public bool BasicSlotAvailable()
+    { 
+        for (int i = 0; i < inventoryItems.Length; i++)
+        {
+            if (inventoryItems[i] == null)
+            {
+                return true;
+            }
+        }
+        Debug.Log("NO BASIC CSLOT SLOT");
+        return false;
+    }
 
     //Adds Item to inventory. If there's an open equip slot, equiops it. Else, just puts it in inventory.
     public void AddItemToInventory(Item itemToAdd)
