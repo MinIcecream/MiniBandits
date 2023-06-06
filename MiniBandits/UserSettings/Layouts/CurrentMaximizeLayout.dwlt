@@ -23,7 +23,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 4406
+  controlID: 112
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 1
-  controlID: 4407
+  controlID: 113
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 100}
   m_MaxSize: {x: 32384, y: 8096}
   vertical: 0
-  controlID: 4408
+  controlID: 114
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -227,7 +227,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 24ceffff4aceffff68ceffff3ed1fffface3ffffd2e3fffff0e3ffffc6e6ffff2cfbfffff4ffffff32670000
+      m_ExpandedIDs: 2cfbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -882,22 +882,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/WeaponScripts
+    - Assets
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 81
   m_LastFolders:
-  - Assets/Scripts/WeaponScripts
+  - Assets
   m_LastFoldersGridSize: 81
   m_LastProjectPath: C:\Users\Daniel Z\Documents\Projects\MiniBandits\MiniBandits
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 274}
-    m_SelectedIDs: 248b0000
-    m_LastClickedID: 35620
-    m_ExpandedIDs: 00000000586c00005a6c00005c6c00005e6c0000606c0000626c00008470000000ca9a3b
+    scrollPos: {x: 0, y: 79}
+    m_SelectedIDs: 586c0000
+    m_LastClickedID: 27736
+    m_ExpandedIDs: 00000000586c00005a6c00005c6c00005e6c0000606c0000626c0000926c000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -925,7 +925,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000586c00005a6c00005c6c00005e6c0000606c0000626c000000ca9a3b
+    m_ExpandedIDs: 00000000586c00005a6c00005c6c00005e6c0000606c0000626c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
