@@ -178,6 +178,8 @@ MonoBehaviour:
   health: {fileID: 0}
   hasDied: 0
   player: {fileID: 0}
+  attackCooldown: 0
+  canAttack: 0
   canMove: 0
   damage: 200
   chaseSpeed: 4

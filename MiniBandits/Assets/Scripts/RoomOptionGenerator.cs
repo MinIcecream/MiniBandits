@@ -77,7 +77,7 @@ public class RoomOptionGenerator
         new roomConfig(5, 10, rewardTypes.defenseShrine, true, false),
         new roomConfig(5, 10, rewardTypes.powerShrine, true, false),
         new roomConfig(5, 10, rewardTypes.speedShrine, true, false),
-        new roomConfig(50, 20, rewardTypes.gold, true, false),
+        new roomConfig(50, 30, rewardTypes.gold, true, false),
         new roomConfig(5, 5, rewardTypes.rareWeapon, true, true),
         new roomConfig(5, 5, rewardTypes.rareArmor, true, true),
         new roomConfig(5, 10, rewardTypes.heart, true, false),

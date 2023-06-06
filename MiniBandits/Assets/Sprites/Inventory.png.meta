@@ -121,7 +121,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 265
+        width: 133
         height: 156
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -434,12 +434,12 @@ TextureImporter:
       name: Inventory_15
       rect:
         serializedVersion: 2
-        x: 369
-        y: 36
+        x: 372
+        y: 17
         width: 31
         height: 31
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -447,6 +447,27 @@ TextureImporter:
       bones: []
       spriteID: eafcfde46d7b16847b1a7efff3e55a32
       internalID: -205720588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inventory_16
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 5
+        width: 132
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e905f063c3ee8e438da280757dae511
+      internalID: 818447209
       vertices: []
       indices: 
       edges: []
@@ -469,6 +490,7 @@ TextureImporter:
       Inventory_11: -993929524
       Inventory_12: 1809044030
       Inventory_15: -205720588
+      Inventory_16: 818447209
       Inventory_2: -1172053994
       Inventory_0: 251297586
       Inventory_1: -1695813462

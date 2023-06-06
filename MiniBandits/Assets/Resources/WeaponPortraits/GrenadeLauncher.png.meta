@@ -119,12 +119,12 @@ TextureImporter:
       name: GrenadeLauncher_0
       rect:
         serializedVersion: 2
-        x: 7
+        x: 20
         y: 1
         width: 5
         height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -140,12 +140,12 @@ TextureImporter:
       name: GrenadeLauncher_1
       rect:
         serializedVersion: 2
-        x: 5
+        x: 2
         y: 10
         width: 25
         height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

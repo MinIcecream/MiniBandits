@@ -12,7 +12,8 @@ public class AUG : WeaponTemplate
     }
     IEnumerator Fire()
     {
-        for(int i = 0; i < numProjectiles; i++)
+        PlayAttackAnimation();
+        for (int i = 0; i < numProjectiles; i++)
         {
             var newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
               

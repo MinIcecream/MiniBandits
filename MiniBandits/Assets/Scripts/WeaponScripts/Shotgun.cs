@@ -8,6 +8,7 @@ public class Shotgun : WeaponTemplate
 
     public override void Attack()
     {
+        PlayAttackAnimation();
         int bullets = Random.Range(numProjectiles-1, numProjectiles+1);
         float distance = Vector2.Distance(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition));
       

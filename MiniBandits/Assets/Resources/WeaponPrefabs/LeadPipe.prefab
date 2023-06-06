@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4556001054714239215}
   - component: {fileID: 1543175470530777282}
   - component: {fileID: 6346425787145483746}
+  - component: {fileID: -6978886641620695305}
   m_Layer: 8
   m_Name: LeadPipe
   m_TagString: Untagged
@@ -150,6 +151,29 @@ MonoBehaviour:
   weapon: {fileID: 11400000, guid: c4f9948d6d641734193045a6b87e8cdf, type: 2}
   weaponName: 
   attackCooldown: 0
-  baseDamage: 0
   damage: 0
-  knockBackAmt: 6
+  attackSpeed: 0
+  AOE: 0
+  range: 0
+  knockBack: 0
+  numProjectiles: 0
+  projectileSpeed: 0
+  baseAttackSpeed: 0
+  baseDamage: 0
+  baseNumProjectiles: 0
+  baseRange: 0
+  baseAOE: 0
+  baseKnockBack: 0
+  baseProjectileSpeed: 0
+--- !u!114 &-6978886641620695305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5311302903575278930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66bbbd0b61e8cbf48b304b6bb3e5b863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

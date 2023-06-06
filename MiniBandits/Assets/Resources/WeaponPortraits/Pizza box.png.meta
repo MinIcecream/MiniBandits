@@ -119,12 +119,12 @@ TextureImporter:
       name: Pizza box_0
       rect:
         serializedVersion: 2
-        x: 9
+        x: 10
         y: 14
         width: 13
         height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -140,12 +140,12 @@ TextureImporter:
       name: Pizza box_1
       rect:
         serializedVersion: 2
-        x: 9
+        x: 13
         y: 5
         width: 9
         height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

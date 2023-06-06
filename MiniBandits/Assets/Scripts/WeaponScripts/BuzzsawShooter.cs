@@ -5,7 +5,8 @@ using UnityEngine;
 public class BuzzsawShooter : WeaponTemplate
 {
     public override void Attack()
-    {  
+    {
+        PlayAttackAnimation();
         var newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
           
         newProjectile.GetComponent<BaseProjectile>().damage = damage;

@@ -14,6 +14,7 @@ public class PunchGun : WeaponTemplate
     {
         if (!gloveFired)
         {
+            PlayAttackAnimation();
             gloveFired = true;
 
             var newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);

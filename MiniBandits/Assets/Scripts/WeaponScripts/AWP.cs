@@ -6,6 +6,7 @@ public class AWP : WeaponTemplate
 { 
     public override void Attack()
     {
+        PlayAttackAnimation();
         var newProjectile = Instantiate(projectile, transform.position, Quaternion.identity); 
 
         newProjectile.GetComponent<BaseProjectile>().speed = projectileSpeed;

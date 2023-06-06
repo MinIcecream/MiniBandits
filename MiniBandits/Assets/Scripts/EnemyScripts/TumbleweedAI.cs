@@ -19,7 +19,10 @@ public class TumbleweedAI : EnemyAI, IDamageable, IAffectable
     }
      
     IEnumerator AttackTimer()
-    {   
+    {
+        canAttack = false;
+
+        yield return new WaitForSeconds(1f);
         if (player != null)
         { 
             collider.SetActive(true);
@@ -45,8 +48,7 @@ public class TumbleweedAI : EnemyAI, IDamageable, IAffectable
         if (rb.velocity.magnitude <= .01f)
         { 
             if (canAttack)
-            {
-                canAttack = false;
+            { 
                 attackCoroutine = StartCoroutine(AttackTimer());
             }
         } 

@@ -119,12 +119,12 @@ TextureImporter:
       name: Blood knives_0
       rect:
         serializedVersion: 2
-        x: 15
+        x: 11
         y: 8
         width: 6
         height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -140,12 +140,12 @@ TextureImporter:
       name: Blood knives_1
       rect:
         serializedVersion: 2
-        x: 13
+        x: 12
         y: 2
         width: 7
         height: 3
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

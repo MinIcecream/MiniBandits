@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5311302903575278931}
   - component: {fileID: 5311302903575278932}
   - component: {fileID: 7864995484069237442}
+  - component: {fileID: 7418583757836701711}
   m_Layer: 6
   m_Name: ShimmeringRing
   m_TagString: Untagged
@@ -104,9 +105,27 @@ MonoBehaviour:
   attackCooldown: 0
   damage: 0
   attackSpeed: 0
-  baseDamage: 0
-  numProjectiles: 0
-  range: 0
   AOE: 0
+  range: 0
   knockBack: 0
+  numProjectiles: 0
   projectileSpeed: 0
+  baseAttackSpeed: 0
+  baseDamage: 0
+  baseNumProjectiles: 0
+  baseRange: 0
+  baseAOE: 0
+  baseKnockBack: 0
+  baseProjectileSpeed: 0
+--- !u!114 &7418583757836701711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5311302903575278930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66bbbd0b61e8cbf48b304b6bb3e5b863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

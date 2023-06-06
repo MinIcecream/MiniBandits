@@ -7,6 +7,7 @@ public class Bow : WeaponTemplate
 
     public override void Attack()
     {
+        PlayAttackAnimation();
         var newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
         newProjectile.GetComponent<BaseProjectile>().damage = damage;
         newProjectile.GetComponent<BaseProjectile>().speed = projectileSpeed;

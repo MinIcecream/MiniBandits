@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5311302903575278931}
   - component: {fileID: 5311302903575278932}
   - component: {fileID: 4842175429916169770}
+  - component: {fileID: -1407306810825138498}
   m_Layer: 6
   m_Name: Shotgun
   m_TagString: Untagged
@@ -72,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1648826359
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 39d5e63474baf244ab57b0cf07e4a34d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -102,8 +103,30 @@ MonoBehaviour:
   weapon: {fileID: 11400000, guid: 38ba4937d418ddb4b93f4c04a9935e94, type: 2}
   weaponName: 
   attackCooldown: 0
-  baseDamage: 0
   damage: 0
-  max: 8
-  min: 5
+  attackSpeed: 0
+  AOE: 0
+  range: 0
+  knockBack: 0
+  numProjectiles: 0
+  projectileSpeed: 0
+  baseAttackSpeed: 0
+  baseDamage: 0
+  baseNumProjectiles: 0
+  baseRange: 0
+  baseAOE: 0
+  baseKnockBack: 0
+  baseProjectileSpeed: 0
   angleRange: 10
+--- !u!114 &-1407306810825138498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5311302903575278930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66bbbd0b61e8cbf48b304b6bb3e5b863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

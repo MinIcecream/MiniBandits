@@ -24,6 +24,7 @@ public class HeatRay : WeaponTemplate
 
         if (Input.GetMouseButton(0))
         {
+            PlayAttackAnimation();
             lineRen.enabled = true;
             ShootLaser();
         }

@@ -15,6 +15,7 @@ public class BloodsuckerKnives : WeaponTemplate
         // Get the direction vector pointing towards the target point
         Vector2 direction = targetPoint - (Vector2)transform.position;
 
+        PlayAttackAnimation();
         // Generate 6 random points within the given distance and angle range
         for (int i = 0; i < numProjectiles; i++)
         {

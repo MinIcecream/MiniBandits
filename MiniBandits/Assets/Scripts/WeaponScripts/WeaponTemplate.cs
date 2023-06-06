@@ -79,7 +79,7 @@ public class WeaponTemplate : MonoBehaviour
         {
             return;
         } 
-
+         
         //UPDATE ALL STATS
 
         UpdateStats();
@@ -120,5 +120,52 @@ public class WeaponTemplate : MonoBehaviour
     public string GetName()
     {
         return weaponName;
+    }
+    public virtual void PlayAttackAnimation()
+    {
+        StartCoroutine(AttackAnimation(0.1f));
+    }
+
+    private IEnumerator AttackAnimation(float moveDuration)
+    {
+        float elapsedTime = 0f;
+
+        Vector2 originalPosition = new Vector2(2, 0);
+        Vector2 targetPosition = new Vector2(1, 0);
+
+        while (elapsedTime < moveDuration)
+        {
+            // Calculate the normalized progress based on time
+            float t = elapsedTime / moveDuration;
+
+            // Lerp the object's position between the original position and the target position
+            transform.localPosition = Vector3.Lerp(originalPosition, targetPosition, t);
+
+            // Update the elapsed time
+            elapsedTime += Time.deltaTime;
+
+            yield return null;
+        }
+
+        // Ensure that the object reaches the target position exactly
+        transform.localPosition = targetPosition; 
+        // Reset the elapsed time for the return trip
+        elapsedTime = 0f;
+        while (elapsedTime < moveDuration)
+        {
+            // Calculate the normalized progress based on time
+            float t = elapsedTime / moveDuration;
+
+            // Lerp the object's position between the target position and the original position
+            transform.localPosition = Vector3.Lerp(targetPosition, originalPosition, t);
+
+            // Update the elapsed time
+            elapsedTime += Time.deltaTime;
+
+            yield return null;
+        }
+
+        // Ensure that the object reaches the original position exactly
+        transform.localPosition = originalPosition;
     }
 }

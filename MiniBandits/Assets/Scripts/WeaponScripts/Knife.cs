@@ -13,6 +13,7 @@ public class Knife : WeaponTemplate
     {
         if (!knifeFired)
         {
+            PlayAttackAnimation();
             knifeFired = true;
 
             var newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);

@@ -60,11 +60,10 @@ public class EquipWeapon : MonoBehaviour
         }
          
         activeWeapon = Instantiate(weaponPrefab, spawnPt.position, Quaternion.identity);
-   
-        //If the weapon was successfully equiped: 
-        activeWeapon.transform.SetParent(this.gameObject.transform);  
+        //If the weapon was successfully equiped:  
+        activeWeapon.transform.SetParent(spawnPt.gameObject.transform);  
         activeWeapon.transform.localRotation = Quaternion.identity; 
         activeWeapon.GetComponent<WeaponTemplate>().weapon = (Weapon)weapon;
-
-    }
+        activeWeapon.transform.localPosition = new Vector2(2, 0);
+    } 
 }

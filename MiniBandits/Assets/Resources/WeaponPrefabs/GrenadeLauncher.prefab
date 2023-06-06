@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5311302903575278931}
   - component: {fileID: 5311302903575278932}
   - component: {fileID: -6688077417879124651}
+  - component: {fileID: -5875520452446858827}
   m_Layer: 6
   m_Name: GrenadeLauncher
   m_TagString: Untagged
@@ -72,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1648826359
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -1227012870, guid: 11ed1a8fc2316a64a8902a0ce65e78c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -102,5 +103,29 @@ MonoBehaviour:
   weapon: {fileID: 11400000, guid: 73cbb5e07220dee44b2c10be54f23ba9, type: 2}
   weaponName: 
   attackCooldown: 0
-  baseDamage: 0
   damage: 0
+  attackSpeed: 0
+  AOE: 0
+  range: 0
+  knockBack: 0
+  numProjectiles: 0
+  projectileSpeed: 0
+  baseAttackSpeed: 0
+  baseDamage: 0
+  baseNumProjectiles: 0
+  baseRange: 0
+  baseAOE: 0
+  baseKnockBack: 0
+  baseProjectileSpeed: 0
+--- !u!114 &-5875520452446858827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5311302903575278930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66bbbd0b61e8cbf48b304b6bb3e5b863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

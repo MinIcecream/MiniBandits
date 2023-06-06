@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5311302903575278932}
   - component: {fileID: 2096453055738891889}
   - component: {fileID: 5465484480248262918}
+  - component: {fileID: -2846550356328572166}
   m_Layer: 8
   m_Name: KyberBlade
   m_TagString: Untagged
@@ -133,3 +134,15 @@ MonoBehaviour:
   baseAOE: 0
   baseKnockBack: 0
   baseProjectileSpeed: 0
+--- !u!114 &-2846550356328572166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5311302903575278930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66bbbd0b61e8cbf48b304b6bb3e5b863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
