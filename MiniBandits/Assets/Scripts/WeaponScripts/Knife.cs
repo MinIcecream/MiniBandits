@@ -22,7 +22,7 @@ public class Knife : WeaponTemplate
             newProjectile.GetComponent<BaseProjectile>().speed = projectileSpeed;
             newProjectile.GetComponent<BaseProjectile>().range = range;
             newProjectile.GetComponent<KnifeProjectile>().parent = this;
-            newProjectile.GetComponent<BaseProjectile>().SetDir(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            newProjectile.GetComponent<BaseProjectile>().SetDir(attackDir);
         }
 
     }

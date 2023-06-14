@@ -23,7 +23,7 @@ public class Muramasa : WeaponTemplate
         newProjectile.GetComponent<BaseProjectile>().knockBack = knockBack; 
         newProjectile.GetComponent<BaseProjectile>().damage = damage;
         GetComponent<BoxCollider2D>().size = new Vector2(AOE, GetComponent<BoxCollider2D>().size.y);
-        newProjectile.GetComponent<BaseProjectile>().SetDir(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        newProjectile.GetComponent<BaseProjectile>().SetDir(attackDir);
     }
     IEnumerator DisableCollider()
     {

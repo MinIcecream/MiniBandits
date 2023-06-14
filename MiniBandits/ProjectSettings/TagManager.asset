@@ -18,6 +18,10 @@ TagManager:
   - PersistBetweenFloors
   - InfernalAura
   - GameManager
+  - WeaponSpawnPt
+  - PlayerProjectile
+  - EnemyProjectile
+  - Joystick
   layers:
   - Default
   - TransparentFX

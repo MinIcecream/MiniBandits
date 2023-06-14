@@ -14,9 +14,9 @@ public class BoxingGlove : BaseProjectile
     public override void SetDir(Vector2 targetPt)
     {
         player = GameObject.FindWithTag("Player").transform;
-        Vector2 direction = ((Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)transform.position).normalized;
+        Vector2 direction = (targetPt - (Vector2)player.transform.position).normalized;
         transform.right = -direction;
-        Vector2 targetPosition = direction * range + (Vector2)transform.position;
+        Vector2 targetPosition = direction * range + (Vector2)player.transform.position;
         StartCoroutine(GoToTarget(targetPosition));
     }
     IEnumerator GoToTarget(Vector2 target)

@@ -16,33 +16,32 @@ public class HeatRay : WeaponTemplate
     public override void Update()
     {
         //IF PLAYER IS GONE, PLAYER CAN't MOVE, OR MOUSE IS OVER UI, RETURN.
-        if (player == null || !player.canMove || EventSystem.current.IsPointerOverGameObject())
+        if (player == null || !player.canMove)
         {
             return;
         }
+        UpdateStats();
         damage = baseDamage + (int)((player.GetComponent<Player>().strength / 100.0) * baseDamage);
-
-        if (Input.GetMouseButton(0))
-        {
-            PlayAttackAnimation();
-            lineRen.enabled = true;
-            ShootLaser();
-        }
-        else
-        { 
-            lineRen.enabled = false;
-        }
+          
     } 
-
+    public override void WhileAttacking()
+    { 
+        PlayAttackAnimation();
+        lineRen.enabled = true;
+        ShootLaser();
+    }
+    public override void StopAttack()
+    { 
+        lineRen.enabled = false;
+    }
     void ShootLaser()
-    {
-        if(Physics2D.Raycast(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition),100f,raycastMask))
+    { 
+        if (Physics2D.Raycast(player.transform.position, attackDir,100f,raycastMask))
         { 
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition)-transform.position, 100f, raycastMask); 
+            RaycastHit2D hit = Physics2D.Raycast(player.transform.position, (Vector3)attackDir, 100f, raycastMask); 
             DrawRay(transform.position, hit.point);
 
-            GameObject obj = hit.collider.gameObject;
-
+            GameObject obj = hit.collider.gameObject; 
             if (hitEnemies.Contains(obj))
             {
                 return;

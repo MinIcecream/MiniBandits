@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 3181559702863170683}
   m_Layer: 8
   m_Name: Buzzsaw
-  m_TagString: Untagged
+  m_TagString: PlayerProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

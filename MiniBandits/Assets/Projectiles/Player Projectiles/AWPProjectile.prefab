@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7042067937437770722}
   m_Layer: 8
   m_Name: AWPProjectile
-  m_TagString: Untagged
+  m_TagString: PlayerProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,13 +134,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: decd649b03001f24ebad520b0ae6e2d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
   particles: {fileID: 0}
   destroyOnHit: 0
   destroyOnWall: 0
   collider: {fileID: 0}
-  knockBackAmt: 5
   damage: 0
+  knockBack: 3
+  range: 0
+  speed: 30
   targetPoint: {x: 0, y: 0}
   rb: {fileID: 0}
 --- !u!61 &7042067937437770722

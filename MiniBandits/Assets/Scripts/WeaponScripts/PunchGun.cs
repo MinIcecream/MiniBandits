@@ -24,7 +24,7 @@ public class PunchGun : WeaponTemplate
             newProjectile.GetComponent<BaseProjectile>().knockBack = knockBack;
             newProjectile.GetComponent<BaseProjectile>().speed = projectileSpeed;
             newProjectile.GetComponent<BaseProjectile>().range = range; 
-            newProjectile.GetComponent<BaseProjectile>().SetDir(Camera.main.ScreenToWorldPoint(Input.mousePosition)); 
+            newProjectile.GetComponent<BaseProjectile>().SetDir(attackDir); 
         } 
 
     }   

@@ -223,13 +223,14 @@ MonoBehaviour:
   health: {fileID: 0}
   hasDied: 0
   player: {fileID: 0}
+  attackCooldown: 2
+  canAttack: 0
   canMove: 0
   damage: 200
   ranIntoWall: 0
   charging: 0
   collider: {fileID: 955569775507847288}
   chargeSpeed: 10
-  chargeCooldown: 2
 --- !u!114 &3961930588838374647
 MonoBehaviour:
   m_ObjectHideFlags: 0

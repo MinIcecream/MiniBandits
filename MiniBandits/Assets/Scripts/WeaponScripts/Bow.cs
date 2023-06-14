@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Bow : WeaponTemplate
-{ 
-
+{  
     public override void Attack()
     {
         PlayAttackAnimation();
@@ -13,6 +12,7 @@ public class Bow : WeaponTemplate
         newProjectile.GetComponent<BaseProjectile>().speed = projectileSpeed;
         newProjectile.GetComponent<BaseProjectile>().range = range;
         newProjectile.GetComponent<BaseProjectile>().knockBack = knockBack;
-        newProjectile.GetComponent<BaseProjectile>().SetDir((Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition))); 
+        newProjectile.GetComponent<BaseProjectile>().SetDir(attackDir);
+      //  Debug.Log(attackDir);
     } 
 }

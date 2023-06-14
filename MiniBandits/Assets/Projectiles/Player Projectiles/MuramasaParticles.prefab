@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8226127560978567188}
   m_Layer: 0
   m_Name: MuramasaParticles
-  m_TagString: Untagged
+  m_TagString: PlayerProjectile
   m_Icon: {fileID: 2800000, guid: 837c493ae228aaf4d977e9138707008d, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4839,7 +4839,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1648826359
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_RenderMode: 0
   m_MeshDistribution: 0

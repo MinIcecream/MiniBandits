@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 4926477838983526800}
   m_Layer: 8
   m_Name: Shimmering Ring
-  m_TagString: Untagged
+  m_TagString: PlayerProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -231,13 +231,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ccfadc5dfa06414fb6ea0f59f17cc17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
   particles: {fileID: 6409433017642527178, guid: 3ecead0ca126e2140ab4be0c47b27cec, type: 3}
   destroyOnHit: 0
   destroyOnWall: 0
   collider: {fileID: 2701296075400036410}
-  knockBackAmt: 5
   damage: 0
+  knockBack: 3
+  range: 0
+  speed: 30
   targetPoint: {x: 0, y: 0}
   rb: {fileID: 0}
   distanceTraveled: 0

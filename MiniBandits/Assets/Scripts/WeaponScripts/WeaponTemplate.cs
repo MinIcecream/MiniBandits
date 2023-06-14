@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.EventSystems;
+using UnityEngine; 
 
-public class WeaponTemplate : MonoBehaviour
+public class WeaponTemplate : MonoBehaviour 
 {   
     float currentAttackCooldown;
 
-    Player playerStats; 
+    Player playerStats;
+
+    [HideInInspector]
+    public Vector2 attackDir;
+
+    GetClosestEnemyPosition enemyPos;
 
     [HideInInspector]
     public PlayerMovement player;
@@ -15,7 +19,7 @@ public class WeaponTemplate : MonoBehaviour
     public GameObject projectile;
 
     public Weapon weapon;
-    //Automatically initialized from weapon scriptable object
+    //Automatically initialized from weapon scriptable object 
 
     [HideInInspector]
     public string weaponName;
@@ -70,33 +74,45 @@ public class WeaponTemplate : MonoBehaviour
         baseRange = weapon.range;
         baseAOE = weapon.AOE;
         baseKnockBack = weapon.knockBack;
-        baseProjectileSpeed = weapon.projectileSpeed; 
+        baseProjectileSpeed = weapon.projectileSpeed;
+
+        enemyPos = GameObject.FindWithTag("Player").GetComponent<GetClosestEnemyPosition>();
     } 
     public virtual void Update()
-    {
+    { 
         //IF PLAYER IS GONE, PLAYER CAN't MOVE, OR MOUSE IS OVER UI, RETURN.
-        if (player == null || !player.canMove|| EventSystem.current.IsPointerOverGameObject())
+        if (player == null || !player.canMove)
         {
             return;
-        } 
-         
-        //UPDATE ALL STATS
-
-        UpdateStats();
-
-        if (Input.GetMouseButton(0))
-        {
-            if (currentAttackCooldown <= 0)
-            {
-                currentAttackCooldown = attackCooldown;
-                Attack();
-            }
         }
-
+        //Debug.Log(attackDir);
+        //UPDATE ALL STATS 
+        UpdateStats();
+         
         if (currentAttackCooldown > 0)
         {
             currentAttackCooldown -= Time.deltaTime;
         } 
+    }
+
+    public virtual void WhileAttacking()
+    {
+
+    }
+    //When the player presses the attack button:
+    public virtual void GetAttackInput()
+    {
+        WhileAttacking();
+        if (currentAttackCooldown <= 0)
+        {
+            currentAttackCooldown = attackCooldown; 
+            Attack();
+        }
+    }
+    //When the player stops presing the attack button:
+    public virtual void StopAttack()
+    {
+         
     }
 
     public virtual void UpdateStats(){
@@ -108,6 +124,8 @@ public class WeaponTemplate : MonoBehaviour
         AOE = baseAOE + playerStats.AOE;
         range = baseRange + playerStats.range; 
         attackCooldown = 1f/(weapon.attackSpeed+playerStats.attackSpeed);
+         
+        attackDir = enemyPos.GetClosestEnemyPos(); 
     }
     public virtual void Attack()
     {
@@ -167,5 +185,5 @@ public class WeaponTemplate : MonoBehaviour
 
         // Ensure that the object reaches the original position exactly
         transform.localPosition = originalPosition;
-    }
+    } 
 }

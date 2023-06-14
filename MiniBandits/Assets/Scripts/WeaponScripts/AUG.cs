@@ -21,7 +21,7 @@ public class AUG : WeaponTemplate
             newProjectile.GetComponent<BaseProjectile>().speed = projectileSpeed;
             newProjectile.GetComponent<BaseProjectile>().knockBack = knockBack;
             newProjectile.GetComponent<BaseProjectile>().range = range;
-            newProjectile.GetComponent<BaseProjectile>().SetDir(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            newProjectile.GetComponent<BaseProjectile>().SetDir(attackDir);
 
             yield return new WaitForSeconds(timeBetweenShots);
         }

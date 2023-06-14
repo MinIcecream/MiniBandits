@@ -73,6 +73,10 @@ public class Door : MonoBehaviour
             lockedDoor.SetActive(true);
             GetComponent<SpriteRenderer>().sprite = lockedSprite;
         }
+        else
+        {
+            Destroy(lockedDoor);
+        }
     }
     public void Unlock()
     { 

@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe32b60f08fc8914988ff7e4b7a0ad9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackDir: {x: 0, y: 0}
   player: {fileID: 0}
   projectile: {fileID: 0}
   weapon: {fileID: 11400000, guid: f8646f7ff0527a64799b2bc6177bbdd0, type: 2}

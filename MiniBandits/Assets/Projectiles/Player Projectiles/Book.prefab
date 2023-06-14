@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 219459151939767158}
   m_Layer: 8
   m_Name: Book
-  m_TagString: Untagged
+  m_TagString: PlayerProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
-  knockBackAmt: 5
+  knockBack: 0
 --- !u!61 &4903410718042626636
 BoxCollider2D:
   m_ObjectHideFlags: 0

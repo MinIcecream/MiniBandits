@@ -3,14 +3,20 @@ using UnityEngine;
 public class PlayerLook : MonoBehaviour
 {
     //public Transform playerBody;
+    public Joystick joystick;
+    public GetClosestEnemyPosition enemyMan;
 
     void FixedUpdate()
     { 
+        if(joystick.input == Vector2.zero)
+        {
+            return;
+        }
         //Get the Screen positions of the object
-        Vector2 positionOnScreen = Camera.main.WorldToViewportPoint(transform.position);
+        Vector2 positionOnScreen = (transform.position);
 
         //Get the Screen position of the mouse
-        Vector2 mouseOnScreen = (Vector2)Camera.main.ScreenToViewportPoint(Input.mousePosition);
+        Vector2 mouseOnScreen = enemyMan.GetClosestEnemyPos();
 
         //Get the angle between the points
         float angle = AngleBetweenTwoPoints(positionOnScreen, mouseOnScreen);

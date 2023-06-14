@@ -7,25 +7,24 @@ public class KyberBlade : WeaponTemplate
 { 
     List<GameObject> hitEnemies = new List<GameObject>();
     
+    public override void WhileAttacking()
+    { 
+        GetComponent<Collider2D>().enabled = true;
+        transform.Rotate(Vector3.forward * Time.deltaTime * 1500);
+    }
+    public override void StopAttack()
+    {
+        GetComponent<Collider2D>().enabled = false;
+    }
     public override void Update()
     {
         //IF PLAYER IS GONE, PLAYER CAN't MOVE, OR MOUSE IS OVER UI, RETURN.
-        if (player == null || !player.canMove || EventSystem.current.IsPointerOverGameObject())
+        if (player == null || !player.canMove)
         {
             return;
         }
         UpdateStats(); 
-        
-        if (Input.GetMouseButton(0))
-        {
-            GetComponent<Collider2D>().enabled = true;
-            transform.Rotate(Vector3.forward * Time.deltaTime * 1500);
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            GetComponent<Collider2D>().enabled = false;
-        }
-
+          
         GetComponent<CircleCollider2D>().radius = AOE;
     } 
     void OnTriggerStay2D(Collider2D coll)

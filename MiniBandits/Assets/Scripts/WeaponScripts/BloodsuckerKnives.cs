@@ -10,7 +10,7 @@ public class BloodsuckerKnives : WeaponTemplate
     { 
         float distance = Vector2.Distance(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition));
 
-        Vector2 targetPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 targetPoint = attackDir;
 
         // Get the direction vector pointing towards the target point
         Vector2 direction = targetPoint - (Vector2)transform.position;

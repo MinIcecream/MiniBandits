@@ -5,7 +5,8 @@ using UnityEngine.EventSystems;
 using EZCameraShake;
 
 public class PlayerMovement : MonoBehaviour, IDamageable
-{ 
+{
+    public Joystick joystick;
     public LayerMask mask;
     [SerializeField] private TrailRenderer dashTrail;
     [SerializeField] private float dashTime;
@@ -36,7 +37,7 @@ public class PlayerMovement : MonoBehaviour, IDamageable
     }
 
     void Update()
-    {
+    { 
        /*
         if (Input.GetKeyDown("j"))
         {
@@ -62,7 +63,7 @@ public class PlayerMovement : MonoBehaviour, IDamageable
         if (GetComponent<Rigidbody2D>().velocity.magnitude==0)
         {
             walkAnim.SetBool("Walk", false);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(Vector3.zero), 90 * Time.deltaTime);
+          //  transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(Vector3.zero), 90 * Time.deltaTime);
         }
         else
         {
@@ -77,9 +78,9 @@ public class PlayerMovement : MonoBehaviour, IDamageable
         {
             return;
         }
-        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0f);
+        Vector2 move = joystick.input;
 
-        Vector3 walkSpeed = move;
+        Vector2 walkSpeed = move;
         if (walkSpeed.magnitude > 1)
         {
             walkSpeed = walkSpeed.normalized;

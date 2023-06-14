@@ -57,7 +57,7 @@ public class HolyTome : WeaponTemplate
     public override void Update()
     {
         //IF PLAYER IS GONE, PLAYER CAN't MOVE, OR MOUSE IS OVER UI, RETURN.
-        if (player == null || !player.canMove || EventSystem.current.IsPointerOverGameObject())
+        if (player == null || !player.canMove)
         {
             return;
         }
@@ -71,17 +71,18 @@ public class HolyTome : WeaponTemplate
             }
             books = new List<GameObject>();
             SpawnBooks(numProjectiles);
-        }
-
-        if (Input.GetMouseButton(0))
-        {  
-            Attack(); 
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            holding = false;
-        }
+        } 
     }
+
+    public override void StopAttack()
+    { 
+        holding = false;
+    }
+    public override void WhileAttacking()
+    {
+        holding = true;
+    }
+
     void FixedUpdate()
     { 
         foreach (GameObject book in books)
@@ -116,11 +117,7 @@ public class HolyTome : WeaponTemplate
             0,
             pivot.eulerAngles.z
         );
-    } 
-    public override void Attack()
-    { 
-        holding = true;
-    }   
+    }  
     void OnDisable()
     {
         foreach(GameObject book in books)

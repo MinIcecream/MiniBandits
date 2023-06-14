@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 27348283969029081}
   m_Layer: 8
   m_Name: MuramasaProjectile
-  m_TagString: Untagged
+  m_TagString: PlayerProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1648826359
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d7e47ed551a1d0a419e7a787ffd30c68, type: 3}
   m_Color: {r: 0, g: 0.9882455, b: 1, a: 1}
@@ -150,11 +150,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 096d0f184cdd40f4e8eef26cb8b01883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 25
   particles: {fileID: 6409433017642527178, guid: 523dbe5543342794b80b9c9ad2fff5aa, type: 3}
   destroyOnHit: 0
   destroyOnWall: 1
   collider: {fileID: 3281322073435734612}
-  knockBackAmt: 5
   damage: 0
+  knockBack: 3
+  range: 0
+  speed: 25
   targetPoint: {x: 0, y: 0}
+  rb: {fileID: 0}

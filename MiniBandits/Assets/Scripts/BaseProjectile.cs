@@ -48,11 +48,18 @@ public class BaseProjectile : MonoBehaviour
         }
     }
     public virtual void SetDir(Vector2 targetPt)
-    { 
-        origin = transform.position;
-        targetPoint = targetPt;
-        Vector2 direction = (targetPt - (Vector2)transform.position).normalized;
-        rb.velocity = (Vector2)direction * speed;
+    {
+        if (gameObject.tag == "EnemyProjectile")
+        {
+            origin = transform.position;
+        }
+        else
+        { 
+            origin = GameObject.FindWithTag("Player").transform.position;
+        } 
+        targetPoint = targetPt; 
+        Vector2 direction = (targetPt - (Vector2)origin).normalized;
+        rb.velocity = (Vector2)direction * speed; 
         transform.right = direction; 
     }
 

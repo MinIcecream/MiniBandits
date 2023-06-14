@@ -12,6 +12,6 @@ public class BuzzsawShooter : WeaponTemplate
         newProjectile.GetComponent<BaseProjectile>().damage = damage;
         newProjectile.GetComponent<BaseProjectile>().speed = projectileSpeed;
         newProjectile.GetComponent<BaseProjectile>().knockBack = knockBack; 
-        newProjectile.GetComponent<BaseProjectile>().SetDir(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        newProjectile.GetComponent<BaseProjectile>().SetDir(attackDir);
     }
 }

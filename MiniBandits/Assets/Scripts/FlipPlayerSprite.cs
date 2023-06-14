@@ -6,6 +6,7 @@ public class FlipPlayerSprite : MonoBehaviour
 {
     public string direction = "right";
     SpriteRenderer sprite;
+    public Joystick joystick;
 
     void Awake()
     {
@@ -13,11 +14,15 @@ public class FlipPlayerSprite : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetAxis("Horizontal") < 0)
+        if(joystick.input == Vector2.zero)
+        {
+            return;
+        } 
+        if (joystick.input.x < 0)
         {
             direction = "left";
         }
-        else if (Input.GetAxis("Horizontal") > 0)
+        else
         {
             direction = "right";
         }
