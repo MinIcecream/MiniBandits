@@ -22,10 +22,20 @@ public class Interact : MonoBehaviour,IPointerDownHandler, IPointerUpHandler
    public FindInteractableObject objMan;
 
     public Image img;
-     
+
+    PlayerMovement player;
+    void Awake()
+    { 
+        GameObject playerObj = GameObject.FindWithTag("Player");
+        player = playerObj.GetComponent<PlayerMovement>();
+    }
     void Update()
     {
-        if (objMan.GetClosestInteractable() != null)
+        if (player == null)
+        {
+            return;
+        }
+        if (objMan.GetClosestInteractable() != null && !player.inCombat)
         {
             option = options.interact;
         }
@@ -48,7 +58,10 @@ public class Interact : MonoBehaviour,IPointerDownHandler, IPointerUpHandler
         switch (option)
         {
             case options.interact:
-                img.sprite = interact;
+                if (!player.inCombat)
+                { 
+                    img.sprite = interact;
+                } 
                 break;
             case options.attack:
                 img.sprite = attack;
