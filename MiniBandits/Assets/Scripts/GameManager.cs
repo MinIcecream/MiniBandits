@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
 
     //Initially spawn player in a starter room
     void Awake()
-    {
+    { 
         themes = RoomOptionGenerator.GenerateRoomThemes(10);
         ForDisplayOnly = themes; 
         currentTheme = themes[floor-1];

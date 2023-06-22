@@ -11,8 +11,7 @@ public class FlipWeapon : MonoBehaviour
     void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
-        player = GameObject.FindWithTag("Player");
-        joystick = GameObject.FindWithTag("Joystick").GetComponent<Joystick>();
+        player = GameObject.FindWithTag("Player"); 
     }
     void FixedUpdate()
     {
@@ -24,14 +23,14 @@ public class FlipWeapon : MonoBehaviour
     }
     public void Flip()
     { 
-        Vector2 mouseOnScreen = (Vector2)joystick.input;
+        Vector2 mouseOnScreen = (Vector2)player.GetComponent<GetClosestEnemyPosition>().GetClosestEnemyPos();
 
         if (mouseOnScreen == Vector2.zero)
         {
             return;
         }
 
-        if (mouseOnScreen.x < 0)
+        if (mouseOnScreen.x < player.transform.position.x)
         {
             sprite.flipY = true; 
         }

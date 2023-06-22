@@ -89,17 +89,16 @@ public class PlayerMovement : MonoBehaviour, IDamageable
         Player stats = GetComponent<Player>(); 
 
         GetComponent<Rigidbody2D>().velocity = walkSpeed * stats.speed*movementSpeed*0.1f;
-
-        //DASH
-        if (Input.GetKeyDown(KeyCode.Space) && GetComponent<PlayerStamina>().GetStamina()>0)
-        {
-            StartCoroutine(Dash(move));
-        }
+ 
          
  
         //END CAPTUING INPUT 
     }
-    IEnumerator Dash(Vector3 move)
+
+    public void Dash(Vector2 dir){
+        StartCoroutine(DashDuration(dir));
+    }
+    public IEnumerator DashDuration(Vector2 move)
     {
         dashTrail.emitting = true;
         GetComponent<PlayerStamina>().UseStamina(1);

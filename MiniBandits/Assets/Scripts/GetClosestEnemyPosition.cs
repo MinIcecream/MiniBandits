@@ -7,6 +7,7 @@ public class GetClosestEnemyPosition : MonoBehaviour
     public Joystick joystick;
     public Vector2 posToReturn;
 
+    //returns position of enemy or joystick + transform.position
     public Vector2 GetClosestEnemyPos()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
