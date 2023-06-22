@@ -39,6 +39,7 @@ public class Armor : Item
     } 
    // public Stats stats;
 
+    #if UNITY_EDITOR
     public void CreateUpgrade()
     {
         Armor newWeapon = Instantiate(this);
@@ -51,5 +52,6 @@ public class Armor : Item
         UnityEditor.AssetDatabase.SaveAssets();
         UnityEditor.AssetDatabase.Refresh();
     }
+    #endif
 }
 

@@ -28,6 +28,7 @@ public class Weapon : Item
     } 
    // public Stats stats;
 
+#if UNITY_EDITOR
     public void CreateUpgrade()
     {
         Weapon newWeapon = Instantiate(this);
@@ -40,4 +41,5 @@ public class Weapon : Item
         UnityEditor.AssetDatabase.SaveAssets();
         UnityEditor.AssetDatabase.Refresh();
     }
+    #endif
 }

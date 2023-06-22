@@ -296,7 +296,7 @@ MonoBehaviour:
   canMove: 0
   damage: 200
   chaseSpeed: 4
-  attackDistance: 1
+  attackDistance: 2
   weaponCollider: {fileID: 5271790184275108389}
 --- !u!95 &2992060999519833901
 Animator:

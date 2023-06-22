@@ -6,8 +6,10 @@ using RoomInfo;
 
 public class GameManager : MonoBehaviour
 {
-    public static int floor=10;
-    public static int room=9;
+    //Floor always starts at 1
+    public static int floor=1;
+    //Room always starts at 0
+    public static int room=0;
 
     public RectTransform fader;
     public GameObject closedWall, openedWall;

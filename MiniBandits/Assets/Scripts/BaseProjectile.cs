@@ -65,7 +65,7 @@ public class BaseProjectile : MonoBehaviour
 
     IEnumerator EnableCollider()
     {
-        yield return new WaitForSeconds(0.08f);
+        yield return null;
         collider.enabled = true;
     }
 

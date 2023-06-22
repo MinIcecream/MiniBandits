@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FinalDoor : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class FinalDoor : MonoBehaviour
         if (coll.gameObject.tag == "Player")
         {
             Invoke("DisplayText", 1f);
+            GameObject.FindWithTag("CameraParent").GetComponent<CameraFollow>().StopFollowing();
             coll.gameObject.GetComponent<PlayerMovement>().enabled = false;
             coll.gameObject.transform.position = new Vector2(coll.gameObject.transform.position.x, coll.gameObject.transform.position.y + 2000);
         }
@@ -18,5 +20,9 @@ public class FinalDoor : MonoBehaviour
     void DisplayText()
     { 
         text.SetActive(true);
+        Invoke("LoadMenu",5f);
+    }
+    void LoadMenu(){
+        SceneManager.LoadScene("Menu");
     }
 }

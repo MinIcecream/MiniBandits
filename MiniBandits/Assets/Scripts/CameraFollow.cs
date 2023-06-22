@@ -5,7 +5,8 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     GameObject player;
-     
+     bool shouldFollow=true;
+
     void Start()
     {
         player = GameObject.FindWithTag("Player"); 
@@ -16,6 +17,15 @@ public class CameraFollow : MonoBehaviour
         {
             return;
         }
-        transform.position = player.transform.position;
+        if(shouldFollow)
+        { 
+         transform.position = player.transform.position;
+        } 
     }    
+    public void StopFollowing(){
+        shouldFollow=false;
+    }
+    public void Follow(){
+        shouldFollow=true;
+    }
 }
