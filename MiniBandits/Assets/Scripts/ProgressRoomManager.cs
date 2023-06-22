@@ -149,7 +149,10 @@ public class ProgressRoomManager : BaseRoomManager
 
         foreach (GameObject door in doors)
         {
-            door.SetActive(true);
+            if (door != null)
+            { 
+                door.SetActive(true);
+            } 
         }
         switch (room.reward)
         {

@@ -8884,6 +8884,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6575215803406978806}
+  - component: {fileID: 383929661736553611}
   m_Layer: 0
   m_Name: CameraParent
   m_TagString: CameraParent
@@ -8907,6 +8908,18 @@ Transform:
   m_Father: {fileID: 5153933182781968221}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &383929661736553611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6575215803406978801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f7431ef54defb8429e89df5cee45c9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6575215803478065108
 GameObject:
   m_ObjectHideFlags: 0
@@ -9021,7 +9034,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80364b60c99f3a04eac997d6562fccfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  padding: 1
+  padding: 5
 --- !u!1 &6575215803513413470
 GameObject:
   m_ObjectHideFlags: 0
@@ -9519,7 +9532,7 @@ GameObject:
   - component: {fileID: 6575215803620018538}
   m_Layer: 6
   m_Name: Chest
-  m_TagString: Untagged
+  m_TagString: PlayerChest
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

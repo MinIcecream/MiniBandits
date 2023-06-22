@@ -6,8 +6,8 @@ using RoomInfo;
 
 public class GameManager : MonoBehaviour
 {
-    public static int floor=1;
-    public static int room=0;
+    public static int floor=10;
+    public static int room=9;
 
     public RectTransform fader;
     public GameObject closedWall, openedWall;
@@ -67,6 +67,11 @@ public class GameManager : MonoBehaviour
 
     public void GenerateNewFloor()
     {   
+        //ONCE YOU BEAT THE LAST FLOOR:
+        if(floor == 10)
+        { 
+              return;
+        }
         SceneManager.LoadScene("FloorTransition");
         StartCoroutine(IncrementFloor());
         Invoke("LoadNewFloorScene", 2.5f);
