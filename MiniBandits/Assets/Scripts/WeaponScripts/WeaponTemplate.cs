@@ -20,7 +20,10 @@ public class WeaponTemplate : MonoBehaviour
     [HideInInspector]
     public string weaponName;
     [HideInInspector]
-    public float attackCooldown; 
+    public float attackCooldown;
+
+    [HideInInspector]
+    public Vector2 originalPosition;
 
     [HideInInspector]
     public int damage;
@@ -62,7 +65,7 @@ public class WeaponTemplate : MonoBehaviour
         player = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
         playerStats = GameObject.FindWithTag("Player").GetComponent<Player>();
         GetComponent<SpriteRenderer>().sprite = weapon.sprite;
-
+        originalPosition = transform.localPosition;
 
         baseDamage = weapon.damage;
         baseAttackSpeed = weapon.attackSpeed;
@@ -128,10 +131,9 @@ public class WeaponTemplate : MonoBehaviour
 
     private IEnumerator AttackAnimation(float moveDuration)
     {
-        float elapsedTime = 0f;
+        float elapsedTime = 0f; 
 
-        Vector2 originalPosition = new Vector2(2, 0);
-        Vector2 targetPosition = new Vector2(1, 0);
+        Vector2 targetPosition = originalPosition / 2;
 
         while (elapsedTime < moveDuration)
         {

@@ -34,6 +34,9 @@ public class Heart : MonoBehaviour
         if (coll.gameObject.tag == "Player")
         {
             player.GetComponent<Player>().AddHealth(healthAmt);
+            Debug.Log(player.GetComponent<Health>().GetHealth());
+            Debug.Log(player.GetComponent<Health>().GetMaxHealth());
+            player.GetComponent<Health>().Heal(healthAmt);
             PopupManager.SpawnPopup(coll.gameObject.transform.position, $"+{healthAmt} max health", false);
             Destroy(gameObject);
         }

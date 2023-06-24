@@ -64,6 +64,6 @@ public class EquipWeapon : MonoBehaviour
         activeWeapon.transform.SetParent(spawnPt.gameObject.transform);  
         activeWeapon.transform.localRotation = Quaternion.identity; 
         activeWeapon.GetComponent<WeaponTemplate>().weapon = (Weapon)weapon;
-        activeWeapon.transform.localPosition = new Vector2(2, 0);
+        activeWeapon.transform.localPosition = new Vector2(1, 0);
     } 
 }

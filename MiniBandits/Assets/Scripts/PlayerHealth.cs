@@ -10,16 +10,27 @@ public class PlayerHealth : Health
     public override void Awake()
     { 
         player = GetComponent<Player>();
-        maxHealth =  player.GetHealth(); 
+        maxHealth = player.GetHealth(); 
         base.Awake(); 
     }
-    void Update()
+    private void OnEnable()
     {
-        int healthStat = player.GetHealth(); 
+        // Subscribe to the event when the script is enabled
+        player.OnHealthStatUpdated.AddListener(UpdateHealth);
+    }
+
+    private void OnDisable()
+    {
+        // Unsubscribe from the event when the script is disabled
+        player.OnHealthStatUpdated.RemoveListener(UpdateHealth);
+    }
+    void UpdateHealth()
+    { 
+        int healthStat = player.GetHealth();
         if (maxHealth != healthStat)
         {
-            maxHealth = healthStat; 
-        } 
+            maxHealth = healthStat;
+        }
     } 
     public override void DealDamage(int damage)
     {

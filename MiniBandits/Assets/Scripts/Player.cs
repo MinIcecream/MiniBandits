@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
@@ -67,8 +68,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     float knockBackWeight; 
     [SerializeField]
-    float attackSpeedWeight; 
+    float attackSpeedWeight;
 
+    public UnityEvent OnHealthStatUpdated;
 
     //Adi's awesome number for combat power
     [Space(10)]
@@ -93,7 +95,9 @@ public class Player : MonoBehaviour
     //ADD OR SUBTRACT A NUMBER FROM THE MAX HEALTH
     public void AddHealth(int h)
     {
-        baseHealth += h; 
+        baseHealth += h;
+        UpdateStats();
+        OnHealthStatUpdated.Invoke();
     }
 
     public int GetHealth()

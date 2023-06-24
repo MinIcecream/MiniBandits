@@ -8,7 +8,11 @@ public class StarterRoomManager : BaseRoomManager
     public GameObject level;   
 
     public void Start()
-    { 
+    {
+        for(int i = 0; i < doors.Length; i++)
+        {
+            doors[i].SetActive(true);
+        }
         EndRoom();
     }
       

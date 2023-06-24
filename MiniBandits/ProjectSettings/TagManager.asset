@@ -18,6 +18,7 @@ TagManager:
   - PersistBetweenFloors
   - InfernalAura
   - GameManager
+  - PlayerChest
   layers:
   - Default
   - TransparentFX
